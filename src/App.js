@@ -8,19 +8,20 @@ import Error from "./Error";
 import { AuthContextProvider } from "./Scripts/authContext";
 import ProtectedRoute from "./ProtectedRoute";
 
+
 function App() {
   return (
     <div className="App">
-    <AuthContextProvider>
-    <Routes>
-      <Route path ='/' element={<Home/>} />
-      <Route path="/signin" element={<Signin/>} />
-      <Route path='/signup' element={<Signup/>} />
-      <Route path='/account' element={<ProtectedRoute>
-        <Profile />
-      </ProtectedRoute>} />
-      <Route path='*' element={<Error/>} />
-    </Routes>
+      <AuthContextProvider>
+        <Routes>
+          <Route path ='/' element={<Home/>} />
+          <Route path="/signin" element={<Signin/>} />
+          <Route path='/signup' element={<Signup/>} />
+          <Route path='/account' element={<ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>} />
+        <Route path='*' element={<Error/>} />
+      </Routes>
     </AuthContextProvider>
     </div>
   );
