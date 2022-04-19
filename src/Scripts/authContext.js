@@ -12,7 +12,7 @@ import {
     onAuthStateChanged,
     signOut
 } from "firebase/auth";
-import {auth} from "../firebase";
+import {auth} from "../Database/firebase";
 
 const UserContext = createContext();
 
