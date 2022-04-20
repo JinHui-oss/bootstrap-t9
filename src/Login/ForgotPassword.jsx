@@ -1,11 +1,11 @@
 import React from 'react'
 
-function index() {
+function ForgotPassword() {
   return (
     <div>
-       Dashboard 
+      
     </div>
   )
 }
 
-export default index
+export default ForgotPassword
