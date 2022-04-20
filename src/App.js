@@ -64,7 +64,7 @@ function App() {
         </ProtectedRoute>} />
         
          {/* A JSX comment */}
-        <Route path='/dashboard' element={<ProtectedRoute>
+        <Route path='/Dashboard' element={<ProtectedRoute>
           <Staff />
           <Index />
         </ProtectedRoute>} />
@@ -76,7 +76,7 @@ function App() {
         </ProtectedRoute>} />
 
          {/* A JSX comment */}
-         <Route path='/Kit/AddKit' element={<ProtectedRoute>
+         <Route path='/Kit/Add' element={<ProtectedRoute>
           <Staff />
           <AddKit />
         </ProtectedRoute>} />

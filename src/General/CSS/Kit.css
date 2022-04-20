@@ -1,3 +1,8 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
 .content{
     text-align: justify;
     margin-top: 2%;
@@ -12,4 +17,16 @@
 hr{
    color:black;
    width: 90%;
+}
+.form-group {
+    width: 92%;
+    padding: 10px;
+    margin-left: -12px;
+}
+.form-group label{
+    padding-bottom: 10px;
+}
+.submit{
+   margin-top:10px;
+   margin-left:-3px;
 }
