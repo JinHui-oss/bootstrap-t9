@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Index() {
+function Kit() {
   return (
     <div>
-      
+      <header>View all the kits </header>
     </div>
   )
 }
 
-export default Index
+export default Kit;

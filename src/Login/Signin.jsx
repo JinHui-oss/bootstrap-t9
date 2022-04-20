@@ -15,7 +15,7 @@ function Signin() {
         setError('')
         try{
             await signIn(email,password);
-            naviagte('/account');
+            naviagte('/Dashboard');
         }catch(e){
             setError(e.message);
             console.log(e.message);
