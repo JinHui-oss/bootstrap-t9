@@ -1,0 +1,15 @@
+.content{
+    text-align: justify;
+    margin-top: 2%;
+    margin-left: 10%;
+  
+}
+.content .table{
+    width: 95%;
+    padding-top: 25px;
+   
+}
+hr{
+   color:black;
+   width: 90%;
+}

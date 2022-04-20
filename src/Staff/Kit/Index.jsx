@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../../General/CSS/Kit.css'
 import { Table, Button } from 'react-bootstrap';
 
 function Kit() {
