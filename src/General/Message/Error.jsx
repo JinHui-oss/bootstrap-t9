@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Home() {
+function Error() {
   return (
     <div>
-      
+      Error Page
     </div>
   )
 }
 
-export default Home
+export default Error

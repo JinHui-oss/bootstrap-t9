@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import {UserAuth} from "../Scripts/authContext" 
+import {UserAuth} from "../../Scripts/authContext" 
 
 function Profile() {
   const {user, logout} = UserAuth();
