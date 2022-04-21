@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 // Firebase Database
 import { AuthContextProvider } from "./Scripts/authContext";
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { getAuth } from 'firebase/auth'
 import ProtectedRoute from "./ProtectedRoute";
 
 // Navbar
@@ -30,32 +30,23 @@ import AddKit from "./Staff/Kit/AddKit";
 
 
 function App() {
-
     // get data from the firebase/auth
     const auth = getAuth();
+    const user = auth.currentUser;
   
-    // check the correct display output
-    // console.log(user);
- 
-    onAuthStateChanged(auth, (currentUser) => {
-    if (currentUser) {
-      // check the correct display output if condition is met 
-      console.log('yes');
-      //
-    } else {
-      // check the incorrect display output if condition is not met
-      console.log('no');
-    
-    }
-  })
+    // check the display output
+    console.log(user);
+  
   return(
     <div className="App">
       <AuthContextProvider>
+      {!user && <General/> }
+      {user && <General/> }
       <Routes>
          {/* A JSX comment */}      
         <Route path ='/' element={<Home/>} />
         <Route path="/signin" element={<Signin/>} />
-        <Route path='/signup' element={<Signup/>} />
+        <Route path='/signup' element={<Signup />  } /> 
         
          {/* A JSX comment */}      
         <Route path='/account' element={<ProtectedRoute>
@@ -64,11 +55,11 @@ function App() {
         </ProtectedRoute>} />
         
          {/* A JSX comment */}
-        <Route path='/Dashboard' element={<ProtectedRoute>
-          <Staff />
-          <Index />
+        <Route path='/dashboard' element={<ProtectedRoute>
+        <Staff />
+        <Index />
         </ProtectedRoute>} />
-        
+      
          {/* A JSX comment */}
         <Route path='/Kit' element={<ProtectedRoute>
           <Staff />

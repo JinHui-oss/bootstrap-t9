@@ -29,9 +29,9 @@ function Staff() {
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
+        <Nav.Link href="/dashboard">Dashboard</Nav.Link>
         <Nav.Link href="/kit">Kit</Nav.Link>
-        <Nav.Link href="/Account">Account</Nav.Link>
+        <Nav.Link href="/account">Account</Nav.Link>
         <Nav.Link href="/report">Report</Nav.Link>
       </Nav>
       <Nav>
