@@ -1,6 +1,5 @@
 body{
     margin: 0;
-    padding: 0;
 }
 
 .content{
@@ -12,8 +11,9 @@ body{
 .content .table{
     width: 95%;
     padding-top: 25px;
-   
 }
+
+
 hr{
    color:black;
    width: 90%;
@@ -28,5 +28,5 @@ hr{
 }
 .submit{
    margin-top:10px;
-   margin-left:-3px;
+   margin-left:-8px;
 }

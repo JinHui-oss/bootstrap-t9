@@ -1,5 +1,6 @@
-import React from 'react'
-import '../../General/CSS/Kit.css'
+import React from 'react';
+import './Kit.css';
+
 import { Table, Button } from 'react-bootstrap';
 
 function Kit() {
@@ -7,7 +8,7 @@ function Kit() {
     <div className='content'>
       <h2>xx Dementia Kit </h2>
       <p>View all the dementia Kits</p>
-      <Button href="/kit/addkit">Add</Button>
+      <Button href="/kit/add">Add</Button>
       <hr></hr>
       <div className='table'>
         <Table striped bordered hover>
@@ -16,7 +17,7 @@ function Kit() {
             <th>#Id</th>
             <th>Profile</th>
             <th>Name</th>
-            <th>Quantity</th>
+            <th>Actions</th>
           </tr>
         </thead>
       <tbody>
@@ -24,13 +25,13 @@ function Kit() {
           <td>1</td>
           <td>Kit1.jpg</td>
           <td>Dementia Kit 1 - Painting Kit</td>
-          <td>32</td>
+          <td>view</td>
         </tr>
         <tr>
           <td>2</td>
           <td>Kit2.jpg</td>
           <td>Dementia Kit 2 - Painting Kit</td>
-          <td>32</td>
+          <td>view</td>
         </tr>
     </tbody>
   </Table>
