@@ -41,6 +41,9 @@ function Signin() {
     </Form.Group>
     
     <Button variant="primary" type="submit"> Submit </Button>
+    <br/>
+    <br/>
+    <Button href='../src/Login/forgotpassword'> Forgot Password? </Button>
     </Form>
 </div>
 )}
