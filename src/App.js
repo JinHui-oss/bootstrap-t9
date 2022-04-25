@@ -1,5 +1,5 @@
 // React 
-import React, {ReactDOM} from "react";
+import React, { useEffect, useState} from "react";
 import { Route, Routes } from 'react-router-dom';
 
 // Firebase Database
@@ -26,6 +26,7 @@ import Index from "./Staff/Index";
 // Staff & Kit Interface
 import Kit from "./Staff/Kit/Index";
 import AddKit from "./Staff/Kit/AddKit";
+import GeneralLayout from "./Navbar/GeneralLayout";
 
 
 
@@ -34,36 +35,53 @@ function App() {
     // get data from the firebase/auth
     const auth = getAuth();
     const user = auth.currentUser;
-    
-      function test(auth){
-        onAuthStateChanged(auth, (user) => {
-          if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
-            console.log(user)
-            // ...
-          } else {
-          // User is signed out
-          // ...
-            console.log('nope')
-           
-          }
-        })
-      }
-    
+
+    useEffect(() => {
+      onAuthStateChanged(auth, (user) => {
+        
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          console.log('y');
+        } else {
+        // User is signed out
+        // ..,
+          console.log('n')
+        }
+      })
+    })     
+       
     // check the display output
     console.log(user);
 
   return(
     <div className="App">
       <AuthContextProvider>
-      {!user && <General />}
-      {user && <Staff />}
       <Routes>
-         {/* A JSX comment */}      
-        <Route path ='/' element={<Home/>} />
-        <Route path="/signin" element={<Signin/>} />
-        <Route path='/signup' element={<Signup />  } /> 
+        
+        {/* A JSX comment */}
+        <Route path='/' element={
+        <>
+          <General />
+          <Home />
+        </>
+        } />
+        
+        {/* A JSX comment */}
+        <Route path='/signin' element={
+        <>
+          <General />
+          <Signin />
+        </>
+        }/>
+        
+        {/* A JSX comment */}
+        <Route path='/signup' element={
+        <>
+          <General />
+          <Signup />
+        </>
+        }/>
         
          {/* A JSX comment */}      
         <Route path='/account' element={<ProtectedRoute>
@@ -91,6 +109,7 @@ function App() {
         
         {/* A JSX comment */}
         <Route path='*' element={<Error/>} />
+
         </Routes>
       </AuthContextProvider>  
     </div>
