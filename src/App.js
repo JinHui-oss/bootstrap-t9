@@ -1,10 +1,9 @@
 // React 
-import React, { useEffect, useState} from "react";
+import React from "react";
 import { Route, Routes } from 'react-router-dom';
 
 // Firebase Database
 import { AuthContextProvider } from "./Scripts/authContext";
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import ProtectedRoute from "./ProtectedRoute";
 
 // Navbar
@@ -28,38 +27,11 @@ import Index from "./Staff/Index";
 import Kit from "./Staff/Kit/Index";
 import AddKit from "./Staff/Kit/AddKit";
 
-
-
-
 function App() {
-    
-    // get data from the firebase/auth
-    const auth = getAuth();
-    const user = auth.currentUser;
-
-    useEffect(() => {
-      onAuthStateChanged(auth, (user) => {
-        
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
-          console.log('y');
-        } else {
-        // User is signed out
-        // ..,
-          console.log('n')
-        }
-      })
-    })     
-       
-    // check the display output
-    console.log(user);
-
   return(
     <div className="App">
       <AuthContextProvider>
       <Routes>
-        
         {/* A JSX comment */}
         <Route path='/' element={
         <>
