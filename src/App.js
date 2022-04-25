@@ -15,9 +15,10 @@ import Staff from "../src/Navbar/Staff"
 import Home from "./General/Index";
 import Error from "./General/Message/Error";
 
-// Account Signin & out inteface
+// Login interface
 import Signin from "./Login/Signin";
 import Signup from "./Login/Signup";
+import ForgotPassword from "./Login/ForgotPassword";
 
 // Staff Interface
 import Profile from "./Staff/Account/Profile";
@@ -80,6 +81,14 @@ function App() {
         <>
           <General />
           <Signup />
+        </>
+        }/>
+
+         {/* A JSX comment */}
+         <Route path='/forgotpassword' element={
+        <>
+          <General />
+          <ForgotPassword />
         </>
         }/>
         

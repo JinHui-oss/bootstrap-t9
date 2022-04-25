@@ -43,7 +43,7 @@ function Signin() {
     <Button variant="primary" type="submit"> Submit </Button>
     <br/>
     <br/>
-    <Button href='../src/Login/forgotpassword'> Forgot Password? </Button>
+    <Button href='./forgotpassword'> Forgot Password? </Button>
     </Form>
 </div>
 )}
