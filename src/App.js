@@ -25,7 +25,8 @@ import Index from "./Staff/Index";
 
 // Staff & Kit Interface
 import Kit from "./Staff/Kit/Index";
-import AddKit from "./Staff/Kit/AddKit";
+import AddKit from "./Staff/Kit/Create";
+import Detail from "./Staff/Kit/Detail";
 
 function App() {
   return(
@@ -86,6 +87,11 @@ function App() {
          <Route path='/Kit/Add' element={<ProtectedRoute>
           <Staff />
           <AddKit />
+        </ProtectedRoute>} />
+
+        <Route path='/Kit/Detail/:id' element={<ProtectedRoute>
+          <Staff />
+          <Detail />
         </ProtectedRoute>} />
         
         {/* A JSX comment */}

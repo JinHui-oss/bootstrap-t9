@@ -19,7 +19,9 @@ function Kit() {
       setKit(data.docs.map((doc) =>({...doc.data(), id: doc.id})));
     };
     getKit();
-  }, [])
+
+   
+  }, [kitCollectionRef])
 
 
   return (
@@ -34,8 +36,8 @@ function Kit() {
           <Table striped bordered hover>
           <thead>
             <tr>
-              <th>#Id</th>
               <th>Profile</th>
+              <th>Id</th>
               <th>Name</th>
               <th>Actions</th>
             </tr>
@@ -46,10 +48,10 @@ function Kit() {
             <tbody>
               {""}
               <tr>
-                <td>{user.id}</td>
                 <td>Kit1.jpg</td>
+                <td>{user.id}</td>
                 <td>{user.Name}</td>
-                <td><Link to ="/kit/{user.id}">link</Link></td>
+                <td><Link to ={`/Kit/Detail/${user.id}`}>link</Link></td>
               </tr>
             </tbody>
             );
