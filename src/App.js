@@ -28,6 +28,9 @@ import Kit from "./Staff/Kit/DementiaKit/Index";
 import AddKit from "./Staff/Kit/DementiaKit/Create";
 import Detail from "./Staff/Kit/DementiaKit/Detail";
 
+// Staff & KitQR Interface
+import QRIndex from "./Staff/Kit/KitQR/QRIndex";
+
 function App() {
   return(
     <div className="App">
@@ -94,6 +97,11 @@ function App() {
           <Detail />
         </ProtectedRoute>} />
         
+        <Route path='/QRIndex' element={<ProtectedRoute>
+          <Staff />
+          <QRIndex />
+        </ProtectedRoute>} />
+
         {/* A JSX comment */}
         <Route path='*' element={<Error/>} />
 

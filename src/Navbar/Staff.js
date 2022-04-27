@@ -31,6 +31,7 @@ function Staff() {
       <Nav className="me-auto">
         <Nav.Link href="/dashboard">Dashboard</Nav.Link>
         <Nav.Link href="/kit">Kit</Nav.Link>
+        <Nav.Link href="/QRIndex">KitQR</Nav.Link>
         <Nav.Link href="/account">Account</Nav.Link>
         <Nav.Link href="/report">Report</Nav.Link>
       </Nav>
