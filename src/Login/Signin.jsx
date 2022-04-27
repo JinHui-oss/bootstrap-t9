@@ -13,7 +13,7 @@ function Signin() {
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        setError('')
+        setError(error)
         try{
             await signIn(email,password);
             naviagte('/dashboard');

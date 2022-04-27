@@ -7,7 +7,6 @@ import
 } from 'react';
 import { 
     createUserWithEmailAndPassword,
-    sendEmailVerification,
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut
