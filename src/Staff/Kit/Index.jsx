@@ -15,7 +15,7 @@ function Kit() {
   useEffect(() => {
     const getKit = async () => {
       const data = await getDocs(kitCollectionRef)
-      console.log(data);
+      //console.log(data);
       setKit(data.docs.map((doc) =>({...doc.data(), id: doc.id})));
     };
     getKit();
