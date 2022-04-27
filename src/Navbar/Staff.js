@@ -16,7 +16,7 @@ function Staff() {
   const handlelogout= async() =>{
     try{
         await logout()
-        naviagte('/signin')
+        naviagte('/Signin')
         console.log('you are logged out');
     }catch(e){
         console.log(e.message)
@@ -29,11 +29,11 @@ function Staff() {
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+        <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
         <Nav.Link href="/kit">Kit</Nav.Link>
         <Nav.Link href="/QRIndex">KitQR</Nav.Link>
-        <Nav.Link href="/account">Account</Nav.Link>
-        <Nav.Link href="/report">Report</Nav.Link>
+        <Nav.Link href="/Account">Account</Nav.Link>
+        <Nav.Link href="/Report">Report</Nav.Link>
       </Nav>
       <Nav>
         <Nav.Link href="#deets">Notifications</Nav.Link>

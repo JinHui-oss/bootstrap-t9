@@ -19,7 +19,7 @@ function General() {
         <Nav.Link href="./Contact">Contact</Nav.Link>
       </Nav>
       <Nav>
-        <Nav.Link href="./signin">Login</Nav.Link>
+        <Nav.Link href="./Signin">Login</Nav.Link>
       </Nav>
     </Navbar.Collapse>
     </Container>
