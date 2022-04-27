@@ -30,6 +30,7 @@ import Detail from "./Staff/Kit/DementiaKit/Detail";
 
 // Staff & KitQR Interface
 import QRIndex from "./Staff/Kit/KitQR/QRIndex";
+import QRCreate from "./Staff/Kit/KitQR/Create";
 
 function App() {
   return(
@@ -61,7 +62,7 @@ function App() {
         }/>
 
          {/* A JSX comment */}
-         <Route path='/forgotpassword' element={
+         <Route path='/Forgotpassword' element={
         <>
           <General />
           <ForgotPassword />
@@ -69,13 +70,13 @@ function App() {
         }/>
         
          {/* A JSX comment */}      
-        <Route path='/account' element={<ProtectedRoute>
+        <Route path='/Account' element={<ProtectedRoute>
           <Staff />
           <Profile />  
         </ProtectedRoute>} />
         
          {/* A JSX comment */}
-        <Route path='/dashboard' element={<ProtectedRoute>
+        <Route path='/Dashboard' element={<ProtectedRoute>
         <Staff />
         <Index />
         </ProtectedRoute>} />
@@ -102,8 +103,18 @@ function App() {
           <QRIndex />
         </ProtectedRoute>} />
 
+        <Route path='/QRIndex/Create' element={<ProtectedRoute>
+          <Staff />
+          <QRCreate />
+        </ProtectedRoute>} />
+        
         {/* A JSX comment */}
-        <Route path='*' element={<Error/>} />
+        <Route path='*' element={
+        <>
+          <General />
+          <Error />
+        </>
+        }/>
 
         </Routes>
       </AuthContextProvider>  
