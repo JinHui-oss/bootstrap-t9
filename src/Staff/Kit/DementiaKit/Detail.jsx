@@ -1,13 +1,13 @@
 // react
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './Kit.css';
+//import '../../Kit/';
 
 // bootstrap
 import { Button } from 'react-bootstrap';
 
 // firebase inital setup
-import { db } from '../../Database/firebase';
+import { db } from '../../../Database/firebase';
 
 // firebase import function from firestore
 import { 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap'
-import { db } from '../../Database/firebase';
+import { db } from '../../../Database/firebase';
 import { addDoc,collection } from 'firebase/firestore';
 
 function AddKit() {
