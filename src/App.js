@@ -24,9 +24,9 @@ import Profile from "./Staff/Account/Profile";
 import Index from "./Staff/Index";
 
 // Staff & Kit Interface
-import Kit from "./Staff/Kit/Index";
-import AddKit from "./Staff/Kit/Create";
-import Detail from "./Staff/Kit/Detail";
+import Kit from "./Staff/Kit/DementiaKit/Index";
+import AddKit from "./Staff/Kit/DementiaKit/Create";
+import Detail from "./Staff/Kit/DementiaKit/Detail";
 
 function App() {
   return(
