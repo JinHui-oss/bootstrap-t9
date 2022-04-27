@@ -6,21 +6,28 @@ import { Table } from 'react-bootstrap';
 
 // firebase
 import { db } from '../../Database/firebase';
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDoc, doc } from 'firebase/firestore'
 
 function Detail() {
    const [kit, setKit] = useState([]);
-   const kitCollectionRef = collection(db, "Kit");
+   //const kitCollectionRef = collection(db, "Kit");
  
    useEffect(() => {
      const getKit = async () => {
-       const data = await getDocs(kitCollectionRef)
-       //console.log(data);
-       setKit(data.docs.map((doc) =>({...doc.data(), id: doc.id})));
-     };
+      const docRef = doc(db, "Kit", "BPSaOiRxc4zqGXssQvDb");
+      const docSnap = await getDoc(docRef);
+      
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+      
+    };
      getKit();
     
-   }, [kitCollectionRef])
+   }, [])
  
    
    return (
@@ -40,18 +47,7 @@ function Detail() {
               <th>Name</th>
             </tr>
           </thead>
-          {kit.map((user) => {
-          return( 
-            <tbody>
-              {""}
-              <tr>
-                <td>Kit1.jpg</td>
-                <td>{user.id}</td>
-                <td>{user.Name}</td>
-              </tr>
-            </tbody>
-            );
-          })}
+          
         </Table>
       </div>
     </div>
