@@ -30,7 +30,7 @@ function Staff() {
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
         <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
-        <Nav.Link href="/kit">Kit</Nav.Link>
+        <Nav.Link href="/Kit">Kit</Nav.Link>
         <Nav.Link href="/QRIndex">KitQR</Nav.Link>
         <Nav.Link href="/Account">Account</Nav.Link>
         <Nav.Link href="/Report">Report</Nav.Link>
