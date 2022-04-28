@@ -50,7 +50,7 @@ function AddKit() {
           Quantity: newamt,
           //PhotoUrl: ImageUpload 
         });
-      navigate("Kit")
+      navigate("/Kit")
       }  
     
     // catch error messages and displayed to the users
