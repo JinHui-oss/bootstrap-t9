@@ -46,7 +46,7 @@ function App() {
         } />
         
         {/* A JSX comment */}
-        <Route path='/signin' element={
+        <Route path='/Signin' element={
         <>
           <General />
           <Signin />
@@ -54,7 +54,7 @@ function App() {
         }/>
         
         {/* A JSX comment */}
-        <Route path='/signup' element={
+        <Route path='/Signup' element={
         <>
           <General />
           <Signup />
