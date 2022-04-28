@@ -1,0 +1,45 @@
+
+.QR-view{
+    background-color: beige;
+}
+
+.create-body{
+    background-color: silver;
+} 
+
+.create-body .header {
+    text-align: left;
+    margin-left: 10%;
+}
+
+.form-create input{
+    width: 50%;
+    margin-left: 10%;
+}
+
+.form-create label{
+    margin-bottom:10px;
+    margin-left: 10%;
+}
+
+.form-create label, input{
+    padding-top:10px;
+}
+/* QR Code CSS */
+.form-create .QR-Code {
+    float: right;
+    margin-top: -30%;
+    margin-right: 10%;
+    padding-top:-10%;
+}
+/* Submit Button CSS */
+.form-create .Action{
+    color:black;
+    margin-top: -50px;
+    margin-left: 10%;
+}
+/* Back Button CSS */
+.form-create .Back-Action{
+    margin-top: -50px;
+    margin-left: 5%;
+}
