@@ -1,7 +1,7 @@
 // react
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-//import '../../Kit/';
+
 
 // bootstrap
 import { Button } from 'react-bootstrap';
