@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 import { db } from '../../../Database/firebase';
 import { collection, getDocs } from 'firebase/firestore'
 
+// css
+import '../DementiaKit/Kit.css'
+
 function Kit() {
   const [kit, setKit] = useState([]);
   const kitCollectionRef = collection(db, "Kit");
@@ -26,10 +29,10 @@ function Kit() {
   return (
     <div className='content'>
       <div>
-        <h2>xx Dementia Kit </h2>
+        <h2>Dementia Kit </h2>
         <p>View all the dementia Kits</p>
-        <Button href="/kit/add">Add</Button>
-        <hr></hr>
+        <Button href="/Kit/Add">Add</Button>
+        <hr/>
       </div>
       <div className='table'>
           <Table striped bordered hover>
