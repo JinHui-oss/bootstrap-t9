@@ -1,5 +1,5 @@
 // react
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 
@@ -12,16 +12,14 @@ import { db } from '../../../Database/firebase';
 // firebase import function from firestore
 import { 
   collection,
-  // getDocs,
   getDoc,
   doc
 } from 'firebase/firestore'
 
-export default function Detail() {
+function Detail() {
   
-  //const [setKit] = useState([]);
+  const [kit,setKit] = useState([]);
   const kitCollectionRef = collection(db, "Kit");
-  
   
   const { id } = useParams()
 
@@ -37,9 +35,21 @@ export default function Detail() {
       if (docSnap.exists()) 
       {
         // display the output if the record exist 
+        // create a variable to store the data output.
         let data =  docSnap.data();
-        console.log(data);
-        console.log(data.Name);
+        // console.log(data)
+        
+        setKit.state ={
+          Name: data.Name,
+          Description: data.Description,
+          Quantity: data.Quantity
+        }
+
+        setKit(setKit.state)
+       
+        // check for the display output
+        // console.log(setKit.state)
+        
       } 
       else 
       {
@@ -64,7 +74,10 @@ export default function Detail() {
           <hr />
         </div>
         <p>User Id: <br/>{id}</p>
-      
+        <p>{kit.Name}</p>
+        <p>{kit.Description}</p>
+        <p>{kit.Quantity}</p>
+       
       {/* Button */}
       <Button href="/Kit">Back</Button>
       <br /> 
@@ -73,4 +86,5 @@ export default function Detail() {
       </div>
   )
 }
+export default Detail;
 
