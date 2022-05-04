@@ -31,6 +31,8 @@ import Detail from "./Staff/Kit/DementiaKit/Detail";
 // Staff & KitQR Interface
 import QRIndex from "./Staff/Kit/KitQR/QRIndex";
 import QRCreate from "./Staff/Kit/KitQR/Create";
+import QRDetail from "./Staff/Kit/KitQR/Details"
+import QREdit from "./Staff/Kit/KitQR/Edit";
 
 function App() {
   return(
@@ -106,6 +108,16 @@ function App() {
         <Route path='/QRIndex/Create' element={<ProtectedRoute>
           <Staff />
           <QRCreate />
+        </ProtectedRoute>} />
+        
+        <Route path='/QRIndex/Detail/:id' element={<ProtectedRoute>
+          <Staff />
+          <QRDetail />
+        </ProtectedRoute>} />
+
+        <Route path='/QRIndex/Edit/:id' element={<ProtectedRoute>
+          <Staff />
+          <QREdit />
         </ProtectedRoute>} />
         
         {/* A JSX comment */}

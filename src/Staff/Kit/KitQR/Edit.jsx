@@ -1,6 +1,6 @@
 import React from 'react'
 
-function edit() {
+function QREdit() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function edit() {
   )
 }
 
-export default edit
+export default QREdit

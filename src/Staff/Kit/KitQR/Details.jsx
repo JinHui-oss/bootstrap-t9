@@ -1,6 +1,6 @@
 import React from 'react'
 
-function details() {
+function QRDetail() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function details() {
   )
 }
 
-export default details
+export default QRDetail
