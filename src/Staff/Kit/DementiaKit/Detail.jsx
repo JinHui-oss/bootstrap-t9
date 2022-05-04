@@ -42,7 +42,8 @@ function Detail() {
           Name: data.Name,
           Description: data.Description,
           Quantity: data.Quantity,
-          CreatedAt: data.CreatedAt.seconds
+          CreatedAt: data.CreatedAt.toDate().toString()
+          
         }
 
         setKit(setKit.state)
