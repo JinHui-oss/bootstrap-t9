@@ -39,7 +39,7 @@ function App() {
     <div className="App">
       <AuthContextProvider>
       <Routes>
-        {/* A JSX comment */}
+        {/* Home Page */}
         <Route path='/' element={
         <>
           <General />
@@ -47,7 +47,7 @@ function App() {
         </>
         } />
         
-        {/* A JSX comment */}
+        {/* Login Page */}
         <Route path='/Signin' element={
         <>
           <General />
@@ -55,7 +55,7 @@ function App() {
         </>
         }/>
         
-        {/* A JSX comment */}
+        {/* Signup Page */}
         <Route path='/Signup' element={
         <>
           <General />
@@ -63,7 +63,7 @@ function App() {
         </>
         }/>
 
-         {/* A JSX comment */}
+         {/* Forgot Password Page */}
          <Route path='/Forgotpassword' element={
         <>
           <General />
@@ -71,56 +71,61 @@ function App() {
         </>
         }/>
         
-         {/* A JSX comment */}      
+         {/* Staff Profile Page */}      
         <Route path='/Account' element={<ProtectedRoute>
           <Staff />
           <Profile />  
         </ProtectedRoute>} />
         
-         {/* A JSX comment */}
+         {/* Dashboard interface for staff */}
         <Route path='/Dashboard' element={<ProtectedRoute>
         <Staff />
         <Index />
         </ProtectedRoute>} />
       
-         {/* A JSX comment */}
+         {/* listing all kits page */}
         <Route path='/Kit' element={<ProtectedRoute>
           <Staff />
           <Kit />
         </ProtectedRoute>} />
 
-         {/* A JSX comment */}
+         {/* create new kit */}
          <Route path='/Kit/Add' element={<ProtectedRoute>
           <Staff />
           <AddKit />
         </ProtectedRoute>} />
 
+        {/* displayed the document data based on id */}
         <Route path='/Kit/Detail/:id' element={<ProtectedRoute>
           <Staff />
           <Detail />
         </ProtectedRoute>} />
         
+        {/* List all the QRCode generated */}
         <Route path='/QRIndex' element={<ProtectedRoute>
           <Staff />
           <QRIndex />
         </ProtectedRoute>} />
-
+        
+        {/* Create new QRCode */}
         <Route path='/QRIndex/Create' element={<ProtectedRoute>
           <Staff />
           <QRCreate />
         </ProtectedRoute>} />
         
+        {/* displayed the document data based on id  */}
         <Route path='/QRIndex/Detail/:id' element={<ProtectedRoute>
           <Staff />
           <QRDetail />
         </ProtectedRoute>} />
 
+        {/* update the document data based on id  */}
         <Route path='/QRIndex/Edit/:id' element={<ProtectedRoute>
           <Staff />
           <QREdit />
         </ProtectedRoute>} />
         
-        {/* A JSX comment */}
+        {/* Displayed an error page if user typed invalid input */}
         <Route path='*' element={
         <>
           <General />
