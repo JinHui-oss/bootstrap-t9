@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-
 // bootstrap
 import { Button } from 'react-bootstrap';
 
@@ -42,7 +41,8 @@ function Detail() {
         setKit.state ={
           Name: data.Name,
           Description: data.Description,
-          Quantity: data.Quantity
+          Quantity: data.Quantity,
+          CreatedAt: data.CreatedAt.seconds
         }
 
         setKit(setKit.state)
@@ -67,24 +67,32 @@ function Detail() {
   }, [kitCollectionRef])
    
    return (
+    // Kit infomation details for specific page
     <div className='details-content'>
+       {/* header of the website */}
        <div className='header'>
           <h2>Kit Details </h2>
           <p>View all content inside the kit</p>
           <hr />
         </div>
-        <p>User Id: <br/>{id}</p>
-        <p>{kit.Name}</p>
-        <p>{kit.Description}</p>
-        <p>{kit.Quantity}</p>
-       
-      {/* Button */}
-      <Button href="/Kit">Back</Button>
-      <br /> 
-      <br />
-      <Button href="#">Update</Button>
+
+        {/* body content of the details */}
+        <div className='content-body'>
+          <p>User Id: <br /> {id}</p>
+          <p>Kit Name: <br /> {kit.Name}</p>
+          <p>About the Kit: <br /> {kit.Description}</p>
+          <p>Total amount of Kit <br /> {kit.Quantity}</p>
+          <p>Created At: <br />{kit.CreatedAt}</p>
+          <br />
+        </div>
+      
+        {/* Button */}
+        <Button href="/Kit">Back</Button>
+        <br /> 
+        <br />
+        <Button href="#">Update</Button>
       </div>
-  )
-}
-export default Detail;
+    )
+  }
+  export default Detail;
 
