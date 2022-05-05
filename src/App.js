@@ -31,7 +31,7 @@ import Detail from "./Staff/Kit/DementiaKit/Detail";
 // Staff & KitQR Interface
 import QRIndex from "./Staff/Kit/KitQR/QRIndex";
 import QRCreate from "./Staff/Kit/KitQR/Create";
-import QRDetail from "./Staff/Kit/KitQR/Details"
+import QRDetail from "./Staff/Kit/KitQR/Detail"
 import QREdit from "./Staff/Kit/KitQR/Edit";
 
 function App() {
