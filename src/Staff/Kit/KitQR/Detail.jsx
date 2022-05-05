@@ -49,7 +49,7 @@ function QRDetail() {
           KitName: data.KitName,
           PhoneNumber: data.PhoneNumber,
           Email: data.Email,
-          quantity: data.quantity,
+          Quantity: data.Quantity,
           StartDate: data.StartDate.toDate().toString(),
           EndDate: data.EndDate.toDate().toString(),
         }
@@ -91,7 +91,7 @@ function QRDetail() {
         <p>Email: <br/> {kitQR.Email}</p>
         <p>Start Date: <br/> {kitQR.StartDate}</p>
         <p>End Date: <br /> {kitQR.EndDate}</p>
-        <p>Quantity: <br />{kitQR.quantity}</p>
+        <p>Quantity: <br />{kitQR.Quantity}</p>
       </div>
         
         {/* Button */}

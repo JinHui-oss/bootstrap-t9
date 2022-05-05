@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
-import { QRCodeSVG } from 'qrcode.react'
+import { QRCodeCanvas } from 'qrcode.react'
 import '../KitQR/KitQR.css'
 import { useNavigate } from 'react-router-dom'
 
 import { db } from '../../../Database/firebase'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, Timestamp } from 'firebase/firestore'
 
 function QRCreate() {
   // create and stored the data into the firestore
@@ -29,8 +29,8 @@ function QRCreate() {
         { 
           KitName: name, 
           Quantity: amount,
-          StartDate: startdate,
-          EndDate: enddate,
+          StartDate: Timestamp.fromDate(new Date(startdate)),
+          EndDate: Timestamp.fromDate(new Date(enddate)),
           PhoneNumber:phone,
           Email: email,
         });
@@ -40,6 +40,18 @@ function QRCreate() {
       console.log(e.message)
     }
   }
+  const downloadQR = () => {
+    const canvas = document.getElementById("Dementia Kit");
+    const pngUrl = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    let downloadLink = document.createElement("a");
+    downloadLink.href = pngUrl;
+    downloadLink.download = "Dementia Kit.png";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
   NewData()
 
   return (
@@ -106,7 +118,7 @@ function QRCreate() {
           <h1 className='head'>QR Code</h1>
           <hr />
           <br />
-          <QRCodeSVG value=
+          <QRCodeCanvas value=
           {
             "Name:" + name + "\n" +
             "Amount Of Kit Loaned:"+ amount  + " " +
@@ -114,12 +126,13 @@ function QRCreate() {
             "End Date: "+ enddate + " " +
             "Phone Number:"+ phone + " " +
             "Email:" + email
-          } size={250} className="qr"/>
+          } size={250} className="qr" id="Dementia Kit"/>
         </div>
         <br />
         <br />
         <Button className= "Action" type="submit"> Submit </Button>
         <Button className= "Back-Action" href="/QRIndex">Back</Button>
+        <Button className= "Download-Action" onClick={downloadQR}>Download QR</Button>
         </Form>
       </div>
     </div>
