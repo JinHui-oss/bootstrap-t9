@@ -20,6 +20,7 @@ function Detail() {
   const [kit,setKit] = useState([]);
   const kitCollectionRef = collection(db, "Kit");
   
+  // create variable to reterive the specifc document id
   const { id } = useParams()
 
   useEffect(() => {
@@ -45,7 +46,7 @@ function Detail() {
           CreatedAt: data.CreatedAt.toDate().toString()
           
         }
-
+        // reterive the data and stored into a setkit
         setKit(setKit.state)
        
         // check for the display output
@@ -58,9 +59,6 @@ function Detail() {
         console.log("No such document!");
       }
 
-      // let data = await getDocs(kitCollectionRef)
-      // setKit(data.docs.map((doc) =>({...doc.data(), id: doc.id})));
-      // console.log(setKit())
     };
     getKit();
 

@@ -17,8 +17,15 @@ import {
 
 function QRDetail() {
   
+  // create a variable to store data thru usestate 
   const [kitQR, setKitQR] = useState([]);
+  
+  // find the data from the firestore based on the 
+  // name of the table in database and stored into the 
+  // variable.
   const kitQRCollectionRef = collection(db,"KitQR");
+  
+  // reterieve the document id and stored to variable
   const { id } = useParams();
   
   //
@@ -46,7 +53,7 @@ function QRDetail() {
           StartDate: data.StartDate.toDate().toString(),
           EndDate: data.EndDate.toDate().toString(),
         }
-        //
+        // reterive the data and stored into a setkit
         setKitQR(setKitQR.state)
        
         // check for the display output
