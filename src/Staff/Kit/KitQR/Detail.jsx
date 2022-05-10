@@ -86,25 +86,25 @@ function QRDetail() {
 
       {/* body content of the details */}
       <div className='content-body'>
-        <label for="DocumentId">Document Id:</label>
+        <label className="DocumentId">Document Id:</label>
         <p>{id}</p>
         
-        <label for="KitName">Kit Name: </label>
+        <label className ="KitName">Kit Name: </label>
         <p>{kitQR.KitName}</p>
         
-        <label for="PhoneNumber">Phone Number:</label>       
+        <label className="PhoneNumber">Phone Number:</label>       
         <p>{kitQR.PhoneNumber}</p>
         
-        <label for="Email">Email:</label>
+        <label className="Email">Email:</label>
         <p>{kitQR.Email}</p>
         
-        <label for="StartDate">Start Date:</label>
+        <label className="StartDate">Start Date:</label>
         <p>{kitQR.StartDate}</p>
         
-        <label for="EndDate">End Date:</label> 
+        <label className="EndDate">End Date:</label> 
         <p>{kitQR.EndDate}</p>
         
-        <label for="Quantity">Quantity:</label>
+        <label className="Quantity">Quantity:</label>
         <p>{kitQR.Quantity}</p>
       </div>
         
@@ -112,7 +112,7 @@ function QRDetail() {
         <Button href="/QRIndex">Back</Button>
         <br /> 
         <br />
-        <Link to ={`/KitQR/Edit/${id}`}>link</Link>
+        
     </div>
   )
 }
