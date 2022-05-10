@@ -7,7 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { db } from '../../../Database/firebase'
 import { doc, updateDoc } from 'firebase/firestore'
 
-function QRCreate() {
+function QREdit() {
   
   const { id } = useParams();
   // create and stored the data into the firestore
@@ -115,4 +115,4 @@ function QRCreate() {
   )
 }
 
-export default QRCreate
+export default QREdit
