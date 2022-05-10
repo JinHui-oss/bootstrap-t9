@@ -89,7 +89,7 @@ function Detail() {
         <Button href="/Kit">Back</Button>
         <br /> 
         <br />
-        <Button href="#">Update</Button>
+        <Button href ={`/Kit/Edit/${id}`}>Update</Button>
       </div>
     )
   }

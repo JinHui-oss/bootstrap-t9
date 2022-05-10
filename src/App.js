@@ -27,6 +27,7 @@ import Index from "./Staff/Index";
 import Kit from "./Staff/Kit/DementiaKit/Index";
 import AddKit from "./Staff/Kit/DementiaKit/Create";
 import Detail from "./Staff/Kit/DementiaKit/Detail";
+import Edit from "./Staff/Kit/DementiaKit/Edit";
 
 // Staff & KitQR Interface
 import QRIndex from "./Staff/Kit/KitQR/QRIndex";
@@ -99,6 +100,12 @@ function App() {
         <Route path='/Kit/Detail/:id' element={<ProtectedRoute>
           <Staff />
           <Detail />
+        </ProtectedRoute>} />
+        
+        {/* displayed the document data based on id */}
+        <Route path='/Kit/Edit/:id' element={<ProtectedRoute>
+          <Staff />
+          <Edit />
         </ProtectedRoute>} />
         
         {/* List all the QRCode generated */}
