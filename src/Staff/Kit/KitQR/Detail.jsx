@@ -1,6 +1,6 @@
 // react
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 // bootstrap
 import { Button } from 'react-bootstrap';
@@ -19,6 +19,7 @@ function QRDetail() {
   
   // create a variable to store data thru usestate 
   const [kitQR, setKitQR] = useState([]);
+  const [name, setText] = useState("");
   
   // find the data from the firestore based on the 
   // name of the table in database and stored into the 
@@ -85,20 +86,33 @@ function QRDetail() {
 
       {/* body content of the details */}
       <div className='content-body'>
-        <p>Document Id: <br /> {id}</p>
-        <p>Kit Name: <br /> {kitQR.KitName}</p>
-        <p>Phone Number: <br /> {kitQR.PhoneNumber}</p>
-        <p>Email: <br/> {kitQR.Email}</p>
-        <p>Start Date: <br/> {kitQR.StartDate}</p>
-        <p>End Date: <br /> {kitQR.EndDate}</p>
-        <p>Quantity: <br />{kitQR.Quantity}</p>
+        <label for="DocumentId">Document Id:</label>
+        <p>{id}</p>
+        
+        <label for="KitName">Kit Name: </label>
+        <p>{kitQR.KitName}</p>
+        
+        <label for="PhoneNumber">Phone Number:</label>       
+        <p>{kitQR.PhoneNumber}</p>
+        
+        <label for="Email">Email:</label>
+        <p>{kitQR.Email}</p>
+        
+        <label for="StartDate">Start Date:</label>
+        <p>{kitQR.StartDate}</p>
+        
+        <label for="EndDate">End Date:</label> 
+        <p>{kitQR.EndDate}</p>
+        
+        <label for="Quantity">Quantity:</label>
+        <p>{kitQR.Quantity}</p>
       </div>
         
         {/* Button */}
-        <Button href="/Kit">Back</Button>
+        <Button href="/QRIndex">Back</Button>
         <br /> 
         <br />
-        <Button href="#">Update</Button>
+        <Link to ={`/KitQR/Edit/${id}`}>link</Link>
     </div>
   )
 }
