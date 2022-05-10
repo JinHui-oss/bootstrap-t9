@@ -19,7 +19,7 @@ function QRDetail() {
   
   // create a variable to store data thru usestate 
   const [kitQR, setKitQR] = useState([]);
-  const [name, setText] = useState("");
+  //const [name, setText] = useState("");
   
   // find the data from the firestore based on the 
   // name of the table in database and stored into the 
@@ -110,8 +110,8 @@ function QRDetail() {
         
         {/* Button */}
         <Button href="/QRIndex">Back</Button>
-        <br /> 
-        <br />
+        <br/>
+        <Link to = {`/QRIndex/Edit/${id}`}>Id</Link>
         
     </div>
   )
