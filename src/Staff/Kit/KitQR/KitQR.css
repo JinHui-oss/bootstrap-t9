@@ -3,7 +3,7 @@
     background-color: beige;
 }
 
-.create-body{
+.create-body {
     background-color: silver;
 } 
 
@@ -43,3 +43,14 @@
     margin-top: -50px;
     margin-left: 5%;
 }
+
+/* Back Button Edit Page*/
+.details-content button, .back-action{ 
+    margin-left: 193px;
+}
+
+/* Back Button Edit Page*/
+.details-content button, .submit-action{ 
+    margin-left:50px;
+}
+
