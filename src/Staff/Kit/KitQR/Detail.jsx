@@ -51,8 +51,8 @@ function QRDetail() {
           PhoneNumber: data.PhoneNumber,
           Email: data.Email,
           Quantity: data.Quantity,
-          StartDate: data.StartDate.toDate().toString(),
-          EndDate: data.EndDate.toDate().toString(),
+          StartDate: data.StartDate,
+          EndDate: data.EndDate,
         }
         // reterive the data and stored into a setkit
         setKitQR(setKitQR.state)
@@ -89,6 +89,7 @@ function QRDetail() {
         <label className="DocumentId">Document Id:</label>
         <p>{id}</p>
         
+        
         <label className ="KitName">Kit Name: </label>
         <p>{kitQR.KitName}</p>
         
@@ -110,6 +111,8 @@ function QRDetail() {
         
         {/* Button */}
         <Button href="/QRIndex">Back</Button>
+        <br/>
+        <br/>
         <br/>
         <Link to = {`/QRIndex/Edit/${id}`}>Id</Link>
         

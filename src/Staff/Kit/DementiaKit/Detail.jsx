@@ -43,7 +43,7 @@ function Detail() {
           Name: data.Name,
           Description: data.Description,
           Quantity: data.Quantity,
-          CreatedAt: data.CreatedAt.toDate().toString()
+          CreatedAt: data.CreatedAt
           
         }
         // reterive the data and stored into a setkit
