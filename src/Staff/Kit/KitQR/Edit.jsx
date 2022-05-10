@@ -1,74 +1,118 @@
-// react
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Button, Form } from 'react-bootstrap'
+import { QRCodeCanvas } from 'qrcode.react'
+import '../KitQR/KitQR.css'
+import { useNavigate, useParams } from 'react-router-dom'
 
-// bootstrap
-import { Button, Form } from 'react-bootstrap';
+import { db } from '../../../Database/firebase'
+import { doc, updateDoc } from 'firebase/firestore'
 
-// firebase inital setup
-import { db } from '../../../Database/firebase';
-
-// firebase import function from firestore
-import { 
-  collection,
-  getDoc,
-  doc
-} from 'firebase/firestore'
-
-
-function QREdit() {
- 
-  // create a variable to store data thru usestate 
-  const [kitQR, setKitQR] = useState([]);
+function QRCreate() {
   
-  // find the data from the firestore based on the 
-  // name of the table in database and stored into the 
-  // variable.
-  const kitQRCollectionRef = collection(db,"KitQR");
-  
-  // reterieve the document id and stored to variable
   const { id } = useParams();
+  // create and stored the data into the firestore
+  const QRCollection = doc(db, "KitQR", id)
+  const naviagte = useNavigate();
+
+  // retrieve the data from the user input and stored into variable.
+  const [name, setText] = useState("");
+  const [amount, setAmount] = useState("");
+  const [startdate, setStartDate] = useState("");
+  const [enddate, setEndDate] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+
+  
+  // add records directly to the firestore
+  const NewData = async(e) =>{
+    try{
+      e.preventDefault();
+      await updateDoc(QRCollection, 
+        { 
+          KitName: name, 
+          Quantity: amount,
+          StartDate: startdate,
+          EndDate: enddate,
+          PhoneNumber:phone,
+          Email: email,
+        });
+      naviagte("/QRIndex")
+    }
+    catch(e){
+      console.log(e.message)
+    }
+  }
+  NewData()
 
   return (
-    // body content of the web page
-    <div className='details-content'>
-    
-      {/* header of the page */}
+    <div className='create-body'>
       <div className='header'>
-        <h2>Kit QR Details </h2>
-        <p>View the document data ensure it is up to date.</p>
+        <h2>Create Kit QR</h2>
+        <p>Create a QR Code for the dementia Kits tracking</p>
         <hr />
       </div>
+      <div>
+        <Form onSubmit={NewData} className="form-create">
+        <label htmlFor='KitName'>Name </label>
+          <input type="text" onChange={(event) => {
+          setText(event.target.value);
+        }} 
+        className="form-control" 
+        id="KitName" 
+        placeholder="Dementia Kit xx - example"
+        required />
 
-      <Form className="form-create">
-        <label className='KitId'>Id </label>
-          <input type="text" className="form-control" id="KitName" 
-          placeholder="Document Id"
-          required readOnly />
+        <label htmlFor='Number of Kits'>Amount of Kit Loaned </label>
+          <input type="number" onChange={(event) => {
+          setAmount(event.target.value);
+        }} 
+        className="form-control" 
+        id="KitName" 
+        placeholder="2"
+        required />
 
-        <label className='KitName'>Name </label>
-          <input type="text" className="form-control" id="KitName" 
-          placeholder="Dementia Kit xx - example"
-          required />
+        <label htmlFor='Start Date'>Start Date </label>
+          <input type="Date" onChange={(event) => {
+          setStartDate(event.target.value);
+        }} 
+        className="form-control" 
+        id="KitStartDate" 
+        required />
+
+        <label htmlFor='End Date'>End Date </label>
+          <input type="Date" onChange={(event) => {
+          setEndDate(event.target.value);
+        }} 
+        className="form-control" 
+        id="KitStartDate" 
+        required />
+
+        <label htmlFor='Phone Number'>Phone Number </label>
+          <input type="number" onChange={(event) => {
+          setPhone(event.target.value);
+        }} 
+        className="form-control" 
+        id="KitPhone"
+        placeholder='82109871' 
+        required />
         
-        <label className='KitPhone'>Phone Number </label>
-          <input type="number" className="form-control" id="KitName" 
-          placeholder="9761 1120"
-          required />
-
-        <label className='KitEmail'>Phone Number </label>
-          <input type="Email" className="form-control" id="KitName" 
-          placeholder="abc@gmail.com"
-          required />
-       </Form>
-
-      <br />
-      {/* Button */}
-      <Button href="/QRIndex">Back</Button>
-      <br/>
-      <Button className='submit' type='submit' >Submit</Button>
+        <label htmlFor='Email'>Email </label>
+          <input type="email" onChange={(event) => {
+          setEmail(event.target.value);
+        }} 
+        className="form-control" 
+        id="KitEmail"
+        placeholder='abc@gmail.com' 
+        required />
+      
+        <br />
+        <br />
+        <Button className= "Action" type="submit"> Submit </Button>
+        <Button className= "Back-Action" href="/QRIndex">Back</Button>
+        </Form>
+      </div>
     </div>
   )
 }
 
-export default QREdit
+export default QRCreate
