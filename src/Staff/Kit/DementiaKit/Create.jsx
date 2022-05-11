@@ -62,9 +62,12 @@ function AddKit() {
   // display the form for the user to input for dementia kit
   return (
     <div className="content">
-      <h2>Kit Infomation</h2>
-      <hr />
+      <div className='content-header'>
+        <h2>Kit Infomation</h2>
+        <hr />
+      </div>
       
+      <div className='content-form'>
       <form onSubmit={createKit} className='input'> 
         <div className="form-group">
           <label htmlFor='KitName'>Name </label>
@@ -114,8 +117,8 @@ function AddKit() {
         {/* Return back to the kit page */}
         <Button className= 'back-action' href='/Kit'>Back</Button>
         <br />
-        
       </form>
+      </div>
     </div>
   )
 }

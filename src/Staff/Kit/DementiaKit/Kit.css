@@ -24,12 +24,12 @@ body{
 .content-header{
     margin-left: 10%;
     width: 70%;
-    margin-top:2%;
+    margin-top:3%;
 }
 
 .content-table{
-    margin-left: 5.5%;
-    width: 83.5%;
+    margin-left: 9.5%;
+    width: 70.5%;
     margin-top:3%;
 }
 
@@ -43,18 +43,11 @@ body{
     padding-bottom: 10px;
 }
 
-.content .form-pic{
-    float:right;
-    margin-top: -26%;
-    margin-right: 100px;
-}
-
 .content .back-action, .submit{
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
-
-.form-control{
-    margin-left:190px;
-    max-width: 50%;
+.content-form{
+    margin-left: 10%;
+    margin-top: 2%;
 }
