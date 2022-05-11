@@ -34,12 +34,19 @@ function QRIndex() {
         <p>View all the created QR Code for the dementia Kits</p>
         <Button href="/QRIndex/Create">Add</Button>
         <hr></hr>
+      </div>
       
+      {/* search function */}
+      <div className='search'>
+        <input /> 
+        <Button>Search</Button>
+      </div>
+    
       {/* table infomation */}
       <div className='table'>
-      <Table striped bordered hover>
+      <Table responsive= "md" hover>
           <thead>
-            <tr>
+            <tr className='table-header'>
               <th>Profile</th>
               <th>Id</th>
               <th>Name</th>
@@ -56,7 +63,7 @@ function QRIndex() {
                 <td>Kit1.jpg</td>
                 <td>{user.id}</td>
                 <td>{user.KitName}</td>
-                <td><Link to ={`/QRIndex/Detail/${user.id}`}>link</Link></td>
+                <td><Link to ={`/QRIndex/Detail/${user.id}`}>View</Link></td>
               </tr>
             </tbody>
             );
@@ -64,7 +71,6 @@ function QRIndex() {
         </Table>
         </div>
       </div>
-    </div>
   )
 }
 
