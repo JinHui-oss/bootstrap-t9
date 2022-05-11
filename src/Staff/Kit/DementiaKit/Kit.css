@@ -44,8 +44,11 @@ body{
 }
 
 .content .back-action, .submit{
-    margin-left: 30px;
     margin-top: 50px;
+}
+
+.content .back-action{
+    margin-left: 50px;
 }
 .content-form{
     margin-left: 10%;
