@@ -68,7 +68,8 @@ function AddKit() {
 
   useEffect(() =>{
     listAll(imageListRef).then((response) =>{
-      console.log(response)
+      // check the output if data has been displayed correctly.      
+      // console.log(response)
       response.items.forEach((item) =>{
         getDownloadURL(item).then((url) =>{
           setImageList(url)
@@ -84,7 +85,9 @@ function AddKit() {
         <h2>Kit Infomation</h2>
         <hr />
       </div>
-      
+       {/* 
+        retrieve user input for the form needed to create dementia kit.
+        */}
       <div className='content-form'>
       <form onSubmit={createKit} className='input'> 
         <div className="form-group">
@@ -128,7 +131,6 @@ function AddKit() {
             setImageUpload(event.target.files[0]);
           }} className="form-control-file"  />
         </div>
-        
        
         {/* Submit form when user completed the form */}
         <Button className='submit' type='submit' >Submit</Button>
