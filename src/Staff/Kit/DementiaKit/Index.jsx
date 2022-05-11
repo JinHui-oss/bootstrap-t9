@@ -28,14 +28,21 @@ function Kit() {
 
   return (
     <div className='content'>
-      <div>
+      <div className='content-header'>
         <h2>Dementia Kit </h2>
         <p>View all the dementia Kits</p>
         <Button href="/Kit/Add">Add</Button>
         <hr/>
       </div>
-      <div className='table'>
-          <Table striped bordered hover>
+
+      {/* search function */}
+      <div className='content-search'>
+        <input /> 
+        <Button>Search</Button>
+      </div>
+    
+      <div className='content-table'>
+          <Table responsive="md" hover>
           <thead>
             <tr>
               <th>Profile</th>
@@ -53,7 +60,7 @@ function Kit() {
                 <td>Kit1.jpg</td>
                 <td>{user.id}</td>
                 <td>{user.Name}</td>
-                <td><Link to ={`/Kit/Detail/${user.id}`}>link</Link></td>
+                <td><Link to ={`/Kit/Detail/${user.id}`}>View</Link></td>
               </tr>
             </tbody>
             );

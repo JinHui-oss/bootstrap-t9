@@ -7,12 +7,30 @@ body{
     margin-top: 30px;
 }
 
-.content hr{
+.content .input{
     width: 90%;
 }
 
-.content .input{
-    width: 90%;
+.content-search{
+    margin-left: 10%;
+    margin-top:2%;
+}
+
+.content-search Button{
+    margin-left: 2%;
+    margin-top: -0.7%;
+}
+
+.content-header{
+    margin-left: 10%;
+    width: 70%;
+    margin-top:2%;
+}
+
+.content-table{
+    margin-left: 5.5%;
+    width: 83.5%;
+    margin-top:3%;
 }
 
 .content .form-group{
@@ -34,10 +52,6 @@ body{
 .content .back-action, .submit{
     margin-left: 30px;
     margin-top: 20px;
-}
-
-.table{
-    width: 95%;
 }
 
 .form-control{
