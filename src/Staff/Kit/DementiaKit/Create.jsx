@@ -2,7 +2,7 @@
 import '../DementiaKit/Kit.css'
 
 // React
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap'
 
@@ -10,7 +10,7 @@ import { Button } from 'react-bootstrap'
 import { db, storage } from '../../../Database/firebase';
 
 // Firebase features 
-import { ref, uploadBytes } from 'firebase/storage';
+import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection } from 'firebase/firestore';
 
 // Random unique id 
@@ -26,6 +26,8 @@ function AddKit() {
   const [newdesc, setDesc] = useState();
   const [newamt, setAmt] = useState();
   const [ImageUpload, setImageUpload] = useState(null);
+  const [ImageList, setImageList] = useState([]);
+  const imageListRef = ref(storage, "Staff/Kit")
   const navigate = useNavigate();
 
   const createKit = async (e) =>{
@@ -39,16 +41,21 @@ function AddKit() {
       // set the specific path of where the photo is stored thru variable
       const imageRef = ref(storage, `Staff/Kit/${ImageUpload.name + v4()}`)
       // upload directly to storage database
-      uploadBytes(imageRef, ImageUpload).then(() =>{
+      uploadBytes(imageRef, ImageUpload).then((snaphsot) =>{
+        getDownloadURL(snaphsot.ref).then((url) => {
+          setImageList((prev) => [...prev,url ])  
           alert("image upload")
-      })
+          console.log(ImageList)
+        })
+      });
+    
       // upload directly to cloud firestore database & return back to kit page
       await addDoc(kitCollectionRef, 
         {
           Name: newKit, 
           Description: newdesc,
           Quantity: newamt,
-          //PhotoUrl: ImageUpload 
+          PhotoUrl: ImageList
         });
       navigate("/Kit")
       }  
@@ -58,6 +65,17 @@ function AddKit() {
       console.log(e.message);
     }
   }
+
+  useEffect(() =>{
+    listAll(imageListRef).then((response) =>{
+      console.log(response)
+      response.items.forEach((item) =>{
+        getDownloadURL(item).then((url) =>{
+          setImageList(url)
+        })
+      })
+    });
+  }, []);
 
   // display the form for the user to input for dementia kit
   return (
@@ -111,11 +129,13 @@ function AddKit() {
           }} className="form-control-file"  />
         </div>
         
+       
         {/* Submit form when user completed the form */}
         <Button className='submit' type='submit' >Submit</Button>
         
         {/* Return back to the kit page */}
         <Button className= 'back-action' href='/Kit'>Back</Button>
+
         <br />
       </form>
       </div>
