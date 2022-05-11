@@ -75,7 +75,7 @@ function AddKit() {
         })
       })
     });
-  }, []);
+  }, [imageListRef]);
 
   // display the form for the user to input for dementia kit
   return (
