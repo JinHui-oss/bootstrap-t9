@@ -15,6 +15,12 @@ import {
   doc
 } from 'firebase/firestore'
 
+//
+import {
+  listAll, 
+  getDownloadURL
+} from 'firebase/storage'
+
 function Detail() {
   
   const [kit,setKit] = useState([]);
@@ -43,7 +49,8 @@ function Detail() {
           Name: data.Name,
           Description: data.Description,
           Quantity: data.Quantity,
-          CreatedAt: data.CreatedAt
+          CreatedAt: data.CreatedAt,
+          PhotoUrl: data.PhotoUrl
           
         }
         // reterive the data and stored into a setkit
@@ -83,6 +90,7 @@ function Detail() {
           <p>Total amount of Kit <br /> {kit.Quantity}</p>
           <p>Created At: <br />{kit.CreatedAt}</p>
           <br />
+          <p> <img src= {kit.PhotoUrl} /></p>
         </div>
       
         {/* Button */}

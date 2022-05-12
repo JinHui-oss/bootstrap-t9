@@ -43,7 +43,7 @@ function AddKit() {
       // upload directly to storage database
       uploadBytes(imageRef, ImageUpload).then((snaphsot) =>{
         getDownloadURL(snaphsot.ref).then((url) => {
-          setImageList((prev) => [...prev,url ])  
+          setImageList(url)  
           alert("image upload")
           console.log(ImageList)
         })
@@ -137,7 +137,6 @@ function AddKit() {
         
         {/* Return back to the kit page */}
         <Button className= 'back-action' href='/Kit'>Back</Button>
-
         <br />
       </form>
       </div>

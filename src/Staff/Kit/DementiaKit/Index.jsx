@@ -1,30 +1,48 @@
 // react
 import React, { useState, useEffect } from 'react';
 import { Table, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 // firebase
-import { db } from '../../../Database/firebase';
+import { db, storage } from '../../../Database/firebase';
 import { collection, getDocs } from 'firebase/firestore'
+import {
+  listAll, 
+  getDownloadURL,
+  ref
+} from 'firebase/storage'
+
 
 // css
 import '../DementiaKit/Kit.css'
 
 function Kit() {
+  const [imageList, setImageList] = useState([]);
+  const imageListRef = ref(storage, "Staff/Kit")
   const [kit, setKit] = useState([]);
   const kitCollectionRef = collection(db, "Kit");
+    // create variable to reterive the specifc document id
+    const { id } = useParams()
 
   useEffect(() => {
     const getKit = async () => {
       const data = await getDocs(kitCollectionRef)
-      //console.log(data);
       setKit(data.docs.map((doc) =>({...doc.data(), id: doc.id})));
     };
     getKit();
-
-   
+    
   }, [kitCollectionRef])
-
+  
+  useEffect(() =>{
+      listAll(imageListRef).then((response) =>{
+        console.log(response)
+        response.items.forEach((item) =>{
+          getDownloadURL(item).then((url) => {
+            setImageList((prev) => [...prev, url])
+          })
+        })  
+      })
+  }, [])
 
   return (
     <div className='content'>
@@ -57,7 +75,7 @@ function Kit() {
             <tbody>
               {""}
               <tr>
-                <td>Kit1.jpg</td>
+                <td><img src={user.PhotoUrl} width ="110px" height= "110px"></img></td>
                 <td>{user.id}</td>
                 <td>{user.Name}</td>
                 <td><Link to ={`/Kit/Detail/${user.id}`}>View</Link></td>
