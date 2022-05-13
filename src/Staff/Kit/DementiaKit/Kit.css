@@ -54,3 +54,38 @@ body{
     margin-left: 10%;
     margin-top: 2%;
 }
+
+/* Details*/ 
+.details-pictures{
+    margin-right: 45%;
+    margin-top: 2%;
+}
+.details-information{
+    margin-left: 80%;
+    margin-top: 2%;
+}
+.details-title{
+    margin-top: -33%;
+    margin-left: 80%;
+    width: 72%;
+}
+.details-edit{
+    margin-left: 47%;
+}
+.details-back {
+    margin-top:2%;
+    margin-left: 80%;
+}
+
+.details-archive{
+    margin-left:7%;
+    margin-top:2%;
+}
+
+
+.details-header{
+    max-width: 70%;
+    margin-left: 14%;
+    margin-top: 1.5%;
+
+}

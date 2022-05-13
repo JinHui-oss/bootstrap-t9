@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 // bootstrap
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 
 // firebase inital setup
 import { db } from '../../../Database/firebase';
@@ -15,12 +15,8 @@ import {
   doc
 } from 'firebase/firestore'
 
-//
-import {
-  listAll, 
-  getDownloadURL
-} from 'firebase/storage'
-
+// css
+import "../DementiaKit/Kit.css"
 function Detail() {
   
   const [kit,setKit] = useState([]);
@@ -76,29 +72,53 @@ function Detail() {
     // Kit infomation details for specific page
     <div className='details-content'>
        {/* header of the website */}
-       <div className='header'>
+       <div className='details-header'>
           <h2>Kit Details </h2>
           <p>View all content inside the kit</p>
           <hr />
         </div>
 
-        {/* body content of the details */}
-        <div className='content-body'>
-          <p>User Id: <br /> {id}</p>
-          <p>Kit Name: <br /> {kit.Name}</p>
-          <p>About the Kit: <br /> {kit.Description}</p>
-          <p>Total amount of Kit <br /> {kit.Quantity}</p>
-          <p>Created At: <br />{kit.CreatedAt}</p>
-          <br />
-          <p> <img src= {kit.PhotoUrl} /></p>
+        {/* body content of the kit pictures */}
+        <div className='details-pictures'>
+        <div className="d-flex justify-content-around">
+        <Card style={{ width: '18rem' }}>
+          <Card.Body>
+            <p><img src={kit.PhotoUrl} width="240px" height="240px"></img></p>
+          </Card.Body>
+        </Card>
         </div>
-      
-        {/* Button */}
-        <Button href="/Kit">Back</Button>
-        <br /> 
         <br />
-        <Button href ={`/Kit/Edit/${id}`}>Update</Button>
+        <Button className='details-edit' href ={`/Kit/Edit/${id}`}>Edit</Button>
+
+        <div className='details-title'>
+          <h2>{kit.Name}</h2>
+          <hr />
+          <h2>Quantity: {kit.Quantity}</h2>
+          <br />
+        </div>
+        
+
+        {/* body content of the kit information */}
+        <div className='details-information'>
+          <Card style={{ width: '47em' }}>
+            
+            <Card.Body>
+              <p>User Id: <br /> {id}</p>
+              <p>Kit Name: <br /> {kit.Name}</p>
+              <p>About the Kit: <br /> {kit.Description}</p>
+              <p>Total amount of Kit <br /> {kit.Quantity}</p>
+              <p>Created At: <br /> none{kit.CreatedAt}</p>
+            </Card.Body>
+          </Card>
+        </div>
+        
+
+        {/* Button */}
+        <Button href="/Kit" className='details-back'>Back</Button>
+        {/* Button */}
+        <Button href="#" className='details-archive'>Archive</Button>
       </div>
+    </div>
     )
   }
   export default Detail;
