@@ -80,16 +80,20 @@ function Detail() {
 
         {/* body content of the kit pictures */}
         <div className='details-pictures'>
-        <div className="d-flex justify-content-around">
-        <Card>
-          <Card.Body>
-            <p><img src={kit.PhotoUrl} width="240px" height="240px"></img></p>
-          </Card.Body>
-        </Card>
-        </div>
+          <div className="d-flex justify-content-around">
+            <Card>
+              <Card.Body>
+                <p><img src={kit.PhotoUrl}></img></p>
+              </Card.Body>
+            </Card>
+          </div>
         <br />
-        <Button className='details-edit' href ={`/Kit/Edit/${id}`}>Edit</Button>
-
+        
+        {/* Edit Button */}
+        <Button className='details-edit' href ={`/Kit/Edit/${id}`}>
+          <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
+           Edit</Button>
+          
         {/* product title and quantity information */} 
         <div className='details-title'>
           <h2>{kit.Name}</h2>
@@ -116,9 +120,9 @@ function Detail() {
           </Card>
         </div>
         
-        {/* Button */}
+        {/* Back Button */}
         <Button href="/Kit" className='details-back'>Back</Button>
-        {/* Button */}
+        {/* Archive Button */}
         <Button href="#" className='details-archive'>Archive</Button>
       </div>
     </div>

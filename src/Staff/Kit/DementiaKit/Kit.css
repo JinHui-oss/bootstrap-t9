@@ -66,14 +66,36 @@ body{
     margin-top: 2%;
     width: '18rem';
 }
+.details-pictures img{
+    width: 283px;
+    height: 283px;
+}
+
 .details-edit{
     margin-left: 47%;
+    color: white;
 }
+
+.details-edit img{
+  width: 25px;
+  height: 25px;
+  margin-left: -10px; 
+}
+
 .details-title{
-    margin-top: -33%;
+    margin-top: -37.5%;
     margin-left: 80%;
     width: 72%;
 }
+
+.details-information-title{
+    width: 47em;
+}
+.details-information-title h3{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
 .details-information{
     margin-left: 80%;
     margin-top: 1%;
@@ -82,16 +104,13 @@ body{
     margin-top: 8%;
     width: 47em;
 }
-.details-information-title{
-    width: 47em;
-    text-align: center;
-}
 
+/* Button */
 .details-back {
     margin-top:2%;
     margin-left: 80%;
 }
-
+/* Button */
 .details-archive{
     margin-left:7%;
     margin-top:2%;
