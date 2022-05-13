@@ -81,7 +81,7 @@ function Detail() {
         {/* body content of the kit pictures */}
         <div className='details-pictures'>
         <div className="d-flex justify-content-around">
-        <Card style={{ width: '18rem' }}>
+        <Card>
           <Card.Body>
             <p><img src={kit.PhotoUrl} width="240px" height="240px"></img></p>
           </Card.Body>
@@ -90,6 +90,7 @@ function Detail() {
         <br />
         <Button className='details-edit' href ={`/Kit/Edit/${id}`}>Edit</Button>
 
+        {/* product title and quantity information */} 
         <div className='details-title'>
           <h2>{kit.Name}</h2>
           <hr />
@@ -97,11 +98,14 @@ function Detail() {
           <br />
         </div>
         
-
         {/* body content of the kit information */}
         <div className='details-information'>
-          <Card style={{ width: '47em' }}>
-            
+        <Card className="details-information-title">
+            <Card.Title>
+                <h3>Kit Content Information</h3>
+            </Card.Title>
+          </Card>
+          <Card className="details-information-body">
             <Card.Body>
               <p>User Id: <br /> {id}</p>
               <p>Kit Name: <br /> {kit.Name}</p>
@@ -112,7 +116,6 @@ function Detail() {
           </Card>
         </div>
         
-
         {/* Button */}
         <Button href="/Kit" className='details-back'>Back</Button>
         {/* Button */}
