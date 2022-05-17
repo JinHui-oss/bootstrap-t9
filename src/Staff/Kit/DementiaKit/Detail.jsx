@@ -25,6 +25,9 @@ function Detail() {
   // create variable to reterive the specifc document id
   const { id } = useParams()
 
+  //
+  let date = new Date();
+
   useEffect(() => {
     const getKit = async () => {
       const docRef = doc(db, "Kit", id);
@@ -112,9 +115,7 @@ function Detail() {
           <Card className="details-information-body">
             <Card.Body>
               <p>User Id: <br /> {id}</p>
-              <p>Kit Name: <br /> {kit.Name}</p>
               <p>About the Kit: <br /> {kit.Description}</p>
-              <p>Total amount of Kit <br /> {kit.Quantity}</p>
               <p>Created At: <br /> {kit.CreatedAt}</p>
             </Card.Body>
           </Card>
