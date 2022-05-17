@@ -2,7 +2,7 @@
 import '../DementiaKit/Kit.css'
 
 // React
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap'
 
@@ -10,7 +10,7 @@ import { Button } from 'react-bootstrap'
 import { db, storage } from '../../../Database/firebase';
 
 // Firebase features 
-import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection } from 'firebase/firestore';
 
 // Random unique id 
@@ -28,10 +28,12 @@ function AddKit() {
   const [ImageUpload, setImageUpload] = useState();
   const [ImageList, setImageList] = useState();
   const navigate = useNavigate();
+ 
 
   const createKit = async (e) =>{
     // prevent the button from being spammed when there is no data
     e.preventDefault();
+    
     
     //
     try{
@@ -78,7 +80,7 @@ function AddKit() {
       <div className='content-form'>
       <form onSubmit={createKit} className='input'> 
         <div className="form-group">
-          <label htmlFor='KitName'>Name </label>
+          <label className='KitName'>Name </label>
           <input type="text" onChange={(event) => {
           setKit(event.target.value);
         }} 
@@ -89,7 +91,7 @@ function AddKit() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="KitQuantity">Quantity </label>
+          <label className="KitQuantity">Quantity </label>
           <input type="number" onChange={(event) => {
           setAmt(event.target.value);
           }} 
@@ -100,7 +102,7 @@ function AddKit() {
         </div>
         
         <div className="form-group">
-          <label htmlFor="KitDescription">Description</label>
+          <label className="KitDescription">Description</label>
           <textarea className="form-control"onChange={(event) => {
             setDesc(event.target.value)
           }}  
@@ -112,7 +114,7 @@ function AddKit() {
         </div>
        
         <div className ="form-pic">
-          <label htmlFor="KitPictures">Kit Pictures</label>
+          <label className="KitPictures">Kit Pictures</label>
           <br />
           <input type="file" onChange={(event) => {
             setImageUpload(event.target.files[0]);
