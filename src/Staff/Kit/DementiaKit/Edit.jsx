@@ -41,13 +41,13 @@ function Edit() {
   NewData()
 
   return (
-    <div className='create-body'>
+    <div className='edit-body'>
       <div className='header'>
         <h2>Edit Dementia Kit </h2>
         <p>You can make changes to the kit once created</p>
         <hr />
       </div>
-      <div>
+      <div className='form-details'>
         <Form onSubmit={NewData} className="form-create">
         <label htmlFor='KitName'>Name </label>
           <input type="text" onChange={(event) => {
@@ -83,9 +83,8 @@ function Edit() {
         id="KitStartDate" 
         required />
       
-        <br />
-        <br />
-        <Button className= "Action" type="submit"> Submit </Button>
+     
+        <Button className= "Submit-Action" type="submit"> Submit </Button>
         <Button className= "Back-Action" href="/Kit">Back</Button>
         </Form>
       </div>
