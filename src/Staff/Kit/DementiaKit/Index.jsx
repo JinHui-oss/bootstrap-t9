@@ -75,14 +75,18 @@ function Kit() {
             <tbody>
               {""}
               <tr>
-                <td><img src={user.PhotoUrl} width ="110px" height= "110px"></img></td>
+                <td> 
+                <img src ={user.PhotoUrl} width="240px" height="240px"/>
+           
+                </td>
                 <td>{user.id}</td>
                 <td>{user.Name}</td>
                 <td><Link to ={`/Kit/Detail/${user.id}`}>View</Link></td>
               </tr>
             </tbody>
             );
-          })}
+          })}         
+        
         </Table>
       </div>
   </div>

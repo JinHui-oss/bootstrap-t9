@@ -25,9 +25,8 @@ function AddKit() {
   const [newKit, setKit] = useState();
   const [newdesc, setDesc] = useState();
   const [newamt, setAmt] = useState();
-  const [ImageUpload, setImageUpload] = useState(null);
-  const [ImageList, setImageList] = useState([]);
-  const imageListRef = ref(storage, "Staff/Kit")
+  const [ImageUpload, setImageUpload] = useState();
+  const [ImageList, setImageList] = useState();
   const navigate = useNavigate();
 
   const createKit = async (e) =>{
@@ -43,7 +42,7 @@ function AddKit() {
       // upload directly to storage database
       uploadBytes(imageRef, ImageUpload).then((snaphsot) =>{
         getDownloadURL(snaphsot.ref).then((url) => {
-          setImageList(url)  
+          setImageList(url) 
           alert("image upload")
           console.log(ImageList)
         })
@@ -65,18 +64,6 @@ function AddKit() {
       console.log(e.message);
     }
   }
-
-  useEffect(() =>{
-    listAll(imageListRef).then((response) =>{
-      // check the output if data has been displayed correctly.      
-      // console.log(response)
-      response.items.forEach((item) =>{
-        getDownloadURL(item).then((url) =>{
-          setImageList(url)
-        })
-      })
-    });
-  }, [imageListRef]);
 
   // display the form for the user to input for dementia kit
   return (
