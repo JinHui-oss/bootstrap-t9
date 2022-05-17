@@ -115,7 +115,7 @@ function Detail() {
               <p>Kit Name: <br /> {kit.Name}</p>
               <p>About the Kit: <br /> {kit.Description}</p>
               <p>Total amount of Kit <br /> {kit.Quantity}</p>
-              <p>Created At: <br /> none{kit.CreatedAt}</p>
+              <p>Created At: <br /> {kit.CreatedAt}</p>
             </Card.Body>
           </Card>
         </div>

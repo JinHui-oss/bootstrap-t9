@@ -76,7 +76,7 @@ function Kit() {
               {""}
               <tr>
                 <td> 
-                <img src ={user.PhotoUrl} width="240px" height="240px"/>
+                <img src ={user.PhotoUrl} width="120px" height="120px"/>
            
                 </td>
                 <td>{user.id}</td>
