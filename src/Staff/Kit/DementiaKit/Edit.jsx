@@ -27,7 +27,6 @@ function Edit() {
   const [Name, setText] = useState("");
   const [Description, setDescription] = useState("");
   const [Quantity, setQuantity] = useState("");
-  const [CreatedAt, setCreatedAt] = useState("");
   const [ImageUpload,setImageUpload] = useState("");
   const [ImageList, setImageList] = useState();
   
@@ -143,14 +142,6 @@ function Edit() {
         <label className='Description'>Description </label>
           <textarea type="text" defaultValue={kit.Description} onChange={(event) => {
           setDescription(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitStartDate" 
-        />
-
-        <label htmlFor='Date'>Created Date </label>
-          <input type="Date" defaultValue={kit.CreatedAt} onChange={(event) => {
-          setCreatedAt(event.target.value);
         }} 
         className="form-control" 
         id="KitStartDate" 
