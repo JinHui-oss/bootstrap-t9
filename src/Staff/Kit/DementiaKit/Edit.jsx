@@ -159,13 +159,17 @@ function Edit() {
         <div className ="form-pic">
           <label htmlFor="KitPictures">Kit Pictures</label>
           <br />
+          <img src={kit.PhotoUrl} />
+          
           <input type="file" defaultValue={kit.PhotoUrl} onChange={(event) => {
             setImageUpload(event.target.files[0]);
           }} className="form-control-file"  />
         </div>
-      
         <Button className= "Submit-Action" type="submit"> Submit </Button>
         <Button className= "Back-Action" href="/Kit">Back</Button>
+        <br />
+        <hr className='line'/>
+        <footer>Test</footer>
         </Form>
       </div>
     </div>

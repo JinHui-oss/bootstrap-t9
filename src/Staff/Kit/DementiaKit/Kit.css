@@ -1,3 +1,5 @@
+
+/* Desktop User Inte*/
 body{
     margin: 0;
     padding: 0;
@@ -120,22 +122,33 @@ body{
 .edit-body .header{
     margin-left: 10%;
     width: 70%;
-    margin-top:3%;
+    margin-top:2%;
 }
 .form-details Form{
     margin-left:10%;
-    margin-top: 2.5%;
+    margin-top: 1%;
 }
 .form-details textarea{
     max-width: 50%;
     margin-left: 10%;
 }
+.form-details .form-pic img{
+    margin-left: 10%;
+    width: 480px;
+    height: 360px;
+}
+
+.form-details .line{
+    margin-left:-7%;
+    max-width: 100%;
+}
+
 /* Button */
 .edit-body .form-details .Back-Action{
-    margin-top:2.5%;
+    margin-top:2%;
     margin-left: 5%;
 }
 .edit-body .form-details .Submit-Action{
-    margin-top:2.5%;
+    margin-top:2%;
     margin-left:10%;
 }
