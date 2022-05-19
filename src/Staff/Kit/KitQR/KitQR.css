@@ -32,6 +32,16 @@ body{
 .create-body .header {
     text-align: left;
     margin-left: 10%;
+    width: 80%;
+}
+
+.Download-Action{
+    margin-left: 58.5%;
+    margin-top: -19%;
+}
+
+.Back-Action .Action{
+    margin-top:20%;
 }
 
 .form-create input{
@@ -47,16 +57,20 @@ body{
 .form-create label, input{
     padding-top:10px;
 }
+
+.create-body .form-pic{
+    margin-top: -1%;
+    margin-bottom: 1%;
+}
 /* QR Code CSS */
 .form-create .QR-Code {
     float: right;
-    margin-top: -30%;
+    margin-top: -22.5%;
     margin-right: 10%;
     padding-top:-10%;
 }
 /* Submit Button CSS */
 .form-create .Action{
-    color:black;
     margin-top: -50px;
     margin-left: 10%;
 }
@@ -100,4 +114,22 @@ body{
 .qrdetails-content .QREdit{
     margin-left: 4%;
     margin-top: 2%;
+}
+
+.create-body .header{
+    margin-top: 2%;
+}
+
+.edit-body .QR-Code{
+    margin-top:-29%
+}
+
+.edit-body .form-pic{
+    margin-bottom: 1.5%;
+}
+.edit-body .header{
+    width: 80%;
+}
+.edit-body .Download-Action{
+    margin-top: -22%;
 }

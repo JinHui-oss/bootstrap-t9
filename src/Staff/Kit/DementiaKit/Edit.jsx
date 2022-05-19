@@ -93,11 +93,13 @@ function Edit() {
           getDownloadURL(snapshot.ref).then((url) => {
             updateDoc(QRCollection, 
               { 
+                id: id,
                 Name: Name, 
                 Description: Description,
                 Quantity: Quantity,
                 CreatedAt: date.toDateString(),
-                PhotoUrl: url
+                PhotoUrl: url,
+                CreatedDate: date.toDateString()
               });
             alert("image upload")
           })

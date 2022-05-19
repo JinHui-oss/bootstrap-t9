@@ -12,7 +12,8 @@ import { db } from '../../../Database/firebase';
 import { 
   collection,
   getDoc,
-  doc
+  doc,
+  Timestamp
 } from 'firebase/firestore'
 import '../KitQR/KitQR.css'
 
@@ -54,7 +55,8 @@ function QRDetail() {
           Quantity: data.Quantity,
           StartDate: data.StartDate,
           EndDate: data.EndDate,
-          PhotoUrl: data.PhotoUrl
+          PhotoUrl: data.PhotoUrl,
+          CreatedAt: data.CreatedAt
         }
         // reterive the data and stored into a setkit
         setKitQR(setKitQR.state)
@@ -125,6 +127,7 @@ function QRDetail() {
               <p>Email: <br />{kitQR.Email}</p>
               <p>Start Date: <br /> {kitQR.StartDate}</p>
               <p>End Date: <br />{kitQR.EndDate}</p>
+              <p>Created At: <br /> {kitQR.CreatedAt}</p>
             
             </Card.Body>
           </Card>
