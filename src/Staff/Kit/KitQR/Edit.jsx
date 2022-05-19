@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
-import { QRCodeCanvas } from 'qrcode.react'
+ // import { QRCodeCanvas } from 'qrcode.react'
 import '../KitQR/KitQR.css'
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -47,7 +47,7 @@ function QREdit() {
   return (
     <div className='create-body'>
       <div className='header'>
-        <h2>Create Kit QR</h2>
+        <h2>Edit Kit QR</h2>
         <p>Create a QR Code for the dementia Kits tracking</p>
         <hr />
       </div>

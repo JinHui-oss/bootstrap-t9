@@ -118,12 +118,12 @@ function Detail() {
               <p>Created At: <br /> {kit.CreatedAt}</p>
             </Card.Body>
           </Card>
+            {/* Back Button */}
         </div>
-        
-        {/* Back Button */}
-        <Button href="/Kit" className='details-back'>Back</Button>
+        <Button href="/QRIndex" className='details-back'>Back</Button>
         {/* Archive Button */}
         <Button href="#" className='details-archive'>Archive</Button>
+      
       </div>
     </div>
     )

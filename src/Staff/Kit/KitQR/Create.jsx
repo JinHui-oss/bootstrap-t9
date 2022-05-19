@@ -4,8 +4,13 @@ import { QRCodeCanvas } from 'qrcode.react'
 import '../KitQR/KitQR.css'
 import { useNavigate } from 'react-router-dom'
 
-import { db } from '../../../Database/firebase'
-import { collection, addDoc, Timestamp } from 'firebase/firestore'
+import { db, storage } from '../../../Database/firebase'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { collection, addDoc, } from 'firebase/firestore'
+
+// Random unique id 
+import { v4 } from 'uuid'
+
 
 function QRCreate() {
   // create and stored the data into the firestore
@@ -19,22 +24,35 @@ function QRCreate() {
   const [enddate, setEndDate] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-
+  const [ImageUpload, setImageUpload] = useState();
   
   // add records directly to the firestore
   const NewData = async(e) =>{
+    e.preventDefault();
+
     try{
-      e.preventDefault();
-      await addDoc(QRCollection, 
+      if(ImageUpload == null)return;
+      // set the specific path of where the photo is stored thru variable
+      const imageRef = ref(storage, `Staff/KitQR/${ImageUpload.name + v4()}`)
+      // upload directly to storage database
+      uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
+       
+        getDownloadURL(snapshot.ref).then((url) => {
+         // upload directly to cloud firestore database & return back to kit page
+        addDoc(QRCollection, 
         { 
-          KitName: name, 
-          Quantity: amount,
-          StartDate: Timestamp.fromDate(new Date(startdate)),
-          EndDate: Timestamp.fromDate(new Date(enddate)),
-          PhoneNumber:phone,
-          Email: email,
+            KitName: name, 
+            Quantity: amount,
+            StartDate: startdate,
+            EndDate: enddate,
+            PhoneNumber:phone,
+            Email: email,
+            PhotoUrl: url
         });
-      naviagte("/kit")
+        alert("image upload")
+        })
+      });
+      naviagte("/QRIndex")
     }
     catch(e){
       console.log(e.message)
@@ -126,7 +144,15 @@ function QRCreate() {
             "End Date: "+ enddate + " " +
             "Phone Number:"+ phone + " " +
             "Email:" + email
-          } size={250} className="qr" id="Dementia Kit"/>
+          } size={250} className="qr" id="Dementia Kit" />
+        </div>
+        <br />
+        <div className ="form-pic">
+          <label className="KitPictures">Kit Pictures</label>
+          <br />
+          <input type="file" onChange={(event) => {
+           setImageUpload(event.target.files[0]);
+          }} className="form-control-file"  />
         </div>
         <br />
         <br />

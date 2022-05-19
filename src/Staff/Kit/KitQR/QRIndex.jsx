@@ -60,7 +60,7 @@ function QRIndex() {
             <tbody>
               {""}
               <tr>
-                <td>Kit1.jpg</td>
+                <td><img src={user.PhotoUrl}/></td>
                 <td>{user.id}</td>
                 <td>{user.KitName}</td>
                 <td><Link to ={`/QRIndex/Detail/${user.id}`}>View</Link></td>

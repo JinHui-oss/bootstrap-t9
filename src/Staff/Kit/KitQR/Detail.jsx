@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 // bootstrap
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 
 // firebase inital setup
 import { db } from '../../../Database/firebase';
@@ -14,6 +14,7 @@ import {
   getDoc,
   doc
 } from 'firebase/firestore'
+import '../KitQR/KitQR.css'
 
 function QRDetail() {
   
@@ -53,13 +54,13 @@ function QRDetail() {
           Quantity: data.Quantity,
           StartDate: data.StartDate,
           EndDate: data.EndDate,
+          PhotoUrl: data.PhotoUrl
         }
         // reterive the data and stored into a setkit
         setKitQR(setKitQR.state)
        
         // check for the display output
-        // console.log(setKitQR.state)
-        
+        // console.log(setKitQR.state) 
       } 
       else 
       {
@@ -75,7 +76,7 @@ function QRDetail() {
  
   return (
     // body content of the web page
-    <div className='details-content'>
+    <div className='qrdetails-content'>
       
       {/* header of the page */}
       <div className='header'>
@@ -84,37 +85,56 @@ function QRDetail() {
         <hr />
       </div>
 
+        {/* body content of the kit pictures */}
+        <div className='details-pictures'>
+          <div className="d-flex justify-content-around">
+            <Card>
+              <Card.Body>
+                 {/* eslint-disable-next-line */}
+                <p><img src={kitQR.PhotoUrl}></img></p>
+              </Card.Body>
+            </Card>
+          </div>
+        <br />
+         {/* Edit Button */}
+         <Button className='details-edit' href ={`/QRIndex/Edit/${id}`}>
+        {/* eslint-disable-next-line */}
+          <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
+           Edit</Button>
+        </div>
+
+         {/* product title and quantity information */} 
+         <div className='details-title'>
+          <h2>{kitQR.KitName}</h2>
+          <hr />
+          <h2>Quantity: {kitQR.Quantity}</h2>
+          <br />
+        </div>
+
+           {/* body content of the kit information */}
+           <div className='details-information'>
+        <Card className="details-information-title">
+            <Card.Title>
+                <h3>Kit Content Information</h3>
+            </Card.Title>
+          </Card>
+          <Card className="details-information-body">
+            <Card.Body>
+              <p>User Id: <br /> {id}</p>
+              <p>Contact Number: <br /> {kitQR.PhoneNumber}</p>
+              <p>Email: <br />{kitQR.Email}</p>
+              <p>Start Date: <br /> {kitQR.StartDate}</p>
+              <p>End Date: <br />{kitQR.EndDate}</p>
+            
+            </Card.Body>
+          </Card>
+        </div>
+        
       {/* body content of the details */}
-      <div className='content-body'>
-        <label className="DocumentId">Document Id:</label>
-        <p>{id}</p>
-        
-        
-        <label className ="KitName">Kit Name: </label>
-        <p>{kitQR.KitName}</p>
-        
-        <label className="PhoneNumber">Phone Number:</label>       
-        <p>{kitQR.PhoneNumber}</p>
-        
-        <label className="Email">Email:</label>
-        <p>{kitQR.Email}</p>
-        
-        <label className="StartDate">Start Date:</label>
-        <p>{kitQR.StartDate}</p>
-        
-        <label className="EndDate">End Date:</label> 
-        <p>{kitQR.EndDate}</p>
-        
-        <label className="Quantity">Quantity:</label>
-        <p>{kitQR.Quantity}</p>
-      </div>
         
         {/* Button */}
-        <Button href="/QRIndex">Back</Button>
-        <br/>
-        <br/>
-        <br/>
-        <Link to = {`/QRIndex/Edit/${id}`}>Id</Link>
+        <Button className ="QRBack"href="/QRIndex">Back</Button>
+        <Button href = {`#`} className="QREdit">Archive</Button>
         
     </div>
   )

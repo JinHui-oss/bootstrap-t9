@@ -108,14 +108,14 @@ body{
 }
 
 /* Button */
-.details-back {
-    margin-top:2%;
+.details-content .details-back {
+    margin-top:4%;
     margin-left: 80%;
 }
 /* Button */
-.details-archive{
+.details-content .details-archive{
     margin-left:7%;
-    margin-top:2%;
+    margin-top:4%;
 }
 
 /* Edit Page */
