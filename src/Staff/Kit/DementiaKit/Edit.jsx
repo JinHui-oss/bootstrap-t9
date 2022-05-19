@@ -28,7 +28,6 @@ function Edit() {
   const [Description, setDescription] = useState("");
   const [Quantity, setQuantity] = useState("");
   const [ImageUpload,setImageUpload] = useState("");
-  const [ImageList, setImageList] = useState();
   
   //
   const [kit,setKit] = useState([]);
@@ -149,6 +148,7 @@ function Edit() {
         <div className ="form-pic">
           <label htmlFor="KitPictures">Kit Pictures</label>
           <br />
+          {/* eslint-disable-next-line */}
           <img src={kit.PhotoUrl} />
           
           <input type="file" defaultValue={kit.PhotoUrl} onChange={(event) => {
