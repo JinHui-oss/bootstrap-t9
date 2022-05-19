@@ -25,9 +25,6 @@ function Detail() {
   // create variable to reterive the specifc document id
   const { id } = useParams()
 
-  //
-  let date = new Date();
-
   useEffect(() => {
     const getKit = async () => {
       const docRef = doc(db, "Kit", id);
@@ -86,6 +83,7 @@ function Detail() {
           <div className="d-flex justify-content-around">
             <Card>
               <Card.Body>
+                 {/* eslint-disable-next-line */}
                 <p><img src={kit.PhotoUrl}></img></p>
               </Card.Body>
             </Card>
@@ -94,6 +92,7 @@ function Detail() {
         
         {/* Edit Button */}
         <Button className='details-edit' href ={`/Kit/Edit/${id}`}>
+        {/* eslint-disable-next-line */}
           <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
            Edit</Button>
           

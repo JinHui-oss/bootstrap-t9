@@ -1,7 +1,7 @@
 // react
 import React, { useState, useEffect } from 'react';
 import { Table, Button } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // firebase
 import { db, storage } from '../../../Database/firebase';
@@ -17,12 +17,12 @@ import {
 import '../DementiaKit/Kit.css'
 
 function Kit() {
+  //  eslint-disable-next-line
   const [imageList, setImageList] = useState([]);
   const imageListRef = ref(storage, "Staff/Kit")
   const [kit, setKit] = useState([]);
   const kitCollectionRef = collection(db, "Kit");
-    // create variable to reterive the specifc document id
-    const { id } = useParams()
+   
 
   useEffect(() => {
     const getKit = async () => {
@@ -42,7 +42,8 @@ function Kit() {
           })
         })  
       })
-  }, [])
+      //  eslint-disable-next-line
+    }, [])
 
   return (
     <div className='content'>
@@ -75,9 +76,9 @@ function Kit() {
             <tbody>
               {""}
               <tr>
-                <td> 
-                <img src ={user.PhotoUrl} width="120px" height="120px"/>
-           
+                <td>
+                { /*eslint-disable-next-line */ } 
+                <img src ={user.PhotoUrl} width="120px" height="120px" />
                 </td>
                 <td>{user.id}</td>
                 <td>{user.Name}</td>
