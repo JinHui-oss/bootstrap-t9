@@ -88,21 +88,20 @@ function Edit() {
         // set the specific path of where the photo is stored thru variable
         const imageRef = ref(storage, `Staff/Kit/${ImageUpload.name + v4()}`)
         // upload directly to storage database
-        uploadBytes(imageRef, ImageUpload).then((snaphsot) =>{
-          getDownloadURL(snaphsot.ref).then((url) => {
-            setImageList(url) 
+        uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
+          // check the condition if there is no photo uploaded to server
+          if(ImageUpload == null)return;
+          getDownloadURL(snapshot.ref).then((url) => {
+            updateDoc(QRCollection, 
+              { 
+                Name: Name, 
+                Description: Description,
+                Quantity: Quantity,
+                CreatedAt: date.toDateString(),
+                PhotoUrl: url
+              });
             alert("image upload")
-            console.log(ImageList)
           })
-        });
-      await updateDoc(QRCollection, 
-        { 
-          Name: Name, 
-          Description: Description,
-          Quantity: Quantity,
-          CreatedAt: date.toDateString(),
-          PhotoUrl: ImageList
-
         });
       naviagte("/Kit")
     }

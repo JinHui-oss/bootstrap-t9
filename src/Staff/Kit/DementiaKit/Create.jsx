@@ -34,6 +34,8 @@ function AddKit() {
     // prevent the button from being spammed when there is no data
     e.preventDefault();
     
+    //
+    let date = new Date();
     
     //
     try{
@@ -44,21 +46,19 @@ function AddKit() {
       // upload directly to storage database
       uploadBytes(imageRef, ImageUpload).then((snaphsot) =>{
         getDownloadURL(snaphsot.ref).then((url) => {
-          setImageList(url) 
-          alert("image upload")
-          console.log(ImageList)
-        })
-      });
-    
-      // upload directly to cloud firestore database & return back to kit page
-      await addDoc(kitCollectionRef, 
+         // upload directly to cloud firestore database & return back to kit page
+        addDoc(kitCollectionRef, 
         {
           Name: newKit, 
           Description: newdesc,
           Quantity: newamt,
-          PhotoUrl: ImageList
+          PhotoUrl: url,
+          CreatedAt: date.toDateString() 
         });
-      navigate("/Kit")
+          alert("image upload")
+        })
+      });
+       navigate("/Kit")
       }  
     
     // catch error messages and displayed to the users
