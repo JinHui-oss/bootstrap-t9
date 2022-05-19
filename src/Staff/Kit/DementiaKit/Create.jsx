@@ -26,7 +26,6 @@ function AddKit() {
   const [newdesc, setDesc] = useState();
   const [newamt, setAmt] = useState();
   const [ImageUpload, setImageUpload] = useState();
-  const [ImageList, setImageList] = useState();
   const navigate = useNavigate();
  
 
@@ -34,7 +33,7 @@ function AddKit() {
     // prevent the button from being spammed when there is no data
     e.preventDefault();
     
-    //
+    // store the date format and value into a variable
     let date = new Date();
     
     //
@@ -44,8 +43,9 @@ function AddKit() {
       // set the specific path of where the photo is stored thru variable
       const imageRef = ref(storage, `Staff/Kit/${ImageUpload.name + v4()}`)
       // upload directly to storage database
-      uploadBytes(imageRef, ImageUpload).then((snaphsot) =>{
-        getDownloadURL(snaphsot.ref).then((url) => {
+      uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
+       
+        getDownloadURL(snapshot.ref).then((url) => {
          // upload directly to cloud firestore database & return back to kit page
         addDoc(kitCollectionRef, 
         {
