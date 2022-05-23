@@ -1,6 +1,6 @@
 // react
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 // bootstrap
 import { Button, Card } from 'react-bootstrap';
@@ -13,7 +13,8 @@ import {
   collection,
   getDoc,
   doc,
-  Timestamp
+  Timestamp,
+  deleteDoc
 } from 'firebase/firestore'
 import '../KitQR/KitQR.css'
 
@@ -30,7 +31,7 @@ function QRDetail() {
   
   // reterieve the document id and stored to variable
   const { id } = useParams();
-  
+  const navigate = useNavigate();
   //
   useEffect(() => {
     const getKit = async () => {
@@ -49,6 +50,7 @@ function QRDetail() {
         // console.log(data)
         
         setKitQR.state ={
+          id: id,
           KitName: data.KitName,
           PhoneNumber: data.PhoneNumber,
           Email: data.Email,
@@ -75,6 +77,15 @@ function QRDetail() {
 
   // eslint-disable-next-line 
   }, [kitQRCollectionRef])
+
+  const deleteKit = async (id) => {
+  
+    //e.preventDefault();
+    const deletedocRef = doc(db, "KitQR", id);
+    await deleteDoc(deletedocRef);
+    navigate("/QRIndex")
+    console.log("Records deleted Successfully");
+}
  
   return (
     // body content of the web page
@@ -137,7 +148,7 @@ function QRDetail() {
         
         {/* Button */}
         <Button className ="QRBack"href="/QRIndex">Back</Button>
-        <Button href = {`#`} className="QREdit">Archive</Button>
+        <Button onClick={() => {deleteKit(id)}} className="QREdit">Archive</Button>
         
     </div>
   )

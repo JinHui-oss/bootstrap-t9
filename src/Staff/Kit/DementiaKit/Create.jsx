@@ -3,7 +3,7 @@ import '../DementiaKit/Kit.css'
 
 // React
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap'
 
 // Firebase initial config
@@ -18,7 +18,8 @@ import { v4 } from 'uuid'
 
 
 function AddKit() {
-  // create and stored the data into the firebase
+ 
+   // create and stored the data into the firebase
   const kitCollectionRef = collection(db, "Kit");
   
   // retrieve the data from the user input and stored into variable
@@ -28,14 +29,12 @@ function AddKit() {
   const [ImageUpload, setImageUpload] = useState();
   const navigate = useNavigate();
  
-
   const createKit = async (e) =>{
     // prevent the button from being spammed when there is no data
     e.preventDefault();
     
     // store the date format and value into a variable
     let date = new Date();
-    
     //
     try{
       // check the condition if there is no photo uploaded to server

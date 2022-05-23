@@ -1,6 +1,6 @@
 // react
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 // bootstrap
 import { Button, Card } from 'react-bootstrap';
@@ -12,11 +12,13 @@ import { db } from '../../../Database/firebase';
 import { 
   collection,
   getDoc,
+  deleteDoc,
   doc
 } from 'firebase/firestore'
 
 // css
 import "../DementiaKit/Kit.css"
+
 function Detail() {
   
   const [kit,setKit] = useState([]);
@@ -24,6 +26,7 @@ function Detail() {
   
   // create variable to reterive the specifc document id
   const { id } = useParams()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getKit = async () => {
@@ -42,12 +45,12 @@ function Detail() {
         // console.log(data)
         
         setKit.state ={
+          id : id,
           Name: data.Name,
           Description: data.Description,
           Quantity: data.Quantity,
           CreatedAt: data.CreatedAt,
           PhotoUrl: data.PhotoUrl
-          
         }
         // reterive the data and stored into a setkit
         setKit(setKit.state)
@@ -61,12 +64,20 @@ function Detail() {
         // doc.data() will be undefined in this case
         console.log("No such document!");
       }
-
     };
     getKit();
 
   // eslint-disable-next-line 
   }, [kitCollectionRef])
+
+  const deleteKit = async (id) => {
+  
+      //e.preventDefault();
+      const deletedocRef = doc(db, "Kit", id);
+      await deleteDoc(deletedocRef);
+      navigate("/Kit")
+      console.log("Records deleted Successfully");
+  }
    
    return (
     // Kit infomation details for specific page
@@ -120,9 +131,9 @@ function Detail() {
           </Card>
             {/* Back Button */}
         </div>
-        <Button href="/QRIndex" className='details-back'>Back</Button>
+        <Button href="/Kit" className='details-back'>Back</Button>
         {/* Archive Button */}
-        <Button href="#" className='details-archive'>Archive</Button>
+        <Button onClick={() => {deleteKit(id)}} className='details-archive'>Archive</Button>
       
       </div>
     </div>

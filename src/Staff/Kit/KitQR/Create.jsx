@@ -29,6 +29,8 @@ function QRCreate() {
   // add records directly to the firestore
   const NewData = async(e) =>{
     e.preventDefault();
+    //
+    let date = new Date();
 
     try{
       if(ImageUpload == null)return;
@@ -47,7 +49,8 @@ function QRCreate() {
             EndDate: enddate,
             PhoneNumber:phone,
             Email: email,
-            PhotoUrl: url
+            PhotoUrl: url,
+            CreatedAt: date.toDateString()
         });
         alert("image upload")
         })
