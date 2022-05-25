@@ -19,6 +19,7 @@ import {
   getDoc,
   doc
 } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth';
 
 function Staff() {
   const [Member, setMember] = useState([]);
@@ -26,13 +27,18 @@ function Staff() {
  
   const { logout } = UserAuth();
   // create variable to reterive the specifc document id
-  const { id } = useParams()
+
   const naviagte = useNavigate();
 
   useEffect(() => {
     const getdata = async () => {
-      //const docRef = doc(db, "Member", "Jz1FaPxDJdE1574728hf");
-      const docRef = doc(db, "Member", id);
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if(user !== null){
+      
+      const t = user.uid;
+        
+      const docRef = doc(db, "Member", t);
       const docSnap = await getDoc(docRef);
       
       // check for display output
@@ -69,6 +75,7 @@ function Staff() {
         console.log("No such document!");
       }
     };
+  }
     getdata();
 
   // eslint-disable-next-line 
