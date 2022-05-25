@@ -3,15 +3,17 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../Scripts/authContext'
 import { Form, Button } from 'react-bootstrap'
-import { addDoc, collection, doc } from 'firebase/firestore'
-import { auth, db } from '../Database/firebase';
+import { doc, setDoc } from 'firebase/firestore'
+import { db } from '../Database/firebase';
 
 
 function Signup() {
-
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [user, setUser] = useState('');
+   
 
     const {createUser} = UserAuth();
    
@@ -22,18 +24,21 @@ function Signup() {
         let date = new Date();
         let pass = "Member";
 
-        const kitCollectionRef = collection(db, "Member");
         setError(error)
         try{
-            await createUser(email,password,pass)
-            await addDoc(kitCollectionRef, {
+            const { user } = await createUser(email,password,pass)
+            setUser(user);
+            
+            await setDoc(doc(db,"Member",user.uid), {
+                Name: name,
                 Email: email,
                 Password: password,
                 CreatedAt: date.toDateString(),
-                PhotoUrl: "https://cdn-icons.flaticon.com/png/512/3033/premium/3033143.png?token=exp=1653291425~hmac=2a423454698479852bd5968e418fd3c3",
-                Role: pass
+                PhotoUrl: "https://cdn-icons-png.flaticon.com/512/709/709722.png",
+                Role: pass,
+                uid: user.uid
             })
-            navigate('/account');
+            navigate(`/Account/${user.uid}`)
         }catch(e){
             setError(e.message)
             console.log(e.message)
@@ -55,6 +60,11 @@ function Signup() {
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" required/>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter Name" required/>
         </Form.Group>
     
         <Button variant="primary" type="submit"> Submit </Button>

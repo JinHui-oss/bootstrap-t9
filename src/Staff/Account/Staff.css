@@ -1,0 +1,55 @@
+.profilepage-content{
+    margin-top:2%;
+}
+
+.profilepage-content .header{
+    width: 70%;
+    margin-left: 17%;
+    margin-top: 2%;
+}
+
+.profilepage-pictures .pic {
+    margin-top: 2%;
+    margin-left: 25%;
+    max-width: 20%;
+}
+
+.profilepage-pictures .pic img{
+    width: 320px;
+    height: auto;
+    margin-left: 5%;
+   
+}
+
+.profilepage-pictures .profilepage-edit{
+   margin-left: 32%;
+}
+
+.profilepage-pictures .profilepage-edit img{
+    margin-top: 2%;
+    width: 50px;
+    height: auto;
+}
+
+.profilepage-content .profilepage-title{
+    margin-left: 50%;
+    margin-top: -24%;
+}
+
+.profilepage-content .profilepage-title hr{
+   max-width: 74%;
+}
+
+.profilepage-information{
+    margin-left: 50% ;
+    width: 50%;
+}
+.profilepage-information .profilepage-information-title{
+    max-width: 74%;
+    text-align: center;
+    margin-bottom: 3%;
+}
+.profilepage-information .profilepage-information-body{
+    max-width: 74%;
+    margin-bottom: 3%;
+}

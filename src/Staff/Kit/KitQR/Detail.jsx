@@ -124,8 +124,8 @@ function QRDetail() {
           <br />
         </div>
 
-           {/* body content of the kit information */}
-           <div className='details-information'>
+        {/* body content of the kit information */}
+        <div className='details-information'>
         <Card className="details-information-title">
             <Card.Title>
                 <h3>Kit Content Information</h3>

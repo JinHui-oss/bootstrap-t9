@@ -73,7 +73,7 @@ function App() {
         }/>
         
          {/* Staff Profile Page */}      
-        <Route path='/Account' element={<ProtectedRoute>
+        <Route path='/Account/:id' element={<ProtectedRoute>
           <Staff />
           <Profile />  
         </ProtectedRoute>} />
