@@ -34,6 +34,7 @@ import QRIndex from "./Staff/Kit/KitQR/QRIndex";
 import QRCreate from "./Staff/Kit/KitQR/Create";
 import QRDetail from "./Staff/Kit/KitQR/Detail"
 import QREdit from "./Staff/Kit/KitQR/Edit";
+import ProfileEdit from "./Staff/Account/Edit";
 
 function App() {
   return(
@@ -76,6 +77,11 @@ function App() {
         <Route path='/Account/:id' element={<ProtectedRoute>
           <Staff />
           <Profile />  
+        </ProtectedRoute>} />
+        
+        <Route path='/Account/Edit/:id' element={<ProtectedRoute>
+          <Staff />
+          <ProfileEdit /> 
         </ProtectedRoute>} />
         
          {/* Dashboard interface for staff */}
