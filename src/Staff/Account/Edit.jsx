@@ -17,10 +17,8 @@ import
 } from 'firebase/firestore'
 import 
 { 
-  EmailAuthProvider,
   getAuth, 
-  reauthenticateWithCredential, 
-  updateEmail, 
+  signInWithEmailAndPassword, 
   updateProfile,
 }from 'firebase/auth';
 
@@ -106,10 +104,19 @@ function ProfileEdit() {
         uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
           // check the condition if there is no photo uploaded to server
           //if(ImageUpload == null)return;
-          if(ImageUpload === imageRef){
+          if(ImageUpload === null){
             console.log('y')
           }
           getDownloadURL(snapshot.ref).then((url) => {
+            const auth = getAuth();
+            const user = auth.currentUser;
+            console.log(user)
+            
+            updateProfile(user, {
+              displayName : Name,
+              photoURL: url,
+            })
+          
             updateDoc(QRCollection, 
               { 
                 uid : id,
