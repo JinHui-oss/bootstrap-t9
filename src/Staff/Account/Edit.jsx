@@ -36,7 +36,7 @@ function ProfileEdit() {
   const { id } = useParams()
  
    // create and stored the data into the firestore
-   const QRCollection = doc(db, "Member", id)
+   const QRCollection = doc(db, "Staff", id)
   const naviagte = useNavigate();
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function ProfileEdit() {
       //const docRef = doc(db, "Member", "Jz1FaPxDJdE1574728hf");
       
       //
-      const docRef = doc(db, "Member", id);
+      const docRef = doc(db, "Staff", id);
       const docSnap = await getDoc(docRef);
       
       // check for display output
@@ -73,7 +73,7 @@ function ProfileEdit() {
         setMember(setMember.state)
        
         // check for the display output
-        // console.log(setMember.state)
+        //console.log(setMember.state)
       } 
       else 
       {
@@ -90,11 +90,10 @@ function ProfileEdit() {
 
   // add records directly to the firestore
   const EditData = async(e) =>{
-    e.preventDefault();
     try{
-     
+      e.preventDefault();
       let date = new Date();
-      let rolem = "Member";
+      let rolem = "Staff";
   
         // check the condition if there is no photo uploaded to server
         if(ImageUpload == null)return;
@@ -110,7 +109,7 @@ function ProfileEdit() {
           getDownloadURL(snapshot.ref).then((url) => {
             const auth = getAuth();
             const user = auth.currentUser;
-            console.log(user)
+            //console.log(user)
             
             updateProfile(user, {
               displayName : Name,
@@ -131,7 +130,7 @@ function ProfileEdit() {
             alert("image upload") 
           })
         });
-      naviagte(`/Account/${Member.uid}`)
+      naviagte(`/Staff/Account/${Member.uid}`)
     }
     catch(e){
       console.log(e.message)

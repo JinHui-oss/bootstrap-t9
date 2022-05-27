@@ -16,7 +16,8 @@ import Error from "./General/Message/Error";
 
 // Login interface
 import Signin from "./Login/Signin";
-import Signup from "./Login/Signup";
+import Signup_Staff from "./Login/Signup_Staff";
+import SignUp_Member from "./Login/Signup_Member";
 import ForgotPassword from "./Login/ForgotPassword";
 
 // Staff Interface
@@ -35,6 +36,7 @@ import QRCreate from "./Staff/Kit/KitQR/Create";
 import QRDetail from "./Staff/Kit/KitQR/Detail"
 import QREdit from "./Staff/Kit/KitQR/Edit";
 import ProfileEdit from "./Staff/Account/Edit";
+
 
 function App() {
   return(
@@ -57,11 +59,21 @@ function App() {
         </>
         }/>
         
-        {/* Signup Page */}
-        <Route path='/Signup' element={
+        {/* Member Signup Page */}
+        <Route path='/Signup_Member' element={
         <>
           <General />
-          <Signup />
+          {/* eslint-disable-next-line */}
+          <SignUp_Member />
+        </>
+        }/>
+
+        {/* Staff Signup Page */}
+        <Route path='/Signup_Staff' element={
+        <>
+          <General />
+          {/* eslint-disable-next-line */}
+          <Signup_Staff />
         </>
         }/>
 
@@ -74,12 +86,12 @@ function App() {
         }/>
         
          {/* Staff Profile Page */}      
-        <Route path='/Account/:id' element={<ProtectedRoute>
+        <Route path='/Staff/Account/:id' element={<ProtectedRoute>
           <Staff />
           <Profile />  
         </ProtectedRoute>} />
         
-        <Route path='/Account/Edit/:id' element={<ProtectedRoute>
+        <Route path='/Staff/Account/Edit/:id' element={<ProtectedRoute>
           <Staff />
           <ProfileEdit /> 
         </ProtectedRoute>} />
