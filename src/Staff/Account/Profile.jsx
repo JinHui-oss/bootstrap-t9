@@ -29,7 +29,7 @@ function Profile() {
   useEffect(() => {
     const getdata = async () => {
       //const docRef = doc(db, "Member", "Jz1FaPxDJdE1574728hf");
-      const docRef = doc(db, "Member", id);
+      const docRef = doc(db, "Staff", id);
       const docSnap = await getDoc(docRef);
       
       // check for display output
@@ -93,7 +93,7 @@ function Profile() {
         </div>
       <br />
       {/* Edit Button */}
-      <Button className='profilepage-edit' href ={`/Account/Edit/${id}`}>
+      <Button className='profilepage-edit' href ={`/Staff/Account/Edit/${id}`}>
       {/* eslint-disable-next-line */}
       <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
       Edit</Button>
@@ -101,7 +101,7 @@ function Profile() {
 
        {/* product title and quantity information */} 
        <div className='profilepage-title'>
-          <h2>{Member.Name}</h2>
+          <h2>Name: {Member.Name}</h2>
           <hr />
           <h2>Role: {Member.Role}</h2>
           <br />
@@ -120,7 +120,6 @@ function Profile() {
               <p>Email: <br /> {Member.Email}</p>
               <p>Passwod: <br /> 
               <input type="password"defaultValue={Member.Password} readOnly/></p>
-              <p>Role: <br /> {Member.Role}</p>
               <p>CreatedAt: <br />{Member.CreatedAt}</p> 
             </Card.Body>
           </Card>

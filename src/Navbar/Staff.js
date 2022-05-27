@@ -23,7 +23,7 @@ import { getAuth } from 'firebase/auth';
 
 function Staff() {
   const [Member, setMember] = useState([]);
-  const MemberCollectionRef = collection(db, "Member");
+  const MemberCollectionRef = collection(db, "Staff");
  
   const { logout } = UserAuth();
   // create variable to reterive the specifc document id
@@ -38,7 +38,7 @@ function Staff() {
       
       const t = user.uid;
         
-      const docRef = doc(db, "Member", t);
+      const docRef = doc(db, "Staff", t);
       const docSnap = await getDoc(docRef);
       
       // check for display output
@@ -100,7 +100,7 @@ function Staff() {
         <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
         <Nav.Link href="/Kit">Kit</Nav.Link>
         <Nav.Link href="/QRIndex">KitQR</Nav.Link>
-        <Nav.Link href={`/Account/${Member.uid}`}>Account</Nav.Link>
+        <Nav.Link href={`/Staff/Account/${Member.uid}`}>Account</Nav.Link>
         <Nav.Link href="/Report">Report</Nav.Link>
       </Nav>
       <Nav>

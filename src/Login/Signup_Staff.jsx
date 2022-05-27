@@ -7,12 +7,13 @@ import { doc, setDoc } from 'firebase/firestore'
 import { db } from '../Database/firebase';
 
 
-function Signup() {
+function Signup_Staff() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [user, setUser] = useState('');
+    // eslint-disable-next-line
+    const [user,setUser] = useState('');
    
 
     const {createUser} = UserAuth();
@@ -22,14 +23,14 @@ function Signup() {
     const handlesubmit = async (e) =>{
         e.preventDefault();
         let date = new Date();
-        let pass = "Member";
+        let pass = "Staff";
 
         setError(error)
         try{
             const { user } = await createUser(email,password,pass)
             setUser(user);
             
-            await setDoc(doc(db,"Member",user.uid), {
+            await setDoc(doc(db,"Staff",user.uid), {
                 Name: name,
                 Email: email,
                 Password: password,
@@ -38,7 +39,7 @@ function Signup() {
                 Role: pass,
                 uid: user.uid
             })
-            navigate(`/Account/${user.uid}`)
+            navigate(`/Staff/Account/${user.uid}`)
         }catch(e){
             setError(e.message)
             console.log(e.message)
@@ -49,8 +50,7 @@ function Signup() {
     <div className='max-w-[700px] mx-auto my-16 p-4'>
         <h1 className='text-center text-3xl font-bold'> Sign up to your account </h1>
         <br />
-        <p> Already have an account yet? <Link to ='/signin' className='underline'>Sign in.</Link></p>
-        
+        <p> Already have an account yet? <Link to ='/Signup_Member' className='underline'>Sign in.</Link></p>
         <Form onSubmit={handlesubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -73,4 +73,4 @@ function Signup() {
   )
 }
 
-export default Signup
+export default Signup_Staff
