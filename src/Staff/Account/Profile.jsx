@@ -118,7 +118,8 @@ function Profile() {
             <Card.Body>
               <p>User Id: <br /> {Member.uid}</p>
               <p>Email: <br /> {Member.Email}</p>
-              <p>Passwod: <br /> {Member.Password}</p>
+              <p>Passwod: <br /> 
+              <input type="password"defaultValue={Member.Password} readOnly/></p>
               <p>Role: <br /> {Member.Role}</p>
               <p>CreatedAt: <br />{Member.CreatedAt}</p> 
             </Card.Body>
