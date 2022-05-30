@@ -1,6 +1,6 @@
 // react
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 // bootstrap
 import { Button, Card } from 'react-bootstrap';
@@ -22,8 +22,7 @@ function MemberProfile() {
   
   // create variable to reterive the specifc document id
   const { id } = useParams()
-  const navigate = useNavigate();
-
+ 
   useEffect(() => {
     const getdata = async () => {
       //const docRef = doc(db, "Member", "Jz1FaPxDJdE1574728hf");
