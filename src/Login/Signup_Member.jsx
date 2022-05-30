@@ -37,7 +37,7 @@ function SignUp_Member() {
               Role: pass,
               uid: user.uid
           })
-          navigate(`/Member/Loan`)
+          navigate(`/Member/Kit`)
       }catch(e){
           setError(e.message)
           console.log(e.message)

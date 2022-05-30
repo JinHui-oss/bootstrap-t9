@@ -26,9 +26,15 @@ import Profile from "./Staff/Account/Profile";
 import Index from "./Staff/Index";
 
 // Member Interface
-import Memberindex from "./Member/Loan/Index";
 import MemberProfile from "./Member/Account/Profile";
-import LoanIndex from "./Member/Loan/Index";
+import LoanIndex from "./Member/Kit/Index";
+import MemberEdit from "./Member/Account/Edit";
+
+// Member & Loan Interface
+import LoanCreate from "./Member/Kit/Create";
+import LoanDetail from "./Member/Kit/Detail";
+import CurrentLoan from "./Member/Loan/Current";
+import PastLoan from "./Member/Loan/Past";
 
 // Staff & Kit Interface
 import Kit from "./Staff/Kit/DementiaKit/Index";
@@ -109,12 +115,6 @@ function App() {
           <Index />
         </ProtectedRoute>} />
 
-        {/* Dashboard interface for Member */}
-        <Route path='/Member/Loan' element={<ProtectedRoute>
-          <Member />
-          <Memberindex />
-        </ProtectedRoute>} />
-      
         {/* Profile interface for Member */}
         <Route path='/Member/Profile/:id' element={<ProtectedRoute>
           <Member />
@@ -124,20 +124,42 @@ function App() {
         {/* Profile Edit interface for Member */}
           <Route path='/Member/Profile/Edit/:id' element={<ProtectedRoute>
           <Member />
-          <MemberProfile />
+          <MemberEdit />
         </ProtectedRoute>} />
 
-        {/* Profile Edit interface for Member */}
-          <Route path='/Member/Loan' element={
+        {/* Kit interface for Member */}
+          <Route path='/Member/Kit' element={
           <ProtectedRoute>
             <Member />
             <LoanIndex />
           </ProtectedRoute>} />
-      
-        <Route path='/Member/Profile/Edit/:id' element={
-          <ProtectedRoute>
-            <Member />
-            
+          
+        {/* Kit Detail interface for Member */}
+        <Route path='/Member/Kit/Detail/:id' element={
+        <ProtectedRoute>
+          <Member />
+          <LoanDetail />
+        </ProtectedRoute>} />
+
+        {/* Loan form interface for Member */} 
+        <Route path='/Member/Kit/Create/:id' element={
+        <ProtectedRoute>
+          <Member />
+          <LoanCreate />
+        </ProtectedRoute>} />
+
+        {/* Current Loan Kit interface for Member */} 
+        <Route path='/Member/CurrentLoan' element={
+        <ProtectedRoute>
+          <Member />
+          <CurrentLoan/>
+        </ProtectedRoute>} />
+
+        {/* Past Loan Kit interface for Member */} 
+        <Route path='/Member/PastLoan' element={
+        <ProtectedRoute>
+          <Member />
+          <PastLoan/>
         </ProtectedRoute>} />
       
          {/* listing all kits page */}

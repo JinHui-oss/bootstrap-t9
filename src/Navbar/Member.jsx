@@ -3,6 +3,7 @@ import {
     Nav,
     Navbar,
     Container,
+    NavDropdown
 }from 'react-bootstrap'
 
 import { useNavigate } from 'react-router-dom';
@@ -97,10 +98,14 @@ function Member() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="/Member/Loan">Loan</Nav.Link>
-          <Nav.Link href={`/Member/Profile/${member.uid}`}>Account</Nav.Link>
-          <Nav.Link href="/Report">Search</Nav.Link>
+          <NavDropdown title="Loan" id="navbarScrollingDropdown">
+            <NavDropdown.Item href="/Member/CurrentLoan">Current Loan</NavDropdown.Item>
+            <NavDropdown.Item href="/Member/PastLoan">Past Loan</NavDropdown.Item>
+          </NavDropdown>
+        <Nav.Link href={`/Member/Profile/${member.uid}`}>Account</Nav.Link>
+        <Nav.Link href="/Report">Search</Nav.Link>
         </Nav>
+      
         <Nav>
           <Nav.Link onClick={handlelogout} >LogOut</Nav.Link>
         </Nav>

@@ -81,7 +81,7 @@ function LoanIndex() {
                 </td>
                 <td>{user.id}</td>
                 <td>{user.Name}</td>
-                <td><Link to ={`/Kit/Detail/${user.id}`}>View</Link></td>
+                <td><Link to ={`/Member/Kit/Detail/${user.id}`}>View</Link></td>
               </tr>
             </tbody>
             );

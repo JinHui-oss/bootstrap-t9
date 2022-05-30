@@ -1,6 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { Button, Form } from 'react-bootstrap'
+import { useNavigate, useParams } from 'react-router-dom'
+import { UserAuth } from '../../Scripts/authContext'
+import { db, storage } from '../../Database/firebase'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-function Edit() {
+
+import 
+{ 
+  doc, 
+  updateDoc, 
+  collection,
+  getDoc  
+} from 'firebase/firestore'
+import 
+{ 
+  getAuth,  
+  updateProfile,
+}from 'firebase/auth';
+
+// Random unique id 
+// import { v4 } from 'uuid'
+
+function MemberEdit() {
   const [Member, setMember] = useState([]);
   
   // eslint-disable-next-line
@@ -121,8 +143,8 @@ function Edit() {
   return (
     <div className='edit-body'>
     <div className='header'>
-      <h2>Edit Dementia Kit </h2>
-      <p>You can make changes to the kit once created</p>
+      <h2>Update User Profile </h2>
+      <p>You can make changes to the profile once created</p>
       <hr />
     </div>
     <div className='form-details'>
@@ -132,7 +154,7 @@ function Edit() {
           setName(event.target.value);
         }} 
         className="form-control" 
-        id="KitName" 
+        id="AccountName" 
         placeholder={Member.Name}
         />
 
@@ -141,7 +163,7 @@ function Edit() {
           setEmail(event.target.value);
         }} 
       className="form-control" 
-      id="KitName" 
+      id="AccountEmail" 
       placeholder={Member.Email}
       />
 
@@ -185,4 +207,4 @@ function Edit() {
 
 
 
-export default Edit
+export default MemberEdit

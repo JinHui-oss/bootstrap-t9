@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Create() {
+function CurrentLoan() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Create() {
   )
 }
 
-export default Create
+export default CurrentLoan
