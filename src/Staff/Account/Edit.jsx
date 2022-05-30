@@ -36,7 +36,7 @@ function ProfileEdit() {
   const { id } = useParams()
  
    // create and stored the data into the firestore
-   const QRCollection = doc(db, "Staff", id)
+   const QRCollection = doc(db, "Member", id)
   const naviagte = useNavigate();
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function ProfileEdit() {
       //const docRef = doc(db, "Member", "Jz1FaPxDJdE1574728hf");
       
       //
-      const docRef = doc(db, "Staff", id);
+      const docRef = doc(db, "Member", id);
       const docSnap = await getDoc(docRef);
       
       // check for display output
@@ -93,18 +93,18 @@ function ProfileEdit() {
     try{
       e.preventDefault();
       let date = new Date();
-      let rolem = "Staff";
+      let rolem = "Member";
   
         // check the condition if there is no photo uploaded to server
         if(ImageUpload == null)return;
         // set the specific path of where the photo is stored thru variable
-        const imageRef = ref(storage, `Staff/Account/${ImageUpload.name}`)
+        const imageRef = ref(storage, `Member/Account/${ImageUpload.name}`)
         // upload directly to storage database
         uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
           // check the condition if there is no photo uploaded to server
           //if(ImageUpload == null)return;
           if(ImageUpload === null){
-            console.log('y')
+           return;
           }
           getDownloadURL(snapshot.ref).then((url) => {
             const auth = getAuth();
@@ -130,7 +130,7 @@ function ProfileEdit() {
             alert("image upload") 
           })
         });
-      naviagte(`/Staff/Account/${Member.uid}`)
+      naviagte(`/Member/Account/${Member.uid}`)
     }
     catch(e){
       console.log(e.message)
@@ -166,7 +166,7 @@ function ProfileEdit() {
       />
 
       <label className='Password'>Password </label>
-      <input type="text"  defaultValue={Member.Password} checked ={Member.Password} onChange={(event) => {
+      <input type="password"  defaultValue={Member.Password} checked ={Member.Password} onChange={(event) => {
           setPassword(event.target.value);
         }} 
       className="form-control" 

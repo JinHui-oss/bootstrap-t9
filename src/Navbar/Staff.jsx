@@ -5,7 +5,7 @@ import {
     Container,
 }from 'react-bootstrap'
 
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 //
 import { UserAuth } from "../Scripts/authContext" 
@@ -22,8 +22,8 @@ import {
 import { getAuth } from 'firebase/auth';
 
 function Staff() {
-  const [Member, setMember] = useState([]);
-  const MemberCollectionRef = collection(db, "Staff");
+  const [staff, setStaff] = useState([]);
+  const StaffCollectionRef = collection(db, "Staff");
  
   const { logout } = UserAuth();
   // create variable to reterive the specifc document id
@@ -52,7 +52,7 @@ function Staff() {
         let data =  docSnap.data();
         // console.log(data)
         
-        setMember.state = {
+        setStaff.state = {
           uid : data.uid,
           Name: data.Name,
           PhotoUrl : data.PhotoUrl,
@@ -63,7 +63,7 @@ function Staff() {
         }
         
         // reterive the data and stored into a setkit
-        setMember(setMember.state)
+        setStaff(setStaff.state)
        
         // check for the display output
         // console.log(setMember.state)
@@ -79,7 +79,7 @@ function Staff() {
     getdata();
 
   // eslint-disable-next-line 
-  }, [MemberCollectionRef])
+  }, [StaffCollectionRef])
 
   const handlelogout= async() =>{
     try{
@@ -100,7 +100,7 @@ function Staff() {
         <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
         <Nav.Link href="/Kit">Kit</Nav.Link>
         <Nav.Link href="/QRIndex">KitQR</Nav.Link>
-        <Nav.Link href={`/Staff/Account/${Member.uid}`}>Account</Nav.Link>
+        <Nav.Link href={`/Staff/Account/${staff.uid}`}>Account</Nav.Link>
         <Nav.Link href="/Report">Report</Nav.Link>
       </Nav>
       <Nav>

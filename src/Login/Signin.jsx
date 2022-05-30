@@ -27,7 +27,8 @@ function Signin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [Member,setMember] = useState([]);
+    const [staff,setStaff] = useState([]);
+    const [member,setMember] = useState([]);
     const { signIn } = UserAuth();
     const naviagte = useNavigate();
 
@@ -40,7 +41,9 @@ function Signin() {
             
             const docRef = doc(db, "Staff", user.uid);
             const docSnap = await getDoc(docRef);
-            console.log(docSnap)
+            
+            // check for output
+             console.log(docSnap)
 
             // check condition
             if (docSnap.exists()) 
@@ -50,29 +53,52 @@ function Signin() {
               let data =  docSnap.data();
               console.log(data)
               
+              setStaff.state ={
+                uid : data.uid,
+                Role: data.Role
+              }
+              // reterive the data and stored into a setkit
+              setStaff(setStaff.state)
+             
+              // check for the display output
+              //console.log(setKit.state)
+            }
+
+            const docRef1 = doc(db, "Member", user.uid);
+            const docSnap1 = await getDoc(docRef1);
+            
+            // check for output
+            // console.log(docSnap1)
+
+            // check condition
+            if (docSnap1.exists()) 
+            {
+              // display the output if the record exist 
+              // create a variable to store the data output.
+              let data =  docSnap1.data();
+              // console.log(data)
+              
               setMember.state ={
                 uid : data.uid,
                 Role: data.Role
               }
               // reterive the data and stored into a setkit
               setMember(setMember.state)
-             
-              // check for the display output
-              //console.log(setKit.state)
             }
-            if(Member.Role === "Member")
+            if(member.Role === "Member")
             {
-                naviagte('/index');
-                console.log(Member.Role)
+                naviagte('/Member/Loan');
+                console.log(member.Role)
                 console.log('you have logged in')
             }
-            else if(Member.Role === "Staff"){
-                naviagte('/dashboard')
+           if(staff.Role === "Staff"){
+                naviagte('/Staff/Dashboard')
                 console.log('hello')
             } 
             else 
             {
               // doc.data() will be undefined in this case
+              //naviagte('/index')
               console.log("No such document!");
             }
         }catch(e){

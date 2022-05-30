@@ -9,6 +9,7 @@ import ProtectedRoute from "./ProtectedRoute";
 // Navbar
 import General from "../src/Navbar/General"
 import Staff from "../src/Navbar/Staff"
+import Member from "./Navbar/Member";
 
 // General Page
 import Home from "./General/Index";
@@ -24,6 +25,11 @@ import ForgotPassword from "./Login/ForgotPassword";
 import Profile from "./Staff/Account/Profile";
 import Index from "./Staff/Index";
 
+// Member Interface
+import Memberindex from "./Member/Loan/Index";
+import MemberProfile from "./Member/Account/Profile";
+import LoanIndex from "./Member/Loan/Index";
+
 // Staff & Kit Interface
 import Kit from "./Staff/Kit/DementiaKit/Index";
 import AddKit from "./Staff/Kit/DementiaKit/Create";
@@ -36,6 +42,7 @@ import QRCreate from "./Staff/Kit/KitQR/Create";
 import QRDetail from "./Staff/Kit/KitQR/Detail"
 import QREdit from "./Staff/Kit/KitQR/Edit";
 import ProfileEdit from "./Staff/Account/Edit";
+
 
 
 function App() {
@@ -85,7 +92,7 @@ function App() {
         </>
         }/>
         
-         {/* Staff Profile Page */}      
+        {/* Staff Profile Page */}      
         <Route path='/Staff/Account/:id' element={<ProtectedRoute>
           <Staff />
           <Profile />  
@@ -97,9 +104,40 @@ function App() {
         </ProtectedRoute>} />
         
          {/* Dashboard interface for staff */}
-        <Route path='/Dashboard' element={<ProtectedRoute>
-        <Staff />
-        <Index />
+        <Route path='/Staff/Dashboard' element={<ProtectedRoute>
+          <Staff />
+          <Index />
+        </ProtectedRoute>} />
+
+        {/* Dashboard interface for Member */}
+        <Route path='/Member/Loan' element={<ProtectedRoute>
+          <Member />
+          <Memberindex />
+        </ProtectedRoute>} />
+      
+        {/* Profile interface for Member */}
+        <Route path='/Member/Profile/:id' element={<ProtectedRoute>
+          <Member />
+          <MemberProfile />
+        </ProtectedRoute>} />
+
+        {/* Profile Edit interface for Member */}
+          <Route path='/Member/Profile/Edit/:id' element={<ProtectedRoute>
+          <Member />
+          <MemberProfile />
+        </ProtectedRoute>} />
+
+        {/* Profile Edit interface for Member */}
+          <Route path='/Member/Loan' element={
+          <ProtectedRoute>
+            <Member />
+            <LoanIndex />
+          </ProtectedRoute>} />
+      
+        <Route path='/Member/Profile/Edit/:id' element={
+          <ProtectedRoute>
+            <Member />
+            
         </ProtectedRoute>} />
       
          {/* listing all kits page */}
