@@ -37,7 +37,7 @@ function SignUp_Member() {
               Role: pass,
               uid: user.uid
           })
-          navigate(`/Member/Account/${user.uid}`)
+          navigate(`/Member/Loan`)
       }catch(e){
           setError(e.message)
           console.log(e.message)
@@ -48,7 +48,7 @@ return (
   <div className='max-w-[700px] mx-auto my-16 p-4'>
       <h1 className='text-center text-3xl font-bold'> Sign up to your account </h1>
       <br />
-      <p> Already have an account yet? <Link to ='/Signup_Member' className='underline'>Sign in.</Link></p>
+      <p> Already have an account yet? <Link to ='/Signin' className='underline'>Sign in.</Link></p>
       <Form onSubmit={handlesubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
