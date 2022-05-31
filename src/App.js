@@ -31,6 +31,7 @@ import LoanIndex from "./Member/Kit/Index";
 import MemberEdit from "./Member/Account/Edit";
 
 // Member & Loan Interface
+import MemberIndex from "./Member/Index";
 import LoanCreate from "./Member/Kit/Create";
 import LoanDetail from "./Member/Kit/Detail";
 import CurrentLoan from "./Member/Loan/Current";
@@ -48,6 +49,7 @@ import QRCreate from "./Staff/Kit/KitQR/Create";
 import QRDetail from "./Staff/Kit/KitQR/Detail"
 import QREdit from "./Staff/Kit/KitQR/Edit";
 import ProfileEdit from "./Staff/Account/Edit";
+
 
 
 
@@ -114,6 +116,14 @@ function App() {
           <Staff />
           <Index />
         </ProtectedRoute>} />
+         
+         {/* Loan form interface for Member */} 
+         <Route path='/Member/Index' element={
+        <ProtectedRoute>
+          <Member />
+          <MemberIndex />
+        </ProtectedRoute>} />
+
 
         {/* Profile interface for Member */}
         <Route path='/Member/Profile/:id' element={<ProtectedRoute>
