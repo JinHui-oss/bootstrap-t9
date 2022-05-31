@@ -38,6 +38,47 @@ function Signin() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const staffgetdata = async () => {
+          const auth = getAuth();
+          const user = auth.currentUser;
+          if(user !== null){
+          
+          const t = user.uid;
+            
+          const docRef = doc(db, "Staff", t);
+          const docSnap = await getDoc(docRef);
+          
+          // check for display output
+          // console.log(docSnap);
+          
+          // check condition
+          if (docSnap.exists()) 
+          {
+            // display the output if the record exist 
+            // create a variable to store the data output.
+            let data =  docSnap.data();
+            // console.log(data)
+            
+            setStaff.state = {
+              uid : data.uid,
+              Role: data.Role,
+            }
+            
+            // reterive the data and stored into a setkit
+            setStaff(setStaff.state)
+           
+            // check for the display output
+            // console.log(setMember.state)
+          } 
+          
+        }
+      };
+      staffgetdata();
+    
+      // eslint-disable-next-line 
+      }, [MemberCollectionRef])
+
+      useEffect(() => {
         const membergetdata = async () => {
           const auth = getAuth();
           const user = auth.currentUser;
@@ -61,7 +102,13 @@ function Signin() {
             
             setMember.state = {
               uid : data.uid,
+              Name: data.Name,
+              PhotoUrl : data.PhotoUrl,
+              Email: data.Email,
+              Password: data.Password,
+              StartDate: data.StartDate,
               Role: data.Role,
+              CreatedAt: data.CreatedAt
             }
             
             // reterive the data and stored into a setkit
@@ -70,31 +117,26 @@ function Signin() {
             // check for the display output
             // console.log(setMember.state)
           } 
-          else 
-          {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-          }
+         
         }
       };
       membergetdata();
     
       // eslint-disable-next-line 
-      }, [MemberCollectionRef])
+      }, [StaffCollectionRef])
 
-     
-
-    const handleSubmit = async(e) =>{
+      const handleSubmit = async(e) =>{
         e.preventDefault();
         setError(error)
 
         try{
             const { user } = await signIn(email,password);
-            if(user.uid === member.uid){
-               navigate('/Member/Index')
+            console.log(user)
+            if(user.uid === staff.uid){
+               navigate('/Staff/Dashboard')
             }
-            else{
-                navigate('/Staff/Dashboard')
+            else if(user.uid === member.uid) {
+                navigate('/Member/Kit')
             }
         }
         catch(e){
@@ -126,7 +168,7 @@ function Signin() {
         <Button variant="primary" type="submit"> Submit </Button>
         <br/>
         <br/>
-        <Button href='./forgotpassword'> Forgot Password? </Button>
+        <Button href='/forgotpassword'> Forgot Password? </Button>
         </Form>
        </div>
        

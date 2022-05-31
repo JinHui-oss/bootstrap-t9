@@ -1,0 +1,36 @@
+.header-title{
+    margin-left: 50%;
+    margin-top:5%;
+}
+.body-content{
+    max-width: 40%;
+    margin-left: 50%;
+    padding-top:  1%;
+}
+.body-content Button{
+    margin-top:2%;
+}
+.body-content .mb-3{
+    margin-bottom: 10%;
+}
+
+#passwordinput{
+    padding-top: 1%;
+}
+#emailinput{
+    padding-top: 1%;
+}
+#forgotpassword{
+    margin-top: 3%;
+}
+.signup-body-content {
+    max-width: 40%;
+    margin-left: 50%;
+    margin-top: 5%;
+}
+.signup-body-content .signup-body-form Form.Group{ 
+    padding-top: 20%;
+}
+.signup-body-form Button{
+    margin-top:4.5%;
+}
