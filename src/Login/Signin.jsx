@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { 
     Link, 
-    useNavigate
+    useNavigate,
 } from 'react-router-dom'
 
 import { UserAuth } from '../Scripts/authContext'
@@ -14,94 +14,90 @@ import
 } from 'react-bootstrap'
 
 import { db } from '../Database/firebase'
+import '../Login/Login.css'
 
 import 
 { 
     doc,
-    getDoc
+    getDoc,
+    collection
 } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 
 
 function Signin() {
+    const MemberCollectionRef = collection(db, "Member");
+    const StaffCollectionRef = collection(db, "Staff");
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [staff,setStaff] = useState([]);
     const [member,setMember] = useState([]);
     const { signIn } = UserAuth();
-    const naviagte = useNavigate();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const membergetdata = async () => {
+          const auth = getAuth();
+          const user = auth.currentUser;
+          if(user !== null){
+          
+          const t = user.uid;
+            
+          const docRef = doc(db, "Member", t);
+          const docSnap = await getDoc(docRef);
+          
+          // check for display output
+          // console.log(docSnap);
+          
+          // check condition
+          if (docSnap.exists()) 
+          {
+            // display the output if the record exist 
+            // create a variable to store the data output.
+            let data =  docSnap.data();
+            // console.log(data)
+            
+            setMember.state = {
+              uid : data.uid,
+              Role: data.Role,
+            }
+            
+            // reterive the data and stored into a setkit
+            setMember(setMember.state)
+           
+            // check for the display output
+            // console.log(setMember.state)
+          } 
+          else 
+          {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+          }
+        }
+      };
+      membergetdata();
+    
+      // eslint-disable-next-line 
+      }, [MemberCollectionRef])
+
+     
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
         setError(error)
-      
+
         try{
             const { user } = await signIn(email,password);
-            
-            const docRef = doc(db, "Staff", user.uid);
-            const docSnap = await getDoc(docRef);
-            
-            // check for output
-             console.log(docSnap)
-
-            // check condition
-            if (docSnap.exists()) 
-            {
-              // display the output if the record exist 
-              // create a variable to store the data output.
-              let data =  docSnap.data();
-              console.log(data)
-              
-              setStaff.state ={
-                uid : data.uid,
-                Role: data.Role
-              }
-              // reterive the data and stored into a setkit
-              setStaff(setStaff.state)
-             
-              // check for the display output
-              //console.log(setKit.state)
+            if(user.uid === member.uid){
+               navigate('/Member/Index')
             }
-
-            const docRef1 = doc(db, "Member", user.uid);
-            const docSnap1 = await getDoc(docRef1);
-            
-            // check for output
-            // console.log(docSnap1)
-
-            // check condition
-            if (docSnap1.exists()) 
-            {
-              // display the output if the record exist 
-              // create a variable to store the data output.
-              let data =  docSnap1.data();
-              // console.log(data)
-              
-              setMember.state ={
-                uid : data.uid,
-                Role: data.Role
-              }
-              // reterive the data and stored into a setkit
-              setMember(setMember.state)
+            else{
+                navigate('/Staff/Dashboard')
             }
-            if(member.Role === "Member")
-            {
-                naviagte('/Member/Loan');
-                console.log(member.Role)
-                console.log('you have logged in')
-            }
-           if(staff.Role === "Staff"){
-                naviagte('/Staff/Dashboard')
-                console.log('hello')
-            } 
-            else 
-            {
-              // doc.data() will be undefined in this case
-              //naviagte('/index')
-              console.log("No such document!");
-            }
-        }catch(e){
+        }
+        catch(e){
             setError(e.message);
             console.log(e.message);
         }
@@ -109,11 +105,14 @@ function Signin() {
 
     return (
     <div className='header'>
-        <h1 className='header-title'> Sign in to your account </h1>
+        <div className='header-title'>
+        <h1> Sign in to your account </h1>
         <br />
         <p> Don't have an member account yet? <Link to ='/Signup_Member' className='underline'>Sign up.</Link></p>
         <p> Don't have an staff account yet? <Link to ='/Signup_Staff' className='underline'>Sign up.</Link></p>
-        <Form onSubmit={handleSubmit}>
+        </div>
+       <div className='body-content'>
+       <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter email" />
@@ -129,6 +128,8 @@ function Signin() {
         <br/>
         <Button href='./forgotpassword'> Forgot Password? </Button>
         </Form>
+       </div>
+       
     </div>
 )}
 
