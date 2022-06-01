@@ -1,6 +1,6 @@
 // react
 import React, { useState, useEffect } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Button, Card, Row, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 // firebase
@@ -14,6 +14,7 @@ import {
 
 
 // css
+import '../Kit/Kit.css'
 
 
 function LoanIndex() {
@@ -44,6 +45,7 @@ function LoanIndex() {
       })
       //  eslint-disable-next-line
     }, [])
+    //col-md-4 mb-5"
 
   return (
     <div className='content'>
@@ -54,40 +56,32 @@ function LoanIndex() {
       </div>
 
       {/* search function */}
-      <div className='content-search'>
-        <input /> 
+      <div className='search-button'>
+        <input type="text" placeholder="Kit Name" /> 
         <Button>Search</Button>
       </div>
     
       <div className='content-table'>
-          <Table responsive="md" hover>
-          <thead>
-            <tr>
-              <th>Profile</th>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          
+        <div className='contenthell'>
+        <Row xs={1} md={3} className="g-4">
           {kit.map((user) => {
           return( 
-            <tbody>
-              {""}
-              <tr>
-                <td>
-                { /*eslint-disable-next-line */ } 
-                <img src ={user.PhotoUrl} width="120px" height="120px" />
-                </td>
-                <td>{user.id}</td>
-                <td>{user.Name}</td>
-                <td><Link to ={`/Member/Kit/Detail/${user.id}`}>View</Link></td>
-              </tr>
-            </tbody>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={user.PhotoUrl} />
+              <Card.Body>
+                <Card.Title>{user.Name}</Card.Title>
+                <Card.Text>
+                {user.Description}
+                </Card.Text>
+                <Button href={`/Member/Kit/Detail/${user.id}`}>view</Button>
+              </Card.Body>
+            </Card>
+          </Col>  
             );
-          })}         
-        
-        </Table>
+          })}
+          </Row>   
+          </div>      
       </div>
   </div>
 )}

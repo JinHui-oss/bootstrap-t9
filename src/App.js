@@ -31,7 +31,6 @@ import LoanIndex from "./Member/Kit/Index";
 import MemberEdit from "./Member/Account/Edit";
 
 // Member & Loan Interface
-import MemberIndex from "./Member/Index";
 import LoanCreate from "./Member/Kit/Create";
 import LoanDetail from "./Member/Kit/Detail";
 import CurrentLoan from "./Member/Loan/Current";
@@ -121,7 +120,7 @@ function App() {
          <Route path='/Member/Index' element={
         <ProtectedRoute>
           <Member />
-          <MemberIndex />
+          <LoanIndex />
         </ProtectedRoute>} />
 
 

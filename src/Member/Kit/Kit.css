@@ -1,0 +1,33 @@
+.content-kitdata{
+   margin-right: 50%;
+   margin-top: 2.5%;
+}
+
+.content-header .search {
+    margin-left: 50%;
+    margin-top: -30%;
+}
+.content-header Button{
+    margin-left: 5%;
+    margin-top: -1%;
+}
+.content-header {
+    margin-left: 50%;
+    margin-top: -30%;
+}
+.search-button{
+    max-width: 20%;
+    margin-left: 50%;
+    margin-top: -5%;
+}
+.search-button Button{
+    margin-left: 70%;
+    margin-top: -19.5%;
+}
+.content .content-table .contenthell Card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    max-width: 100%;
+
+}
