@@ -19,10 +19,9 @@ function LoanCreate() {
   // retrieve the data from the user input and stored into variable.
   const [name, setText] = useState("");
   const [amount, setAmount] = useState("");
+  const [loanname, setLoanName] = useState("");
   const [startdate, setStartDate] = useState("");
-  const [enddate, setEndDate] = useState("");
-  const [phone, setPhone] = useState("");
-  const [Email, setEmail] = useState("");
+  const [setPhone] = useState("");
   const [Member,setMember] = useState([]);
   const [kit,setKit] = useState([]);
   const MemberCollectionRef = collection(db, "Member");
@@ -133,8 +132,6 @@ function LoanCreate() {
     const hell = currentDate.setDate(currentDate.getDate() + numberOfDayToAdd)  
     const hell1 = new Date(hell);
 
-    //setEndDate(currentDate + numberOfDayToAdd );
-
     const auth = getAuth();
     const user = auth.currentUser;
 
@@ -145,6 +142,7 @@ function LoanCreate() {
       { 
         id : user.uid,
         KitName: kit.Name, 
+        loanname: Member.Name,
         Quantity: amount,
         StartDate: new Date(startdate),
         EndDate: hell1,
@@ -179,6 +177,17 @@ function LoanCreate() {
         id="KitName" 
         placeholder={kit.Name}
         defaultValue = {kit.Name}
+        readOnly
+        required />
+
+        <label htmlFor='LoanName'>Loan Name:</label>
+          <input type="text" onChange={(event) => {
+          setLoanName(event.target.value);
+        }} 
+        className="form-control" 
+        id="KitName" 
+        placeholder={Member.Name}
+        defaultValue = {Member.Name}
         readOnly
         required />
 
