@@ -11,7 +11,7 @@ import { collection, addDoc, getDoc,
 
 function LoanCreate() {
   // create and stored the data into the firestore
-  const QRCollection = collection(db, "KitStatus")
+  const QRCollection = collection(db, "KitBorrowed")
  
   const { id } = useParams();
   const naviagte = useNavigate();
@@ -20,7 +20,7 @@ function LoanCreate() {
   const [name, setText] = useState("");
   const [amount, setAmount] = useState("");
   const [startdate, setStartDate] = useState("");
-  // const [enddate, setEndDate] = useState("");
+  const [enddate, setEndDate] = useState("");
   const [phone, setPhone] = useState("");
   const [Email, setEmail] = useState("");
   const [Member,setMember] = useState([]);
@@ -128,22 +128,28 @@ function LoanCreate() {
 
     // create a variable to store start date values
     let date = new Date();
+    var currentDate = setEndDate(new Date(startdate));
+    var numberOfDayToAdd = 14;
+    //setEndDate(currentDate + numberOfDayToAdd );
+
+    const auth = getAuth();
+    const user = auth.currentUser;
 
     try{
       e.preventDefault();
       // upload directly to cloud firestore database & return back to kit page
       await addDoc(QRCollection, 
       { 
-        id : id,
+        id : user.uid,
         KitName: kit.Name, 
         Quantity: amount,
         StartDate: startdate,
-        // EndDate: enddate,
+       // EndDate: startdate,
         PhoneNumber:phone,
         Email: Member.Email,
         CreatedAt: date.toDateString()
       });
-      naviagte("/Member/Loan")
+      naviagte("/Member/Kit")
     }
     catch(e){
       //console.log(e.message)
