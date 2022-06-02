@@ -94,7 +94,7 @@ function Member() {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-      <Navbar.Brand href="/dashboard">YECC</Navbar.Brand>
+      <Navbar.Brand href="/Member/Kit">YECC</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
@@ -102,12 +102,15 @@ function Member() {
             <NavDropdown.Item href="/Member/CurrentLoan">Current Loan</NavDropdown.Item>
             <NavDropdown.Item href="/Member/PastLoan">Past Loan</NavDropdown.Item>
           </NavDropdown>
-        <Nav.Link href={`/Member/Profile/${member.uid}`}>Account</Nav.Link>
-        <Nav.Link href="/Report">Search</Nav.Link>
+          <Nav.Link href={`/Member/Kit`}>Kit</Nav.Link>
+        
         </Nav>
-      
         <Nav>
-          <Nav.Link onClick={handlelogout} >LogOut</Nav.Link>
+          <NavDropdown title="Welcome xxx" id="navbarScrollingDropdown">
+            <NavDropdown.Item href={`/Member/Profile/${member.uid}`}>Profile</NavDropdown.Item>
+            <NavDropdown.Item href={`/Member/Profile/${member.uid}`}>Security</NavDropdown.Item>
+            <NavDropdown.Item onClick={handlelogout}>LogOut</NavDropdown.Item>
+          </NavDropdown>
         </Nav>
       </Navbar.Collapse>
       </Container>
