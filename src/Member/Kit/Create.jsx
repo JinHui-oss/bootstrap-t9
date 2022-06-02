@@ -56,6 +56,7 @@ function LoanCreate() {
           uid : data.uid,
           Name: data.Name,
           PhotoUrl : data.PhotoUrl,
+          PhoneNumber: data.PhoneNumber, 
           Email: data.Email,
           Password: data.Password,
           Role: data.Role,
@@ -103,7 +104,6 @@ function LoanCreate() {
           Quantity: data.Quantity,
           CreatedAt: data.CreatedAt,
           PhotoUrl: data.PhotoUrl
-          
         }
         // reterive the data and stored into a setkit
         setKit(setKit.state)
@@ -148,7 +148,7 @@ function LoanCreate() {
         Quantity: amount,
         StartDate: new Date(startdate),
         EndDate: hell1,
-        PhoneNumber:phone,
+        PhoneNumber:Member.PhoneNumber,
         Email: Member.Email,
         CreatedAt: date.toDateString(),
         Status: "Borrowed"
@@ -205,7 +205,9 @@ function LoanCreate() {
         }} 
         className="form-control" 
         id="KitPhone"
-        placeholder='82109871' 
+        placeholder={Member.PhoneNumber}
+        defaultValue={Member.PhoneNumber}
+        readOnly 
         required />
         
         <label htmlFor='Email'>Email </label>
@@ -220,7 +222,7 @@ function LoanCreate() {
         <br />
         <br />
         <Button className= "Action" type="submit"> Submit </Button>
-        <Button className= "Back-Action" href="/Member/Loan">Back</Button>
+        <Button className= "Back-Action" href="/Member/Kit">Back</Button>
         </Form>
       </div>
     </div>
