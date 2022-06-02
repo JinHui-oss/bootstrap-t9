@@ -128,8 +128,11 @@ function LoanCreate() {
 
     // create a variable to store start date values
     let date = new Date();
-    var currentDate = setEndDate(new Date(startdate));
     var numberOfDayToAdd = 14;
+    var currentDate = new Date(startdate);
+    const hell = currentDate.setDate(currentDate.getDate() + numberOfDayToAdd)  
+    const hell1 = new Date(hell);
+
     //setEndDate(currentDate + numberOfDayToAdd );
 
     const auth = getAuth();
@@ -143,11 +146,12 @@ function LoanCreate() {
         id : user.uid,
         KitName: kit.Name, 
         Quantity: amount,
-        StartDate: startdate,
-       // EndDate: startdate,
+        StartDate: new Date(startdate),
+        EndDate: hell1,
         PhoneNumber:phone,
         Email: Member.Email,
-        CreatedAt: date.toDateString()
+        CreatedAt: date.toDateString(),
+        Status: "Borrowed"
       });
       naviagte("/Member/Kit")
     }
