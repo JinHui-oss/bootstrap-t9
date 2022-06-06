@@ -14,7 +14,7 @@ import {
 
 
 // css
-import '../DementiaKit/Kit.css'
+import './Kit.css'
 
 function Kit() {
   //  eslint-disable-next-line

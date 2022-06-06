@@ -17,7 +17,7 @@ import {
 } from 'firebase/firestore'
 
 // css
-import "../DementiaKit/Kit.css"
+import "./Kit.css"
 
 function Detail() {
   

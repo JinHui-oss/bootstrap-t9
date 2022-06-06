@@ -1,5 +1,5 @@
 // CSS 
-import '../DementiaKit/Kit.css'
+import './Kit.css'
 
 // React
 import React, { useState } from 'react'

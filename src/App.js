@@ -37,10 +37,10 @@ import CurrentLoan from "./Member/Loan/Current";
 import PastLoan from "./Member/Loan/Past";
 
 // Staff & Kit Interface
-import Kit from "./Staff/Kit/DementiaKit/Index";
-import AddKit from "./Staff/Kit/DementiaKit/Create";
-import Detail from "./Staff/Kit/DementiaKit/Detail";
-import Edit from "./Staff/Kit/DementiaKit/Edit";
+import Kit from "./Staff/Kit/Kit/Index";
+import AddKit from "./Staff/Kit/Kit/Create";
+import Detail from "./Staff/Kit/Kit/Detail";
+import Edit from "./Staff/Kit/Kit/Edit";
 
 // Staff & KitQR Interface
 import QRIndex from "./Staff/Kit/KitQR/QRIndex";
