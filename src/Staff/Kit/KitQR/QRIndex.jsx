@@ -32,7 +32,7 @@ function QRIndex() {
       <div className='header'>
         <h2>Kit QT</h2>
         <p>View all the created QR Code for the dementia Kits</p>
-        <Button href="/QRIndex/Create">Add</Button>
+        <Button href="/Staff/QRIndex/Create">Add</Button>
         <hr></hr>
       </div>
       

@@ -83,7 +83,7 @@ function QRDetail() {
     //e.preventDefault();
     const deletedocRef = doc(db, "KitQR", id);
     await deleteDoc(deletedocRef);
-    navigate("/QRIndex")
+    navigate("/Staff/QRIndex")
     console.log("Records deleted Successfully");
 }
  
@@ -147,7 +147,7 @@ function QRDetail() {
       {/* body content of the details */}
         
         {/* Button */}
-        <Button className ="QRBack"href="/QRIndex">Back</Button>
+        <Button className ="QRBack"href="/Staff/QRIndex">Back</Button>
         <Button onClick={() => {deleteKit(id)}} className="QREdit">Archive</Button>
         
     </div>
