@@ -20,6 +20,7 @@ function Kit() {
   //  eslint-disable-next-line
   const [imageList, setImageList] = useState([]);
   const imageListRef = ref(storage, "Staff/Kit")
+  const [search, setSearch] = useState('');
   const [kit, setKit] = useState([]);
   const kitCollectionRef = collection(db, "Kit");
    
@@ -44,6 +45,8 @@ function Kit() {
       })
       //  eslint-disable-next-line
     }, [])
+    
+  
 
   return (
     <div className='content'>
@@ -56,9 +59,17 @@ function Kit() {
 
       {/* search function */}
       <div className='content-search'>
-        <input /> 
-        <Button>Search</Button>
-      </div>
+      
+      <form >
+      <input type="text" onChange={(event) => {
+          setSearch(event.target.value);
+          }} 
+          className="form-control" 
+          id="KitQuantity" 
+          placeholder="Enter Search Text" 
+          required />
+        </form>
+        </div>
     
       <div className='content-table'>
           <Table responsive="md" hover>
@@ -71,7 +82,14 @@ function Kit() {
             </tr>
           </thead>
           
-          {kit.map((user) => {
+          {kit.filter((val) => {
+            if(search == ""){
+              return val
+            }
+            else if(val.Name.toLowerCase().includes(search.toLocaleLowerCase())){
+              return val
+            }
+          }).map((user) => {
           return( 
             <tbody>
               {""}
