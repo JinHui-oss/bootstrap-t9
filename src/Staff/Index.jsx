@@ -1,52 +1,100 @@
-import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react'
+import {
+    Nav,
+    Navbar,
+    Container,
+    NavDropdown
+}from 'react-bootstrap'
 
-function index() {
-  return (
-    <div className='test'>
-      <div className="d-flex justify-content-around">
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-    </div>
+import { useNavigate } from 'react-router-dom';
 
-    <div className="d-flex justify-content-around">
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-    </div>
+//
+import { UserAuth } from "../Scripts/authContext" 
 
-    <div className="d-flex justify-content-around">
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+// firebase inital setup
+import { db } from '../Database/firebase';
+
+//
+import { 
+  collection,
+  getDoc,
+  doc
+} from 'firebase/firestore'
+import { getAuth } from 'firebase/auth';
+//
+import "../Staff/Index.css"
+
+function Index() {
+  const [staff, setStaff] = useState([]);
+  const StaffCollectionRef = collection(db, "Staff"); 
+  // create variable to reterive the specifc document id
+
+  const naviagte = useNavigate();
+  const { } = UserAuth();
+
+  useEffect(() => {
+    const getdata = async () => {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      
+      if(user !== null){
+      
+      const t = user.uid;
+      const docRef = doc(db, "Staff", t);
+      const docSnap = await getDoc(docRef);
+      
+      // check for display output
+      // console.log(docSnap);
+      
+      // check condition
+      if (docSnap.exists()) 
+      {
+        // display the output if the record exist 
+        // create a variable to store the data output.
+        let data =  docSnap.data();
+        // console.log(data)
+        
+        setStaff.state = {
+          uid : data.uid,
+          Name: data.Name,
+          PhotoUrl : data.PhotoUrl,
+          Email: data.Email,
+          Password: data.Password,
+          Role: data.Role,
+          CreatedAt: data.CreatedAt
+        }
+        
+        // reterive the data and stored into a setkit
+        setStaff(setStaff.state)
+       
+        // check for the display output
+        // console.log(setMember.state)
+        
+      } 
+      else 
+      {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    };
+  }
+  getdata();
+
+
+  // eslint-disable-next-line 
+  }, [StaffCollectionRef])
+  return(
+  <div className='staff-index'>
+    <div className='staff-title'>
+      <h1>
+        {`Welcome ${staff.Name}`},
+  
+      </h1>
     </div>
+ 
+
   </div>
-  )
+)
 }
 
-export default index
+export default Index
