@@ -10,7 +10,7 @@ import { collection, getDocs, Timestamp } from 'firebase/firestore'
 function CurrentLoan() {
   //  eslint-disable-next-line
   const [kit, setKit] = useState([]);
-  const kitCollectionRef = collection(db, "KitStatus");
+  const kitCollectionRef = collection(db, "KitBorrowed");
    
 
   useEffect(() => {
@@ -44,15 +44,21 @@ function CurrentLoan() {
           </thead>
           
           {kit.map((user) => {
+            let time1 = Timestamp.fromDate(new Date(parseInt(user.EndDate,16)))
+            let time2 = time1.toDate()
+
+            //  {moment.unix(time).format("MM/DD/YYYY")}
           return( 
             <tbody>
               {""}
               <tr>
                 <td>{user.id}</td>
                 <td>{user.KitName}</td>
-                <td>{user.StartDate}</td>
+                <td> {moment(user.StartDate).format("MM/DD/YYYY")}</td>
                 <td>
-                {new Date(user.EndDate).getUTCDate()}
+                
+                {moment(time2).format("MM/DD/YYYY")}
+             
                 </td>
                 <td>{user.Status}</td>
               </tr>

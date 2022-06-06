@@ -18,7 +18,6 @@ import
 import 
 { 
   getAuth, 
-  signInWithEmailAndPassword, 
   updateProfile,
 }from 'firebase/auth';
 
@@ -26,17 +25,16 @@ function ProfileEdit() {
   const [Member, setMember] = useState([]);
   
   const [Role, setRole] = useState("")
-  const {auth} = UserAuth();
   const [password, setPassword] = useState("")
   const [email, setEmail] = useState("");
   const [Name, setName] = useState("");
   const [ImageUpload,setImageUpload] = useState("");
-  const MemberCollectionRef = collection(db, "Member");
+  const StaffCollectionRef = collection(db, "Staff");
 
   const { id } = useParams()
  
-   // create and stored the data into the firestore
-   const QRCollection = doc(db, "Member", id)
+  // create and stored the data into the firestore
+  const ProfileCollection = doc(db, "Staff", id)
   const naviagte = useNavigate();
 
   useEffect(() => {
@@ -45,7 +43,7 @@ function ProfileEdit() {
       //const docRef = doc(db, "Member", "Jz1FaPxDJdE1574728hf");
       
       //
-      const docRef = doc(db, "Member", id);
+      const docRef = doc(db, "Staff", id);
       const docSnap = await getDoc(docRef);
       
       // check for display output
@@ -84,7 +82,7 @@ function ProfileEdit() {
     getdata();
 
   // eslint-disable-next-line 
-  }, [MemberCollectionRef])
+  }, [StaffCollectionRef])
 
  
 
@@ -93,12 +91,12 @@ function ProfileEdit() {
     try{
       e.preventDefault();
       let date = new Date();
-      let rolem = "Member";
+      let rolem = "Staff";
   
         // check the condition if there is no photo uploaded to server
         if(ImageUpload == null)return;
         // set the specific path of where the photo is stored thru variable
-        const imageRef = ref(storage, `Member/Account/${ImageUpload.name}`)
+        const imageRef = ref(storage, `Staff/Account/${ImageUpload.name}`)
         // upload directly to storage database
         uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
           // check the condition if there is no photo uploaded to server
@@ -116,7 +114,7 @@ function ProfileEdit() {
               photoURL: url,
             })
           
-            updateDoc(QRCollection, 
+            updateDoc(ProfileCollection, 
               { 
                 uid : id,
                 Name: Name,
@@ -130,7 +128,7 @@ function ProfileEdit() {
             alert("image upload") 
           })
         });
-      naviagte(`/Member/Account/${Member.uid}`)
+      naviagte(`/Staff/Account/${Member.uid}`)
     }
     catch(e){
       console.log(e.message)
