@@ -23,6 +23,7 @@ function LoanIndex() {
   const imageListRef = ref(storage, "Staff/Kit")
   const [kit, setKit] = useState([]);
   const kitCollectionRef = collection(db, "Kit");
+  const [search, setSearch] = useState('');
    
 
   useEffect(() => {
@@ -55,16 +56,30 @@ function LoanIndex() {
         <hr/>
       </div>
 
-      {/* search function */}
-      <div className='search-button'>
-        <input type="text" placeholder="Kit Name" /> 
-        <Button>Search</Button>
-      </div>
+      <div className='content-search'>
+      
+      <form className='input-words'>
+      <input type="text" onChange={(event) => {
+          setSearch(event.target.value);
+          }} 
+          className="form-control" 
+          id="KitQuantity" 
+          placeholder="Enter Dementia Kit Name" 
+          required />
+        </form>
+        </div>
     
       <div className='content-table'>
         <div className='contenthell'>
         <Row xs={1} md={3} className="g-4">
-          {kit.map((user) => {
+          {kit.filter((val) => {
+            if(search == ""){
+              return val;
+            }
+            else if(val.Name.toLowerCase().includes(search.toLocaleLowerCase())){
+              return val;
+            }
+          }).map((user) => {
           return( 
             <Col>
             <Card>

@@ -108,8 +108,7 @@ function Staff() {
 
         <Nav className="me-auto">
           <NavDropdown title="Member" id="navbarScrollingDropdown">
-            <NavDropdown.Item href="#">Member List</NavDropdown.Item>
-            <NavDropdown.Item href="#">Reset Password</NavDropdown.Item>
+            <NavDropdown.Item href="/Staff/MemberList">Member List</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       
@@ -120,7 +119,7 @@ function Staff() {
         <Nav.Link href="#deets">Announcement</Nav.Link>
         <Nav>
           <NavDropdown title={`Welcome ${staff.Name}`} id="navbarScrollingDropdown">
-            <NavDropdown.Item href={`#`}>Profile</NavDropdown.Item>
+            <NavDropdown.Item href={`/Staff/Account/${staff.uid}`}>Profile</NavDropdown.Item>
             <NavDropdown.Item href={`#`}>Security</NavDropdown.Item>
             <NavDropdown.Item onClick={handlelogout}>LogOut</NavDropdown.Item>
           </NavDropdown>
