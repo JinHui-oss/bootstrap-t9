@@ -55,7 +55,7 @@ function QRCreate() {
         alert("image upload")
         })
       });
-      naviagte("/QRIndex")
+      naviagte("/Staff/QRIndex")
     }
     catch(e){
       console.log(e.message)
