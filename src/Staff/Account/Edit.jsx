@@ -18,7 +18,9 @@ import
 import 
 { 
   getAuth, 
+  updatePassword, 
   updateProfile,
+  updateEmail,
 }from 'firebase/auth';
 
 function ProfileEdit() {
@@ -113,6 +115,23 @@ function ProfileEdit() {
               displayName : Name,
               photoURL: url,
             })
+
+            updatePassword(user, password).then(() => {
+              // Update successful.
+              console.log('uploaded')
+            }).catch((error) => {
+              // An error ocurred
+              console.log(error.message)
+            });
+
+            updateEmail(user, email).then(() => {
+              // Email updated!
+              // ...
+              console.log('uploaded')
+            }).catch((error) => {
+              // An error occurred
+              console.log(error.message)
+            });
           
             updateDoc(ProfileCollection, 
               { 
@@ -159,7 +178,7 @@ function ProfileEdit() {
           setEmail(event.target.value);
         }} 
       className="form-control" 
-      id="KitName" 
+      id="KitEmail" 
       placeholder={Member.Email}
       />
 
