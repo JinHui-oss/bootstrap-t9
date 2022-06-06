@@ -107,7 +107,7 @@ function QREdit() {
         alert("image upload")
         })
       });
-      naviagte("/QRIndex")
+      naviagte("/Staff/QRIndex")
     }
     catch(e){
       console.log(e.message)
@@ -217,7 +217,7 @@ function QREdit() {
         <br />
         <br />
         <Button className= "Action" type="submit"> Submit </Button>
-        <Button className= "Back-Action" href="/QRIndex">Back</Button>
+        <Button className= "Back-Action" href="/Staff/QRIndex">Back</Button>
         <Button className= "Download-Action" onClick={downloadQR}>Download QR</Button>
         </Form>
       </div>

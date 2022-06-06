@@ -110,7 +110,7 @@ function QRDetail() {
           </div>
         <br />
          {/* Edit Button */}
-         <Button className='details-edit' href ={`/QRIndex/Edit/${id}`}>
+         <Button className='details-edit' href ={`/Staff/QRIndex/Edit/${id}`}>
         {/* eslint-disable-next-line */}
           <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
            Edit</Button>

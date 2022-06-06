@@ -75,7 +75,7 @@ function Detail() {
       //e.preventDefault();
       const deletedocRef = doc(db, "Kit", id);
       await deleteDoc(deletedocRef);
-      navigate("/Kit")
+      navigate("/Staff/Kit")
       console.log("Records deleted Successfully");
   }
    
@@ -102,7 +102,7 @@ function Detail() {
         <br />
         
         {/* Edit Button */}
-        <Button className='details-edit' href ={`/Kit/Edit/${id}`}>
+        <Button className='details-edit' href ={`/Staff/Kit/Edit/${id}`}>
         {/* eslint-disable-next-line */}
           <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
            Edit</Button>
@@ -131,7 +131,7 @@ function Detail() {
           </Card>
             {/* Back Button */}
         </div>
-        <Button href="/Kit" className='details-back'>Back</Button>
+        <Button href="/Staff/Kit" className='details-back'>Back</Button>
         {/* Archive Button */}
         <Button onClick={() => {deleteKit(id)}} className='details-archive'>Archive</Button>
       

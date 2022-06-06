@@ -115,6 +115,13 @@ function App() {
           <Staff />
           <Index />
         </ProtectedRoute>} />
+
+          {/* listing all kits page */}
+        <Route path='/Staff/Kit' element={<ProtectedRoute>
+          <Staff />
+          <Kit />
+        </ProtectedRoute>} />
+
          
          {/* Loan form interface for Member */} 
          <Route path='/Member/Index' element={
@@ -170,51 +177,45 @@ function App() {
           <Member />
           <PastLoan/>
         </ProtectedRoute>} />
-      
-         {/* listing all kits page */}
-        <Route path='/Kit' element={<ProtectedRoute>
-          <Staff />
-          <Kit />
-        </ProtectedRoute>} />
 
          {/* create new kit */}
-         <Route path='/Kit/Add' element={<ProtectedRoute>
+         <Route path='/Staff/Kit/Add' element={<ProtectedRoute>
           <Staff />
           <AddKit />
         </ProtectedRoute>} />
 
         {/* displayed the document data based on id */}
-        <Route path='/Kit/Detail/:id' element={<ProtectedRoute>
+        <Route path='/Staff/Kit/Detail/:id' element={<ProtectedRoute>
           <Staff />
           <Detail />
         </ProtectedRoute>} />
         
         {/* displayed the document data based on id */}
-        <Route path='/Kit/Edit/:id' element={<ProtectedRoute>
+        <Route path='/Staff/Kit/Edit/:id' element={<ProtectedRoute>
           <Staff />
           <Edit />
         </ProtectedRoute>} />
         
         {/* List all the QRCode generated */}
-        <Route path='/QRIndex' element={<ProtectedRoute>
+        <Route path='/Staff/QRIndex' element={<ProtectedRoute>
           <Staff />
           <QRIndex />
         </ProtectedRoute>} />
         
         {/* Create new QRCode */}
-        <Route path='/QRIndex/Create' element={<ProtectedRoute>
+        <Route path='/Staff/QRIndex/Create' element={<ProtectedRoute>
           <Staff />
           <QRCreate />
         </ProtectedRoute>} />
         
         {/* displayed the document data based on id  */}
-        <Route path='/QRIndex/Detail/:id' element={<ProtectedRoute>
+        <Route path='/Staff/QRIndex/Detail/:id' element={<ProtectedRoute>
           <Staff />
           <QRDetail />
         </ProtectedRoute>} />
 
         {/* update the document data based on id  */}
-        <Route path='/QRIndex/Edit/:id' element={<ProtectedRoute>
+        <Route path='/Staff/QRIndex/Edit/:id' element={<ProtectedRoute>
           <Staff />
           <QREdit />
         </ProtectedRoute>} />

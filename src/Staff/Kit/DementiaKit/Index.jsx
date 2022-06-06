@@ -50,7 +50,7 @@ function Kit() {
       <div className='content-header'>
         <h2>Dementia Kit </h2>
         <p>View all the dementia Kits</p>
-        <Button href="/Kit/Add">Add</Button>
+        <Button href="/Staff/Kit/Add">Add</Button>
         <hr/>
       </div>
 
@@ -82,7 +82,7 @@ function Kit() {
                 </td>
                 <td>{user.id}</td>
                 <td>{user.Name}</td>
-                <td><Link to ={`/Kit/Detail/${user.id}`}>View</Link></td>
+                <td><Link to ={`/Staff/Kit/Detail/${user.id}`}>View</Link></td>
               </tr>
             </tbody>
             );

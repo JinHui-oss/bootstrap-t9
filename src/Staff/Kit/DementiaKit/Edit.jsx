@@ -104,7 +104,7 @@ function Edit() {
             alert("image upload")
           })
         });
-      naviagte("/Kit")
+      naviagte("/Staff/Kit")
     }
     catch(e){
       console.log(e.message)
@@ -158,7 +158,7 @@ function Edit() {
           }} className="form-control-file"  />
         </div>
         <Button className= "Submit-Action" type="submit"> Submit </Button>
-        <Button className= "Back-Action" href="/Kit">Back</Button>
+        <Button className= "Back-Action" href="/Staff/Kit">Back</Button>
         <br />
         <hr className='line'/>
         <footer>Test</footer>

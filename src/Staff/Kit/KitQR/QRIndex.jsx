@@ -63,7 +63,7 @@ function QRIndex() {
                 <td><img src={user.PhotoUrl}/></td>
                 <td>{user.id}</td>
                 <td>{user.KitName}</td>
-                <td><Link to ={`/QRIndex/Detail/${user.id}`}>View</Link></td>
+                <td><Link to ={`/Staff/QRIndex/Detail/${user.id}`}>View</Link></td>
               </tr>
             </tbody>
             );

@@ -3,6 +3,7 @@ import {
     Nav,
     Navbar,
     Container,
+    NavDropdown
 }from 'react-bootstrap'
 
 import { useNavigate } from 'react-router-dom';
@@ -97,16 +98,33 @@ function Staff() {
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
-        <Nav.Link href="/Kit">Kit</Nav.Link>
-        <Nav.Link href="/QRIndex">KitQR</Nav.Link>
-        <Nav.Link href={`/Staff/Account/${staff.uid}`}>Account</Nav.Link>
-        <Nav.Link href="/Report">Report</Nav.Link>
+        <Nav.Link href="/Staff/Dashboard">Dashboard</Nav.Link>
+        <Nav className="me-auto">
+          <NavDropdown title="Dementia Kit" id="navbarScrollingDropdown">
+            <NavDropdown.Item href="/Staff/Kit">Kit</NavDropdown.Item>
+            <NavDropdown.Item href="/Staff/QRIndex">KitQR</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+
+        <Nav className="me-auto">
+          <NavDropdown title="Member" id="navbarScrollingDropdown">
+            <NavDropdown.Item href="#">Member List</NavDropdown.Item>
+            <NavDropdown.Item href="#">Reset Password</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+      
+        <Nav.Link href="/Staff/Report">Report</Nav.Link>
       </Nav>
       <Nav>
         <Nav.Link href="#deets">Notifications</Nav.Link>
         <Nav.Link href="#deets">Announcement</Nav.Link>
-        <Nav.Link onClick={handlelogout} >LogOut</Nav.Link>
+        <Nav>
+          <NavDropdown title={`Welcome ${staff.Name}`} id="navbarScrollingDropdown">
+            <NavDropdown.Item href={`#`}>Profile</NavDropdown.Item>
+            <NavDropdown.Item href={`#`}>Security</NavDropdown.Item>
+            <NavDropdown.Item onClick={handlelogout}>LogOut</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
       </Nav>
     </Navbar.Collapse>
     </Container>

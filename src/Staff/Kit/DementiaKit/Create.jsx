@@ -40,7 +40,7 @@ function AddKit() {
       // check the condition if there is no photo uploaded to server
       if(ImageUpload == null)return;
       // set the specific path of where the photo is stored thru variable
-      const imageRef = ref(storage, `Staff/Kit/${ImageUpload.name + v4()}`)
+      const imageRef = ref(storage, `Staff/Kit/${ImageUpload.name}`)
       // upload directly to storage database
       uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
        
@@ -57,12 +57,12 @@ function AddKit() {
           alert("image upload")
         })
       });
-       navigate("/Kit")
+       navigate("/Staff/Kit")
       }  
     
     // catch error messages and displayed to the users
     catch(e){
-      console.log(e.message);
+      // console.log(e.message);
     }
   }
 
