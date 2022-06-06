@@ -152,3 +152,7 @@ body{
     margin-top:2%;
     margin-left:10%;
 }
+
+.content-search .input-words{
+    max-width: 77.5%;
+}

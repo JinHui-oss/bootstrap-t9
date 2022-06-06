@@ -9,7 +9,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc, } from 'firebase/firestore'
 
 // Random unique id 
-import { v4 } from 'uuid'
+// import { v4 } from 'uuid'
 
 
 function QRCreate() {
@@ -18,7 +18,8 @@ function QRCreate() {
   const naviagte = useNavigate();
 
   // retrieve the data from the user input and stored into variable.
-  const [name, setText] = useState("");
+  const [kitName, setkitName] = useState("");
+  const [LoanName, setLoanName] = useState("");
   const [amount, setAmount] = useState("");
   const [startdate, setStartDate] = useState("");
   const [enddate, setEndDate] = useState("");
@@ -28,14 +29,14 @@ function QRCreate() {
   
   // add records directly to the firestore
   const NewData = async(e) =>{
-    e.preventDefault();
     //
     let date = new Date();
 
     try{
+      e.preventDefault();
       if(ImageUpload == null)return;
       // set the specific path of where the photo is stored thru variable
-      const imageRef = ref(storage, `Staff/KitQR/${ImageUpload.name + v4()}`)
+      const imageRef = ref(storage, `Staff/KitQR/${ImageUpload.name}`)
       // upload directly to storage database
       uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
        
@@ -43,7 +44,8 @@ function QRCreate() {
          // upload directly to cloud firestore database & return back to kit page
         addDoc(QRCollection, 
         { 
-            KitName: name, 
+            KitName: kitName,
+            LoanName : LoanName, 
             Quantity: amount,
             StartDate: startdate,
             EndDate: enddate,
@@ -58,7 +60,7 @@ function QRCreate() {
       naviagte("/Staff/QRIndex")
     }
     catch(e){
-      console.log(e.message)
+      // console.log(e.message)
     }
   }
   const downloadQR = () => {
@@ -68,7 +70,7 @@ function QRCreate() {
       .replace("image/png", "image/octet-stream");
     let downloadLink = document.createElement("a");
     downloadLink.href = pngUrl;
-    downloadLink.download = "Dementia Kit.png";
+    downloadLink.download = LoanName + "-" + kitName +".png";
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
@@ -84,14 +86,24 @@ function QRCreate() {
       </div>
       <div>
         <Form onSubmit={NewData} className="form-create">
-        <label htmlFor='KitName'>Name </label>
+        <label htmlFor='KitName'>Kit Name </label>
           <input type="text" onChange={(event) => {
-          setText(event.target.value);
+          setkitName(event.target.value);
         }} 
         className="form-control" 
         id="KitName" 
         placeholder="Dementia Kit xx - example"
         required />
+
+        <label htmlFor='Loan Name'>Loan Name </label>
+          <input type="text" onChange={(event) => {
+          setLoanName(event.target.value);
+        }} 
+        className="form-control" 
+        id="KitName" 
+        placeholder="Borrower Name"
+        required />
+
 
         <label htmlFor='Number of Kits'>Amount of Kit Loaned </label>
           <input type="number" onChange={(event) => {
@@ -141,11 +153,12 @@ function QRCreate() {
           <br />
           <QRCodeCanvas value=
           {
-            "Name:" + name + "\n" +
-            "Amount Of Kit Loaned:"+ amount  + " " +
-            "Start Date:"+ startdate + " " + 
-            "End Date: "+ enddate + " " +
-            "Phone Number:"+ phone + " " +
+            "Name:" + kitName + "\n" +
+            "Amount Of Kit Loaned:"+ amount  + "\n" +
+            "Loan Name:" + LoanName + "\n " +
+            "Start Date:"+ startdate + "\n" + 
+            "End Date: "+ enddate + " \n" +
+            "Phone Number:"+ phone + "\n" +
             "Email:" + email
           } size={250} className="qr" id="Dementia Kit" />
         </div>
