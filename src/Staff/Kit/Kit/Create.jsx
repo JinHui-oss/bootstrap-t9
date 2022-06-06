@@ -95,7 +95,7 @@ function AddKit() {
           setAmt(event.target.value);
           }} 
           className="form-control" 
-          id="KitQuantity" 
+          id="KitSearch" 
           placeholder="1" 
           required />
         </div>
