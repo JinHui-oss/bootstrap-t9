@@ -60,13 +60,13 @@ function Kit() {
       {/* search function */}
       <div className='content-search'>
       
-      <form >
+      <form className='input-words'>
       <input type="text" onChange={(event) => {
           setSearch(event.target.value);
           }} 
           className="form-control" 
           id="KitQuantity" 
-          placeholder="Enter Search Text" 
+          placeholder="Enter Dementia Kit Name" 
           required />
         </form>
         </div>

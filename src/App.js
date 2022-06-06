@@ -24,6 +24,7 @@ import ForgotPassword from "./Login/ForgotPassword";
 // Staff Interface
 import Profile from "./Staff/Account/Profile";
 import Index from "./Staff/Index";
+import MemberList from "./Staff/Member/MemberList";
 
 // Member Interface
 import MemberProfile from "./Member/Account/Profile";
@@ -48,6 +49,7 @@ import QRCreate from "./Staff/Kit/KitQR/Create";
 import QRDetail from "./Staff/Kit/KitQR/Detail"
 import QREdit from "./Staff/Kit/KitQR/Edit";
 import ProfileEdit from "./Staff/Account/Edit";
+import MemberDetail from "./Staff/Member/MemberDetail";
 
 
 
@@ -115,11 +117,27 @@ function App() {
           <Staff />
           <Index />
         </ProtectedRoute>} />
+        
+         {/* Dashboard interface for staff */}
+         <Route path='/Staff/Dashboard/:id' element={<ProtectedRoute>
+          <Staff />
+          <Index />
+        </ProtectedRoute>} />
 
           {/* listing all kits page */}
         <Route path='/Staff/Kit' element={<ProtectedRoute>
           <Staff />
           <Kit />
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/MemberList' element={<ProtectedRoute>
+          <Staff />
+          <MemberList />
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/MemberList/Detail/:id' element={<ProtectedRoute>
+          <Staff />
+          <MemberDetail />
         </ProtectedRoute>} />
 
          

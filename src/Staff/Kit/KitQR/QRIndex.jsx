@@ -10,9 +10,10 @@ import { collection, getDocs } from 'firebase/firestore'
 // css
 import '../KitQR/KitQR.css'
 
-function QRIndex() {
+function QRIndex(){
 
   const [KitQR, setKitQR] = useState([]);
+  const [search, setSearch] = useState('');
   const KitQRCollectionRef = collection (db, "KitQR")
 
   useEffect(() => {
@@ -37,10 +38,18 @@ function QRIndex() {
       </div>
       
       {/* search function */}
-      <div className='search'>
-        <input /> 
-        <Button>Search</Button>
-      </div>
+      <div className='content-search'>
+      
+      <form className='input-words'>
+      <input type="text" onChange={(event) => {
+          setSearch(event.target.value);
+          }} 
+          className="form-control" 
+          id="KitQuantity" 
+          placeholder="Enter Dementia Kit Name" 
+          required />
+        </form>
+        </div>
     
       {/* table infomation */}
       <div className='table'>
@@ -55,7 +64,14 @@ function QRIndex() {
           </thead>
           
           {/* display table content */}
-          {KitQR.map((user) => {
+          {KitQR.filter((val) => {
+            if(search == ""){
+              return val;
+            }
+            else if(val.KitName.toLowerCase().includes(search.toLocaleLowerCase())){
+              return val;
+            }
+          }).map((user) => {
           return( 
             <tbody>
               {""}

@@ -51,6 +51,7 @@ function QRDetail() {
         
         setKitQR.state ={
           id: id,
+          LoanName: data.LoanName,
           KitName: data.KitName,
           PhoneNumber: data.PhoneNumber,
           Email: data.Email,
@@ -134,6 +135,7 @@ function QRDetail() {
           <Card className="details-information-body">
             <Card.Body>
               <p>User Id: <br /> {id}</p>
+              <p>Borrower Name: <br /> {kitQR.LoanName}</p>
               <p>Contact Number: <br /> {kitQR.PhoneNumber}</p>
               <p>Email: <br />{kitQR.Email}</p>
               <p>Start Date: <br /> {kitQR.StartDate}</p>
