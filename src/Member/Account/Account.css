@@ -18,3 +18,28 @@
     max-width: 50%;
     margin-left: 20%;
 }
+
+.profilepage-title  {
+    margin-top: -10%;
+}
+
+.profilepage-pictures {
+    margin-top:10%;
+    margin-left: -10%;
+    height: auto;
+}
+
+.profilepage-pictures .profilepage-edit {
+    margin-top:2.5%;
+}
+
+.memberprofilepage-information{
+    max-width: 37%;
+    margin-left: 50%;
+}
+.header{
+    max-width: 90%;
+}
+.profilepage-information-title h3{
+    text-align: center;
+}

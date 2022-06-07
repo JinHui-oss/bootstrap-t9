@@ -15,6 +15,8 @@ import {
   doc
 } from 'firebase/firestore'
 
+import '../Account/Account.css'
+
 
 function MemberProfile() {
   const [Member,setMember] = useState([]);
@@ -108,7 +110,7 @@ function MemberProfile() {
         </div>
 
         {/* body content of the kit information */}
-        <div className='profilepage-information'>
+        <div className='memberprofilepage-information'>
         <Card className="profilepage-information-title">
             <Card.Title>
                 <h3>Account Information</h3>
