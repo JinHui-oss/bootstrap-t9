@@ -5,7 +5,7 @@ import moment from 'moment'
 
 // firebase
 import { db } from '../../Database/firebase';
-import { collection, getDocs, Timestamp } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 
 function CurrentLoan() {
   //  eslint-disable-next-line
