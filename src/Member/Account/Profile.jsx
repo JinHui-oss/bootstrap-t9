@@ -41,13 +41,16 @@ function MemberProfile() {
         // console.log(data)
         
         setMember.state = {
-          uid : data.uid,
-          Name: data.Name,
-          PhotoUrl : data.PhotoUrl,
-          Email: data.Email,
-          Password: data.Password,
-          Role: data.Role,
-          CreatedAt: data.CreatedAt
+         CreatedAt: data.CreatedAt,
+         Email: data.Email,
+         Gender: data.Gender,
+         Name: data.Name,
+         Password: data.Password,
+         PhoneNumber: data.PhoneNumber,
+         PhotoUrl: data.PhotoUrl,
+         Role: data.Role,
+         UpdatedAt: data.UpdatedAt,
+         uid: data.uid
         }
         
         // reterive the data and stored into a setkit
@@ -115,8 +118,8 @@ function MemberProfile() {
             <Card.Body>
               <p>User Id: <br /> {Member.uid}</p>
               <p>Email: <br /> {Member.Email}</p>
-              <p>Passwod: <br /> 
-              <input type="password"defaultValue={Member.Password} readOnly/></p>
+              <p>Phone Number: <br /> {Member.PhoneNumber}</p>
+              <p>Gender: <br /> {Member.Gender}</p>
               <p>CreatedAt: <br />{Member.CreatedAt}</p> 
             </Card.Body>
           </Card>

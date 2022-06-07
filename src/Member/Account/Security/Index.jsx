@@ -1,10 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, 
+{ 
+  useState, 
+  useEffect 
+} from 'react'
+
 import {
-    Button
+    Button,
+    Card
 }from 'react-bootstrap'
 
-import { useNavigate,useParams } from 'react-router-dom';
-
+import 
+{ 
+  useNavigate,
+  useParams 
+} from 'react-router-dom';
 
 // firebase inital setup
 import { db } from '../../../Database/firebase';
@@ -15,7 +24,9 @@ import {
   getDoc,
   doc
 } from 'firebase/firestore'
+
 import { getAuth } from 'firebase/auth';
+import '../Account.css'
 
 
 function MemberSecurity() {
@@ -80,15 +91,50 @@ function MemberSecurity() {
 
  
   return (
-    <div className='data-vole'>
-      
-      <Button href= {`/Member/Profile/Security/Edit/${id}`}>Change Password</Button>
-      <br />
-      <Button href= {`/Member/Profile/Security/Edit/${id}`}>Verify Email</Button>
-      <br />
-      <Button href= {`/Member/Profile/Security/Edit/${id}`}>TFA</Button>
-      
+    <div className='setting-content'>
+      <div className='setting-content-header'>
+        <h1>Security and Account Settings</h1>
+        <br />
+      </div>
+      <div className='setting-content-body'>
+        <div className="setting-content-body-1">
+        <Card>
+          <Card.Body>
+            <Card.Title>Login</Card.Title>
+          <Card.Text>
+            Some quick example text to build on the card title and make up the bulk
+            of the card's content.
+          </Card.Text>
+          <Button variant="primary" href={`/Member/Profile/Security/Edit/${id}`}>Change Password</Button>
+        </Card.Body>
+      </Card>
     </div>
+    <div className="setting-content-body-2">
+    <Card >
+      <Card.Body>
+        <Card.Title>Verify Email</Card.Title>
+        <Card.Text>
+          Some quick example text to build on the card title and make up the bulk
+          of the card's content.
+        </Card.Text>
+        <Button variant="primary">Verify Email</Button>
+      </Card.Body>
+    </Card>
+  </div>
+  <div className="setting-content-body-3">
+      <Card>
+      <Card.Body>
+        <Card.Title>2FA</Card.Title>
+        <Card.Text>
+          Some quick example text to build on the card title and make up the bulk
+          of the card's content.
+        </Card.Text>
+        <Button variant="primary">Set up 2FA</Button>
+      </Card.Body>
+    </Card>
+  </div>
+  </div>  
+  </div>
   )
 }
 
