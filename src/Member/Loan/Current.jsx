@@ -44,8 +44,8 @@ function CurrentLoan() {
           </thead>
           
           {kit.map((user) => {
-            let time1 = Timestamp.fromDate(new Date(parseInt(user.EndDate,16)))
-            let time2 = time1.toDate()
+            let time1 = user.StartDate.toDate()
+            let time2 = user.EndDate.toDate()
 
             //  {moment.unix(time).format("MM/DD/YYYY")}
           return( 
@@ -54,10 +54,10 @@ function CurrentLoan() {
               <tr>
                 <td>{user.id}</td>
                 <td>{user.KitName}</td>
-                <td> {moment(user.StartDate).format("MM/DD/YYYY")}</td>
+                <td> {moment(time1).format("DD/MM/YYYY")}</td>
                 <td>
                 
-                {moment(time2).format("MM/DD/YYYY")}
+                {moment(time2).format("DD/MM/YYYY")}
              
                 </td>
                 <td>{user.Status}</td>
