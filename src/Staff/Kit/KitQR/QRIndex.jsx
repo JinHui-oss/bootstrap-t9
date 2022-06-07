@@ -46,7 +46,7 @@ function QRIndex(){
           }} 
           className="form-control" 
           id="KitQuantity" 
-          placeholder="Enter Dementia Kit Name" 
+          placeholder="Enter Borrower Name" 
           required />
         </form>
         </div>
@@ -68,7 +68,7 @@ function QRIndex(){
             if(search == ""){
               return val;
             }
-            else if(val.KitName.toLowerCase().includes(search.toLocaleLowerCase())){
+            else if(val.LoanName.toLowerCase().includes(search.toLocaleLowerCase())){
               return val;
             }
           }).map((user) => {
@@ -77,7 +77,7 @@ function QRIndex(){
               {""}
               <tr>
                 <td><img src={user.PhotoUrl}/></td>
-                <td>{user.id}</td>
+                <td>{user.LoanName}</td>
                 <td>{user.KitName}</td>
                 <td><Link to ={`/Staff/QRIndex/Detail/${user.id}`}>View</Link></td>
               </tr>

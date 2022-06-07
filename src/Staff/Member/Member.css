@@ -1,0 +1,10 @@
+.QR-view .input-words{
+    max-width: 70%;
+    margin-left: 10%;
+    margin-top:2%;
+}
+
+.QR-view .table td{
+    vertical-align: middle;
+    font-size: larger;
+}

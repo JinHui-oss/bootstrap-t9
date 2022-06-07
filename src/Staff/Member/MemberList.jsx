@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Table } from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import '../Member/Member.css'
 
 // firebase
 import { db } from '../../Database/firebase';
@@ -8,6 +9,7 @@ import { collection, getDocs } from 'firebase/firestore'
 
 function MemberList() {
     const [KitQR, setKitQR] = useState([]);
+    const [search, setSearch] = useState('');
     const KitQRCollectionRef = collection (db, "Member")
   
     useEffect(() => {
@@ -30,11 +32,16 @@ function MemberList() {
           <hr></hr>
         </div>
         
-        {/* search function */}
-        <div className='search'>
-          <input /> 
-          <Button>Search</Button>
-        </div>
+        <form className='input-words'>
+         <input type="text" onChange={(event) => {
+          setSearch(event.target.value);
+          }} 
+          className="form-control" 
+          id="KitQuantity" 
+          placeholder="Enter Member Name" 
+          required />
+        </form>
+      
       
         {/* table infomation */}
         <div className='table'>
@@ -49,11 +56,19 @@ function MemberList() {
             </thead>
             
             {/* display table content */}
-            {KitQR.map((user) => {
+            {KitQR.filter((val) => {
+                if(search === ""){
+                    return val;
+                }
+                else if(val.Name.toLowerCase().includes(search.toLocaleLowerCase())){
+                    return val;
+                }
+            }).map((user) => {
             return( 
               <tbody>
                 {""}
                 <tr>
+                  {/* eslint-disable-next-line */}
                   <td><img src={user.PhotoUrl}/></td>
                   <td>{user.id}</td>
                   <td>{user.Name}</td>

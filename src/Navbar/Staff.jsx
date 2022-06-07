@@ -120,7 +120,7 @@ function Staff() {
         <Nav>
           <NavDropdown title={`Welcome ${staff.Name}`} id="navbarScrollingDropdown">
             <NavDropdown.Item href={`/Staff/Account/${staff.uid}`}>Profile</NavDropdown.Item>
-            <NavDropdown.Item href={`#`}>Security</NavDropdown.Item>
+            <NavDropdown.Item href={`/Staff/Profile/Security/${staff.uid}`}>Security</NavDropdown.Item>
             <NavDropdown.Item onClick={handlelogout}>LogOut</NavDropdown.Item>
           </NavDropdown>
         </Nav>

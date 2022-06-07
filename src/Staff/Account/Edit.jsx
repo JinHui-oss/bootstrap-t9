@@ -116,20 +116,20 @@ function ProfileEdit() {
               photoURL: url,
             })
 
-            updatePassword(user, password).then(() => {
-              // Update successful.
-              console.log('uploaded')
-            }).catch((error) => {
-              // An error ocurred
-              console.log(error.message)
-            });
-
             updateEmail(user, email).then(() => {
               // Email updated!
               // ...
               console.log('uploaded')
             }).catch((error) => {
               // An error occurred
+              console.log(error.message)
+            });
+
+            updatePassword(user, password).then(() => {
+              // Update successful.
+              console.log('uploaded')
+            }).catch((error) => {
+              // An error ocurred
               console.log(error.message)
             });
           
