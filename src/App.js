@@ -17,9 +17,9 @@ import Error from "./General/Message/Error";
 
 // Login interface
 import Signin from "./Login/Signin";
-import Signup_Staff from "./Login/Signup_Staff";
-import SignUp_Member from "./Login/Signup_Member";
-import ForgotPassword from "./Login/ForgotPassword";
+import Signup_Staff from "./Login/Signup/Signup_Staff";
+import SignUp_Member from "./Login/Signup/Signup_Member";
+import ForgotPassword from "./Login/PasswordReset/Index";
 
 // Staff Interface
 import Profile from "./Staff/Account/Profile";

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { UserAuth } from '../Scripts/authContext'
+import { UserAuth } from '../../Scripts/authContext'
 import { Form, Button } from 'react-bootstrap'
 import { doc, setDoc } from 'firebase/firestore'
-import { db } from '../Database/firebase';
-import '../Login/Login.css'
+import { db } from '../../Database/firebase';
+import '../../Login/Login.css'
 
 function SignUp_Member() {
   const [name, setName] = useState('');

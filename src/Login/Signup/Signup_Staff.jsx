@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { UserAuth } from '../Scripts/authContext'
+import { UserAuth } from '../../Scripts/authContext'
 import { Form, Button } from 'react-bootstrap'
 import { doc, setDoc } from 'firebase/firestore'
-import { db } from '../Database/firebase';
+import { db } from '../../Database/firebase';
 
 
 function Signup_Staff() {
