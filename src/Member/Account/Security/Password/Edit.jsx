@@ -118,9 +118,17 @@ function MemberSecurityEdit() {
             })
 
             if(password === newpassword){
+              updateDoc(QRCollection, 
+                { 
+                  uid : id,
+                  Password: newpassword,
+                  Role: rolem,
+                  UpdatedAt: date.toDateString()
+                })
               updatePassword(user, newpassword).then(() => {
                 // Update successful.
                 console.log('uploaded')
+                naviagte(`/Member/Profile/${Member.uid}`)
               }).catch((error) => {
                 // An error ocurred
                 console.log(error.message)
@@ -128,20 +136,13 @@ function MemberSecurityEdit() {
             }
             else{
               console.log("bullshit")
+              naviagte(`/Member/Kit`)
             }
-          
-            updateDoc(QRCollection, 
-              { 
-                uid : id,
-                Password: newpassword,
-                Role: rolem,
-                UpdatedAt: date.toDateString()
-              })
                
             alert("image upload") 
           })
         });
-      naviagte(`/Member/Profile/${Member.uid}`)
+      //naviagte(`/Member/Profile/${Member.uid}`)
     }
     catch(e){
       // catch error message but currently display none;
