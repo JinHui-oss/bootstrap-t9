@@ -26,12 +26,14 @@ import Profile from "./Staff/Account/Profile";
 import Index from "./Staff/Index";
 import MemberList from "./Staff/Member/MemberList";
 
-// Member Interface
+// Member Account Interface
 import MemberProfile from "./Member/Account/Profile";
-import LoanIndex from "./Member/Kit/Index";
 import MemberEdit from "./Member/Account/Edit";
+import MemberSecurity from "./Member/Account/Security/Index";
+import MemberSecurityEdit from "./Member/Account/Security/Password/Edit";
 
 // Member & Loan Interface
+import LoanIndex from "./Member/Kit/Index";
 import LoanCreate from "./Member/Kit/Create";
 import LoanDetail from "./Member/Kit/Detail";
 import CurrentLoan from "./Member/Loan/Current";
@@ -148,15 +150,14 @@ function App() {
           <LoanIndex />
         </ProtectedRoute>} />
 
-
         {/* Profile interface for Member */}
         <Route path='/Member/Profile/:id' element={<ProtectedRoute>
           <Member />
           <MemberProfile />
         </ProtectedRoute>} />
 
-        {/* Profile Edit interface for Member */}
-          <Route path='/Member/Profile/Edit/:id' element={<ProtectedRoute>
+        {/* Profile interface for Member */}
+        <Route path='/Member/Profile/Edit/:id' element={<ProtectedRoute>
           <Member />
           <MemberEdit />
         </ProtectedRoute>} />
@@ -194,6 +195,20 @@ function App() {
         <ProtectedRoute>
           <Member />
           <PastLoan/>
+        </ProtectedRoute>} />
+
+        {/* Past Loan Kit interface for Member */} 
+        <Route path='/Member/Profile/Security/:id' element={
+        <ProtectedRoute>
+          <Member />
+          <MemberSecurity/>
+        </ProtectedRoute>} />
+
+        {/* Past Loan Kit interface for Member */} 
+        <Route path='/Member/Profile/Security/Edit/:id' element={
+        <ProtectedRoute>
+          <Member />
+          <MemberSecurityEdit/>
         </ProtectedRoute>} />
 
          {/* create new kit */}

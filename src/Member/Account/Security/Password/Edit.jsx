@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
-import { UserAuth } from '../../Scripts/authContext'
-import { db, storage } from '../../Database/firebase'
+import { UserAuth } from '../../../../Scripts/authContext'
+import { db, storage } from '../../../../Database/firebase'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 import 
@@ -20,17 +20,17 @@ import
   updateEmail
 }from 'firebase/auth';
 
-// Random unique id 
-// import { v4 } from 'uuid'
 
-function MemberEdit() {
+function MemberSecurityEdit() {
+  
   const [Member, setMember] = useState([]);
   
   // eslint-disable-next-line
-  const [Role, setRole] = useState("")
+  const [Role, setRole] = useState("");
   // eslint-disable-next-line
   const {auth} = UserAuth();
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
+  const [newpassword, setNewPassword] = useState("");
   const [email, setEmail] = useState("");
   const [Name, setName] = useState("");
   const [ImageUpload,setImageUpload] = useState("");
@@ -89,8 +89,6 @@ function MemberEdit() {
   // eslint-disable-next-line 
   }, [MemberCollectionRef])
 
- 
-
   // add records directly to the firestore
   const EditData = async(e) =>{
     try{
@@ -119,21 +117,23 @@ function MemberEdit() {
               photoURL: url,
             })
 
-            updateEmail(user, email).then(() => {
-              // Email updated!
-              // ...
-              console.log('uploaded')
-            }).catch((error) => {
-              // An error occurred
-              console.log(error.message)
-            });
+            if(password === newpassword){
+              updatePassword(user, newpassword).then(() => {
+                // Update successful.
+                console.log('uploaded')
+              }).catch((error) => {
+                // An error ocurred
+                console.log(error.message)
+              });
+            }
+            else{
+              console.log("bullshit")
+            }
           
             updateDoc(QRCollection, 
               { 
                 uid : id,
-                Name: Name,
-                PhotoUrl : url,
-                Email: email,
+                Password: newpassword,
                 Role: rolem,
                 UpdatedAt: date.toDateString()
               })
@@ -144,60 +144,53 @@ function MemberEdit() {
       naviagte(`/Member/Profile/${Member.uid}`)
     }
     catch(e){
-      // Catch error message if the data is invalid
+      // catch error message but currently display none;
     }
   }
   EditData()
 
   return (
     <div className='edit-body'>
+    
     <div className='header'>
-      <h2>Update User Profile </h2>
-      <p>You can make changes to the profile once created</p>
+      <h2>Update User Password </h2>
+      <p>You can change password to your current account.</p>
       <hr />
     </div>
+    
     <div className='form-details'>
       <Form onSubmit={EditData} className="form-create">
-        <label htmlFor='KitName'>Account Name: </label>
-        <input type="text"  defaultValue ={Member.Name} onChange={(event) => {
-          setName(event.target.value);
-        }} 
-        className="form-control" 
-        id="AccountName" 
-        placeholder={Member.Name}
-        />
-
-      <label htmlFor='Email'>Email:</label>
-      <input type="Email" defaultValue={Member.Email} onChange={(event) => {
-          setEmail(event.target.value);
+     
+      <label className='Password'>Old Password </label>
+      <input type="password" defaultValue={Member.Password} onChange={(event) => {
+          setPassword(event.target.value);
         }} 
       className="form-control" 
-      id="AccountEmail" 
-      placeholder={Member.Email}
+      id="MemberOldPassword"
+      readOnly 
       />
 
-
-      <label className='Role'>Assigned Role: </label>
-      <input type="text" defaultValue={Member.Role} onChange={(event) => {
-          setRole(event.target.value);
+      <label className='Password'>New Password </label>
+      <input type="password" onChange={(event) => {
+          setPassword(event.target.value);
         }} 
       className="form-control" 
-      id="ProfileRole" 
-      readOnly
+      id="MemberNewPassword" 
+      placeholder='Please enter new password min 8 character'
       />
-      <div className ="form-pic">
-        <label htmlFor="ProfilePictures">Kit Pictures</label>
-        <br />
-        {/* eslint-disable-next-line */}
-        <img src={Member.PhotoUrl} />
-          
-        <input type="file" defaultValue={Member.PhotoUrl} onChange={(event) => {
-            setImageUpload(event.target.files[0]);
-        }} className="form-control-file"  />
-      </div>
-      
+
+      <label className='Password'>Renter New Password </label>
+      <input type="password"  onChange={(event) => {
+          setNewPassword(event.target.value);
+        }} 
+      className="form-control" 
+      id="MemberConfirmNewPassword" 
+      placeholder='Please enter new password min 8 character'
+      />
+
       <Button className= "Submit-Action" type="submit"> Submit </Button>
-      <Button className= "Back-Action" href="/Kit">Back</Button>
+      <Button className= "Back-Action" href={`/Member/Profile/${id}`}>Back</Button>
+      
       </Form>
     </div>
   </div>
@@ -205,5 +198,4 @@ function MemberEdit() {
 }
 
 
-
-export default MemberEdit
+export default MemberSecurityEdit
