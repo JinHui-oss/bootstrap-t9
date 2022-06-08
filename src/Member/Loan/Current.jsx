@@ -101,12 +101,8 @@ function CurrentLoan() {
               <tr>
                 <td>{user.id}</td>
                 <td>{user.KitName}</td>
-                <td> {moment(time1).format("DD/MM/YYYY")}</td>
-                <td>
-                
-                {moment(time2).format("DD/MM/YYYY")}
-             
-                </td>
+                <td>{moment(time1).format("DD/MM/YYYY")}</td>
+                <td>{moment(time2).format("DD/MM/YYYY")}</td>
                 <td>{user.Status}</td>
               </tr>
             </tbody>
