@@ -73,11 +73,13 @@ function MemberProfile() {
   // eslint-disable-next-line 
   }, [MemberCollectionRef])
   
-  // retrieve the status of the email and display to the user in
-  // profile page
+  // retrieve the status of the email and display to the user in profile page.
+  // Source Code and have made modifications to the current code:
+  // https://bobbyhadz.com/blog/javascript-cannot-read-property-tostring-of-undefined#:~:text=The%20%22Cannot%20read%20property%20'toString,data%20types%20that%20support%20it. 
+  
   const data = Member.isverifed
-  const data1 = data?.toString() || ''
-  console.log(data1)
+  const data1 = data?.toString() || 'Not Verified'
+  // console.log(data1)
 
   return (
     <div className='profilepage-content'>
