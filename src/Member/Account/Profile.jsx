@@ -102,10 +102,15 @@ function MemberProfile() {
         </div>
       <br />
       {/* Edit Button */}
-      <Button className='profilepage-edit' href ={`/Member/Profile/Edit/${id}`}>
+      <Button className='profilepage-edit-function' href ={`/Member/Profile/Edit/${id}`}>
       {/* eslint-disable-next-line */}
       <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
       Edit</Button>
+
+      <Button className='profilepage-updatepicture' href ={`/Member/Profile/UpdateProfilePicture/${id}`}>
+      {/* eslint-disable-next-line */}
+      <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
+      Update Picture</Button>
       </div>
 
        {/* product title and quantity information */} 

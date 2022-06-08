@@ -28,7 +28,7 @@ import MemberList from "./Staff/Member/MemberList";
 
 // Member Account Interface
 import MemberProfile from "./Member/Account/Profile";
-import MemberEdit from "./Member/Account/Edit";
+import MemberEdit from "./Member/Account/Update";
 import MemberSecurity from "./Member/Account/Security/Index";
 import MemberSecurityEdit from "./Member/Account/Security/Password/Edit";
 
@@ -52,6 +52,7 @@ import QRDetail from "./Staff/Kit/KitQR/Detail"
 import QREdit from "./Staff/Kit/KitQR/Edit";
 import ProfileEdit from "./Staff/Account/Edit";
 import MemberDetail from "./Staff/Member/MemberDetail";
+import UpdateProfilePicture from "./Member/Account/Picture";
 
 
 
@@ -160,6 +161,12 @@ function App() {
         <Route path='/Member/Profile/Edit/:id' element={<ProtectedRoute>
           <Member />
           <MemberEdit />
+        </ProtectedRoute>} />
+
+         {/* Profile interface for Member */}
+        <Route path='/Member/Profile/UpdateProfilePicture/:id' element={<ProtectedRoute>
+          <Member />
+          <UpdateProfilePicture />
         </ProtectedRoute>} />
 
         {/* Kit interface for Member */}

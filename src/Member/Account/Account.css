@@ -19,12 +19,12 @@
     margin-left: 20%;
 }
 
-.profilepage-title  {
-    margin-top: -10%;
+.profilepage-content .profilepage-title  {
+    margin-top: -28%;
 }
 
 .profilepage-pictures {
-    margin-top:10%;
+    margin-top:5%;
     margin-left: -10%;
     height: auto;
 }
@@ -37,9 +37,32 @@
     max-width: 37%;
     margin-left: 50%;
 }
+
+.profilepage-edit-function{
+   margin-left: 27.5%;
+   margin-top: 2%;
+}
+
+.profilepage-edit-function img{
+    width: auto;
+    height: 50px;
+}
+
+.profilepage-updatepicture {
+   margin-left:2.5%;
+   margin-top:2%;
+}
+
+.profilepage-updatepicture img{
+    width: auto;
+    height: 50px;
+}
 .header{
     max-width: 90%;
 }
 .profilepage-information-title h3{
-    text-align: center;
+    text-align: center;  
+}
+.memberprofilepage-information .profilepage-information-body{
+  margin-top: 5%;
 }
