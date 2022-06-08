@@ -111,8 +111,6 @@ function Staff() {
             <NavDropdown.Item href="/Staff/MemberList">Member List</NavDropdown.Item>
           </NavDropdown>
         </Nav>
-      
-        <Nav.Link href="/Staff/Report">Report</Nav.Link>
       </Nav>
       <Nav>
         <Nav.Link href="#deets">Notifications</Nav.Link>
