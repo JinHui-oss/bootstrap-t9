@@ -29,8 +29,8 @@ function MemberEdit() {
   // eslint-disable-next-line
   const [Role, setRole] = useState("")
   // eslint-disable-next-line
-  const {auth} = UserAuth();
-  const [password, setPassword] = useState("")
+  const {} = UserAuth();
+  const [phonenumber, setPhoneNumber] = useState("")
   const [email, setEmail] = useState("");
   const [Name, setName] = useState("");
   const [ImageUpload,setImageUpload] = useState("");
@@ -66,6 +66,7 @@ function MemberEdit() {
           uid : data.uid,
           Name: data.Name,
           PhotoUrl : data.PhotoUrl,
+          PhoneNumber: data.PhoneNumber,
           Email: data.Email,
           Password: data.Password,
           Role: data.Role,
@@ -89,8 +90,6 @@ function MemberEdit() {
   // eslint-disable-next-line 
   }, [MemberCollectionRef])
 
- 
-
   // add records directly to the firestore
   const EditData = async(e) =>{
     try{
@@ -107,7 +106,8 @@ function MemberEdit() {
           // check the condition if there is no photo uploaded to server
           //if(ImageUpload == null)return;
           if(ImageUpload === null){
-           return;
+           console.log('y')
+           return true;
           }
           getDownloadURL(snapshot.ref).then((url) => {
             const auth = getAuth();
@@ -133,6 +133,7 @@ function MemberEdit() {
                 uid : id,
                 Name: Name,
                 PhotoUrl : url,
+                PhoneNumber: phonenumber,
                 Email: email,
                 Role: rolem,
                 UpdatedAt: date.toDateString()
@@ -176,6 +177,14 @@ function MemberEdit() {
       placeholder={Member.Email}
       />
 
+      <label htmlFor='PhoneNumber'>Contact Number:</label>
+      <input type="Number" defaultValue={Member.PhoneNumber} onChange={(event) => {
+          setPhoneNumber(event.target.value);
+        }} 
+      className="form-control" 
+      id="AccountEmail" 
+      placeholder={Member.PhoneNumber}
+      />
 
       <label className='Role'>Assigned Role: </label>
       <input type="text" defaultValue={Member.Role} onChange={(event) => {
