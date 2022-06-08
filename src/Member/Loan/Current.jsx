@@ -2,23 +2,49 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import moment from 'moment'
+import { UserAuth } from "../../Scripts/authContext" 
 
 // firebase
 import { db } from '../../Database/firebase';
-import { collection, getDocs } from 'firebase/firestore'
+
+import 
+{ 
+  collection, 
+  getDocs,
+  query,
+  where 
+} from 'firebase/firestore'
+
+import { getAuth } from 'firebase/auth';
 
 function CurrentLoan() {
-  //  eslint-disable-next-line
+  // eslint-disable-next-line
   const [kit, setKit] = useState([]);
   const kitCollectionRef = collection(db, "KitBorrowed");
-   
-
+  const { } = UserAuth();
+ 
   useEffect(() => {
     const getKit = async () => {
-      const data = await getDocs(kitCollectionRef)
-      setKit(data.docs.map((doc) =>({...doc.data(), id: doc.id})));
+      // check if the user id that retrieve from the database 
+      // matches with both firebase auth and firestore.
+     
+      const auth = getAuth();
+      const user = auth.currentUser;
+      // console.log(user)
+      
+      if(user){
+        const id = user.uid;
+        // Display check
+        // console.log(id)
+        
+        // Composite Query 
+        const q1 = query(kitCollectionRef, where("Status", "==", "Borrowed"), where("id", "==", id))
+        const data1 = await getDocs(q1)
+        setKit(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
+      }
     };
     getKit();
+    
     
   }, [kitCollectionRef])
   
