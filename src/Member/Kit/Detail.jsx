@@ -15,6 +15,8 @@ import {
   doc
 } from 'firebase/firestore'
 
+import "../Kit/Kit.css"
+
 function LoanDetail() {
     const [kit,setKit] = useState([]);
     const kitCollectionRef = collection(db, "Kit");
@@ -69,15 +71,15 @@ function LoanDetail() {
       // Kit infomation details for specific page
       <div className='details-content'>
          {/* header of the website */}
-         <div className='details-header'>
+         <div className='member-details-header'>
             <h2>Kit Details </h2>
             <p>View all content inside the kit</p>
             <hr />
           </div>
   
           {/* body content of the kit pictures */}
-          <div className='details-pictures'>
-            <div className="d-flex justify-content-around">
+          <div className='member-details-pictures'>
+            <div className="photos">
               <Card>
                 <Card.Body>
                    {/* eslint-disable-next-line */}
@@ -88,7 +90,7 @@ function LoanDetail() {
           <br />
           
           {/* product title and quantity information */} 
-          <div className='details-title'>
+          <div className='member-details-title'>
             <h2>{kit.Name}</h2>
             <hr />
             <h2>Quantity: {kit.Quantity}</h2>
@@ -96,13 +98,13 @@ function LoanDetail() {
           </div>
           
           {/* body content of the kit information */}
-          <div className='details-information'>
-          <Card className="details-information-title">
+          <div className='member-details-information'>
+          <Card className="member-details-information-title">
               <Card.Title>
                   <h3>Kit Content Information</h3>
               </Card.Title>
             </Card>
-            <Card className="details-information-body">
+            <Card className="member-details-information-body">
               <Card.Body>
                 <p>User Id: <br /> {id}</p>
                 <p>About the Kit: <br /> {kit.Description}</p>
@@ -111,9 +113,9 @@ function LoanDetail() {
             </Card>
           {/* Back Button */}
           </div>
-          <Button href="/Member/Kit" className='details-back'>Back</Button>
+          <Button href="/Member/Kit" className='member-details-back'>Back</Button>
           {/* Reserve Button */}
-          <Button href={`/Member/Kit/Create/${kit.id}`} className='details-back'>Reserve</Button>
+          <Button href={`/Member/Kit/Create/${kit.id}`} className='member-details-reserve'>Reserve</Button>
         </div>
       </div>
       )

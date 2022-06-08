@@ -32,15 +32,21 @@
 
 }
 
-.member-details-pictures{
-    width: 480px;
+.member-details-pictures {
+    width: 25%;
     height: 360px;
-    margin-left: 25%;
+    margin-left: 18%;
     margin-top: 5%;
 }
 
+.member-details-pictures img{
+    max-width: auto;
+    height: 240px;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
 .member-details-header{
-  
     margin-top: 3%;;
     margin-left: 18%;
 }
@@ -50,5 +56,35 @@
 }
 
 .member-details-title {
-    margin-left: 100%;
+  margin-top: -75%;
+  margin-left: 125%;
+  width: 115%;
 }
+.member-details-title hr {
+  width: 102%;
+}
+
+.member-details-information{
+    margin-left: 125%;
+    width: 100%;
+}
+.member-details-information-title{
+    width: 115%;
+    text-align: center;
+}
+.member-details-information-title h3{
+    margin-top: 2%;
+}
+.member-details-information-body{
+    margin-top: 5%;
+    width: 115%;
+}
+.member-details-back{
+    margin-left:90%;
+    margin-top: 10%;
+}
+.member-details-reserve{
+    margin-left:110%;
+    margin-top: -14%;
+}
+  
