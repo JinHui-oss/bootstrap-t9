@@ -16,7 +16,6 @@ import
 { 
   getAuth,  
   updateProfile,
-  updatePassword,
   updateEmail
 }from 'firebase/auth';
 
@@ -97,52 +96,36 @@ function MemberEdit() {
       let date = new Date();
       let rolem = "Member";
   
-        // check the condition if there is no photo uploaded to server
-        if(ImageUpload == null)return;
-        // set the specific path of where the photo is stored thru variable
-        const imageRef = ref(storage, `Member/Account/${ImageUpload.name}`)
-        // upload directly to storage database
-        uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
-          // check the condition if there is no photo uploaded to server
-          //if(ImageUpload == null)return;
-          if(ImageUpload === null){
-           console.log('y')
-           return true;
-          }
-          getDownloadURL(snapshot.ref).then((url) => {
-            const auth = getAuth();
-            const user = auth.currentUser;
-            //console.log(user)
+      const auth = getAuth();
+      const user = auth.currentUser;
+      //console.log(user)
             
-            updateProfile(user, {
-              displayName : Name,
-              photoURL: url,
-            })
+      updateProfile(user, {
+        displayName : Name
+      })
 
-            updateEmail(user, email).then(() => {
-              // Email updated!
-              // ...
-              console.log('uploaded')
-            }).catch((error) => {
-              // An error occurred
-              console.log(error.message)
-            });
+      updateEmail(user, email).then(() => {
+        // Email updated!
+        // ...
+        console.log('uploaded')
+      }).catch((error) => {
+        // An error occurred
+        console.log(error.message)
+      });
           
-            updateDoc(QRCollection, 
-              { 
-                uid : id,
-                Name: Name,
-                PhotoUrl : url,
-                PhoneNumber: phonenumber,
-                Email: email,
-                Role: rolem,
-                UpdatedAt: date.toDateString()
-              })
-               
-            alert("image upload") 
-          })
-        });
-      naviagte(`/Member/Profile/${Member.uid}`)
+      updateDoc(QRCollection, 
+      { 
+        uid : id,
+        Name: Name,
+        PhoneNumber: phonenumber,
+        Email: email,
+        Role: rolem,
+        UpdatedAt: date.toDateString()
+      })
+      //         
+      alert("image upload") 
+      //
+      naviagte(`/Member/Profile/${Member.uid}`)    
     }
     catch(e){
       // Catch error message if the data is invalid
@@ -152,15 +135,15 @@ function MemberEdit() {
 
   return (
     <div className='edit-body'>
-    <div className='header'>
-      <h2>Update User Profile </h2>
-      <p>You can make changes to the profile once created</p>
-      <hr />
-    </div>
-    <div className='form-details'>
-      <Form onSubmit={EditData} className="form-create">
-        <label htmlFor='KitName'>Account Name: </label>
-        <input type="text"  defaultValue ={Member.Name} onChange={(event) => {
+      <div className='header'>
+        <h2>Update User Profile </h2>
+        <p>You can make changes to the profile once created</p>
+        <hr />
+      </div>
+      <div className='form-details'>
+        <Form onSubmit={EditData} className="form-create">
+          <label htmlFor='KitName'>Account Name: </label>
+          <input type="text"  defaultValue ={Member.Name} onChange={(event) => {
           setName(event.target.value);
         }} 
         className="form-control" 
@@ -168,49 +151,48 @@ function MemberEdit() {
         placeholder={Member.Name}
         />
 
-      <label htmlFor='Email'>Email:</label>
-      <input type="Email" defaultValue={Member.Email} onChange={(event) => {
+        <label htmlFor='Email'>Email:</label>
+        <input type="Email" defaultValue={Member.Email} onChange={(event) => {
           setEmail(event.target.value);
         }} 
-      className="form-control" 
-      id="AccountEmail" 
-      placeholder={Member.Email}
-      />
+        className="form-control" 
+        id="AccountEmail" 
+        placeholder={Member.Email}
+        />
 
-      <label htmlFor='PhoneNumber'>Contact Number:</label>
-      <input type="Number" defaultValue={Member.PhoneNumber} onChange={(event) => {
+        <label htmlFor='PhoneNumber'>Contact Number:</label>
+        <input type="Number" defaultValue={Member.PhoneNumber} onChange={(event) => {
           setPhoneNumber(event.target.value);
         }} 
-      className="form-control" 
-      id="AccountEmail" 
-      placeholder={Member.PhoneNumber}
-      />
+        className="form-control" 
+        id="AccountEmail" 
+        placeholder={Member.PhoneNumber}
+        />
 
-      <label className='Role'>Assigned Role: </label>
-      <input type="text" defaultValue={Member.Role} onChange={(event) => {
+        <label className='Role'>Assigned Role: </label>
+        <input type="text" defaultValue={Member.Role} onChange={(event) => {
           setRole(event.target.value);
         }} 
-      className="form-control" 
-      id="ProfileRole" 
-      readOnly
-      />
-      <div className ="form-pic">
-        <label htmlFor="ProfilePictures">Kit Pictures</label>
-        <br />
-        {/* eslint-disable-next-line */}
-        <img src={Member.PhotoUrl} />
+        className="form-control" 
+        id="ProfileRole" 
+        readOnly
+        />
+        <div className ="form-pic">
+          <label htmlFor="ProfilePictures">Kit Pictures</label>
+          <br />
+          {/* eslint-disable-next-line */}
+          <img src={Member.PhotoUrl} />
           
-        <input type="file" defaultValue={Member.PhotoUrl} onChange={(event) => {
+          <input type="file" defaultValue={Member.PhotoUrl} onChange={(event) => {
             setImageUpload(event.target.files[0]);
-        }} className="form-control-file"  />
-      </div>
-      
-      <Button className= "Submit-Action" type="submit"> Submit </Button>
-      <Button className= "Back-Action" href="/Kit">Back</Button>
+          }} className="form-control-file"  />
+        </div>
+        <Button className= "Submit-Action" type="submit"> Submit </Button>
+        <Button className= "Back-Action" href="/Kit">Back</Button>
       </Form>
     </div>
   </div>
-)
+  )
 }
 
 
