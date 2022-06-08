@@ -46,8 +46,6 @@ function Kit() {
       //  eslint-disable-next-line
     }, [])
     
-  
-
   return (
     <div className='content'>
       <div className='content-header'>
@@ -83,7 +81,7 @@ function Kit() {
           </thead>
           
           {kit.filter((val) => {
-            if(search == ""){
+            if(search === ""){
               return val
             }
             else if(val.Name.toLowerCase().includes(search.toLocaleLowerCase())){
