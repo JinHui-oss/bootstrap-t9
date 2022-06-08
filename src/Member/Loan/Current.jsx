@@ -20,6 +20,7 @@ import { getAuth } from 'firebase/auth';
 function CurrentLoan() {
   // eslint-disable-next-line
   const [kit, setKit] = useState([]);
+  const [search, setSearch] = useState('');
   const kitCollectionRef = collection(db, "KitBorrowed");
   const { } = UserAuth();
  
@@ -56,7 +57,20 @@ function CurrentLoan() {
         <p>View and Loan the dementia Kits</p>
         <hr/>
       </div>
-    
+
+      <div className='content-search'>
+      
+      <form className='input-words'>
+      <input type="text" onChange={(event) => {
+        setSearch(event.target.value);
+        }} 
+        className="form-control" 
+        id="KitQuantity" 
+        placeholder="Enter Dementia Kit Name" 
+        required />
+        </form>
+      </div>
+
       <div className='content-table'>
           <Table responsive="md" hover>
           <thead>
@@ -69,7 +83,14 @@ function CurrentLoan() {
             </tr>
           </thead>
           
-          {kit.map((user) => {
+          {kit.filter((value) => {
+            if(search == ""){
+              return value;
+            }
+            else if(value.KitName.toLowerCase().includes(search.toLocaleLowerCase())){
+              return value;
+            }
+          }).map((user) => {
             let time1 = user.StartDate.toDate()
             let time2 = user.EndDate.toDate()
 
