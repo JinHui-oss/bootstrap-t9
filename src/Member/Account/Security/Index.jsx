@@ -1,7 +1,8 @@
 import React, 
 { 
   useState, 
-  useEffect 
+  useEffect,
+  useRef 
 } from 'react'
 
 import {
@@ -12,7 +13,7 @@ import {
 import 
 { 
   useNavigate,
-  useParams 
+  useParams,
 } from 'react-router-dom';
 
 // firebase inital setup
@@ -20,19 +21,21 @@ import { db } from '../../../Database/firebase';
 
 //
 import { 
-  collection,
   getDoc,
-  doc
+  doc,
+  updateDoc
 } from 'firebase/firestore'
 
-import { getAuth } from 'firebase/auth';
+import { getAuth, sendEmailVerification } from 'firebase/auth';
 import '../Account.css'
 
 
 function MemberSecurity() {
   const [member, setMember] = useState([]);
-  const memberCollectionRef = collection(db, "Member");
+  const [isDisabled, setDisabled] = useState(false);
   const { id } = useParams()
+  const memberCollectionRef = doc(db, "Member", id);
+  
  
   // create variable to reterive the specifc document id
 
@@ -74,7 +77,8 @@ function MemberSecurity() {
         setMember(setMember.state)
        
         // check for the display output
-        //console.log(setStaff1.state)
+        // console.log(setMember.state)
+
         
       } 
       else 
@@ -84,12 +88,43 @@ function MemberSecurity() {
       }
     };
   }
-    getdata();
+  getdata();
 
   // eslint-disable-next-line 
   }, [memberCollectionRef])
 
- 
+  
+  // disabled button 
+  // resource : https://stackoverflow.com/questions/41488715/how-to-disable-button-in-react-js
+  
+  const handleverification = async(e) =>{
+    e.preventDefault();
+    try{
+      const auth = getAuth();
+      const user = auth.currentUser
+    
+        if(user.emailVerified){
+          console.log('disabled')
+          setDisabled(true);
+        }
+        else{
+          setDisabled(false);
+          const isverifed = true;
+          sendEmailVerification(user)
+          .then(() => {
+            // Email verification sent!
+            updateDoc(memberCollectionRef,{
+              isverifed: isverifed
+            })
+            alert('Email has been sent to registered email for account verification.')
+        })
+      }
+    }
+    catch(e){
+      // Display error message
+    }
+  }
+  
   return (
     <div className='setting-content'>
       <div className='setting-content-header'>
@@ -117,7 +152,7 @@ function MemberSecurity() {
           Some quick example text to build on the card title and make up the bulk
           of the card's content.
         </Card.Text>
-        <Button variant="primary">Verify Email</Button>
+        <Button variant="primary" onClick={handleverification} disabled={isDisabled}>Verify Email</Button>
       </Card.Body>
     </Card>
   </div>
