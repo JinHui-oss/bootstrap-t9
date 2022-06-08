@@ -52,7 +52,8 @@ function MemberProfile() {
          PhotoUrl: data.PhotoUrl,
          Role: data.Role,
          UpdatedAt: data.UpdatedAt,
-         uid: data.uid
+         uid: data.uid,
+         isverifed: data.isverifed
         }
         
         // reterive the data and stored into a setkit
@@ -60,7 +61,6 @@ function MemberProfile() {
        
         // check for the display output
         // console.log(setMember.state)
-        
       } 
       else 
       {
@@ -72,10 +72,15 @@ function MemberProfile() {
 
   // eslint-disable-next-line 
   }, [MemberCollectionRef])
- 
+  
+  // retrieve the status of the email and display to the user in
+  // profile page
+  const data = Member.isverifed
+  const data1 = data?.toString() || ''
+  console.log(data1)
+
   return (
     <div className='profilepage-content'>
-      
       {/* header of the page */}
       <div className='header'>
         <h2>Profile Page </h2>
@@ -120,6 +125,7 @@ function MemberProfile() {
             <Card.Body>
               <p>User Id: <br /> {Member.uid}</p>
               <p>Email: <br /> {Member.Email}</p>
+              <p>Email Verifed: <br /> {data1}</p>
               <p>Phone Number: <br /> {Member.PhoneNumber}</p>
               <p>Gender: <br /> {Member.Gender}</p>
               <p>CreatedAt: <br />{Member.CreatedAt}</p> 
