@@ -105,6 +105,7 @@ function MemberSecurity() {
     
         if(user.emailVerified){
           console.log('disabled')
+          document.getElementById("status-value").value = "verifed"
           setDisabled(true);
         }
         else{
@@ -116,7 +117,7 @@ function MemberSecurity() {
             updateDoc(memberCollectionRef,{
               isverifed: isverifed
             })
-            alert('Email has been sent to registered email for account verification.')
+            alert('Email has been sent to registered email for account verification and refresh the page.')
         })
       }
     }
@@ -152,7 +153,7 @@ function MemberSecurity() {
           Some quick example text to build on the card title and make up the bulk
           of the card's content.
         </Card.Text>
-        <Button variant="primary" onClick={handleverification} disabled={isDisabled}>Verify Email</Button>
+        <Button variant="primary" onClick={handleverification} id= "status-value" disabled={isDisabled}>Verify Email</Button>
       </Card.Body>
     </Card>
   </div>
