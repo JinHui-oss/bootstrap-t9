@@ -17,7 +17,6 @@ import
   getAuth,  
   updateProfile,
   updatePassword,
-  updateEmail
 }from 'firebase/auth';
 
 
@@ -133,6 +132,7 @@ function MemberSecurityEdit() {
                 // An error ocurred
                 console.log(error.message)
               });
+             
             }
             else{
               console.log("bullshit")
