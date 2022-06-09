@@ -53,6 +53,7 @@ import QREdit from "./Staff/Kit/KitQR/Edit";
 import ProfileEdit from "./Staff/Account/Edit";
 import MemberDetail from "./Staff/Member/MemberDetail";
 import UpdateProfilePicture from "./Member/Account/Picture";
+import StaffPasswordUpdate from "./Staff/Account/Security/Password/Update";
 
 
 
@@ -113,6 +114,11 @@ function App() {
         <Route path='/Staff/Account/Edit/:id' element={<ProtectedRoute>
           <Staff />
           <ProfileEdit /> 
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/Account/PasswordUpdate/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffPasswordUpdate /> 
         </ProtectedRoute>} />
         
          {/* Dashboard interface for staff */}

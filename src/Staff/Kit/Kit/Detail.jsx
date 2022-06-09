@@ -70,9 +70,9 @@ function Detail() {
   // eslint-disable-next-line 
   }, [kitCollectionRef])
 
-  const deleteKit = async (id) => {
+  const deleteKit = async (e) => {
   
-      //e.preventDefault();
+      e.preventDefault();
       const deletedocRef = doc(db, "Kit", id);
       await deleteDoc(deletedocRef);
       navigate("/Staff/Kit")

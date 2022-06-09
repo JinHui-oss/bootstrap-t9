@@ -87,7 +87,7 @@ function Profile() {
           <Card>
             <Card.Body>
               {/* eslint-disable-next-line */}
-              <p><img src={Member.PhotoUrl}></img></p>
+              <img src={Member.PhotoUrl}></img>
             </Card.Body>
           </Card>
         </div>
@@ -97,13 +97,18 @@ function Profile() {
       {/* eslint-disable-next-line */}
       <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
       Edit</Button>
+
+      <Button className='profilepage-update' href ={`/Staff/Account/PasswordUpdate/${id}`}>
+      {/* eslint-disable-next-line */}
+      <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
+      Update Image</Button>
       </div>
 
        {/* product title and quantity information */} 
        <div className='profilepage-title'>
           <h2>Name: {Member.Name}</h2>
           <hr />
-          <h2>Role: {Member.Role}</h2>
+          <h3>Role: {Member.Role}</h3>
           <br />
         </div>
 
@@ -118,8 +123,7 @@ function Profile() {
             <Card.Body>
               <p>User Id: <br /> {Member.uid}</p>
               <p>Email: <br /> {Member.Email}</p>
-              <p>Password: <br /> 
-              <input type="password"defaultValue={Member.Password} readOnly className='form-control'/></p>
+
               <p>CreatedAt: <br />{Member.CreatedAt}</p> 
             </Card.Body>
           </Card>

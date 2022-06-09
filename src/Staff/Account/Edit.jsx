@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
-import { UserAuth } from '../../Scripts/authContext'
-import { auth, db, storage } from '../../Database/firebase'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-
-// Random unique id 
-import { v4 } from 'uuid'
+import { db } from '../../Database/firebase'
 
 import 
 { 
@@ -18,7 +13,6 @@ import
 import 
 { 
   getAuth, 
-  updatePassword, 
   updateProfile,
   updateEmail,
 }from 'firebase/auth';
@@ -27,10 +21,8 @@ function ProfileEdit() {
   const [Member, setMember] = useState([]);
   
   const [Role, setRole] = useState("")
-  const [password, setPassword] = useState("")
   const [email, setEmail] = useState("");
   const [Name, setName] = useState("");
-  const [ImageUpload,setImageUpload] = useState("");
   const StaffCollectionRef = collection(db, "Staff");
 
   const { id } = useParams()
@@ -93,79 +85,54 @@ function ProfileEdit() {
     try{
       e.preventDefault();
       let date = new Date();
-      let rolem = "Staff";
   
-        // check the condition if there is no photo uploaded to server
-        if(ImageUpload == null)return;
-        // set the specific path of where the photo is stored thru variable
-        const imageRef = ref(storage, `Staff/Account/${ImageUpload.name}`)
-        // upload directly to storage database
-        uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
-          // check the condition if there is no photo uploaded to server
-          //if(ImageUpload == null)return;
-          if(ImageUpload === null){
-           return;
-          }
-          getDownloadURL(snapshot.ref).then((url) => {
-            const auth = getAuth();
-            const user = auth.currentUser;
-            //console.log(user)
+      const auth = getAuth();
+      const user = auth.currentUser;
+      //console.log(user)
             
-            updateProfile(user, {
-              displayName : Name,
-              photoURL: url,
-            })
+      updateProfile(user, {
+        displayName : Name,
+      })
 
-            updateEmail(user, email).then(() => {
-              // Email updated!
-              // ...
-              console.log('uploaded')
-            }).catch((error) => {
-              // An error occurred
-              console.log(error.message)
-            });
-
-            updatePassword(user, password).then(() => {
-              // Update successful.
-              console.log('uploaded')
-            }).catch((error) => {
-              // An error ocurred
-              console.log(error.message)
-            });
-          
-            updateDoc(ProfileCollection, 
-              { 
-                uid : id,
-                Name: Name,
-                PhotoUrl : url,
-                Email: email,
-                Password: password,
-                Role: rolem,
-                UpdatedAt: date.toDateString()
-              })
-               
-            alert("image upload") 
-          })
+      updateEmail(user, email).then(() => {
+        // Email updated!
+        // ...
+        console.log('uploaded')
+        }).catch((error) => {
+        // An error occurred
+          console.log(error.message)
         });
-      naviagte(`/Staff/Account/${Member.uid}`)
-    }
-    catch(e){
-      console.log(e.message)
-    }
-  }
-  EditData()
 
-  return (
+        updateDoc(ProfileCollection, 
+        { 
+          uid : id,
+          Name: Name,
+          Email: email,
+          Role: Role,
+          UpdatedAt: date.toDateString()
+        })
+               
+        alert("Contact Information has been updated successfully.") 
+        
+        naviagte(`/Staff/Account/${Member.uid}`)
+      }
+      catch(e){
+        console.log(e.message)
+      }
+    }
+    EditData()
+
+    return (
     <div className='edit-body'>
-    <div className='header'>
-      <h2>Edit Dementia Kit </h2>
-      <p>You can make changes to the kit once created</p>
-      <hr />
-    </div>
-    <div className='form-details'>
-      <Form onSubmit={EditData} className="form-create">
-        <label htmlFor='KitName'>Account Name: </label>
-        <input type="text"  defaultValue ={Member.Name} onChange={(event) => {
+      <div className='header'>
+        <h2>Update Contact Details </h2>
+        <p>You can make changes to the kit once created</p>
+        <hr />
+      </div>
+      <div className='form-details'>
+        <Form onSubmit={EditData} className="form-create">
+          <label htmlFor='KitName'>Account Name: </label>
+          <input type="text"  defaultValue ={Member.Name} onChange={(event) => {
           setName(event.target.value);
         }} 
         className="form-control" 
@@ -173,47 +140,27 @@ function ProfileEdit() {
         placeholder={Member.Name}
         />
 
-      <label htmlFor='Email'>Email:</label>
-      <input type="Email" defaultValue={Member.Email} onChange={(event) => {
+        <label htmlFor='Email'>Email:</label>
+        <input type="Email" defaultValue={Member.Email} onChange={(event) => {
           setEmail(event.target.value);
         }} 
-      className="form-control" 
-      id="KitEmail" 
-      placeholder={Member.Email}
-      />
+        className="form-control" 
+        id="KitEmail" 
+        placeholder={Member.Email}
+        />
 
-      <label className='Password'>Password </label>
-      <input type="password"  defaultValue={Member.Password} checked ={Member.Password} onChange={(event) => {
-          setPassword(event.target.value);
-        }} 
-      className="form-control" 
-      id="KitStartDate" 
-      />
-
-      <label className='Role'>Assigned Role: </label>
-      <input type="text" defaultValue={Member.Role} onChange={(event) => {
+        <label className='Role'>Assigned Role: </label>
+        <input type="text" defaultValue={Member.Role} onChange={(event) => {
           setRole(event.target.value);
         }} 
-      className="form-control" 
-      id="ProfileRole" 
-      readOnly
-      />
-      <div className ="form-pic">
-        <label htmlFor="ProfilePictures">Kit Pictures</label>
+        className="form-control" 
+        id="ProfileRole" 
+        readOnly
+        />
+    
+        <Button className= "Submit-Action" type="submit"> Submit </Button>
+        <Button className= "Back-Action" href="/Kit">Back</Button>
         <br />
-        {/* eslint-disable-next-line */}
-        <img src={Member.PhotoUrl} />
-          
-        <input type="file" defaultValue={Member.PhotoUrl} onChange={(event) => {
-            setImageUpload(event.target.files[0]);
-        }} className="form-control-file"  />
-      </div>
-      
-      <Button className= "Submit-Action" type="submit"> Submit </Button>
-      <Button className= "Back-Action" href="/Kit">Back</Button>
-      <br />
-      <hr className='line'/>
-      <footer>Test</footer>
       </Form>
     </div>
   </div>

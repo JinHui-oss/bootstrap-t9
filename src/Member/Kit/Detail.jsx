@@ -27,7 +27,8 @@ function LoanDetail() {
     const [kitborrowed,setKitBorrowed] = useState([]);
     const kitCollectionRef = collection(db, "Kit");
     const kitCollectionRef1 = collection(db, "KitBorrowed");
-    
+
+  
     // create variable to reterive the specifc document id
     const { id } = useParams()
 
@@ -77,13 +78,12 @@ function LoanDetail() {
         try{
           const auth = getAuth();
           const user = auth.currentUser;
-  
+          
           if(user){
-            const id = user.uid
             // Composite Query 
             const q1 = query(kitCollectionRef1, where("KitName", "==", kit.Name))
             const data1 = await getDocs(q1)
-         
+            
             setKitBorrowed(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
             
             // check output if the data is vaild
@@ -130,12 +130,14 @@ function LoanDetail() {
             {kitborrowed.map((user) => {
               const formula = kit.Quantity - user.Quantity
               if(formula < 0){
-                formula = "There is no avaliable kit at the moment."
+                const errormessage = "There is no avaliable kit at the moment."
+                return (errormessage)
               }
               return(
                 <h2>Quantity: {formula} </h2>
               )
             })}
+
             <br />
           </div>
           
