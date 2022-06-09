@@ -177,16 +177,7 @@ function MemberEdit() {
         id="ProfileRole" 
         readOnly
         />
-        <div className ="form-pic">
-          <label htmlFor="ProfilePictures">Kit Pictures</label>
-          <br />
-          {/* eslint-disable-next-line */}
-          <img src={Member.PhotoUrl} />
-          
-          <input type="file" defaultValue={Member.PhotoUrl} onChange={(event) => {
-            setImageUpload(event.target.files[0]);
-          }} className="form-control-file"  />
-        </div>
+    
         <Button className= "Submit-Action" type="submit"> Submit </Button>
         <Button className= "Back-Action" href="/Kit">Back</Button>
       </Form>

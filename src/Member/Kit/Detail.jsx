@@ -12,23 +12,29 @@ import { db } from '../../Database/firebase';
 import { 
   collection,
   getDoc,
-  doc
+  doc,
+  getDocs
 } from 'firebase/firestore'
+
+import { query, where } from "firebase/firestore";  
+import { getAuth } from 'firebase/auth';
+import { UserAuth } from "../../Scripts/authContext" 
 
 import "../Kit/Kit.css"
 
 function LoanDetail() {
     const [kit,setKit] = useState([]);
+    const [kitborrowed,setKitBorrowed] = useState([]);
     const kitCollectionRef = collection(db, "Kit");
+    const kitCollectionRef1 = collection(db, "KitBorrowed");
     
     // create variable to reterive the specifc document id
     const { id } = useParams()
-  
+
     useEffect(() => {
       const getKit = async () => {
-        const docRef = doc(db, "Kit", id);
+        const docRef = doc(db, "Kit",id)
         const docSnap = await getDoc(docRef);
-        
         // check for display output
         // console.log(docSnap);
         
@@ -53,20 +59,48 @@ function LoanDetail() {
          
           // check for the display output
           // console.log(setKit.state)
-          
-        } 
+        }
         else 
         {
           // doc.data() will be undefined in this case
           console.log("No such document!");
         }
       };
-      getKit();
+      getKit()
   
     // eslint-disable-next-line 
     }, [kitCollectionRef])
+    
+    const { } = UserAuth();
+    useEffect(() => {
+      const getKit1 = async () => {
+        try{
+          const auth = getAuth();
+          const user = auth.currentUser;
   
-     
+          if(user){
+            const id = user.uid
+            // Composite Query 
+            const q1 = query(kitCollectionRef1, where("KitName", "==", kit.Name))
+            const data1 = await getDocs(q1)
+         
+            setKitBorrowed(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
+            
+            // check output if the data is vaild
+            // console.log(kitborrowed)
+          }
+        }
+        catch(e){
+          // Display An Error Message if system capture an error message.
+
+        }
+        
+      };
+      getKit1()  
+    // eslint-disable-next-line 
+    }, [kitCollectionRef1]) 
+    
+
      return (
       // Kit infomation details for specific page
       <div className='details-content'>
@@ -93,7 +127,15 @@ function LoanDetail() {
           <div className='member-details-title'>
             <h2>{kit.Name}</h2>
             <hr />
-            <h2>Quantity: {kit.Quantity}</h2>
+            {kitborrowed.map((user) => {
+              const formula = kit.Quantity - user.Quantity
+              if(formula < 0){
+                formula = "There is no avaliable kit at the moment."
+              }
+              return(
+                <h2>Quantity: {formula} </h2>
+              )
+            })}
             <br />
           </div>
           

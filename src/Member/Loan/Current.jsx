@@ -42,6 +42,7 @@ function CurrentLoan() {
         const q1 = query(kitCollectionRef, where("Status", "==", "Borrowed"), where("id", "==", id))
         const data1 = await getDocs(q1)
         setKit(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
+        // console.log(kit)
       }
     };
     getKit();

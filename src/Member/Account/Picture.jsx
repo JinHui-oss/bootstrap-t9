@@ -21,15 +21,10 @@ import
 
 
 function UpdateProfilePicture() {
-    const [Member, setMember] = useState([]);
-  
-  // eslint-disable-next-line
-  const [Role, setRole] = useState("")
+  const [Member, setMember] = useState([]);
+
   // eslint-disable-next-line
   const {} = UserAuth();
-  const [phonenumber, setPhoneNumber] = useState("")
-  const [email, setEmail] = useState("");
-  const [Name, setName] = useState("");
   const [ImageUpload,setImageUpload] = useState("");
   const MemberCollectionRef = collection(db, "Member");
 
