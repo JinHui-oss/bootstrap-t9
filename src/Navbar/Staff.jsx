@@ -102,13 +102,15 @@ function Staff() {
         <Nav className="me-auto">
           <NavDropdown title="Dementia Kit" id="navbarScrollingDropdown">
             <NavDropdown.Item href="/Staff/Kit">Kit</NavDropdown.Item>
-            <NavDropdown.Item href="/Staff/QRIndex">KitQR</NavDropdown.Item>
+            <NavDropdown.Item href="/Staff/QRIndex">QR Code</NavDropdown.Item>
           </NavDropdown>
         </Nav>
 
         <Nav className="me-auto">
           <NavDropdown title="Member" id="navbarScrollingDropdown">
             <NavDropdown.Item href="/Staff/MemberList">Member List</NavDropdown.Item>
+            <NavDropdown.Item href="/Staff/Borrowed">Borrowed</NavDropdown.Item>
+            <NavDropdown.Item href="/Staff/Returned">Returned</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Nav>

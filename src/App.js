@@ -56,6 +56,9 @@ import UpdateProfilePicture from "./Member/Account/Picture";
 import StaffPasswordUpdate from "./Staff/Account/Security/Password/Update";
 import StaffSecurity from "./Staff/Account/Security";
 import StaffProfileUpdate from "./Staff/Account/Update";
+import StaffKitBorrowed from "./Staff/Kit/Status/Borrowed";
+import StaffKitReturned from "./Staff/Kit/Status/Returned";
+import StaffUpdateBorrowed from "./Staff/Kit/Status/UpdateBorrowed";
 
 
 
@@ -139,13 +142,7 @@ function App() {
           <Index />
         </ProtectedRoute>} />
         
-         {/* Dashboard interface for staff */}
-         <Route path='/Staff/Dashboard/:id' element={<ProtectedRoute>
-          <Staff />
-          <Index />
-        </ProtectedRoute>} />
-
-          {/* listing all kits page */}
+        {/* listing all kits page */}
         <Route path='/Staff/Kit' element={<ProtectedRoute>
           <Staff />
           <Kit />
@@ -161,7 +158,6 @@ function App() {
           <MemberDetail />
         </ProtectedRoute>} />
 
-         
          {/* Loan form interface for Member */} 
          <Route path='/Member/Index' element={
         <ProtectedRoute>
@@ -258,6 +254,30 @@ function App() {
         <Route path='/Staff/QRIndex' element={<ProtectedRoute>
           <Staff />
           <QRIndex />
+        </ProtectedRoute>} />
+
+        {/* List all the Member Borrowed Dementia Kit */}
+        <Route path='/Staff/Borrowed' element={<ProtectedRoute>
+          <Staff />
+          <StaffKitBorrowed/>
+        </ProtectedRoute>} />
+
+        {/* Edit Specifc Member Borrowed Dementia Kit Status */}
+        <Route path='/Staff/Borrowed/Update/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffUpdateBorrowed/>
+        </ProtectedRoute>} />
+
+        {/* List all the Member Returned Dementia Kit */}
+        <Route path='/Staff/Returned/' element={<ProtectedRoute>
+          <Staff />
+          <StaffKitReturned/>
+        </ProtectedRoute>} />
+
+        {/* Edit Specifc Member Returned Dementia Kit Status */}
+        <Route path='/Staff/Returned/Delete/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffKitBorrowed/>
         </ProtectedRoute>} />
         
         {/* Create new QRCode */}
