@@ -54,6 +54,8 @@ import ProfileEdit from "./Staff/Account/Edit";
 import MemberDetail from "./Staff/Member/MemberDetail";
 import UpdateProfilePicture from "./Member/Account/Picture";
 import StaffPasswordUpdate from "./Staff/Account/Security/Password/Update";
+import StaffSecurity from "./Staff/Account/Security";
+import StaffProfileUpdate from "./Staff/Account/Update";
 
 
 
@@ -109,6 +111,16 @@ function App() {
         <Route path='/Staff/Account/:id' element={<ProtectedRoute>
           <Staff />
           <Profile />  
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/Account/Security/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffSecurity/>  
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/Account/UpdatePicture/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffProfileUpdate/>  
         </ProtectedRoute>} />
         
         <Route path='/Staff/Account/Edit/:id' element={<ProtectedRoute>

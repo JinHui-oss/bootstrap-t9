@@ -94,7 +94,7 @@ function Staff() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Container>
-    <Navbar.Brand href="/dashboard">YECC</Navbar.Brand>
+    <Navbar.Brand href="/Staff/Dashboard">YECC</Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
@@ -118,7 +118,8 @@ function Staff() {
         <Nav>
           <NavDropdown title={`Welcome ${staff.Name}`} id="navbarScrollingDropdown">
             <NavDropdown.Item href={`/Staff/Account/${staff.uid}`}>Profile</NavDropdown.Item>
-            <NavDropdown.Item href={`/Staff/Profile/Security/${staff.uid}`}>Security</NavDropdown.Item>
+            <NavDropdown.Item href={`/Staff/Account/Security/${staff.uid}`}>Security</NavDropdown.Item>
+           
             <NavDropdown.Item onClick={handlelogout}>LogOut</NavDropdown.Item>
           </NavDropdown>
         </Nav>

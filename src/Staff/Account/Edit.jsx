@@ -117,7 +117,7 @@ function ProfileEdit() {
         naviagte(`/Staff/Account/${Member.uid}`)
       }
       catch(e){
-        console.log(e.message)
+        // console.log(e.message)
       }
     }
     EditData()
@@ -126,7 +126,7 @@ function ProfileEdit() {
     <div className='edit-body'>
       <div className='header'>
         <h2>Update Contact Details </h2>
-        <p>You can make changes to the kit once created</p>
+        <p>You can make changes to the account once created.</p>
         <hr />
       </div>
       <div className='form-details'>
@@ -159,7 +159,7 @@ function ProfileEdit() {
         />
     
         <Button className= "Submit-Action" type="submit"> Submit </Button>
-        <Button className= "Back-Action" href="/Kit">Back</Button>
+        <Button className= "Back-Action" href={`/Staff/Account/${Member.uid}`}>Back</Button>
         <br />
       </Form>
     </div>

@@ -98,7 +98,7 @@ function Profile() {
       <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
       Edit</Button>
 
-      <Button className='profilepage-update' href ={`/Staff/Account/PasswordUpdate/${id}`}>
+      <Button className='profilepage-update' href ={`/Staff/Account/UpdatePicture/${id}`}>
       {/* eslint-disable-next-line */}
       <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
       Update Image</Button>
