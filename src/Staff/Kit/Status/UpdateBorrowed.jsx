@@ -22,13 +22,13 @@ import { getAuth } from 'firebase/auth';
 function StaffUpdateBorrowed() {
    // eslint-disable-next-line
    const [Kit, setKit] = useState([]);
-   const [LoanName, setLoanName] = useState('');
-   const [KitName, setKitName] = useState('');
-   const [PhoneNumber, setPhoneNumber] = useState('');
-   const [Email, setEmail] = useState('');
-   const [Quantity, setQuantity] = useState('');
-   const [StartDate, setStartDate] = useState('');
-   const [EndDate, setEndDate] = useState('');
+   const [setLoanName] = useState('');
+   const [setKitName] = useState('');
+   const [setPhoneNumber] = useState('');
+   const [setEmail] = useState('');
+   const [setQuantity] = useState('');
+   const [setStartDate] = useState('');
+   const [setEndDate] = useState('');
    const [KitStatus, setKitStatus] = useState('');
    const { id } = useParams();
    
@@ -64,8 +64,6 @@ function StaffUpdateBorrowed() {
    }, [kitCollectionRef])
 
    const NewData = async(e) =>{
-    let date = new Date();
-
     try{
       e.preventDefault();
       // upload directly to cloud firestore database & return back to kit page
@@ -90,11 +88,9 @@ function StaffUpdateBorrowed() {
       // Error Message Display Check
       // console.log(e)
     }
-  }
-      
+  }    
   NewData()
-   
- 
+  
    return (
      <div className='content'>
        <div className='content-header'>
