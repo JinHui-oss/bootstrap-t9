@@ -274,6 +274,13 @@ function App() {
           <StaffKitReturned/>
         </ProtectedRoute>} />
 
+          {/* List all the Member Returned Dementia Kit */}
+          <Route path='/Staff/Returned/Update/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffUpdateBorrowed/>
+        </ProtectedRoute>} />
+
+
         {/* Edit Specifc Member Returned Dementia Kit Status */}
         <Route path='/Staff/Returned/Delete/:id' element={<ProtectedRoute>
           <Staff />

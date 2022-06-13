@@ -104,8 +104,7 @@ function StaffUpdateBorrowed() {
           {Kit.map((user) => {
             let time1 = user.StartDate.toDate()
             let time2 = user.EndDate.toDate()
-        
- 
+      
           // format
           // {moment.unix(time).format("MM/DD/YYYY")}
            return(   
