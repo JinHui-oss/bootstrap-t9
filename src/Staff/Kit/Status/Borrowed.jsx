@@ -16,6 +16,7 @@ import
 
 import { getAuth } from 'firebase/auth';
 import { Link } from 'react-router-dom';
+import "../../../Staff/Kit/Status/Status.css"
 
 function StaffKitBorrowed() {
  // eslint-disable-next-line

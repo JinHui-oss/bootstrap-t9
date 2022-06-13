@@ -16,6 +16,7 @@ import
   where,
   updateDoc,doc
 } from 'firebase/firestore'
+import "../../../Staff/Kit/Status/Status.css"
 
 import { getAuth } from 'firebase/auth';
 
@@ -180,8 +181,8 @@ function StaffUpdateBorrowed() {
             />
             
             <Form.Group className="mb-3" controlId="formstatus" onChange={(e) => setKitStatus(e.target.value)}>
-            <Form.Label>Status</Form.Label>
-              <Form.Select>
+            <Form.Label className="label">Status</Form.Label>
+              <Form.Select className='options'>
                 <option onChange={(e) => setKitStatus(e.target.value)}>Select an option </option>
                 <option onChange={(e) => setKitStatus(e.target.value)}>Confirmed</option>
                 <option onChange={(e) => setKitStatus(e.target.value)}>Borrowed</option>
@@ -189,8 +190,10 @@ function StaffUpdateBorrowed() {
               </Form.Select>
             </Form.Group>
             
-            <Button className= "Submit-Action" type="submit"> Submit </Button>
-            <Button className= "Back-Action" href="/Staff/Borrowed">Back</Button>
+            <div className='both-buttons'>
+              <Button className= "Submit-Action" type="submit"> Submit </Button>
+              <Button className= "Back-Action" href="/Staff/Borrowed">Back</Button>
+            </div>
             <br />
           </div>
           )
