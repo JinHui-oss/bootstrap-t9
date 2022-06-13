@@ -39,7 +39,7 @@ function MemberSecurity() {
  
   // create variable to reterive the specifc document id
 
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getdata = async () => {
@@ -118,6 +118,7 @@ function MemberSecurity() {
               isverifed: isverifed
             })
             alert('Email has been sent to registered email for account verification and refresh the page.')
+            navigate(`/Member/Profile/Security/${user.uid}`)
         })
       }
     }
