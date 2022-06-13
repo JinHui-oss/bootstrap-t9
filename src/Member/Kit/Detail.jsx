@@ -13,7 +13,7 @@ import {
   collection,
   getDoc,
   doc,
-  getDocs
+  getDocs,
 } from 'firebase/firestore'
 
 import { query, where } from "firebase/firestore";  
@@ -24,14 +24,14 @@ import "../Kit/Kit.css"
 
 function LoanDetail() {
     const [kit,setKit] = useState([]);
+    const { } = UserAuth();
     const [kitborrowed,setKitBorrowed] = useState([]);
-    const kitCollectionRef = collection(db, "Kit");
+    const [isDisabled, setDisabled] = useState(false);
+    const { id } = useParams()
     const kitCollectionRef1 = collection(db, "KitBorrowed");
 
   
     // create variable to reterive the specifc document id
-    const { id } = useParams()
-
     useEffect(() => {
       const getKit = async () => {
         const docRef = doc(db, "Kit",id)
@@ -61,6 +61,21 @@ function LoanDetail() {
           // check for the display output
           // console.log(setKit.state)
         }
+        const auth = getAuth();
+        const user = auth.currentUser;
+        // console.log(user)
+        
+        if(user){
+          const id = user.uid;
+          // Display check
+          // console.log(id)
+          
+          // Composite Query 
+          const q1 = query(kitCollectionRef1, where("id", "==", id),)
+          const data1 = await getDocs(q1)
+          setKitBorrowed(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
+          // console.log(kitborrowed)
+        }
         else 
         {
           // doc.data() will be undefined in this case
@@ -68,39 +83,10 @@ function LoanDetail() {
         }
       };
       getKit()
-  
+    })
+     
     // eslint-disable-next-line 
-    }, [kitCollectionRef])
     
-    const { } = UserAuth();
-    useEffect(() => {
-      const getKit1 = async () => {
-        try{
-          const auth = getAuth();
-          const user = auth.currentUser;
-          
-          if(user){
-            // Composite Query 
-            const q1 = query(kitCollectionRef1, where("KitName", "==", kit.Name))
-            const data1 = await getDocs(q1)
-            
-            setKitBorrowed(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
-            
-            // check output if the data is vaild
-            // console.log(kitborrowed)
-          }
-        }
-        catch(e){
-          // Display An Error Message if system capture an error message.
-
-        }
-        
-      };
-      getKit1()  
-    // eslint-disable-next-line 
-    }, [kitCollectionRef1]) 
-    
-
      return (
       // Kit infomation details for specific page
       <div className='details-content'>
@@ -127,16 +113,30 @@ function LoanDetail() {
           <div className='member-details-title'>
             <h2>{kit.Name}</h2>
             <hr />
-            {kitborrowed.map((user) => {
-              const formula = kit.Quantity - user.Quantity
-              if(formula < 0){
-                const errormessage = "There is no avaliable kit at the moment."
-                return (errormessage)
+          {kitborrowed.map((user) => {
+              let data1 = 0;
+              let data2 = 0;
+              let data3 = kit.Quantity;
+              for(let i = 0; i < user.Quantity; i++){
+                // console.log(i)
+                data1= parseInt(kit.Quantity[i])
+                data1 += data2
+                
+                // cross check the data
+                // console.log(data1)
+              }
+              const data = data3 - data1
+              let error  = "Dementia Kit is not avaliable at the moment."
+              if(data < 0){
+               <h2>{error}</h2>
+              }
+              else{
+                <h2>{data}</h2>
               }
               return(
-                <h2>Quantity: {formula} </h2>
+                <h2>Quantity: {error}</h2>
               )
-            })}
+          })}
 
             <br />
           </div>
@@ -159,7 +159,9 @@ function LoanDetail() {
           </div>
           <Button href="/Member/Kit" className='member-details-back'>Back</Button>
           {/* Reserve Button */}
-          <Button href={`/Member/Kit/Create/${kit.id}`} className='member-details-reserve'>Reserve</Button>
+          <Button href={`/Member/Kit/Create/${kit.id}`} className='member-details-reserve'>Reserve
+      
+          </Button>
         </div>
       </div>
       )
