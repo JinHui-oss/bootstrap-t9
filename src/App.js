@@ -57,8 +57,8 @@ import StaffPasswordUpdate from "./Staff/Account/Security/Password/Update";
 import StaffSecurity from "./Staff/Account/Security";
 import StaffProfileUpdate from "./Staff/Account/Update";
 import StaffKitBorrowed from "./Staff/Kit/Status/Borrowed";
-import StaffKitReturned from "./Staff/Kit/Status/Returned";
-import StaffUpdateBorrowed from "./Staff/Kit/Status/UpdateBorrowed";
+import StaffKitReturned from "./Staff/Kit/Status/Update/UpdateReturned";
+import StaffUpdateBorrowed from "./Staff/Kit/Status/Update/UpdateBorrowed";
 
 
 

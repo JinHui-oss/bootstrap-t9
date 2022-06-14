@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import moment from 'moment'
-import { UserAuth } from "../../../Scripts/authContext" 
+import { UserAuth } from "../../../../Scripts/authContext" 
 
 // firebase
-import { db } from '../../../Database/firebase';
+import { db } from '../../../../Database/firebase';
 
 import 
 { 
@@ -16,6 +16,7 @@ import
   where,
   updateDoc,doc
 } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth';
 
 function UpdateReturned() {
     // eslint-disable-next-line
