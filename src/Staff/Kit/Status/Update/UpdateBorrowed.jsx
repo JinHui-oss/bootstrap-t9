@@ -11,14 +11,11 @@ import { db } from '../../../../Database/firebase';
 import 
 { 
   collection, 
-  query,
-  where,
   updateDoc,doc, getDoc
 } from 'firebase/firestore'
 import "../../../../Staff/Kit/Status/Status.css"
 
 import emailjs from '@emailjs/browser';
-import { getAuth } from 'firebase/auth';
 
 
 function StaffUpdateBorrowed() {
@@ -36,6 +33,7 @@ function StaffUpdateBorrowed() {
    
    const kitCollectionRef = collection(db, "KitBorrowed");
    const kitCollectionRef1 = doc(db, "KitBorrowed", id)
+   // eslint-disable-next-line
    const {} = UserAuth();
   
    const navigate = useNavigate();
@@ -83,7 +81,7 @@ function StaffUpdateBorrowed() {
   
       };
       getKit();
-     
+   // eslint-disable-next-line  
    }, [kitCollectionRef])
 
   
