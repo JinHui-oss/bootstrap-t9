@@ -104,8 +104,7 @@ function StaffUpdateBorrowed() {
             Status: KitStatus
         })        
         
-        
-        const q1 = query(kitCollectionRef, where("id", "==", id), where("Dementia Kit", "==", Kit.KitName))
+        // Email Notfication sent to member using EmailJS API
         emailjs.sendForm('service_6gtz4td', 'template_2kshjof',event.target,'wrPdaYsbP50QkbgHU')
         .then((result) => {
           console.log(result.text);
