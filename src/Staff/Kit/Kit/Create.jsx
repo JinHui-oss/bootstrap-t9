@@ -124,7 +124,7 @@ function AddKit() {
         <Button className='submit' type='submit' >Submit</Button>
         
         {/* Return back to the kit page */}
-        <Button className= 'back-action' href='/Kit'>Back</Button>
+        <Button className= 'back-action' href='/Staff/Kit'>Back</Button>
         <br />
       </form>
       </div>
