@@ -104,7 +104,7 @@ function MemberSecurity() {
       const user = auth.currentUser
     
         if(user.emailVerified){
-          console.log('disabled')
+          alert('Email has been verifed and the button is disabled')
           document.getElementById("status-value").value = "verifed"
           setDisabled(true);
         }
