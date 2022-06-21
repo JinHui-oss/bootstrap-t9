@@ -84,10 +84,16 @@ function LoanDetail() {
             for(i = 0; i <= kitborrowed.length; i++ ){
               // console.log(i)
               if(i == null){
+                // reference code from
+                // https://stackoverflow.com/questions/61783095/react-warning-received-nan-for-the-children-attribute-when-using-usereduce
                 setstarted({...data1, Quantity: i})
               }
               else{
+                // reference code from
+                // https://stackoverflow.com/questions/61783095/react-warning-received-nan-for-the-children-attribute-when-using-usereduce
                 setstarted({...data1, Quantity: i})
+                
+                // checked if the output displayed the correct values
                 // console.log(started)
               }
             }
