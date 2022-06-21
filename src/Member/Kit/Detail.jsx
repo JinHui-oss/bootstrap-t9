@@ -1,7 +1,6 @@
 // react
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { FireSQL } from 'firesql';
 
 // bootstrap
 import { Button, Card } from 'react-bootstrap';
@@ -15,10 +14,7 @@ import {
   getDoc,
   doc,
   getDocs,
-  getFirestore
 } from 'firebase/firestore'
-import 'firesql/rx'; 
-
 
 import { query, where } from "firebase/firestore";  
 import { getAuth } from 'firebase/auth';
@@ -28,7 +24,6 @@ import "../Kit/Kit.css"
 
 function LoanDetail() {
     
-  const db = getFirestore();
   const [kit,setKit] = useState([]);
     const { } = UserAuth();
     const [kitborrowed,setKitBorrowed] = useState([]);
@@ -37,11 +32,10 @@ function LoanDetail() {
     const { id } = useParams();
     const kitCollectionRef1 = collection(db, "KitBorrowed");
     
-
   
     // create variable to reterive the specifc document id
     useEffect(() => {
-      const getKit = async () => {
+      const getKit = async () => {    
         const docRef = doc(db, "Kit",id)
         const docSnap = await getDoc(docRef);
         // check for display output
@@ -74,31 +68,35 @@ function LoanDetail() {
         // console.log(user)
        
         if(user){
-          const id = kit.Name;
-          // Display check
-          // console.log(id)
-          
-          // Composite Query 
-          const q1 = query(kitCollectionRef1, where("KitName", "==", id))
-          const data1 = await getDocs(q1)
-
-         
-          setKitBorrowed(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
-          // console.log(kitborrowed)
-          let i 
-          for(i = 0; i <= kitborrowed.length; i++ ){
-            // console.log(i)
-            if(i == null){
-              setstarted({...data1, Quantity: i})
-            }
-            else{
-              
-              setstarted({...data1, Quantity: i})
-              // console.log(started)
+          try{
+            const id = kit.Name;
+            // Display check
+            // console.log(id)
+            
+            // Composite Query 
+            const q1 = query(kitCollectionRef1, where("KitName", "==", id))
+            const data1 = await getDocs(q1)
+  
+           
+            setKitBorrowed(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
+            // console.log(kitborrowed)
+            let i 
+            for(i = 0; i <= kitborrowed.length; i++ ){
+              // console.log(i)
+              if(i == null){
+                setstarted({...data1, Quantity: i})
+              }
+              else{
+                setstarted({...data1, Quantity: i})
+                // console.log(started)
+              }
             }
           }
-          
-       
+          catch(e){
+            // Display error message if needed
+            // console.log(e.message)
+          }
+         
         }
         else 
         {
@@ -108,6 +106,20 @@ function LoanDetail() {
       };
       getKit()
     },[kitCollectionRef1])
+
+    const checkbutton = async (e) => {
+     try{
+      e.preventDefault();
+      if(kit.Quantity < 0){
+        alert('false')
+        setDisabled(true)
+        console.log('fisba')
+      }
+    }catch(e){
+      // console.log(e.message)
+     }
+    }
+    
 
   
     // eslint-disable-next-line 
@@ -139,10 +151,6 @@ function LoanDetail() {
             <h2>{kit.Name}</h2>
             <hr />
             <h2>Quantity: {kit.Quantity - started.Quantity}</h2>
-           
-          
-        
-            
             <br />
           </div>
           
@@ -164,7 +172,7 @@ function LoanDetail() {
           </div>
           <Button href="/Member/Kit" className='member-details-back'>Back</Button>
           {/* Reserve Button */}
-          <Button href={`/Member/Kit/Create/${kit.id}`} className='member-details-reserve'>Reserve
+          <Button onClick = {checkbutton} disabled={isDisabled} href={`/Member/Kit/Create/${kit.id}`} className='member-details-reserve'>Reserve
       
           </Button>
         </div>
