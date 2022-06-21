@@ -1,6 +1,7 @@
 // react
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { FireSQL } from 'firesql';
 
 // bootstrap
 import { Button, Card } from 'react-bootstrap';
@@ -14,7 +15,10 @@ import {
   getDoc,
   doc,
   getDocs,
+  getFirestore
 } from 'firebase/firestore'
+import 'firesql/rx'; 
+
 
 import { query, where } from "firebase/firestore";  
 import { getAuth } from 'firebase/auth';
@@ -23,12 +27,16 @@ import { UserAuth } from "../../Scripts/authContext"
 import "../Kit/Kit.css"
 
 function LoanDetail() {
-    const [kit,setKit] = useState([]);
+    
+  const db = getFirestore();
+  const [kit,setKit] = useState([]);
     const { } = UserAuth();
     const [kitborrowed,setKitBorrowed] = useState([]);
+    const [started, setstarted] = useState("")
     const [isDisabled, setDisabled] = useState(false);
-    const { id } = useParams()
+    const { id } = useParams();
     const kitCollectionRef1 = collection(db, "KitBorrowed");
+    
 
   
     // create variable to reterive the specifc document id
@@ -64,17 +72,33 @@ function LoanDetail() {
         const auth = getAuth();
         const user = auth.currentUser;
         // console.log(user)
-        
+       
         if(user){
-          const id = user.uid;
+          const id = kit.Name;
           // Display check
           // console.log(id)
           
           // Composite Query 
-          const q1 = query(kitCollectionRef1, where("id", "==", id),)
+          const q1 = query(kitCollectionRef1, where("KitName", "==", id))
           const data1 = await getDocs(q1)
+
+         
           setKitBorrowed(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
           // console.log(kitborrowed)
+          let i 
+          for(i = 0; i <= kitborrowed.length; i++ ){
+            // console.log(i)
+            if(i == null){
+              setstarted({...data1, Quantity: i})
+            }
+            else{
+              
+              setstarted({...data1, Quantity: i})
+              // console.log(started)
+            }
+          }
+          
+       
         }
         else 
         {
@@ -83,8 +107,9 @@ function LoanDetail() {
         }
       };
       getKit()
-    })
-     
+    },[kitCollectionRef1])
+
+  
     // eslint-disable-next-line 
     
      return (
@@ -113,31 +138,11 @@ function LoanDetail() {
           <div className='member-details-title'>
             <h2>{kit.Name}</h2>
             <hr />
-          {kitborrowed.map((user) => {
-              let data1 = 0;
-              let data2 = 0;
-              let data3 = kit.Quantity;
-              for(let i = 0; i < user.Quantity; i++){
-                // console.log(i)
-                data1= parseInt(kit.Quantity[i])
-                data1 += data2
-                
-                // cross check the data
-                // console.log(data1)
-              }
-              const data = data3 - data1
-              let error  = "Dementia Kit is not avaliable at the moment."
-              if(data < 0){
-               <h2>{error}</h2>
-              }
-              else{
-                <h2>{data}</h2>
-              }
-              return(
-                <h2>Quantity: {error}</h2>
-              )
-          })}
-
+            <h2>Quantity: {kit.Quantity - started.Quantity}</h2>
+           
+          
+        
+            
             <br />
           </div>
           
@@ -168,3 +173,4 @@ function LoanDetail() {
     }
 
 export default LoanDetail
+
