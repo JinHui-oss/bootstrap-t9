@@ -59,6 +59,8 @@ import StaffProfileUpdate from "./Staff/Account/Update";
 import StaffKitBorrowed from "./Staff/Kit/Status/Borrowed";
 import StaffKitReturned from "./Staff/Kit/Status/Update/UpdateReturned";
 import StaffUpdateBorrowed from "./Staff/Kit/Status/Update/UpdateBorrowed";
+import Member2FAEdit from "./Member/Account/Security/2FA/Edit";
+import StaffReturned from "./Staff/Kit/Status/Returned";
 
 
 
@@ -232,6 +234,13 @@ function App() {
           <MemberSecurityEdit/>
         </ProtectedRoute>} />
 
+        {/* Past Loan Kit interface for Member */} 
+        <Route path='/Member/Profile/Security/2FA/:id' element={
+        <ProtectedRoute>
+          <Member />
+          <Member2FAEdit/>
+        </ProtectedRoute>} />
+
          {/* create new kit */}
          <Route path='/Staff/Kit/Add' element={<ProtectedRoute>
           <Staff />
@@ -269,9 +278,9 @@ function App() {
         </ProtectedRoute>} />
 
         {/* List all the Member Returned Dementia Kit */}
-        <Route path='/Staff/Returned/' element={<ProtectedRoute>
+        <Route path='/Staff/Returned' element={<ProtectedRoute>
           <Staff />
-          <StaffKitReturned/>
+          <StaffReturned/>
         </ProtectedRoute>} />
 
           {/* List all the Member Returned Dementia Kit */}
