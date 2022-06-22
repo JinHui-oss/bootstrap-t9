@@ -57,7 +57,7 @@ import StaffPasswordUpdate from "./Staff/Account/Security/Password/Update";
 import StaffSecurity from "./Staff/Account/Security";
 import StaffProfileUpdate from "./Staff/Account/Update";
 import StaffKitBorrowed from "./Staff/Kit/Status/Borrowed";
-import StaffKitReturned from "./Staff/Kit/Status/Update/UpdateReturned";
+import StaffUpdateReturned from "./Staff/Kit/Status/Update/UpdateReturned";
 import StaffUpdateBorrowed from "./Staff/Kit/Status/Update/UpdateBorrowed";
 import Member2FAEdit from "./Member/Account/Security/2FA/Edit";
 import StaffReturned from "./Staff/Kit/Status/Returned";
@@ -286,7 +286,7 @@ function App() {
           {/* List all the Member Returned Dementia Kit */}
           <Route path='/Staff/Returned/Update/:id' element={<ProtectedRoute>
           <Staff />
-          <StaffUpdateBorrowed/>
+          <StaffUpdateReturned/>
         </ProtectedRoute>} />
 
 
