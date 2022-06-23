@@ -13,14 +13,46 @@
     margin-left: 20%;
 }
 
-.staff-header{
-    margin-left: 20%;
-    margin-top: 2.5%;
-    max-width: 55%;
-}
 
 .staff-kit{
     margin-left: 20%;
     max-width: 55%;
     margin-top:1.5%;
+}
+
+.member-total{
+    margin-left: 20%;
+    margin-top: 2%;
+ 
+}
+
+.Confirmed-total{
+    margin-left: 40%;
+    margin-top: -9.25%;
+}
+
+.ReadyC-total{
+    margin-left: 60%;
+    margin-top: -8%;
+}
+
+.down{
+    max-width: 55%;
+    margin-left: 20%;
+    margin-top: 3%;
+}
+
+.Member-stafft{
+    margin-left: 20%;
+    max-width: 55%;
+}
+
+.Member-total{
+    margin-top:2.5%;
+    margin-left:20%;
+}
+
+.Staff-total{
+    margin-top:-9.25%;
+    margin-left:40%;
 }
