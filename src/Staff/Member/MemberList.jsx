@@ -10,6 +10,7 @@ import { collection, getDocs } from 'firebase/firestore'
 function MemberList() {
     const [KitQR, setKitQR] = useState([]);
     const [search, setSearch] = useState('');
+    // eslint-disable-next-line 
     const KitQRCollectionRef = collection (db, "Member")
   
     useEffect(() => {
@@ -56,6 +57,7 @@ function MemberList() {
             </thead>
             
             {/* display table content */}
+               {/* eslint-disable-next-line*/}
             {KitQR.filter((val) => {
                 if(search === ""){
                     return val;

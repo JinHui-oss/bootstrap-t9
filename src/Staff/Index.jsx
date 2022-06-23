@@ -1,9 +1,8 @@
 // react
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 
 // bootstrap
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 // firebase inital setup
 import { db } from '../Database/firebase';
@@ -31,18 +30,20 @@ function Index() {
   // Kitborrowed
   const [kit,setKit] = useState([]);
   const [kittotal,setKitTotal] = useState([]);
+  
+  // eslint-disable-next-line
   const { } = UserAuth();
   const [kitborrowed,setKitBorrowed] = useState([]);
   const [started, setstarted] = useState("")
   const [startedreturned , setstartedreturned] = useState([])
-  const [isDisabled, setDisabled] = useState(false);
-  const { id } = useParams();
+  
   const kitCollectionRef1 = collection(db, "KitBorrowed");
 
   // Kit
   const kitCollectionRef = collection(db, "Kit");
 
-  const navigate = useNavigate();
+  
+  // eslint-disable-next-line
   const { } = UserAuth();
 
   useEffect(() => {
@@ -138,7 +139,7 @@ function Index() {
     
     };
     getKitBorrowed();
-    
+   // eslint-disable-next-line  
   }, [kitCollectionRef1])
 
  
@@ -185,7 +186,7 @@ function Index() {
     
     };
     getKitTotal();
-    
+  // eslint-disable-next-line
   }, [kitCollectionRef1])
 
   useEffect(() => {
@@ -211,7 +212,7 @@ function Index() {
         }
     };
     getKit();
-    
+   // eslint-disable-next-line  
   }, [kitCollectionRef])
 
 
