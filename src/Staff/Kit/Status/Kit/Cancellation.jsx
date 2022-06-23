@@ -18,8 +18,9 @@ import { getAuth } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import "../../../../Staff/Kit/Status/Status.css"
 
-function StaffReadyCollection() {
- // eslint-disable-next-line
+
+function StaffCancellation() {
+  // eslint-disable-next-line
  const [kit, setKit] = useState([]);
  const [search, setSearch] = useState('');
  const kitCollectionRef = collection(db, "KitBorrowed");
@@ -41,7 +42,7 @@ function StaffReadyCollection() {
        // console.log(id)
        
        // Composite Query 
-       const q1 = query(kitCollectionRef, where("Status", "==", "Ready For Collection"))
+       const q1 = query(kitCollectionRef, where("Status", "==", "Cancelled"))
        const data1 = await getDocs(q1)
        setKit(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
        // console.log(kit)
@@ -56,8 +57,8 @@ function StaffReadyCollection() {
  return (
    <div className='content'>
      <div className='content-header'>
-       <h2>Collection of Dementia Kit </h2>
-       <p>View and collect the dementia Kits</p>
+       <h2>Loan Dementia Kit </h2>
+       <p>View and Loan the dementia Kits</p>
        <hr/>
      </div>
 
@@ -111,4 +112,4 @@ function StaffReadyCollection() {
  </div>
 )}
 
-export default StaffReadyCollection
+export default StaffCancellation

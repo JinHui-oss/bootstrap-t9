@@ -1,7 +1,7 @@
 // react
 import React, { useEffect, useState } from 'react';
 
-// bootstrap
+// react-bootstrap
 import { Card } from 'react-bootstrap';
 
 // firebase inital setup
@@ -13,10 +13,10 @@ import {
   getDocs,
 } from 'firebase/firestore'
 
+// firebase import query, where from firestore
 import { query, where } from "firebase/firestore";  
 
-
-//
+// external stylesheet css for staff interface
 import "../Staff/Index.css"
 
 function Index() {
@@ -32,9 +32,14 @@ function Index() {
   // Total Kitborrowed
   const [kit,setKit] = useState([]);
   const [kittotal,setKitTotal] = useState([]);
+  
+  // Total KitBorrowed
   // eslint-disable-next-line
   const [kitborrowed,setKitBorrowed] = useState([]);
   const [started, setstarted] = useState("")
+  
+  // Total KitReturned
+  const [kitreturned,setKitReturned] = useState([]);
   const [startedreturned , setstartedreturned] = useState([])
   const kitCollectionRef1 = collection(db, "KitBorrowed");
 
@@ -54,6 +59,8 @@ function Index() {
   // Total Cancel
   const [cancel, setCancel] = useState([])
   const [tcancel, setTcancel] = useState([])
+
+  //
 
   // Staff
   useEffect(() => {
@@ -126,13 +133,13 @@ function Index() {
 
   // Kit Total
   useEffect(() => {
-    const getKitTotal = async () => {
+    const getKitReturned = async () => {
       try{
         // Composite Query 
         const q1 = query(kitCollectionRef1, where("Status", "==", "Returned"))
         const data1 = await getDocs(q1)
 
-        setKitBorrowed(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
+        setKitReturned(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
         // console.log(kitborrowed)
         // Display check
         // console.log(id)
@@ -141,7 +148,7 @@ function Index() {
       
         // console.log(kitborrowed)
         let i 
-        for(i = 0; i <= kitborrowed.length; i++ ){
+        for(i = 0; i <= kitreturned.length; i++ ){
           // console.log(i)
           if(i == null){
             // reference code from
@@ -163,7 +170,7 @@ function Index() {
         // console.log(e.message)
       }
     };
-    getKitTotal();
+    getKitReturned();
   // eslint-disable-next-line
   }, [kitCollectionRef1])
 
@@ -318,7 +325,7 @@ function Index() {
     const getKitCancel = async () => {
       try{
         // Composite Query 
-        const q1 = query(kitCollectionRef1, where("Status", "==", "Cancel"))
+        const q1 = query(kitCollectionRef1, where("Status", "==", "Cancelled"))
         const data1 = await getDocs(q1)
 
         setCancel(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
@@ -414,7 +421,7 @@ function Index() {
           <Card.Text>
             Number: {tcancel.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Kit">View</Card.Link>
+          <Card.Link href="/Staff/Cancellation">View</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -429,7 +436,7 @@ function Index() {
           <Card.Text>
             Number: {tconfirmed.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Kit">View</Card.Link>
+          <Card.Link href="/Staff/Confirmed">View</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -442,7 +449,7 @@ function Index() {
           <Card.Text>
             Number: {tready.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Kit">View</Card.Link>
+          <Card.Link href="/Staff/Collection">View</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -460,7 +467,7 @@ function Index() {
           <Card.Text>
             Number: {tstaff.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Kit">View</Card.Link>
+          <Card.Link href="/Staff/MemberList">View</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -474,7 +481,7 @@ function Index() {
           <Card.Text>
             Number: {membernumber.Total}
           </Card.Text>
-          <Card.Link href="/Staff/MemberList">View</Card.Link>
+          <Card.Link href="/Staff/StaffList">View</Card.Link>
         </Card.Body>
         </Card>
         </div>

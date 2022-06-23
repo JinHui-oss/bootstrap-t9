@@ -114,16 +114,7 @@ function LoanDetail() {
     },[kitCollectionRef1])
 
     const checkbutton = async (e) => {
-     try{
-      e.preventDefault();
-      if(kit.Quantity < 0){
-        alert('false')
-        setDisabled(true)
-        console.log('fisba')
-      }
-    }catch(e){
-      // console.log(e.message)
-     }
+    
     }
     
 
@@ -178,7 +169,7 @@ function LoanDetail() {
           </div>
           <Button href="/Member/Kit" className='member-details-back'>Back</Button>
           {/* Reserve Button */}
-          <Button onClick = {checkbutton} disabled={isDisabled} href={`/Member/Kit/Create/${kit.id}`} className='member-details-reserve'>Reserve
+          <Button disabled={isDisabled} href={`/Member/Kit/Create/${kit.id}`} className='member-details-reserve'>Reserve
       
           </Button>
         </div>

@@ -25,12 +25,19 @@ import ForgotPassword from "./Login/PasswordReset/Index";
 import Profile from "./Staff/Account/Profile";
 import Index from "./Staff/Index";
 import MemberList from "./Staff/Member/MemberList";
+import ProfileEdit from "./Staff/Account/Edit";
+import StaffSecurity from "./Staff/Account/Security";
+import StaffProfileUpdate from "./Staff/Account/Update";
+import StaffPasswordUpdate from "./Staff/Account/Security/Password/Update";
 
 // Member Account Interface
 import MemberProfile from "./Member/Account/Profile";
 import MemberEdit from "./Member/Account/Update";
+import UpdateProfilePicture from "./Member/Account/Picture";
 import MemberSecurity from "./Member/Account/Security/Index";
 import MemberSecurityEdit from "./Member/Account/Security/Password/Edit";
+import MemberDetail from "./Staff/Member/MemberDetail";
+import Member2FAEdit from "./Member/Account/Security/2FA/Edit";
 
 // Member & Loan Interface
 import LoanIndex from "./Member/Kit/Index";
@@ -50,20 +57,17 @@ import QRIndex from "./Staff/Kit/KitQR/QRIndex";
 import QRCreate from "./Staff/Kit/KitQR/Create";
 import QRDetail from "./Staff/Kit/KitQR/Detail"
 import QREdit from "./Staff/Kit/KitQR/Edit";
-import ProfileEdit from "./Staff/Account/Edit";
-import MemberDetail from "./Staff/Member/MemberDetail";
-import UpdateProfilePicture from "./Member/Account/Picture";
-import StaffPasswordUpdate from "./Staff/Account/Security/Password/Update";
-import StaffSecurity from "./Staff/Account/Security";
-import StaffProfileUpdate from "./Staff/Account/Update";
+
+// Kit Status Staff interface
 import StaffKitBorrowed from "./Staff/Kit/Status/Kit/Borrowed";
 import StaffUpdateReturned from "./Staff/Kit/Status/Update/UpdateReturned";
 import StaffUpdateBorrowed from "./Staff/Kit/Status/Update/UpdateBorrowed";
-import Member2FAEdit from "./Member/Account/Security/2FA/Edit";
 import StaffReturned from "./Staff/Kit/Status/Kit/Returned";
-
-
-
+import StaffReadyCollection from "./Staff/Kit/Status/Kit/ReadyCollection";
+import StaffConfirmed from "./Staff/Kit/Status/Kit/Confirmed";
+import StaffCancellation from "./Staff/Kit/Status/Kit/Cancellation";
+import StaffList from "./Staff/Kit/Status/Kit/StaffList";
+import StaffListProfile from "./Staff/Kit/Status/Kit/StaffProfile";
 
 function App() {
   return(
@@ -159,6 +163,32 @@ function App() {
           <Staff />
           <MemberDetail />
         </ProtectedRoute>} />
+
+        <Route path='/Staff/Collection' element={<ProtectedRoute>
+          <Staff />
+          <StaffReadyCollection/>
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/Cancellation' element={<ProtectedRoute>
+          <Staff />
+          <StaffCancellation />
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/Confirmed' element={<ProtectedRoute>
+          <Staff />
+          <StaffConfirmed/>
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/StaffList' element={<ProtectedRoute>
+          <Staff />
+          <StaffList/>
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/StaffList/Detail/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffListProfile/>
+        </ProtectedRoute>} />
+
 
          {/* Loan form interface for Member */} 
          <Route path='/Member/Index' element={
@@ -269,6 +299,18 @@ function App() {
         <Route path='/Staff/Borrowed' element={<ProtectedRoute>
           <Staff />
           <StaffKitBorrowed/>
+        </ProtectedRoute>} />
+
+        {/* List all the Member Borrowed Dementia Kit */}
+          <Route path='/Staff/Confirmed' element={<ProtectedRoute>
+          <Staff />
+          <StaffConfirmed/>
+        </ProtectedRoute>} />
+
+        {/* List all the Member Borrowed Dementia Kit */}
+        <Route path='/Staff/Cancellation' element={<ProtectedRoute>
+          <Staff />
+          <StaffCancellation/>
         </ProtectedRoute>} />
 
         {/* Edit Specifc Member Borrowed Dementia Kit Status */}
