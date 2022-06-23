@@ -1,10 +1,10 @@
 // react
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
-import { UserAuth } from "../../../Scripts/authContext" 
+import { UserAuth } from "../../../../Scripts/authContext" 
 
 // firebase
-import { db } from '../../../Database/firebase';
+import { db } from '../../../../Database/firebase';
 
 import 
 { 
@@ -16,13 +16,15 @@ import
 
 import { getAuth } from 'firebase/auth';
 import { Link } from 'react-router-dom';
-import "../../../Staff/Kit/Status/Status.css"
+import "../../../../Staff/Kit/Status/Status.css"
 
 function StaffReturned() {
   // eslint-disable-next-line
   const [kit, setKit] = useState([]);
   const [search, setSearch] = useState('');
   const kitCollectionRef = collection(db, "KitBorrowed");
+  
+  // eslint-disable-next-line
   const { } = UserAuth();
 
   useEffect(() => {
@@ -33,9 +35,9 @@ function StaffReturned() {
       const auth = getAuth();
       const user = auth.currentUser;
       // console.log(user)
-     
+     // eslint-disable-next-line 
     if(user){
-      const id = user.uid;
+  
       // Display check
       // console.log(id)
        
@@ -48,7 +50,7 @@ function StaffReturned() {
    };
    getKit();
    
-   
+  // eslint-disable-next-line  
  }, [kitCollectionRef])
   return (
     <div className='content'>
@@ -81,8 +83,11 @@ function StaffReturned() {
           </tr>
         </thead>
         
+        {/* eslint-disable-next-line*/}
         {kit.filter((value) => {
-          if(search == ""){
+          // eslint-disable-next-line
+          {/* eslint-disable-next-line*/}
+          if(search === ""){
             return value;
           }
           else if(value.KitName.toLowerCase().includes(search.toLocaleLowerCase())){

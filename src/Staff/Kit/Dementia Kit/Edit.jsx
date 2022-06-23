@@ -7,7 +7,7 @@ import { db, storage } from '../../../Database/firebase'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 // Random unique id 
-import { v4 } from 'uuid'
+// import { v4 } from 'uuid'
 import 
 { 
   doc, 
@@ -27,6 +27,7 @@ function Edit() {
   const [Name, setText] = useState("");
   const [Description, setDescription] = useState("");
   const [Quantity, setQuantity] = useState("");
+  // eslint-disable-next-lin
   const [ImageUpload,setImageUpload] = useState("");
   
   //
@@ -82,15 +83,15 @@ function Edit() {
     try{
       let date = new Date();
       e.preventDefault();
-        // check the condition if there is no photo uploaded to server
-        if(ImageUpload == null)return;
+     
         // set the specific path of where the photo is stored thru variable
-        const imageRef = ref(storage, `Staff/Kit/${ImageUpload.name + v4()}`)
+        const imageRef = ref(storage, `Staff/Kit/${ImageUpload.name}`)
         // upload directly to storage database
         uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
           // check the condition if there is no photo uploaded to server
-          if(ImageUpload == null)return;
+     
           getDownloadURL(snapshot.ref).then((url) => {
+            if(ImageUpload === null)return true;
             updateDoc(QRCollection, 
               { 
                 id: id,
@@ -147,16 +148,6 @@ function Edit() {
         id="KitStartDate" 
         />
 
-        <div className ="form-pic">
-          <label htmlFor="KitPictures">Kit Pictures</label>
-          <br />
-          {/* eslint-disable-next-line */}
-          <img src={kit.PhotoUrl} />
-          
-          <input type="file" defaultValue={kit.PhotoUrl} onChange={(event) => {
-            setImageUpload(event.target.files[0]);
-          }} className="form-control-file"  />
-        </div>
         <Button className= "Submit-Action" type="submit"> Submit </Button>
         <Button className= "Back-Action" href="/Staff/Kit">Back</Button>
         <br />

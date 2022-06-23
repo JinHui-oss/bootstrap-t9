@@ -3,7 +3,7 @@ import './Kit.css'
 
 // React
 import React, { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap'
 
 // Firebase initial config
@@ -12,9 +12,6 @@ import { db, storage } from '../../../Database/firebase';
 // Firebase features 
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection } from 'firebase/firestore';
-
-// Random unique id 
-import { v4 } from 'uuid'
 
 
 function AddKit() {

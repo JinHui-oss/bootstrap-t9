@@ -79,7 +79,8 @@ function Kit() {
               <th>Actions</th>
             </tr>
           </thead>
-          
+
+          {/* eslint-disable-next-line */}
           {kit.filter((val) => {
             if(search === ""){
               return val
@@ -87,6 +88,7 @@ function Kit() {
             else if(val.Name.toLowerCase().includes(search.toLocaleLowerCase())){
               return val
             }
+          /* eslint-disable-next-lin */  
           }).map((user) => {
           return( 
             <tbody>
