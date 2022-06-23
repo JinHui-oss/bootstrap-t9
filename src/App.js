@@ -40,10 +40,10 @@ import CurrentLoan from "./Member/Loan/Current";
 import PastLoan from "./Member/Loan/Past";
 
 // Staff & Kit Interface
-import Kit from "./Staff/Kit/Kit/Index";
-import AddKit from "./Staff/Kit/Kit/Create";
-import Detail from "./Staff/Kit/Kit/Detail";
-import Edit from "./Staff/Kit/Kit/Edit";
+import Kit from "./Staff/Kit/Dementia Kit/Index";
+import AddKit from "./Staff/Kit/Dementia Kit/Create";
+import Detail from "./Staff/Kit/Dementia Kit/Detail";
+import Edit from "./Staff/Kit/Dementia Kit/Edit";
 
 // Staff & KitQR Interface
 import QRIndex from "./Staff/Kit/KitQR/QRIndex";
@@ -56,11 +56,11 @@ import UpdateProfilePicture from "./Member/Account/Picture";
 import StaffPasswordUpdate from "./Staff/Account/Security/Password/Update";
 import StaffSecurity from "./Staff/Account/Security";
 import StaffProfileUpdate from "./Staff/Account/Update";
-import StaffKitBorrowed from "./Staff/Kit/Status/Borrowed";
+import StaffKitBorrowed from "./Staff/Kit/Status/Kit/Borrowed";
 import StaffUpdateReturned from "./Staff/Kit/Status/Update/UpdateReturned";
 import StaffUpdateBorrowed from "./Staff/Kit/Status/Update/UpdateBorrowed";
 import Member2FAEdit from "./Member/Account/Security/2FA/Edit";
-import StaffReturned from "./Staff/Kit/Status/Returned";
+import StaffReturned from "./Staff/Kit/Status/Kit/Returned";
 
 
 
