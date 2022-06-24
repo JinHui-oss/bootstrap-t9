@@ -126,8 +126,8 @@ function StaffUpdateBorrowed() {
     
      <div className='content'>
        <div className='content-header'>
-         <h2>Loan Dementia Kit </h2>
-         <p>View and Loan the dementia Kits</p>
+         <h2>Update Dementia Kit </h2>
+         <p>View and update the dementia kit status</p>
          <hr/>
        </div>
 
@@ -219,8 +219,10 @@ function StaffUpdateBorrowed() {
               <Form.Select className='options' name='status'>
                 <option onChange={(e) => setKitStatus(e.target.value)}>Select an option </option>
                 <option onChange={(e) => setKitStatus(e.target.value)}>Confirmed</option>
+                <option onChange={(e) => setKitStatus(e.target.value)}>Ready For Collection</option>
                 <option onChange={(e) => setKitStatus(e.target.value)}>Borrowed</option>
                 <option onChange={(e) => setKitStatus(e.target.value)}>Returned</option>
+                <option onChange={(e) => setKitStatus(e.target.value)}>Cancellation</option>
               </Form.Select>
             </Form.Group>
             

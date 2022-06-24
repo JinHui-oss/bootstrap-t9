@@ -100,7 +100,7 @@ function StaffCancellation() {
              <tr>
                <td>{user.loanname}</td>
                <td>{user.KitName}</td>
-               <td><Link to ={`/Staff/Borrowed/Update/${user.id}`}>Edit</Link> 
+               <td><Link to ={`/Staff/Cancellation/Update/${user.id}`}>Edit</Link> 
                <br />
                <Link to ={`/Staff/Returned/Delete/${user.id}`}>Delete</Link></td>
              </tr>

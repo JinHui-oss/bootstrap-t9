@@ -109,14 +109,20 @@ function Staff() {
         <Nav className="me-auto">
           <NavDropdown title="Member" id="navbarScrollingDropdown">
             <NavDropdown.Item href="/Staff/MemberList">Member List</NavDropdown.Item>
+            <NavDropdown.Item href="/Staff/Confirmed">Confirmed</NavDropdown.Item>
             <NavDropdown.Item href="/Staff/Borrowed">Borrowed</NavDropdown.Item>
+            <NavDropdown.Item href="/Staff/Collection">Collection</NavDropdown.Item>
+            <NavDropdown.Item href="/Staff/Cancellation">Cancellation</NavDropdown.Item>
             <NavDropdown.Item href="/Staff/Returned">Returned</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+        <Nav className="me-auto">
+          <NavDropdown title="Staff" id="navbarScrollingDropdown">
+            <NavDropdown.Item href="/Staff/StaffList">Staff List</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Nav>
       <Nav>
-        <Nav.Link href="#deets">Notifications</Nav.Link>
-        <Nav.Link href="#deets">Announcement</Nav.Link>
         <Nav>
           <NavDropdown title={`Welcome ${staff.Name}`} id="navbarScrollingDropdown">
             <NavDropdown.Item href={`/Staff/Account/${staff.uid}`}>Profile</NavDropdown.Item>

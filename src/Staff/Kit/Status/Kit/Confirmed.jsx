@@ -2,10 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import { UserAuth } from "../../../../Scripts/authContext" 
+import { Link } from 'react-router-dom';
 
 // firebase
 import { db } from '../../../../Database/firebase';
-
+import { getAuth } from 'firebase/auth';
 import 
 { 
   collection, 
@@ -14,8 +15,7 @@ import
   where 
 } from 'firebase/firestore'
 
-import { getAuth } from 'firebase/auth';
-import { Link } from 'react-router-dom';
+
 import "../../../../Staff/Kit/Status/Status.css"
 
 function StaffConfirmed() {
@@ -49,9 +49,9 @@ function StaffConfirmed() {
      }
     }
     catch(e){
-      
+        // Display Error Messages
+        // console.log(e.message)
     }
-    
    };
    getKit();
    
@@ -61,8 +61,8 @@ function StaffConfirmed() {
  return (
    <div className='content'>
      <div className='content-header'>
-       <h2>Loan Dementia Kit </h2>
-       <p>View and Loan the dementia Kits</p>
+       <h2>Confirmed Dementia Kit </h2>
+       <p>View and checked borrower details first before updating status</p>
        <hr/>
      </div>
 
@@ -85,7 +85,9 @@ function StaffConfirmed() {
            <tr>
              <th>Borrower Name</th>
              <th>Kit Name</th>
+             <th>Status</th>
              <th>Action</th>
+           
            </tr>
          </thead>
     
@@ -104,7 +106,8 @@ function StaffConfirmed() {
              <tr>
                <td>{user.loanname}</td>
                <td>{user.KitName}</td>
-               <td><Link to ={`/Staff/Borrowed/Update/${user.id}`}>Edit</Link> 
+               <td>{user.Status}</td>
+               <td><Link to ={`/Staff/Confirmed/Update/${user.id}`}>Edit</Link> 
                <br />
                <Link to ={`/Staff/Returned/Delete/${user.id}`}>Delete</Link></td>
              </tr>

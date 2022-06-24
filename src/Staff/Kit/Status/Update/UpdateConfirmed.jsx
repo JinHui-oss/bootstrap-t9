@@ -17,117 +17,113 @@ import "../../../../Staff/Kit/Status/Status.css"
 
 import emailjs from '@emailjs/browser';
 
-
-function StaffUpdateReturned() {
- // eslint-disable-next-line
- const [Kit, setKit] = useState([]);
- const [setLoanName] = useState('');
- const [setKitName] = useState('');
- const [setPhoneNumber] = useState('');
- const [setEmail] = useState('');
- const [setQuantity] = useState('');
- const [setStartDate] = useState('');
- const [setEndDate] = useState('');
- const [KitStatus, setKitStatus] = useState('');
- const { id } = useParams();
+function StaffUpdateConfirmed() {
+  // eslint-disable-next-line
+  const [Kit, setKit] = useState([]);
+  const [setLoanName] = useState('');
+  const [setKitName] = useState('');
+  const [setPhoneNumber] = useState('');
+  const [setEmail] = useState('');
+  const [setQuantity] = useState('');
+  const [setStartDate] = useState('');
+  const [setEndDate] = useState('');
+  const [KitStatus, setKitStatus] = useState('');
+  const { id } = useParams();
+  
+  const kitCollectionRef = collection(db, "KitBorrowed");
+  const kitCollectionRef1 = doc(db, "KitBorrowed", id)
+  // eslint-disable-next-line
+  const {} = UserAuth();
  
- const kitCollectionRef = collection(db, "KitBorrowed");
- const kitCollectionRef1 = doc(db, "KitBorrowed", id)
- // eslint-disable-next-line
- const {} = UserAuth();
-
- const navigate = useNavigate();
-
- useEffect(() => {
-    const getKit = async () => {
-      const docRef = doc(db, "KitBorrowed", id);
-      const docSnap = await getDoc(docRef);
-      
-      // check for display output
-      // console.log(docSnap);
-      
-      // check condition
-      if (docSnap.exists()) 
-      {
-        // display the output if the record exist 
-        // create a variable to store the data output.
-        let data =  docSnap.data();
-        // console.log(data)
-        const time1 = data.StartDate.toDate()
-        let time2 = data.EndDate.toDate()
-        
-        setKit.state ={
-          id : data.id,
-          KitName: data.KitName,
-          loanname: data.loanname,
-          Quantity: data.Quantity,
-          Email: data.Email,
-          PhoneNumber: data.PhoneNumber,
-          StartDate: time1,
-          EndDate: time2,
-          Status: data.KitStatus
-        }
-        // reterive the data and stored into a setkit
-        setKit(setKit.state)
+  const navigate = useNavigate();
+ 
+  useEffect(() => {
+     const getKit = async () => {
+       const docRef = doc(db, "KitBorrowed", id);
+       const docSnap = await getDoc(docRef);
        
-        // check for the display output
-         //console.log(setKit.state) 
-      } 
-      else 
-      {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
+       // check for display output
+       // console.log(docSnap);
+       
+       // check condition
+       if (docSnap.exists()) 
+       {
+         // display the output if the record exist 
+         // create a variable to store the data output.
+         let data =  docSnap.data();
+         // console.log(data)
+         const time1 = data.StartDate.toDate()
+         let time2 = data.EndDate.toDate()
+         
+         setKit.state ={
+           id : data.id,
+           KitName: data.KitName,
+           loanname: data.loanname,
+           Quantity: data.Quantity,
+           Email: data.Email,
+           PhoneNumber: data.PhoneNumber,
+           StartDate: time1,
+           EndDate: time2,
+           Status: data.KitStatus
+         }
+         // reterive the data and stored into a setkit
+         setKit(setKit.state)
+        
+         // check for the display output
+          //console.log(setKit.state) 
+       } 
+       else 
+       {
+         // doc.data() will be undefined in this case
+         console.log("No such document!");
+       }
+ 
+     };
+     getKit();
+  // eslint-disable-next-line  
+  }, [kitCollectionRef])
 
-    };
-    getKit();
- // eslint-disable-next-line  
- }, [kitCollectionRef])
-
-
- const NewData = async(event) =>{
-  try{
-    event.preventDefault();
-    // upload directly to cloud firestore database & return back to kit page
-  
-      updateDoc(kitCollectionRef1,{
-          id : Kit.id,
-          KitName: Kit.KitName,
-          loanname: Kit.loanname,
-          Quantity: Kit.Quantity,
-          Email: Kit.Email,
-          PhoneNumber: Kit.PhoneNumber,
-          StartDate: Kit.StartDate,
-          EndDate: Kit.EndDate,
-          Status: KitStatus
-      })        
-      
-      // Email Notfication sent to member using EmailJS API
-      emailjs.sendForm('service_6gtz4td', 'template_2kshjof',event.target,'wrPdaYsbP50QkbgHU')
-      .then((result) => {
-        console.log(result.text);
-      }, (error) => {
-        console.log(error.text);
-      });
-      alert('documents have been updated successfully returning back to staff page')
-      navigate('/Staff/Borrowed')
-    
-  }
-  catch(e){
-    // Error Message Display Check
-    console.log(e)
-  }
-}    
-NewData()
-
-
+ 
+  const NewData = async(event) =>{
+   try{
+     event.preventDefault();
+     // upload directly to cloud firestore database & return back to kit page
+   
+       updateDoc(kitCollectionRef1,{
+           id : Kit.id,
+           KitName: Kit.KitName,
+           loanname: Kit.loanname,
+           Quantity: Kit.Quantity,
+           Email: Kit.Email,
+           PhoneNumber: Kit.PhoneNumber,
+           StartDate: Kit.StartDate,
+           EndDate: Kit.EndDate,
+           Status: KitStatus
+       })        
+       
+       // Email Notfication sent to member using EmailJS API
+       emailjs.sendForm('service_6gtz4td', 'template_2kshjof',event.target,'wrPdaYsbP50QkbgHU')
+       .then((result) => {
+         console.log(result.text);
+       }, (error) => {
+         console.log(error.text);
+       });
+       alert('documents have been updated successfully returning back to Confirmed page')
+       navigate('/Staff/Confirmed')
+     
+   }
+   catch(e){
+     // Error Message Display Check
+     console.log(e)
+   }
+ }    
+ NewData()
+ 
  return (
-
-  
    <div className='content'>
      <div className='content-header'>
        <h2>Update Dementia Kit </h2>
-       <p>View and Loan the dementia Kits</p>
+       <p>View and update the dementia kit status</p>
        <hr/>
      </div>
 
@@ -228,7 +224,7 @@ NewData()
           
           <div className='both-buttons'>
             <Button className= "Submit-Action" type="submit"> Submit </Button>
-            <Button className= "Back-Action" href="/Staff/Borrowed">Back</Button>
+            <Button className= "Back-Action" href="/Staff/Confirmed">Back</Button>
           </div>
           <br />
         </div>
@@ -237,6 +233,4 @@ NewData()
   </div>
 </div>
 )}
-
-
-export default StaffUpdateReturned
+export default StaffUpdateConfirmed

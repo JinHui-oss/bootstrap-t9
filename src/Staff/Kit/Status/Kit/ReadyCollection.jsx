@@ -57,7 +57,7 @@ function StaffReadyCollection() {
    <div className='content'>
      <div className='content-header'>
        <h2>Collection of Dementia Kit </h2>
-       <p>View and collect the dementia Kits</p>
+       <p>View and informed the member for email</p>
        <hr/>
      </div>
 
@@ -80,7 +80,9 @@ function StaffReadyCollection() {
            <tr>
              <th>Borrower Name</th>
              <th>Kit Name</th>
+             <th>Status</th>
              <th>Action</th>
+             
            </tr>
          </thead>
     
@@ -99,9 +101,10 @@ function StaffReadyCollection() {
              <tr>
                <td>{user.loanname}</td>
                <td>{user.KitName}</td>
-               <td><Link to ={`/Staff/Borrowed/Update/${user.id}`}>Edit</Link> 
+               <td>{user.Status}</td>
+               <td><Link to ={`/Staff/Collection/Update/${user.id}`}>Edit</Link> 
                <br />
-               <Link to ={`/Staff/Returned/Delete/${user.id}`}>Delete</Link></td>
+               <Link to ={`/Staff/Collection/Delete/${user.id}`}>Delete</Link></td>
              </tr>
            </tbody>
            );

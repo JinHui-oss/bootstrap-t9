@@ -68,6 +68,9 @@ import StaffConfirmed from "./Staff/Kit/Status/Kit/Confirmed";
 import StaffCancellation from "./Staff/Kit/Status/Kit/Cancellation";
 import StaffList from "./Staff/Kit/Status/Kit/StaffList";
 import StaffListProfile from "./Staff/Kit/Status/Kit/StaffProfile";
+import StaffUpdateCollection from "./Staff/Kit/Status/Update/UpdateCollection";
+import StaffUpdateCancel from "./Staff/Kit/Status/Update/UpdateCancellation";
+import StaffUpdateConfirmed from "./Staff/Kit/Status/Update/UpdateConfirmed";
 
 function App() {
   return(
@@ -169,14 +172,34 @@ function App() {
           <StaffReadyCollection/>
         </ProtectedRoute>} />
 
+        <Route path='/Staff/Collection/Update/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffUpdateCollection/>
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/Collection/Delete/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffUpdateCollection/>
+        </ProtectedRoute>} />
+
         <Route path='/Staff/Cancellation' element={<ProtectedRoute>
           <Staff />
           <StaffCancellation />
         </ProtectedRoute>} />
 
+        <Route path='/Staff/Cancellation/Update/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffUpdateCancel />
+        </ProtectedRoute>} />
+
         <Route path='/Staff/Confirmed' element={<ProtectedRoute>
           <Staff />
           <StaffConfirmed/>
+        </ProtectedRoute>} />
+
+        <Route path='/Staff/Confirmed/Update/:id' element={<ProtectedRoute>
+          <Staff />
+          <StaffUpdateConfirmed/>
         </ProtectedRoute>} />
 
         <Route path='/Staff/StaffList' element={<ProtectedRoute>
