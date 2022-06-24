@@ -57,7 +57,7 @@ function StaffReadyCollection() {
    <div className='content'>
      <div className='content-header'>
        <h2>Collection of Dementia Kit </h2>
-       <p>View and informed the member for email</p>
+       <p>View and informed the member through email to collect the Dementia Kit.</p>
        <hr/>
      </div>
 

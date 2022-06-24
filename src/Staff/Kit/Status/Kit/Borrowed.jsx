@@ -51,13 +51,15 @@ function StaffKitBorrowed() {
    
    
  }, [kitCollectionRef])
+
+ 
  
 
  return (
    <div className='content'>
      <div className='content-header'>
-       <h2>Loan Dementia Kit </h2>
-       <p>View and Loan the dementia Kits</p>
+       <h2>Borrowed Dementia Kit </h2>
+       <p>View and check the borrowed details of the dementia Kits</p>
        <hr/>
      </div>
 
@@ -101,6 +103,7 @@ function StaffKitBorrowed() {
                <td>{user.KitName}</td>
                <td><Link to ={`/Staff/Borrowed/Update/${user.id}`}>Edit</Link> 
                <br />
+               
                <Link to ={`/Staff/Returned/Delete/${user.id}`}>Delete</Link></td>
              </tr>
            </tbody>

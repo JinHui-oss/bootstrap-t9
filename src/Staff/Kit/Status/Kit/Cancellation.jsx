@@ -57,8 +57,8 @@ function StaffCancellation() {
  return (
    <div className='content'>
      <div className='content-header'>
-       <h2>Loan Dementia Kit </h2>
-       <p>View and Loan the dementia Kits</p>
+       <h2>Cancellation of Dementia Kit </h2>
+       <p>View and check the cancel details the dementia Kits</p>
        <hr/>
      </div>
 
@@ -81,6 +81,7 @@ function StaffCancellation() {
            <tr>
              <th>Borrower Name</th>
              <th>Kit Name</th>
+             <th>Status</th>
              <th>Action</th>
            </tr>
          </thead>
@@ -100,9 +101,7 @@ function StaffCancellation() {
              <tr>
                <td>{user.loanname}</td>
                <td>{user.KitName}</td>
-               <td><Link to ={`/Staff/Cancellation/Update/${user.id}`}>Edit</Link> 
-               <br />
-               <Link to ={`/Staff/Returned/Delete/${user.id}`}>Delete</Link></td>
+               <td><Link to ={`/Staff/Cancellation/Update/${user.id}`}>Update</Link></td>
              </tr>
            </tbody>
            );

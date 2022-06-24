@@ -11,7 +11,7 @@ import { db } from '../../../../Database/firebase';
 import 
 { 
   collection, 
-  updateDoc,doc, getDoc
+  updateDoc,doc, getDoc, deleteDoc
 } from 'firebase/firestore'
 import "../../../../Staff/Kit/Status/Status.css"
 
@@ -115,11 +115,18 @@ function StaffUpdateBorrowed() {
     }
     catch(e){
       // Error Message Display Check
-      console.log(e)
+      // console.log(e)
     }
   }    
   NewData()
 
+  const deleteKit = async (e) => {
+  
+    const deletedocRef = doc(db, "KitBorrowed", id);
+    await deleteDoc(deletedocRef);
+    navigate("/Staff/Borrowed")
+    alert("Records deleted Successfully");
+  }
 
    return (
   
@@ -127,7 +134,7 @@ function StaffUpdateBorrowed() {
      <div className='content'>
        <div className='content-header'>
          <h2>Update Dementia Kit </h2>
-         <p>View and update the dementia kit status</p>
+         <p>View and update the borrow details of the dementia kit status</p>
          <hr/>
        </div>
 
@@ -229,6 +236,7 @@ function StaffUpdateBorrowed() {
             <div className='both-buttons'>
               <Button className= "Submit-Action" type="submit"> Submit </Button>
               <Button className= "Back-Action" href="/Staff/Borrowed">Back</Button>
+              <Button onClick={() => {deleteKit(id)}} className='details-archive'>Delete</Button>
             </div>
             <br />
           </div>

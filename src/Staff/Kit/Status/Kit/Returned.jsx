@@ -55,8 +55,8 @@ function StaffReturned() {
   return (
     <div className='content'>
     <div className='content-header'>
-      <h2>Loan Dementia Kit </h2>
-      <p>View and Loan the dementia Kits</p>
+      <h2>Returned Dementia Kit </h2>
+      <p>View and checked if the borrower name has returned the Dementia Kits.</p>
       <hr/>
     </div>
 

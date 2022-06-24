@@ -11,7 +11,10 @@ import { db } from '../../../../Database/firebase';
 import 
 { 
   collection, 
-  updateDoc,doc, getDoc
+  updateDoc,
+  doc, 
+  getDoc,
+  deleteDoc
 } from 'firebase/firestore'
 import "../../../../Staff/Kit/Status/Status.css"
 
@@ -114,10 +117,18 @@ function StaffUpdateCollection() {
    }
    catch(e){
      // Error Message Display Check
-     console.log(e)
+     // console.log(e)
    }
  }    
  NewData()
+
+ const deleteKit = async (e) => {
+  
+  const deletedocRef = doc(db, "KitBorrowed", id);
+  await deleteDoc(deletedocRef);
+  navigate("/Staff/Collection")
+  alert("Records deleted Successfully");
+}
 
   return (
     <div className='content'>
@@ -225,6 +236,7 @@ function StaffUpdateCollection() {
            <div className='both-buttons'>
              <Button className= "Submit-Action" type="submit"> Submit </Button>
              <Button className= "Back-Action" href="/Staff/Collection">Back</Button>
+             <Button onClick={() => {deleteKit(id)}} className='details-archive'>Delete</Button>
            </div>
            <br />
          </div>

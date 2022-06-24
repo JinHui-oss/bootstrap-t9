@@ -62,7 +62,7 @@ function StaffConfirmed() {
    <div className='content'>
      <div className='content-header'>
        <h2>Confirmed Dementia Kit </h2>
-       <p>View and checked borrower details first before updating status</p>
+       <p>View and checked borrower details first before updating the member next step.</p>
        <hr/>
      </div>
 
