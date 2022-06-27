@@ -74,7 +74,7 @@ body{
 }
 
 .details-edit{
-    margin-left: 47%;
+    margin-left: 39%;
     color: white;
 }
 
@@ -82,6 +82,18 @@ body{
   width: 25px;
   height: 25px;
   margin-left: -10px; 
+}
+
+.details-uploadphoto{
+    margin-left: 49%;
+    margin-top: -6.5%;
+    color: white;
+}
+
+.details-uploadphoto img{
+    width: 25px;
+    height: 25px;
+    margin-left: -10px; 
 }
 
 .details-title{
@@ -156,3 +168,4 @@ body{
 .content-search .input-words{
     max-width: 77.5%;
 }
+

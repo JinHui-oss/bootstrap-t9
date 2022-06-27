@@ -71,12 +71,17 @@ function Detail() {
   }, [kitCollectionRef])
 
   const deleteKit = async (e) => {
-  
-      e.preventDefault();
-      const deletedocRef = doc(db, "Kit", id);
-      await deleteDoc(deletedocRef);
-      navigate("/Staff/Kit")
-      console.log("Records deleted Successfully");
+      try{
+       
+        const deletedocRef = doc(db, "Kit", id);
+        await deleteDoc(deletedocRef);
+        navigate("/Staff/Kit")
+        alert("Records deleted Successfully");
+      }
+      catch(e){
+
+      }
+     
   }
    
    return (
@@ -106,6 +111,11 @@ function Detail() {
         {/* eslint-disable-next-line */}
           <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
            Edit</Button>
+          <br />
+          <Button className='details-uploadphoto' href ={`/Staff/Kit/Upload/${id}`}>
+          {/* eslint-disable-next-line */}
+          <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
+          Upload Photo</Button>
           
         {/* product title and quantity information */} 
         <div className='details-title'>
@@ -133,7 +143,7 @@ function Detail() {
         </div>
         <Button href="/Staff/Kit" className='details-back'>Back</Button>
         {/* Archive Button */}
-        <Button onClick={() => {deleteKit(id)}} className='details-archive'>Archive</Button>
+        <Button onClick={() => {deleteKit(id)}} className='details-archive'>Delete</Button>
       
       </div>
     </div>

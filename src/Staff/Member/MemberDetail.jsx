@@ -1,6 +1,6 @@
 // react
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 // bootstrap
 import { Button, Card } from 'react-bootstrap';
@@ -12,7 +12,8 @@ import { db } from '../../Database/firebase';
 import { 
   collection,
   getDoc,
-  doc
+  doc,
+  deleteDoc
 } from 'firebase/firestore'
 
 
@@ -20,6 +21,7 @@ import {
 function MemberDetail() {
   const [Member,setMember] = useState([]);
   const MemberCollectionRef = collection(db, "Member");
+  const navigate = useNavigate();
   
   // create variable to reterive the specifc document id
   const { id } = useParams()
@@ -80,6 +82,14 @@ function MemberDetail() {
   const data1 = data?.toString() || 'Not Verified'
   // console.log(data1)
 
+  const deleteKit = async (e) => {
+  
+    const deletedocRef = doc(db, "Member", id);
+    await deleteDoc(deletedocRef);
+    navigate("/Staff/MemberList")
+    alert("Records deleted Successfully");
+  }
+
   return (
     <div className='profilepage-content'>
       {/* header of the page */}
@@ -101,15 +111,12 @@ function MemberDetail() {
         </div>
       <br />
       {/* Edit Button */}
-      <Button className='profilepage-edit-function' href ={`/Member/Profile/Edit/${id}`}>
+      <Button className='profilepage-edit-function' onClick={() => {deleteKit(id)}}>
       {/* eslint-disable-next-line */}
       <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
-      Edit</Button>
+      Delete</Button>
 
-      <Button className='profilepage-updatepicture' href ={`/Member/Profile/UpdateProfilePicture/${id}`}>
-      {/* eslint-disable-next-line */}
-      <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
-      Update Picture</Button>
+   
       </div>
 
        {/* product title and quantity information */} 

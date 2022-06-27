@@ -101,10 +101,8 @@ function StaffKitBorrowed() {
              <tr>
                <td>{user.loanname}</td>
                <td>{user.KitName}</td>
-               <td><Link to ={`/Staff/Borrowed/Update/${user.id}`}>Edit</Link> 
-               <br />
-               
-               <Link to ={`/Staff/Returned/Delete/${user.id}`}>Delete</Link></td>
+               <td><Link to ={`/Staff/Borrowed/Update/${user.id}`}>Edit</Link></td>
+               <br /> 
              </tr>
            </tbody>
            );
