@@ -4,9 +4,14 @@ import { Button, Form } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { db } from '../../Database/firebase'
-import { collection, addDoc, getDoc,
-  doc } from 'firebase/firestore'
-  import { getAuth } from 'firebase/auth';
+import { 
+  collection, 
+  addDoc, 
+  getDoc,
+  doc }
+from 'firebase/firestore'
+import emailjs from '@emailjs/browser';
+import { getAuth } from 'firebase/auth';
 
 
 function LoanCreate() {
@@ -14,7 +19,7 @@ function LoanCreate() {
   const QRCollection = collection(db, "KitBorrowed")
  
   const { id } = useParams();
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
 
   // retrieve the data from the user input and stored into variable.
   const [name, setText] = useState("");
@@ -149,16 +154,25 @@ function LoanCreate() {
         PhoneNumber:Member.PhoneNumber,
         Email: Member.Email,
         CreatedAt: date.toDateString(),
-        Status: "Borrowed"
+        Status: "Confirmed"
       });
-      naviagte("/Member/Kit")
+      
+      // Email Notfication sent to member using EmailJS API
+      emailjs.sendForm('service_6gtz4td', 'template_2kshjof',e.target,'wrPdaYsbP50QkbgHU')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+      alert('The Dementia Kit has been reserved successfully. An Email has been sent to abc@gmail.com for the details.')
+      navigate("/Member/Kit")
     }
     catch(e){
       //console.log(e.message)
     }
+   
   }
   NewData()
-  
 
   return (
     <div className='create-body'>

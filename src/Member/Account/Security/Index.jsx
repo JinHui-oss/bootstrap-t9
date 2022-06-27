@@ -166,7 +166,7 @@ function MemberSecurity() {
           Some quick example text to build on the card title and make up the bulk
           of the card's content.
         </Card.Text>
-        <Button variant="primary">Set up 2FA</Button>
+        <Button variant="primary" href={`/Member/Profile/Security/2FA/${id}`}>Set up 2FA</Button>
       </Card.Body>
     </Card>
   </div>
