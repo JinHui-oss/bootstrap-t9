@@ -99,16 +99,15 @@ function Edit() {
                 Description: Description,
                 Quantity: Quantity,
                 CreatedAt: date.toDateString(),
-                PhotoUrl: url,
                 CreatedDate: date.toDateString()
               });
-            alert("image upload")
+            alert("Records has been updated successfully, Returning to Kit page.")
           })
         });
       naviagte("/Staff/Kit")
     }
     catch(e){
-      console.log(e.message)
+      // console.log(e.message)
     }
   }
   NewData()
@@ -151,8 +150,7 @@ function Edit() {
         <Button className= "Submit-Action" type="submit"> Submit </Button>
         <Button className= "Back-Action" href="/Staff/Kit">Back</Button>
         <br />
-        <hr className='line'/>
-        <footer>Test</footer>
+       
         </Form>
       </div>
     </div>

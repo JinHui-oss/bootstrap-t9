@@ -16,13 +16,14 @@ import { addDoc, collection } from 'firebase/firestore';
 
 function AddKit() {
  
-   // create and stored the data into the firebase
+  // create and stored the data into the firebase
   const kitCollectionRef = collection(db, "Kit");
   
   // retrieve the data from the user input and stored into variable
   const [newKit, setKit] = useState();
   const [newdesc, setDesc] = useState();
   const [newamt, setAmt] = useState();
+  const [Category, setCategory] = useState();
   const [ImageUpload, setImageUpload] = useState();
   const navigate = useNavigate();
  
@@ -48,6 +49,7 @@ function AddKit() {
           Name: newKit, 
           Description: newdesc,
           Quantity: newamt,
+          Category: Category,
           PhotoUrl: url,
           CreatedAt: date.toDateString() 
         });
@@ -57,8 +59,9 @@ function AddKit() {
        navigate("/Staff/Kit")
       }  
     
-    // catch error messages and displayed to the users
+    
     catch(e){
+      // catch error messages and displayed to the users
       // console.log(e.message);
     }
   }
@@ -84,6 +87,17 @@ function AddKit() {
         id="KitName" 
         placeholder="Dementia Kit xx - example"
         required />
+        </div>
+
+        <div className="form-group">
+          <label className='KitCategory'>Category </label>
+          <input type="text" onChange={(event) => {
+          setCategory(event.target.value);
+        }} 
+        className="form-control" 
+        id="KitCategory" 
+        placeholder="Enter Category"
+        />
         </div>
 
         <div className="form-group">
