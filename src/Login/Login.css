@@ -1,14 +1,20 @@
 .header-title{
-    margin-left: 50%;
-    margin-top:5%;
+    margin-left: 53%;
+    margin-top:10%;
 }
 .body-content{
-    max-width: 40%;
-    margin-left: 50%;
+    max-width: 60%;
+    margin-left: 47.5%;
     padding-top:  1%;
 }
 .body-content Button{
     margin-top:2%;
+    margin-left: 10%;
+}
+
+.forgotbutton{
+    margin-left: 10%;
+    margin-top:1%;
 }
 .body-content .mb-3{
     margin-bottom: 10%;

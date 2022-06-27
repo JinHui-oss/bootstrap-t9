@@ -168,7 +168,7 @@ function Signin() {
         <Button variant="primary" type="submit"> Submit </Button>
         <br/>
         <br/>
-        <Button href='/forgotpassword'> Forgot Password? </Button>
+        <Button href='/forgotpassword' className='forgotbutton'> Forgot Password? </Button>
         </Form>
        </div>
        
