@@ -6,7 +6,7 @@ import {
     useParams
 } from 'react-router-dom'
 
-import { UserAuth } from '../Scripts/authContext'
+import { UserAuth } from '../../Scripts/authContext'
 
 import 
 { 
@@ -14,8 +14,8 @@ import
     Button 
 } from 'react-bootstrap'
 
-import { db } from '../Database/firebase'
-import '../Login/Login.css'
+import { db } from '../../Database/firebase'
+import '../../Login/Login.css'
 
 import 
 { 
@@ -27,7 +27,7 @@ import { getAuth } from 'firebase/auth'
 
 
 
-function Signin() {
+function SigninMember() {
     const MemberCollectionRef = collection(db, "Member");
     const StaffCollectionRef = collection(db, "Staff");
     const [email, setEmail] = useState('');
@@ -192,4 +192,4 @@ function Signin() {
     </div>
 )}
 
-export default Signin
+export default SigninMember

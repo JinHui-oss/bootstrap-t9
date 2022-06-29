@@ -11,12 +11,13 @@ import General from "../src/Navbar/General"
 import Staff from "../src/Navbar/Staff"
 import Member from "./Navbar/Member";
 
-// General Page
+// General and SignIn Page
 import Home from "./General/Index";
 import Error from "./General/Message/Error";
+import SigninStaff from "./Login/Signin/SigninStaff";
+import SigninMember from "./Login/Signin/SigninMember";
 
-// Login interface
-import Signin from "./Login/Signin";
+// SignUp and Forgot Password General interface Page
 import Signup_Staff from "./Login/Signup/Signup_Staff";
 import SignUp_Member from "./Login/Signup/Signup_Member";
 import ForgotPassword from "./Login/PasswordReset/Index";
@@ -45,6 +46,10 @@ import LoanCreate from "./Member/Kit/Create";
 import LoanDetail from "./Member/Kit/Detail";
 import CurrentLoan from "./Member/Loan/Current";
 import PastLoan from "./Member/Loan/Past";
+import MemberKitCancel from "./Member/Loan/Cancel";
+import MemberReadyCollection from "./Member/Loan/ReadyCollection";
+import MemberKitConfirmed from "./Member/Loan/Confirmed";
+
 
 // Staff & Kit Interface
 import Kit from "./Staff/Kit/Dementia Kit/Index";
@@ -58,7 +63,7 @@ import QRCreate from "./Staff/Kit/KitQR/Create";
 import QRDetail from "./Staff/Kit/KitQR/Detail"
 import QREdit from "./Staff/Kit/KitQR/Edit";
 
-// Kit Status Staff interface
+// Dementia toolKits Status, Staff List of the Staff interface
 import StaffKitBorrowed from "./Staff/Kit/Status/Kit/Borrowed";
 import StaffUpdateReturned from "./Staff/Kit/Status/Update/UpdateReturned";
 import StaffUpdateBorrowed from "./Staff/Kit/Status/Update/UpdateBorrowed";
@@ -71,10 +76,6 @@ import StaffListProfile from "./Staff/Kit/Status/Kit/StaffProfile";
 import StaffUpdateCollection from "./Staff/Kit/Status/Update/UpdateCollection";
 import StaffUpdateCancel from "./Staff/Kit/Status/Update/UpdateCancellation";
 import StaffUpdateConfirmed from "./Staff/Kit/Status/Update/UpdateConfirmed";
-import MemberKitCancel from "./Member/Loan/Cancel";
-import MemberReadyCollection from "./Member/Loan/ReadyCollection";
-import MemberKitConfirmed from "./Member/Loan/Confirmed";
-import SigninStaff from "./Login/SigninStaff";
 
 function App() {
   return(
@@ -89,15 +90,15 @@ function App() {
         </>
         } />
         
-        {/* Login Page */}
-        <Route path='/Signin' element={
+        {/* Member Login Page */}
+        <Route path='/Signin/Member' element={
         <>
           <General />
-          <Signin />
+          <SigninMember />
         </>
         }/>
 
-          {/* Login Page */}
+          {/* Staff Login Page */}
           <Route path='/Signin/Staff' element={
         <>
           <General />

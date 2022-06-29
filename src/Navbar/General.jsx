@@ -23,7 +23,7 @@ function General() {
         <Nav>
           <NavDropdown title='Login' id="navbarScrollingDropdown">
             <NavDropdown.Item href={`/Signin/Staff`}>Staff</NavDropdown.Item>
-            <NavDropdown.Item href={`/Signin`}>Member</NavDropdown.Item>
+            <NavDropdown.Item href={`/Signin/Member`}>Member</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Nav>

@@ -6,7 +6,7 @@ import {
     useParams
 } from 'react-router-dom'
 
-import { UserAuth } from '../Scripts/authContext'
+import { UserAuth } from '../../Scripts/authContext'
 
 import 
 { 
@@ -14,8 +14,8 @@ import
     Button 
 } from 'react-bootstrap'
 
-import { db } from '../Database/firebase'
-import '../Login/Login.css'
+import { db } from '../../Database/firebase'
+import '../../Login/Login.css'
 
 import 
 { 
