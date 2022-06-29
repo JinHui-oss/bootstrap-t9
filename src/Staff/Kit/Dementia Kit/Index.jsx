@@ -36,7 +36,7 @@ function Kit() {
   
   useEffect(() =>{
       listAll(imageListRef).then((response) =>{
-        console.log(response)
+        // console.log(response)
         response.items.forEach((item) =>{
           getDownloadURL(item).then((url) => {
             setImageList((prev) => [...prev, url])

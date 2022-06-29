@@ -27,8 +27,11 @@ function LoanCreate() {
   const [loanname, setLoanName] = useState("");
   const [startdate, setStartDate] = useState("");
   const [setPhone] = useState("");
+  const [enddate, setEndDate] = useState("")
+  const [status, setStatus] = useState("")
   const [Member,setMember] = useState([]);
   const [kit,setKit] = useState([]);
+  
   const MemberCollectionRef = collection(db, "Member");
   const kitCollectionRef = collection(db, "Kit");
 
@@ -134,9 +137,11 @@ function LoanCreate() {
     let date = new Date();
     var numberOfDayToAdd = 14;
     var currentDate = new Date(startdate);
-    const hell = currentDate.setDate(currentDate.getDate() + numberOfDayToAdd)  
-    const hell1 = new Date(hell);
+    const convertenddate = currentDate.setDate(currentDate.getDate() + numberOfDayToAdd)  
+    const enddate = new Date(convertenddate);
 
+    const confirmstatus = "Confirmed"
+    
     const auth = getAuth();
     const user = auth.currentUser;
 
@@ -150,13 +155,14 @@ function LoanCreate() {
         loanname: Member.Name,
         Quantity: amount,
         StartDate: new Date(startdate),
-        EndDate: hell1,
+        EndDate: enddate,
         PhoneNumber:Member.PhoneNumber,
         Email: Member.Email,
         CreatedAt: date.toDateString(),
-        Status: "Confirmed"
+        Status: confirmstatus
       });
       
+
       // Email Notfication sent to member using EmailJS API
       emailjs.sendForm('service_6gtz4td', 'template_2kshjof',e.target,'wrPdaYsbP50QkbgHU')
       .then((result) => {
@@ -189,6 +195,7 @@ function LoanCreate() {
         }} 
         className="form-control" 
         id="KitName" 
+        name="KitName"
         placeholder={kit.Name}
         defaultValue = {kit.Name}
         readOnly
@@ -199,7 +206,8 @@ function LoanCreate() {
           setLoanName(event.target.value);
         }} 
         className="form-control" 
-        id="KitName" 
+        id="loanname" 
+        name="loanname"
         placeholder={Member.Name}
         defaultValue = {Member.Name}
         readOnly
@@ -210,8 +218,9 @@ function LoanCreate() {
           setAmount(event.target.value);
         }} 
         className="form-control" 
-        id="KitName" 
-        placeholder="2"
+        id="KitQuantity" 
+        name="Quantity"
+        placeholder="Quantity"
         required />
 
         <label htmlFor='Start Date'>Start Date </label>
@@ -219,7 +228,8 @@ function LoanCreate() {
           setStartDate(event.target.value);
         }} 
         className="form-control" 
-        id="KitStartDate" 
+        id="StartDate"
+        name="startdate" 
         required />
 
         <label htmlFor='Phone Number'>Phone Number </label>
@@ -236,11 +246,24 @@ function LoanCreate() {
         <label htmlFor='Email'>Email </label>
           <input type="email" 
         className="form-control" 
-        id="KitEmail"
+        id="Email"
+        name="Email"
         defaultValue={Member.Email} 
         placeholder={Member.Email} 
         readOnly
         required />
+
+        <input type="hidden" onChange={(event) => {
+          setStatus(event.target.value);
+        }} 
+        className="form-control" 
+        id="status" 
+        name="status"
+        placeholder= {"Confirmed"}
+        defaultValue = "Confirmed"
+        readOnly
+        required />
+
        
         <br />
         <br />
