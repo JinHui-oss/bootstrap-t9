@@ -101,6 +101,9 @@ function Member() {
           <NavDropdown title="Loan" id="navbarScrollingDropdown">
             <NavDropdown.Item href="/Member/CurrentLoan">Current Loan</NavDropdown.Item>
             <NavDropdown.Item href="/Member/PastLoan">Past Loan</NavDropdown.Item>
+            <NavDropdown.Item href="/Member/Cancelled">Cancel Loan</NavDropdown.Item>
+            <NavDropdown.Item href="/Member/Confirmed">Confirmed</NavDropdown.Item>
+            <NavDropdown.Item href="/Member/ReadyCollection">Ready Collection</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link href={`/Member/Kit`}>Kit</Nav.Link>
         
