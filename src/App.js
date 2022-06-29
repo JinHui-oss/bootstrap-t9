@@ -71,6 +71,10 @@ import StaffListProfile from "./Staff/Kit/Status/Kit/StaffProfile";
 import StaffUpdateCollection from "./Staff/Kit/Status/Update/UpdateCollection";
 import StaffUpdateCancel from "./Staff/Kit/Status/Update/UpdateCancellation";
 import StaffUpdateConfirmed from "./Staff/Kit/Status/Update/UpdateConfirmed";
+import MemberKitCancel from "./Member/Loan/Cancel";
+import MemberReadyCollection from "./Member/Loan/ReadyCollection";
+import MemberKitConfirmed from "./Member/Loan/Confirmed";
+import SigninStaff from "./Login/SigninStaff";
 
 function App() {
   return(
@@ -90,6 +94,14 @@ function App() {
         <>
           <General />
           <Signin />
+        </>
+        }/>
+
+          {/* Login Page */}
+          <Route path='/Signin/Staff' element={
+        <>
+          <General />
+          <SigninStaff />
         </>
         }/>
         
@@ -266,11 +278,32 @@ function App() {
           <CurrentLoan/>
         </ProtectedRoute>} />
 
+        {/* Cancellation Loan Kit interface for Member */} 
+        <Route path='/Member/Cancelled' element={
+        <ProtectedRoute>
+          <Member />
+          <MemberKitCancel/>
+        </ProtectedRoute>} />
+
         {/* Past Loan Kit interface for Member */} 
         <Route path='/Member/PastLoan' element={
         <ProtectedRoute>
           <Member />
           <PastLoan/>
+        </ProtectedRoute>} />
+
+        {/*Ready Collection for the dementia Kit of Member interface for Member */} 
+        <Route path='/Member/ReadyCollection' element={
+        <ProtectedRoute>
+          <Member />
+          <MemberReadyCollection/>
+        </ProtectedRoute>} />
+
+        {/* Confirmation for the dementia Kit of Member interface for Member */} 
+        <Route path='/Member/Confirmed' element={
+        <ProtectedRoute>
+          <Member />
+          <MemberKitConfirmed/>
         </ProtectedRoute>} />
 
         {/* Past Loan Kit interface for Member */} 
