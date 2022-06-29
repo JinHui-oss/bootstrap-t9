@@ -25,9 +25,8 @@ import
 } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 
-
-
-function Signin() {
+function SigninStaff() {
+  
     const MemberCollectionRef = collection(db, "Member");
     const StaffCollectionRef = collection(db, "Staff");
     const [email, setEmail] = useState('');
@@ -135,30 +134,27 @@ function Signin() {
         
         try{
           const auth = getAuth();
-          const user1 = auth.currentUser;
             const {user} = await signIn(email,password);
             // console.log(user)
             if(user) {
             
             const data = user.uid;
-            const docRef = doc(db, "Member", data);
+            const docRef = doc(db, "Staff", data);
             const docSnap = await getDoc(docRef);
             let data1 =  docSnap.data();
 
-            console.log(data1)
+            // Check for staff display
+            // console.log(data1)
 
-            if(data1.Role === 'Member')
+            if(data1.Role === 'Staff')
             {
                 console.log('y')
-                navigate("/Member/Kit")
-              
+                navigate("/Staff/Dashboard")
             }
-
           }
-      }
+        }
         catch(e){
-            setError(e.message);
-            console.log(e.message);
+            setError("Invalid Account");
         }
     }
 
@@ -181,6 +177,7 @@ function Signin() {
             <Form.Label>Password</Form.Label>
             <Form.Control onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" />
         </Form.Group>
+        <p>{error}</p>
     
         <Button variant="primary" type="submit"> Submit </Button>
         <br/>
@@ -192,4 +189,4 @@ function Signin() {
     </div>
 )}
 
-export default Signin
+export default SigninStaff
