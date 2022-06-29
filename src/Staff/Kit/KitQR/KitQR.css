@@ -121,7 +121,7 @@ body{
 }
 
 .edit-body .QR-Code{
-    margin-top:-29%
+    margin-top:-32%
 }
 
 .edit-body .form-pic{
@@ -131,9 +131,13 @@ body{
     width: 80%;
 }
 .edit-body .Download-Action{
-    margin-top: -22%;
+    margin-top: -21%;
+    margin-left: 56%;
 }
-.QR-view .content-search{
-    margin-right: 20%;
+
+
+.content-search .input-words{
+    margin-left:-0%;
+    max-width: 78%;
    
 }
