@@ -3,6 +3,7 @@ import {
     Nav,
     Navbar,
     Container,
+    NavDropdown
 }from 'react-bootstrap'
 
 function General() {
@@ -19,7 +20,12 @@ function General() {
         <Nav.Link href="./Contact">Contact</Nav.Link>
       </Nav>
       <Nav>
-        <Nav.Link href="./Signin">Login</Nav.Link>
+        <Nav>
+          <NavDropdown title='Login' id="navbarScrollingDropdown">
+            <NavDropdown.Item href={`/Signin/Staff`}>Staff</NavDropdown.Item>
+            <NavDropdown.Item href={`/Signin`}>Member</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
       </Nav>
     </Navbar.Collapse>
     </Container>
