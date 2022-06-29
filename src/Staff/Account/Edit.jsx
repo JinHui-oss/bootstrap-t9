@@ -15,7 +15,9 @@ import
   getAuth, 
   updateProfile,
   updateEmail,
+  reauthenticateWithCredential
 }from 'firebase/auth';
+import Signup_Staff from '../../Login/Signup/Signup_Staff'
 
 function ProfileEdit() {
   const [Member, setMember] = useState([]);
@@ -97,9 +99,22 @@ function ProfileEdit() {
       updateEmail(user, email).then(() => {
         // Email updated!
         // ...
-        console.log('uploaded')
+        alert("Contact Information has been updated successfully.") 
         }).catch((error) => {
         // An error occurred
+        if(error === 'auth/user-token-expired'){
+         
+        // TODO(you): prompt the user to re-provide their sign-in credentials
+        const credential = Signup_Staff(Member.Email, Member.Password);
+
+        reauthenticateWithCredential(user, credential).then(() => {
+        // User re-authenticated.
+        console.log('you have successfully updated your account.')
+        }).catch((error) => {
+        // An error ocurred
+        // ...
+        });
+        }
           console.log(error.message)
         });
 
@@ -108,11 +123,10 @@ function ProfileEdit() {
           uid : id,
           Name: Name,
           Email: email,
-          Role: Role,
+          Role: 'Staff',
           UpdatedAt: date.toDateString()
         })
                
-        alert("Contact Information has been updated successfully.") 
         
         naviagte(`/Staff/Account/${Member.uid}`)
       }
