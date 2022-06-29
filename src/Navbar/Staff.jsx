@@ -85,7 +85,7 @@ function Staff() {
   const handlelogout= async() =>{
     try{
         await logout()
-        naviagte('/Signin')
+        naviagte('/Signin/Staff')
         console.log('you are logged out');
     }catch(e){
         console.log(e.message)

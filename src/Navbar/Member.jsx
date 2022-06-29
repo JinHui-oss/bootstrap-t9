@@ -85,7 +85,7 @@ function Member() {
     const handlelogout= async() =>{
       try{
           await logout()
-          naviagte('/Signin')
+          naviagte('/Signin/Member')
           console.log('you are logged out');
       }catch(e){
           console.log(e.message)
