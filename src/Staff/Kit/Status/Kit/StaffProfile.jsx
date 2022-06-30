@@ -1,6 +1,6 @@
 // react
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 
 // bootstrap
 import { Button, Card } from 'react-bootstrap';
@@ -12,13 +12,15 @@ import { db } from '../../../../Database/firebase';
 import { 
   collection,
   getDoc,
-  doc
+  doc,
+  deleteDoc
 } from 'firebase/firestore'
 
 
 function StaffListProfile() {
-    const [Member,setMember] = useState([]);
+  const [Member,setMember] = useState([]);
   const MemberCollectionRef = collection(db, "Staff");
+  const navigate = useNavigate();
   
   // create variable to reterive the specifc document id
   const { id } = useParams()
@@ -79,6 +81,14 @@ function StaffListProfile() {
   const data1 = data?.toString() || 'Not Verified'
   // console.log(data1)
 
+  const deleteKit = async (e) => {
+  
+    const deletedocRef = doc(db, "Staff", id);
+    await deleteDoc(deletedocRef);
+    navigate("/Staff/StaffList")
+    alert("Records deleted Successfully");
+  }
+
   return (
     <div className='profilepage-content'>
       {/* header of the page */}
@@ -137,6 +147,9 @@ function StaffListProfile() {
             </Card.Body>
           </Card>
         </div>
+        <br/>
+        <Button className ="Back-Button"href="/Staff/StaffList">Back</Button>
+        <Button className ="Delete-Button" onClick={() => {deleteKit(id)}}>Delete</Button>
     </div>
   )
 }

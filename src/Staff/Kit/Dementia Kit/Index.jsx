@@ -91,7 +91,7 @@ function Kit() {
                 <Card.Text>
                 {user.Description}
                 </Card.Text>
-                <Button href={`/Member/Kit/Detail/${user.id}`}>view</Button>
+                <Button href={`/Staff/Kit/Detail/${user.id}`}>view</Button>
               </Card.Body>
             </Card>
           </Col>  

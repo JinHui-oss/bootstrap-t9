@@ -114,7 +114,7 @@ div.hell.card{
 }
 
 .details-information-title{
-    width: 47em;
+   max-width: 47em;
 }
 .details-information-title h3{
     margin-top: 10px;
@@ -122,12 +122,12 @@ div.hell.card{
 }
 
 .details-information{
+    width: 140%;
     margin-left: 80%;
-    margin-top: 1%;
+    margin-top: 2%;   
 }
 .details-information-body{
-    margin-top: 8%;
-    width: 47em;
+    margin-top: 2%;
 }
 
 /* Button */
