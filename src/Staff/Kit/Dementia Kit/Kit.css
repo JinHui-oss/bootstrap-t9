@@ -186,3 +186,32 @@ div.hell.card{
 }
 
 
+@media screen and (max-width: 1000px) and (min-width: 375px) {
+    .details-pictures .tango img{
+        width: 200px;
+        height: 200px;
+        margin-top: -14%;
+        margin-left: -13%;
+        
+    }
+   div.tango.card  {
+        max-width: 250px;
+        height: 200px;
+        margin-left: 24.5%;
+    }
+    .details-edit{
+        margin-left: 28%;
+    }
+    .details-uploadphoto{
+        margin-top:10%;
+        margin-left: 28%;
+    }
+    .details-title{
+        margin-top: 10%;
+        margin-left: 28%;
+    }
+    .details-information{
+        max-width: 48em;
+        margin-left: 28%;
+    }
+}

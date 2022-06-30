@@ -8,3 +8,60 @@
     vertical-align: middle;
     font-size: larger;
 }
+
+.MemberDetails-content .header{
+    max-width: 70%;
+    margin-left: 15%;
+    margin-top: 2%;
+}
+
+.MemberDetails-pictures .pic{
+    width: 200px;
+    height: 200px;
+    margin-left: 15%;
+    margin-top:5%;
+}
+
+.MemberDetails-function  {
+    margin-top: 19%;
+    margin-left: 17.5%;
+}
+
+.MemberDetails-function img{
+    width: 70px;
+    height: 70px;
+}
+
+.MemberDetails-title{
+    margin-left: 50%;
+    margin-top: -35%;
+}
+
+.MemberDetails-title hr{
+    max-width: 70%;
+}
+
+.MemberDetails-information .MemberDetails-information-title{
+    margin-left: 50%;
+    margin-top: 2%;
+    max-width: 35%;
+}
+.MemberDetails-information-title h3{
+    text-align: center;
+}
+
+.MemberDetails-information .MemberDetails-information-body{
+    margin-top: 2%;
+    max-width: 35%;
+    margin-left: 50%;
+}
+
+.membercontent-table{
+    max-width: 40%;
+    margin-top: 2%;
+    margin-left: 5.5%;
+}
+
+.membercontent-table img{
+    margin-left: 14%;
+}
