@@ -80,7 +80,7 @@ function StaffConfirmed() {
      </div>
 
      <div className='content-table'>
-         <Table responsive="md" hover>
+         <Table  hover>
          <thead>
            <tr>
              <th>Borrower Name</th>
@@ -107,9 +107,8 @@ function StaffConfirmed() {
                <td>{user.loanname}</td>
                <td>{user.KitName}</td>
                <td>{user.Status}</td>
-               <td><Link to ={`/Staff/Confirmed/Update/${user.id}`}>Edit</Link> 
-               <br />
-               <Link to ={`/Staff/Returned/Delete/${user.id}`}>Delete</Link></td>
+               <td><Link to ={`/Staff/Confirmed/Update/${user.id}`}>Edit</Link></td> 
+             
              </tr>
            </tbody>
            );

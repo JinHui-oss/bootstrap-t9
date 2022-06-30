@@ -23,6 +23,8 @@ function StaffList() {
   
      
     }, [KitQRCollectionRef])
+
+    
   
     return (
       // the content of the webpage

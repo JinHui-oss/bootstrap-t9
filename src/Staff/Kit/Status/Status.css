@@ -1,4 +1,4 @@
-.mb-3{
+.mb-3 {
     max-width: 50%;
     margin-left: 10%;
 }
@@ -40,4 +40,19 @@
     margin-left: 45%;
     height:100%;
     margin-top:3%;   
+}
+.g-4a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    margin-left: 10%;
+    margin-top:2%;
+   
+}
+div.card{
+    max-width: 50%;
+}
+.MemberList-photo{
+    max-height: 360px;
+    max-height: auto;
 }

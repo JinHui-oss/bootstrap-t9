@@ -74,7 +74,7 @@ function StaffReturned() {
     </div>
 
     <div className='content-table'>
-        <Table responsive="md" hover>
+        <Table hover>
         <thead>
           <tr>
             <th>Borrower Name</th>

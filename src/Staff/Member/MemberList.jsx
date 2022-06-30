@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap'
+import { Table, Card,Col, Button, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import '../Member/Member.css'
 
@@ -45,17 +45,9 @@ function MemberList() {
       
       
         {/* table infomation */}
-        <div className='table'>
-        <Table responsive= "md" hover>
-            <thead>
-              <tr className='table-header'>
-                <th>Profile</th>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            
+        <div className='membercontent-table'>
+       
+        <Row xs={1} md={3} className="g-4a">
             {/* display table content */}
                {/* eslint-disable-next-line*/}
             {KitQR.filter((val) => {
@@ -67,19 +59,23 @@ function MemberList() {
                 }
             }).map((user) => {
             return( 
-              <tbody>
-                {""}
-                <tr>
-                  {/* eslint-disable-next-line */}
-                  <td><img src={user.PhotoUrl}/></td>
-                  <td>{user.id}</td>
-                  <td>{user.Name}</td>
-                  <td><Link to ={`/Staff/MemberList/Detail/${user.id}`}>View</Link></td>
-                </tr>
-              </tbody>
+  
+              <Col>
+              <Card>
+                <Card.Img variant="top" src={user.PhotoUrl} className='MemberList-photo' />
+                <Card.Body>
+                  <Card.Title>{user.Name}</Card.Title>
+                  <label>ID:</label>
+                  <Card.Text>
+                    {user.uid}
+                  </Card.Text>
+                  <Button href={`/Staff/MemberList/Detail/${user.id}`}>view</Button>
+                </Card.Body>
+              </Card>
+            </Col>  
               );
             })}
-          </Table>
+        </Row>
           </div>
         </div>
     )

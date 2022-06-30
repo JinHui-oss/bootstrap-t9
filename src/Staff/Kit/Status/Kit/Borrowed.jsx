@@ -77,7 +77,7 @@ function StaffKitBorrowed() {
      </div>
 
      <div className='content-table'>
-         <Table responsive="md" hover>
+         <Table >
          <thead>
            <tr>
              <th>Borrower Name</th>
@@ -97,12 +97,12 @@ function StaffKitBorrowed() {
          }).map((user) => {
          return( 
            <tbody>
-             {""}
+            
              <tr>
                <td>{user.loanname}</td>
                <td>{user.KitName}</td>
                <td><Link to ={`/Staff/Borrowed/Update/${user.id}`}>Edit</Link></td>
-               <br /> 
+             
              </tr>
            </tbody>
            );
