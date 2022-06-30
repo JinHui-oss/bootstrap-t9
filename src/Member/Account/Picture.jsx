@@ -26,6 +26,7 @@ function UpdateProfilePicture() {
   // eslint-disable-next-line
   const {} = UserAuth();
   const [ImageUpload,setImageUpload] = useState("");
+  const [ProfileImg, setProfileImg] = useState();
   const MemberCollectionRef = collection(db, "Member");
 
   const { id } = useParams()
@@ -113,6 +114,7 @@ function UpdateProfilePicture() {
             updateDoc(QRCollection, 
             { 
                 uid : id,
+                Filename: ProfileImg,
                 PhotoUrl : url,
                 Role: rolem,
                 UpdatedAt: date.toDateString()
@@ -147,7 +149,9 @@ function UpdateProfilePicture() {
         <label htmlFor='PhoneNumber'>Contact Number:</label>
         <br />
         <input type="file" defaultValue={Member.PhotoUrl} onChange={(event) => {
-        setImageUpload(event.target.files[0]);
+        setImageUpload(event.target.files[0],
+        setProfileImg(event.target.files[0].name)
+        );
         }} className="form-control-file" required />    
     </div>  
     <Button className= "Submit-Action" type="submit"> Submit </Button>

@@ -16,11 +16,16 @@ import {
   deleteDoc
 } from 'firebase/firestore'
 
+import "../../../../Staff/Kit/Status/Status.css"
+
+import { getStorage, ref, deleteObject } from "firebase/storage";
+
 
 function StaffListProfile() {
   const [Member,setMember] = useState([]);
   const MemberCollectionRef = collection(db, "Staff");
   const navigate = useNavigate();
+  const storage = getStorage();
   
   // create variable to reterive the specifc document id
   const { id } = useParams()
@@ -85,44 +90,41 @@ function StaffListProfile() {
   
     const deletedocRef = doc(db, "Staff", id);
     await deleteDoc(deletedocRef);
+    const desertRef = ref(storage, `/Staff/Account/`);
+
+    deleteObject(desertRef).then(() => {
+    
+      // File deleted successfully
+      alert('Staff Has been deleted successfully.')
+      }).catch((error) => {
+      // Uh-oh, an error occurred!
+      // console.log(error.message)
+    });
     navigate("/Staff/StaffList")
-    alert("Records deleted Successfully");
+
   }
 
   return (
     <div className='profilepage-content'>
       {/* header of the page */}
       <div className='header'>
-        <h2>Profile Page </h2>
+        <h2>Staff Detail Page </h2>
         <p>View the document data ensure it is up to date.</p>
         <hr />
       </div>
         
       {/* body content of the kit pictures */}
-      <div className='profilepage-pictures'>
-        <div className="pic">
-          <Card>
-            <Card.Body>
-              {/* eslint-disable-next-line */}
-              <p><img src={Member.PhotoUrl}></img></p>
-            </Card.Body>
-          </Card>
+      <div className='detailspage-pictures'>
+        <div className="pic1">
+          {/* eslint-disable-next-line */}
+          <p><img src={Member.PhotoUrl}></img></p>
         </div>
       <br />
-      {/* Edit Button */}
-      <Button className='profilepage-edit-function' href ={`/Member/Profile/Edit/${id}`}>
-      {/* eslint-disable-next-line */}
-      <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
-      Edit</Button>
-
-      <Button className='profilepage-updatepicture' href ={`/Member/Profile/UpdateProfilePicture/${id}`}>
-      {/* eslint-disable-next-line */}
-      <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
-      Update Picture</Button>
+  
       </div>
 
        {/* product title and quantity information */} 
-       <div className='profilepage-title'>
+       <div className='detailspage-title'>
           <h2>Name: {Member.Name}</h2>
           <hr />
           <h2>Role: {Member.Role}</h2>

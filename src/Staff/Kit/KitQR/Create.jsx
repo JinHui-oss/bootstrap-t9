@@ -26,6 +26,7 @@ function QRCreate() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [ImageUpload, setImageUpload] = useState();
+  const [Filename, setFilename] = useState("");
   
   // add records directly to the firestore
   const NewData = async(e) =>{
@@ -52,7 +53,8 @@ function QRCreate() {
             PhoneNumber:phone,
             Email: email,
             PhotoUrl: url,
-            CreatedAt: date.toDateString()
+            CreatedAt: date.toDateString(),
+            Filename: Filename
         });
         alert("image upload")
         })
@@ -167,7 +169,9 @@ function QRCreate() {
           <label className="KitPictures">Kit Pictures</label>
           <br />
           <input type="file" onChange={(event) => {
-           setImageUpload(event.target.files[0]);
+           setImageUpload(event.target.files[0],
+            
+           setFilename(event.target.files[0].name));
           }} className="form-control-file"  />
         </div>
         <br />

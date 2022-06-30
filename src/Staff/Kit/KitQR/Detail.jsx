@@ -13,15 +13,20 @@ import {
   collection,
   getDoc,
   doc,
-  Timestamp,
+  
   deleteDoc
 } from 'firebase/firestore'
+import { getStorage, ref, deleteObject } from "firebase/storage";
+
 import '../KitQR/KitQR.css'
+
 
 function QRDetail() {
   
   // create a variable to store data thru usestate 
   const [kitQR, setKitQR] = useState([]);
+  const storage = getStorage();
+
   //const [name, setText] = useState("");
   
   // find the data from the firestore based on the 
@@ -59,6 +64,7 @@ function QRDetail() {
           StartDate: data.StartDate,
           EndDate: data.EndDate,
           PhotoUrl: data.PhotoUrl,
+          Filename: data.Filename,
           CreatedAt: data.CreatedAt
         }
         // reterive the data and stored into a setkit
@@ -78,6 +84,7 @@ function QRDetail() {
 
   // eslint-disable-next-line 
   }, [kitQRCollectionRef])
+  
 
   const deleteKit = async (id) => {
   
@@ -86,6 +93,18 @@ function QRDetail() {
     await deleteDoc(deletedocRef);
     navigate("/Staff/QRIndex")
     console.log("Records deleted Successfully");
+
+    const desertRef = ref(storage, `/Staff/KitQR/${kitQR.Filename}`);
+
+    // Delete the file
+    deleteObject(desertRef).then(() => {
+    
+    // File deleted successfully
+    alert('QR Code Has been deleted successfully.')
+    }).catch((error) => {
+    // Uh-oh, an error occurred!
+    // console.log(error.message)
+  });
 }
  
   return (
@@ -150,7 +169,7 @@ function QRDetail() {
         
         {/* Button */}
         <Button className ="QRBack"href="/Staff/QRIndex">Back</Button>
-        <Button onClick={() => {deleteKit(id)}} className="QREdit">Archive</Button>
+        <Button onClick={() => {deleteKit(id)}} className="QREdit">Delete</Button>
         
     </div>
   )

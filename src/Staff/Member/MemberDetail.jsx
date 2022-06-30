@@ -16,9 +16,12 @@ import {
   deleteDoc
 } from 'firebase/firestore'
 
+import { getStorage, ref, deleteObject } from "firebase/storage";
 
+import "../../Staff/Member/Member.css"
 
 function MemberDetail() {
+  const storage = getStorage();
   const [Member,setMember] = useState([]);
   const MemberCollectionRef = collection(db, "Member");
   const navigate = useNavigate();
@@ -52,6 +55,7 @@ function MemberDetail() {
          PhoneNumber: data.PhoneNumber,
          PhotoUrl: data.PhotoUrl,
          Role: data.Role,
+         Filename: data.Filename,
          UpdatedAt: data.UpdatedAt,
          uid: data.uid,
          isverifed: data.isverifed
@@ -86,41 +90,49 @@ function MemberDetail() {
   
     const deletedocRef = doc(db, "Member", id);
     await deleteDoc(deletedocRef);
+
+    const desertRef = ref(storage, `/Member/Account/${Member.Filename}`);
+    deleteObject(desertRef).then(() => {
+    
+      // File deleted successfully
+      alert('Member Profile  Has been deleted successfully.')
+      }).catch((error) => {
+      // Uh-oh, an error occurred!
+      // console.log(error.message)
+    });
+    
     navigate("/Staff/MemberList")
     alert("Records deleted Successfully");
   }
 
   return (
-    <div className='profilepage-content'>
+    <div className='MemberDetails-content'>
       {/* header of the page */}
       <div className='header'>
-        <h2>Profile Page </h2>
+        <h2>Member Details Page </h2>
         <p>View the document data ensure it is up to date.</p>
         <hr />
       </div>
         
       {/* body content of the kit pictures */}
-      <div className='profilepage-pictures'>
+      <div className='MemberDetails-pictures'>
         <div className="pic">
-          <Card>
-            <Card.Body>
+      
               {/* eslint-disable-next-line */}
               <p><img src={Member.PhotoUrl}></img></p>
-            </Card.Body>
-          </Card>
+         
         </div>
       <br />
       {/* Edit Button */}
-      <Button className='profilepage-edit-function' onClick={() => {deleteKit(id)}}>
+      <Button className='MemberDetails-function' onClick={() => {deleteKit(id)}}>
       {/* eslint-disable-next-line */}
       <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
       Delete</Button>
-
    
       </div>
 
        {/* product title and quantity information */} 
-       <div className='profilepage-title'>
+       <div className='MemberDetails-title'>
           <h2>Name: {Member.Name}</h2>
           <hr />
           <h2>Role: {Member.Role}</h2>
@@ -128,13 +140,13 @@ function MemberDetail() {
         </div>
 
         {/* body content of the kit information */}
-        <div className='memberprofilepage-information'>
-        <Card className="profilepage-information-title">
+        <div className='MemberDetails-information'>
+        <Card className="MemberDetails-information-title">
             <Card.Title>
                 <h3>Account Information</h3>
             </Card.Title>
           </Card>
-          <Card className="profilepage-information-body">
+          <Card className="MemberDetails-information-body">
             <Card.Body>
               <p>User Id: <br /> {Member.uid}</p>
               <p>Email: <br /> {Member.Email}</p>
