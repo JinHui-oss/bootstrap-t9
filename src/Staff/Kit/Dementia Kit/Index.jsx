@@ -1,6 +1,6 @@
 // react
 import React, { useState, useEffect } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Button, Row, Col,Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 // firebase
@@ -70,17 +70,9 @@ function Kit() {
         </div>
     
       <div className='content-table'>
-          <Table responsive="md" hover>
-          <thead>
-            <tr>
-              <th>Profile</th>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-
-          {/* eslint-disable-next-line */}
+        <div className='contenthell'>
+          <Row xs={1} md={3} className="g-4">
+             {/* eslint-disable-next-line */}
           {kit.filter((val) => {
             if(search === ""){
               return val
@@ -91,22 +83,22 @@ function Kit() {
           /* eslint-disable-next-lin */  
           }).map((user) => {
           return( 
-            <tbody>
-              {""}
-              <tr>
-                <td>
-                { /*eslint-disable-next-line */ } 
-                <img src ={user.PhotoUrl} width="120px" height="120px" />
-                </td>
-                <td>{user.id}</td>
-                <td>{user.Name}</td>
-                <td><Link to ={`/Staff/Kit/Detail/${user.id}`}>View</Link></td>
-              </tr>
-            </tbody>
+            <Col>
+            <Card className='hell'>
+              <Card.Img variant="top" src={user.PhotoUrl} className='kitcontent-photo' />
+              <Card.Body>
+                <Card.Title>{user.Name}</Card.Title>
+                <Card.Text>
+                {user.Description}
+                </Card.Text>
+                <Button href={`/Member/Kit/Detail/${user.id}`}>view</Button>
+              </Card.Body>
+            </Card>
+          </Col>  
             );
-          })}         
-        
-        </Table>
+          })}
+          </Row>
+        </div>
       </div>
   </div>
 )}
