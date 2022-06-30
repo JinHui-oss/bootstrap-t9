@@ -15,7 +15,9 @@ import
 { 
   getAuth,  
   updatePassword,
+  reauthenticateWithCredential
 }from 'firebase/auth';
+import SigninStaff from '../../../../Login/Signin/SigninStaff'
 
 
 function StaffPasswordUpdate() {
@@ -89,30 +91,43 @@ function StaffPasswordUpdate() {
         //console.log(user)
         
 
-        if(password === newpassword){
-          updateDoc(QRCollection, 
-            { 
-              uid : id,
-              Password: newpassword,
-              Role: rolem,
-              UpdatedAt: date.toDateString()
-            })
+        if(password === newpassword)
+        {
+          if(password.length && newpassword.length === 6){
+            updateDoc(QRCollection, 
+              { 
+                uid : id,
+                Password: newpassword,
+                Role: rolem,
+                UpdatedAt: date.toDateString()
+              })
+          }
+            
           updatePassword(user, newpassword).then(() => {
             // Update successful.
-            console.log('uploaded')
+            alert('password has been updated successfully, Returning to profile page.')
             naviagte(`/Staff/Account/${staff.uid}`)
           }).catch((error) => {
             // An error ocurred
-            console.log(error.message)
+            if(error)
+            {
+             // TODO(you): prompt the user to re-provide their sign-in credentials
+             alert(error.message)
+            }
+            if(error.code === 'auth/requires-recent-login')
+            {
+              // TODO(you): prompt the user to re-provide their sign-in credentials
+              alert("An error has occured. Returning to Staff Login Page to relogin your account.")
+              naviagte(`/Signin/Staff`)
+            }
           });
         }
         else{
           console.log("An error has occured. Returning to signin page.")
-          naviagte(`/Signin`)
+          naviagte(`/Signin/Staff`)
         }
-           
-        alert("Password have been updated successfully.") 
-      }
+          
+    }
       catch(e){
         // catch error message but currently display none;
       }
