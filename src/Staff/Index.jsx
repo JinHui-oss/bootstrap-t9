@@ -380,7 +380,7 @@ function Index() {
           <Card.Text>
             Number: {started.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Borrowed">View</Card.Link>
+          <Card.Link href="/Staff/Borrowed">View Borrowed</Card.Link>
           </Card.Body>
         </Card>
       </div>
@@ -394,7 +394,7 @@ function Index() {
           <Card.Text>
             Number: {startedreturned.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Returned">View</Card.Link>
+          <Card.Link href="/Staff/Returned">View Returned</Card.Link>
         </Card.Body>
       </Card>
       </div>
@@ -408,7 +408,7 @@ function Index() {
           <Card.Text>
             Number: {kittotal.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Kit">View</Card.Link>
+          <Card.Link href="/Staff/Kit">View Total</Card.Link>
         </Card.Body>
         </Card>
       </div>
@@ -421,7 +421,7 @@ function Index() {
           <Card.Text>
             Number: {tcancel.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Cancellation">View</Card.Link>
+          <Card.Link href="/Staff/Cancellation">View Total</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -436,7 +436,7 @@ function Index() {
           <Card.Text>
             Number: {tconfirmed.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Confirmed">View</Card.Link>
+          <Card.Link href="/Staff/Confirmed">View Total</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -449,7 +449,7 @@ function Index() {
           <Card.Text>
             Number: {tready.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Collection">View</Card.Link>
+          <Card.Link href="/Staff/Collection">View Total</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -467,7 +467,7 @@ function Index() {
           <Card.Text>
             Number: {tstaff.Total}
           </Card.Text>
-          <Card.Link href="/Staff/MemberList">View</Card.Link>
+          <Card.Link href="/Staff/MemberList">View Total</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -481,7 +481,7 @@ function Index() {
           <Card.Text>
             Number: {membernumber.Total}
           </Card.Text>
-          <Card.Link href="/Staff/StaffList">View</Card.Link>
+          <Card.Link href="/Staff/StaffList">View Total</Card.Link>
         </Card.Body>
         </Card>
         </div>

@@ -72,10 +72,11 @@ import StaffReadyCollection from "./Staff/Kit/Status/Kit/ReadyCollection";
 import StaffConfirmed from "./Staff/Kit/Status/Kit/Confirmed";
 import StaffCancellation from "./Staff/Kit/Status/Kit/Cancellation";
 import StaffList from "./Staff/Kit/Status/Kit/StaffList";
-import StaffListProfile from "./Staff/Kit/Status/Kit/StaffProfile";
+import StaffListProfile from "./Staff/Kit/Status/Kit/StaffDetails";
 import StaffUpdateCollection from "./Staff/Kit/Status/Update/UpdateCollection";
 import StaffUpdateCancel from "./Staff/Kit/Status/Update/UpdateCancellation";
 import StaffUpdateConfirmed from "./Staff/Kit/Status/Update/UpdateConfirmed";
+import UpdateSuccessful from "./Staff/Account/Security/Password/Successful";
 
 function App() {
   return(
@@ -136,6 +137,12 @@ function App() {
         <Route path='/Staff/Account/:id' element={<ProtectedRoute>
           <Staff />
           <Profile />  
+        </ProtectedRoute>} />
+
+         {/* Staff Profile Page */}      
+         <Route path='/Staff/Account/UpdatedPassword/:id' element={<ProtectedRoute>
+          <Staff />
+          <UpdateSuccessful />  
         </ProtectedRoute>} />
 
         <Route path='/Staff/Account/Security/:id' element={<ProtectedRoute>
