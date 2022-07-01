@@ -82,7 +82,12 @@ body{
 
 .details-edit{
     margin-left: 39%;
+    max-width: 20%;
     color: white;
+}
+
+.staffdetails-card{
+    max-width: 50%;
 }
 
 .details-edit img{
@@ -112,7 +117,8 @@ body{
 .details-information-title{
    max-width: 47em;
 }
-.details-information-title h3{
+
+.details-information-title h3 {
     margin-top: 10px;
     margin-left: 20px;
 }

@@ -97,7 +97,7 @@ function Detail() {
         {/* body content of the kit pictures */}
         <div className='details-pictures'>
           <div className="d-flex justify-content-around">
-            <Card>
+            <Card className='staffdetails-card'>
               <Card.Body>
                  {/* eslint-disable-next-line */}
                 <p><img src={kit.PhotoUrl}></img></p>

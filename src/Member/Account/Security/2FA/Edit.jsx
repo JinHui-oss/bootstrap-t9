@@ -109,10 +109,11 @@ function Member2FAEdit() {
 
     if(otp.length === 6){
      let confirmationResult = window.confirmationResult
+     console.log(confirmationResult)
      confirmationResult.confirm(otp).then((result) => {
       // User signed in successfully.
-      const { user } = signIn(auth.Email,Member.password);
-      console.log(user)
+     signIn(Member.Email,Member.password);
+      
       navigate("/Member/Kit")
       // ...
     }).catch((error) => {
@@ -143,7 +144,7 @@ function Member2FAEdit() {
           }} 
           className="form-control" 
           id="KitName" 
-          defaultValue = {Member.PhoneNumber}
+          defaultValue = {'+65'}
           name = 'phone'
           placeholder = {Member.PhoneNumber}
         
