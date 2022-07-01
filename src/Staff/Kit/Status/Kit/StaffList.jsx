@@ -30,8 +30,8 @@ function StaffList() {
       // the content of the webpage
       <div className='QR-view'>
         <div className='header'>
-          <h2>Member List</h2>
-          <p>View all the public member who created an account with Yong En Care Centre.</p>
+          <h2>Staff List</h2>
+          <p>View all the Staff member who created an account with Yong En Care Centre.</p>
           <hr></hr>
         </div>
         

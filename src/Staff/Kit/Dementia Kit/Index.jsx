@@ -71,7 +71,7 @@ function Kit() {
     
       <div className='content-table'>
         <div className='contenthell'>
-          <Row xs={1} md={3} className="g-4">
+          <Row xs={1} md={2} className="g-4">
              {/* eslint-disable-next-line */}
           {kit.filter((val) => {
             if(search === ""){
