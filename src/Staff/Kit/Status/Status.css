@@ -23,7 +23,7 @@
 }
 
 .form-create{
-    margin-left: 12.5%;
+    margin-left: 0%;
 }
 
 .details-archive{
@@ -55,7 +55,11 @@
     margin-top:2%;
 }
 div.card{
-    max-width: 95%;
+    max-width: 89%;
+    width:1280px;
+    margin-left: 7.5%;
+    margin-top: 5%;
+
 }
 .MemberList-photo{
     max-height: 360px;

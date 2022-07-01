@@ -35,13 +35,17 @@ body{
     width: 80%;
 }
 
-.Download-Action{
-    margin-left: 58.5%;
-    margin-top: -19%;
+.Download-Action {
+    margin-left: 56.9%;
+    margin-top: -27%;
 }
 
 .Back-Action .Action{
     margin-top:20%;
+}
+
+.form-create{
+    margin-left: 0;
 }
 
 .form-create input{
@@ -65,10 +69,10 @@ body{
 /* QR Code CSS */
 .form-create .QR-Code {
     float: right;
-    margin-top: -22.5%;
-    margin-right: 10%;
-    padding-top:-10%;
+    margin-top: -26.5%;
+    margin-right: 11.5%;
 }
+
 /* Submit Button CSS */
 .form-create .Action{
     margin-top: -50px;

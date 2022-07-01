@@ -33,13 +33,9 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap:nowrap;
-    max-width: 100%;
+    max-width: 700%;
     margin-left: 10%;
     margin-top:2%;
-}
-
-div.hell.card{
-    max-width: 100%;
 }
 
 .photo Card.Img{
@@ -181,8 +177,12 @@ div.hell.card{
 }
 
 .kitcontent-photo{
-    max-height: 360px;
-    max-height: auto;
+   
+    height: 305px;
+    width: 546px;
+}
+.g-4{
+    max-width: 100%;
 }
 
 
