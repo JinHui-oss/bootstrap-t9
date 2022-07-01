@@ -83,13 +83,9 @@ function Profile() {
         
       {/* body content of the kit pictures */}
       <div className='profilepage-pictures'>
-        <div className="pic">
-          <Card>
-            <Card.Body>
-              {/* eslint-disable-next-line */}
-              <img src={Member.PhotoUrl}></img>
-            </Card.Body>
-          </Card>
+        <div className="pic">  
+          {/* eslint-disable-next-line */}
+          <img src={Member.PhotoUrl}></img>
         </div>
       <br />
       {/* Edit Button */}

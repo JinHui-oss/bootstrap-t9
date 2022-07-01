@@ -21,6 +21,7 @@ import
 
 function StaffProfileUpdate() {
     const [Staff, setStaff] = useState([]);
+    const [Filename, setFilename] = useState();
 
   // eslint-disable-next-line
   const {} = UserAuth();
@@ -114,6 +115,7 @@ function StaffProfileUpdate() {
                 uid : id,
                 PhotoUrl : url,
                 Role: rolem,
+                Filename: Filename,
                 UpdatedAt: date.toDateString()
             })
             alert("image upload") 
@@ -146,7 +148,8 @@ function StaffProfileUpdate() {
         <label htmlFor='PhoneNumber'>Contact Number:</label>
         <br />
         <input type="file" defaultValue={Staff.PhotoUrl} onChange={(event) => {
-        setImageUpload(event.target.files[0]);
+        setImageUpload(event.target.files[0],
+        setFilename(event.target.files[0].name));
         }} className="form-control-file" required />    
     </div>  
     <Button className= "Submit-Action" type="submit"> Submit </Button>

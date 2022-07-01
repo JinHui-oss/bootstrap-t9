@@ -24,6 +24,7 @@ function AddKit() {
   const [newdesc, setDesc] = useState();
   const [newamt, setAmt] = useState();
   const [Category, setCategory] = useState();
+  const [Filename, setFilename] = useState("");
   const [ImageUpload, setImageUpload] = useState();
   const navigate = useNavigate();
  
@@ -51,6 +52,7 @@ function AddKit() {
           Quantity: newamt,
           Category: Category,
           PhotoUrl: url,
+          Filename: Filename,
           CreatedAt: date.toDateString() 
         });
           alert("image upload")
@@ -127,7 +129,8 @@ function AddKit() {
           <label className="KitPictures">Kit Pictures</label>
           <br />
           <input type="file" onChange={(event) => {
-            setImageUpload(event.target.files[0]);
+            setImageUpload(event.target.files[0],
+            setFilename(event.target.files[0].name));
           }} className="form-control-file"  />
         </div>
        
