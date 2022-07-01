@@ -20,7 +20,7 @@ import {
   getDoc,
   doc
 } from 'firebase/firestore'
-import { getAuth } from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
 
 function Staff() {
   const [staff, setStaff] = useState([]);
@@ -74,6 +74,9 @@ function Staff() {
       {
         // doc.data() will be undefined in this case
         console.log("No such document!");
+        alert('Returning to the staff sign in page for no authorised credentials from Yong En Care Centre')
+        await signOut(auth)
+        naviagte("/Signin/Staff")
       }
     };
   }
