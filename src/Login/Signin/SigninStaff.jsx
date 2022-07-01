@@ -68,7 +68,7 @@ function SigninStaff() {
   return (
     <div className='header'>
         <div className='header-title'>
-        <h1> Sign in to your account </h1>
+        <h1> Sign in to a Staff account. </h1>
         <br />
         <p> Don't have an staff account yet? <Link to ='/Signup_Staff' className='underline'>Sign up.</Link></p>
         </div>

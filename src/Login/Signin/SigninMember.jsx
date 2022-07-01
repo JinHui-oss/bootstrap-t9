@@ -65,7 +65,7 @@ function SigninMember() {
     return (
     <div className='header'>
         <div className='header-title'>
-        <h1> Sign in to your account </h1>
+        <h1> Sign in to a Member account </h1>
         <br />
         <p> Don't have an member account yet? <Link to ='/Signup_Member' className='underline'>Sign up.</Link></p>
         </div>
