@@ -1,11 +1,13 @@
 .header-title{
-    margin-left: 53%;
-    margin-top:10%;
+    margin-left: 60%;
+    margin-top: 12%;
 }
 .body-content{
     max-width: 60%;
-    margin-left: 47.5%;
-    padding-top:  1%;
+    margin-left: 54%;
+    padding-top: 2%;
+    width: 60%;
+
 }
 .body-content Button{
     margin-top:2%;
@@ -39,4 +41,45 @@
 }
 .signup-body-form Button{
     margin-top:4.5%;
+}
+
+
+@media screen and (max-width: 700px) and (min-width: 360px) {
+    .header-title {
+        margin-left: 11%;
+        margin-top: 10%;
+    }
+
+    .mb-3 {
+        max-width: 82%;
+        margin-left: 10%;
+    }
+
+    .body-content {
+        margin-left: -4.5%;
+    padding-top: 5%;
+    max-width: 160%;
+    width: 160%;
+    }
+  
+}
+
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+    .header-title {
+        margin-left: 11%;
+        margin-top: 15%;
+    }
+
+    .mb-3 {
+        max-width: 82%;
+        margin-left: 10%;
+    }
+
+    .body-content {
+        margin-left: 1.5%;
+        padding-top: 5%;
+        max-width: 120%;
+        width: 100%;
+    }
+  
 }

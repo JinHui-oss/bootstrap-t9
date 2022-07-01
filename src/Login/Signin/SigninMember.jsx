@@ -10,7 +10,8 @@ import { UserAuth } from '../../Scripts/authContext'
 import 
 { 
     Form, 
-    Button 
+    Button,
+    Alert, 
 } from 'react-bootstrap'
 
 import { db } from '../../Database/firebase'
@@ -21,8 +22,8 @@ import
   doc,
   getDoc,
 } from 'firebase/firestore'
-import { getAuth } from 'firebase/auth'
 
+import '../Login.css'
 
 
 function SigninMember() {
@@ -58,9 +59,9 @@ function SigninMember() {
         }
         catch(e){
           setError(e.message);
-          console.log(e.message);
         }
     }
+
 
     return (
     <div className='header'>
@@ -68,6 +69,7 @@ function SigninMember() {
         <h1> Sign in to a Member account </h1>
         <br />
         <p> Don't have an member account yet? <Link to ='/Signup_Member' className='underline'>Sign up.</Link></p>
+        <p>{error}</p>
         </div>
        <div className='body-content'>
        <Form onSubmit={handleSubmit}>
