@@ -15,11 +15,11 @@
     margin-top: 2%;
 }
 
-.MemberDetails-pictures .pic{
-    width: 200px;
-    height: 200px;
-    margin-left: 15%;
-    margin-top:5%;
+.MemberDetails-pictures .pic img{
+    margin-left: 20%;
+    margin-top: 10%;
+    max-width: 340px;
+    max-height: 340px;
 }
 
 .MemberDetails-function  {
@@ -34,7 +34,7 @@
 
 .MemberDetails-title{
     margin-left: 50%;
-    margin-top: -35%;
+    margin-top: -50%;
 }
 
 .MemberDetails-title hr{
@@ -65,3 +65,4 @@
 .membercontent-table img{
     margin-left: 14%;
 }
+
