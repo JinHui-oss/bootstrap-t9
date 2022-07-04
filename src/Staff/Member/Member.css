@@ -82,7 +82,40 @@
 }
 
 
-/* 600px */
+/* Custom Screen Size for different devices */
+@media screen and (max-width: 360px) and (min-width: 280px) {
+    .m-4a {
+        margin-top: 20%;
+        margin-left: 3%;
+        width: 207%;
+    }
+
+    .Member-List .header {
+        max-width: 70%;
+        margin-left: 15%;
+        margin-top: 10%;
+    }
+
+    .membercontent-table img{
+        margin-left: 13.5%;
+        margin-top: 8%;
+        max-width: 130px;
+        max-height: 130px;
+    }
+
+    .Member-List .input-words{
+        max-width: 68%;
+        margin-left: 15%;
+        margin-top: 10%;
+    }
+
+    .membercontent-table {
+        max-width: 40%;
+        margin-top: 2%;
+        margin-left: 5.5%;
+    }
+}
+
 @media screen and (max-width: 600px) and (min-width: 360px) {
     .m-4a {
         margin-top: 20%;
@@ -131,7 +164,7 @@
     }
 }
 
-/* Custom Screen Size for different devices */
+
 @media screen and (max-width: 1000px) and (min-width: 768px) {
     .m-4a {
         margin-top: 20%;
@@ -228,6 +261,7 @@
         margin-left: 13%;
         margin-top: 5%;
     }
+
 }
 
 
