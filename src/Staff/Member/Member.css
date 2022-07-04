@@ -1,12 +1,24 @@
-.QR-view .input-words{
-    max-width: 70%;
+.Member-List .input-words{
+    max-width: 65%;
     margin-left: 10%;
-    margin-top:2%;
+    margin-top: 2%;
+}
+
+.Member-List .header{
+    max-width: 65%;
+    margin-left: 10%;
+    margin-top: 2%;
 }
 
 .QR-view .table td{
     vertical-align: middle;
     font-size: larger;
+}
+
+.m-4a {
+    margin-top: 5%;
+    margin-left: -2%;
+    width: 149%;
 }
 
 .MemberDetails-content .header{
@@ -57,12 +69,148 @@
 }
 
 .membercontent-table{
-    max-width: 40%;
+    max-width: 70%;
     margin-top: 2%;
-    margin-left: 5.5%;
+    margin-left: 8.5%;
 }
 
-.membercontent-table img{
-    margin-left: 14%;
+.membercontent-table img {
+    margin-left: 32%;
+    margin-top: 8%;
+    max-width: 200px;
+    max-height: 200px;
 }
+
+
+@media screen and (max-width: 767px) and (min-width: 360px) {
+    .m-4a {
+        margin-top: 20%;
+        margin-left: 3%;
+        width: 207%;
+    }
+
+    .Member-List .header {
+        max-width: 70%;
+        margin-left: 15%;
+        margin-top: 10%;
+    }
+
+    .membercontent-table img{
+        margin-left: 16.5%;
+        margin-top: 8%;
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .Member-List .input-words{
+        max-width: 70%;
+        margin-left: 15%;
+        margin-top: 10%;
+    }
+
+    .membercontent-table {
+        max-width: 40%;
+        margin-top: 2%;
+        margin-left: 5.5%;
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 768px) {
+    .m-4a {
+        margin-top: 20%;
+        margin-left: 2%;
+        width: 242%;
+    }
+    .Member-List .header {
+        max-width: 80%;
+        margin-left: 10%;
+        margin-top: 10%;
+    }
+
+    .membercontent-table {
+        max-width: 54%;
+        margin-top: -2%;
+        margin-left: 4.5%;
+    }
+
+    .membercontent-table img{
+        margin-left: 16.5%;
+        margin-top: 8%;
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .Member-List .input-words{
+        max-width: 80%;
+        margin-left: 10%;
+        margin-top:10%;
+    }
+}
+
+@media screen and (max-width: 1299px) and (min-width: 1001px) {
+    .m-4a {
+        margin-left: 4%;
+        margin-top: 10%;
+        width: 181%;
+    }
+
+    .Member-List .header {
+        max-width: 65%;
+        margin-left: 16%;
+        margin-top: 5%;
+    }
+
+    .membercontent-table {
+        max-width: 58%;
+        margin-top: -2%;
+        margin-left: 10.5%;
+    }
+
+    .membercontent-table img {
+        margin-left: 15.5%;
+        margin-top: 8%;
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .Member-List .input-words {
+        max-width: 65%;
+        margin-left: 16%;
+        margin-top: 5%;
+    }
+}
+
+@media screen and (max-width: 1919px) and (min-width: 1300px) {
+    .m-4a {
+        margin-top: 10%;
+        margin-left: 4%;
+        width: 211%;
+    }
+
+    .Member-List .header {
+        max-width: 70%;
+        margin-left: 13%;
+        margin-top: 5%;
+    }
+
+    .membercontent-table {
+        max-width: 54%;
+        margin-top: -2%;
+        margin-left: 7.25%;
+    }
+
+    .membercontent-table img {
+        margin-left: 27.5%;
+        margin-top: 8%;
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+   .Member-List .input-words {
+        max-width: 70%;
+        margin-left: 13%;
+        margin-top: 5%;
+    }
+}
+
 

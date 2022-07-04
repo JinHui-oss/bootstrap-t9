@@ -50,9 +50,10 @@
     max-width: 70%;
    
 }
-.g-4a{
-    margin-left: 10%;
-    margin-top:2%;
+.g-4a {
+    margin-left: 7%;
+    margin-top: 2%;
+    width: 130%;
 }
 div.card{
     max-width: 89%;
@@ -81,4 +82,13 @@ div.card{
    margin-top: 10%;
    width: 340px;
    height: 340px;
+}
+
+
+@media screen and (max-width: 1000px) and (min-width: 360px) {
+    .g-4a {
+        margin-top: 20%;
+        margin-left: -9%;
+        width: 200%;
+    }
 }
