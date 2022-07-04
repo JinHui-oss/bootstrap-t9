@@ -77,11 +77,15 @@ div.card{
 .detailspage-title hr{
     max-width: 70%;
 }
-.detailspage-pictures img{
-   margin-left: 20%;
-   margin-top: 10%;
-   width: 340px;
-   height: 340px;
+.detailspage-pictures img {
+    margin-left: 21%;
+    margin-top: 8%;
+    width: 340px;
+    height: 340px;
+}
+.memberprofilepage-information {
+    max-width: 42%;
+    margin-left: 47%;
 }
 
 @media screen and (max-width: 600px) and (min-width: 360px) {
