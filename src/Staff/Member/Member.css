@@ -154,6 +154,39 @@
         margin-left: 15%;
         margin-top: 10%;
     }
+
+    .detailspage-pictures img {
+        margin-left: 24%;
+        margin-top: 11%;
+        width: 160px;
+        height: 160px;
+    }
+
+    .memberprofilepage-information {
+        max-width: 81%;
+        margin-left: 9%;
+    }
+
+    .Back-Button {
+        margin-left: 25%;
+        height: 100%;
+        margin-top: 3%;
+    }
+
+    .profilepage-content .header {
+        width: 70%;
+        margin-left: 17%;
+        margin-top: 10%;
+    }
+
+    .memberprofilepage-information .profilepage-information-body {
+        margin-top: 10%;
+    }
+
+    .profilepage-information-title h3 {
+        margin-top: 4%;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 600px) and (min-width: 360px) {
@@ -188,12 +221,13 @@
         margin-left: 5.5%;
     }
 
-    .MemberDetails-pictures .pic img {
+    .MemberDetails-pictures .pic img{
         margin-left: 34%;
         margin-top: 10%;
         max-width: 160px;
         max-height: 160px;
     }
+    
 
     .MemberDetails-title {
         margin-left: 18%;
@@ -232,6 +266,12 @@
         text-align: center;
         margin-top: 2%;
     }
+
+    .detailspage-title {
+        margin-top: 5%;
+        margin-left: 21%;
+    }
+    
 }
 
 @media screen and (max-width: 767px) and (min-width: 601px) {
