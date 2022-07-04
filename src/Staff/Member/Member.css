@@ -1,13 +1,13 @@
 .Member-List .input-words{
     max-width: 65%;
-    margin-left: 10%;
-    margin-top: 2%;
+    margin-left: 16%;
+    margin-top: 4%;
 }
 
 .Member-List .header{
     max-width: 65%;
-    margin-left: 10%;
-    margin-top: 2%;
+    margin-left: 16%;
+    margin-top: 4%;
 }
 
 .QR-view .table td{
@@ -71,7 +71,7 @@
 .membercontent-table{
     max-width: 70%;
     margin-top: 2%;
-    margin-left: 8.5%;
+    margin-left: 14.5%;
 }
 
 .membercontent-table img {
@@ -82,7 +82,8 @@
 }
 
 
-@media screen and (max-width: 767px) and (min-width: 360px) {
+/* 600px */
+@media screen and (max-width: 600px) and (min-width: 360px) {
     .m-4a {
         margin-top: 20%;
         margin-left: 3%;
@@ -96,7 +97,7 @@
     }
 
     .membercontent-table img{
-        margin-left: 16.5%;
+        margin-left: 10.5%;
         margin-top: 8%;
         max-width: 200px;
         max-height: 200px;
@@ -115,6 +116,22 @@
     }
 }
 
+@media screen and (max-width: 767px) and (min-width: 601px) {
+    .membercontent-table img{
+        margin-left: 26.5%;
+        margin-top: 8%;
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .m-4a {
+        margin-top: 6%;
+        margin-left: -8%;
+        width: 108%;
+    }
+}
+
+/* Custom Screen Size for different devices */
 @media screen and (max-width: 1000px) and (min-width: 768px) {
     .m-4a {
         margin-top: 20%;
