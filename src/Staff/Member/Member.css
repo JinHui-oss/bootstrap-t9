@@ -35,8 +35,8 @@
 }
 
 .MemberDetails-function  {
-    margin-top: 19%;
-    margin-left: 17.5%;
+    margin-top: 2%;
+    margin-left: 24.5%;
 }
 
 .MemberDetails-function img{
@@ -46,7 +46,7 @@
 
 .MemberDetails-title{
     margin-left: 50%;
-    margin-top: -50%;
+    margin-top: -32%;
 }
 
 .MemberDetails-title hr{
@@ -114,6 +114,46 @@
         margin-top: 2%;
         margin-left: 5.5%;
     }
+
+    .MemberDetails-pictures .pic img {
+        margin-left: 27%;
+        margin-top: 10%;
+        max-width: 130px;
+        max-height: 130px;
+    }
+
+    .MemberDetails-title {
+        margin-left: 25%;
+        margin-top: 15%;
+    }
+
+    .MemberDetails-function {
+        margin-top: 5%;
+        margin-left: 27.5%;
+    }
+
+    .MemberDetails-function img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .MemberDetails-information .MemberDetails-information-title {
+        margin-left: 23%;
+        margin-top: 4%;
+        max-width: 70%;
+    }
+
+    .MemberDetails-information .MemberDetails-information-body {
+        margin-top: 10%;
+        max-width: 70%;
+        margin-left: 23%;
+    }
+    
+    .MemberDetails-content .header {
+        max-width: 70%;
+        margin-left: 15%;
+        margin-top: 10%;
+    }
 }
 
 @media screen and (max-width: 600px) and (min-width: 360px) {
@@ -147,6 +187,51 @@
         margin-top: 2%;
         margin-left: 5.5%;
     }
+
+    .MemberDetails-pictures .pic img {
+        margin-left: 34%;
+        margin-top: 10%;
+        max-width: 160px;
+        max-height: 160px;
+    }
+
+    .MemberDetails-title {
+        margin-left: 18%;
+        margin-top: 10%;
+    }
+
+    .MemberDetails-function {
+        margin-top: 5%;
+        margin-left: 38.5%;
+    }
+
+    .MemberDetails-function img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .MemberDetails-information .MemberDetails-information-title {
+        margin-left: 18%;
+        margin-top: 3%;
+        max-width: 70%;
+    }
+
+    .MemberDetails-information .MemberDetails-information-body {
+        margin-top: 6%;
+        max-width: 70%;
+        margin-left: 18%;
+    }
+    
+    .MemberDetails-content .header {
+        max-width: 70%;
+        margin-left: 15%;
+        margin-top: 10%;
+    }
+
+    .MemberDetails-information-title h3 {
+        text-align: center;
+        margin-top: 2%;
+    }
 }
 
 @media screen and (max-width: 767px) and (min-width: 601px) {
@@ -162,6 +247,51 @@
         margin-left: -8%;
         width: 108%;
     }
+
+    .MemberDetails-pictures .pic img {
+        margin-left: 31%;
+        margin-top: 10%;
+        max-width: 240px;
+        max-height: 240px;
+    }
+
+    .MemberDetails-content .header {
+        max-width: 70%;
+        margin-left: 15%;
+        margin-top: 8%;
+    }
+
+    .MemberDetails-title {
+        margin-left: 15%;
+        margin-top: 10%;
+    }
+
+    .MemberDetails-function {
+        margin-top: 8%;
+        margin-left: 39.5%;
+    }
+
+    .MemberDetails-title hr {
+        max-width: 80%;
+    }
+
+    .MemberDetails-information .MemberDetails-information-title {
+        margin-left: 15%;
+        margin-top: 2%;
+        max-width: 69%;
+    }
+
+    .MemberDetails-information-title h3 {
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .MemberDetails-information .MemberDetails-information-body {
+        margin-top: 5%;
+        max-width: 69%;
+        margin-left: 15%;
+    }
+ 
 }
 
 
@@ -194,6 +324,50 @@
         max-width: 80%;
         margin-left: 10%;
         margin-top:10%;
+    }
+
+    .MemberDetails-pictures .pic img {
+        margin-left: 35%;
+        margin-top: 5%;
+        max-width: 240px;
+        max-height: 240px;
+    }
+
+    .MemberDetails-content .header {
+        max-width: 70%;
+        margin-left: 15%;
+        margin-top: 8%;
+    }
+
+    .MemberDetails-title {
+        margin-left: 15%;
+        margin-top: 8%;
+    }
+
+    .MemberDetails-function {
+        margin-top: 5%;
+        margin-left: 40%;
+    }
+
+    .MemberDetails-title hr {
+        max-width: 80%;
+    }
+
+    .MemberDetails-information .MemberDetails-information-title {
+        margin-left: 15%;
+        margin-top: 2%;
+        max-width: 69%;
+    }
+
+    .MemberDetails-information-title h3 {
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .MemberDetails-information .MemberDetails-information-body {
+        margin-top: 5%;
+        max-width: 69%;
+        margin-left: 15%;
     }
 }
 
@@ -228,6 +402,50 @@
         margin-left: 16%;
         margin-top: 5%;
     }
+
+    .MemberDetails-pictures .pic img {
+        margin-left: 35%;
+        margin-top: 5%;
+        max-width: 240px;
+        max-height: 240px;
+    }
+
+    .MemberDetails-content .header {
+        max-width: 70%;
+        margin-left: 15%;
+        margin-top: 8%;
+    }
+
+    .MemberDetails-title {
+        margin-left: 15%;
+        margin-top: 8%;
+    }
+
+    .MemberDetails-function {
+        margin-top: 5%;
+        margin-left: 40%;
+    }
+
+    .MemberDetails-title hr {
+        max-width: 80%;
+    }
+
+    .MemberDetails-information .MemberDetails-information-title {
+        margin-left: 15%;
+        margin-top: 2%;
+        max-width: 69%;
+    }
+
+    .MemberDetails-information-title h3 {
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .MemberDetails-information .MemberDetails-information-body {
+        margin-top: 5%;
+        max-width: 69%;
+        margin-left: 15%;
+    }
 }
 
 @media screen and (max-width: 1919px) and (min-width: 1300px) {
@@ -260,6 +478,51 @@
         max-width: 70%;
         margin-left: 13%;
         margin-top: 5%;
+    }
+
+    .MemberDetails-pictures .pic img {
+        margin-left: 18%;
+        margin-top: 10%;
+        max-width: 240px;
+        max-height: 240px;
+    }
+
+    .MemberDetails-content .header {
+        max-width: 70%;
+        margin-left: 15%;
+        margin-top: 8%;
+    }
+
+    .MemberDetails-title {
+        margin-left: 50%;
+        margin-top: -37%;
+    }
+
+    .MemberDetails-function {
+        margin-top: 5%;
+        margin-left: 22%;
+    }
+
+    .MemberDetails-title hr {
+        max-width: 69%;
+    }
+
+    .MemberDetails-information .MemberDetails-information-title {
+        margin-left: 50%;
+        margin-top: 2%;
+        max-width: 39%;
+    }
+
+    .MemberDetails-information-title h3 {
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .MemberDetails-information .MemberDetails-information-body {
+        margin-top: 5%;
+        max-width: 39%;
+        margin-left: 50%;
+    
     }
 
 }
