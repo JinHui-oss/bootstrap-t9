@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
-import '../../../Member/Member.css'
+import { Row, Card, Col, Button } from 'react-bootstrap'
+import '../../../../Staff/Kit/Status/Status.css'
 
 // firebase
 import { db } from '../../../../Database/firebase';
 import { collection, getDocs } from 'firebase/firestore'
+
 
 function StaffList() {
     const [KitQR, setKitQR] = useState([]);
@@ -47,17 +47,8 @@ function StaffList() {
       
       
         {/* table infomation */}
-        <div className='table'>
-        <Table responsive= "md" hover>
-            <thead>
-              <tr className='table-header'>
-                <th>Profile</th>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            
+        <div className='stafflist-pain'>
+        <Row xs={1} md={2} className="g-4">
             {/* display table content */}
                {/* eslint-disable-next-line*/}
             {KitQR.filter((val) => {
@@ -69,19 +60,21 @@ function StaffList() {
                 }
             }).map((user) => {
             return( 
-              <tbody>
-                {""}
-                <tr>
-                  {/* eslint-disable-next-line */}
-                  <td><img src={user.PhotoUrl}/></td>
-                  <td>{user.id}</td>
-                  <td>{user.Name}</td>
-                  <td><Link to ={`/Staff/StaffList/Detail/${user.id}`}>View</Link></td>
-                </tr>
-              </tbody>
+            <Col>
+            <Card className='hell'>
+              <Card.Img variant="top" src={user.PhotoUrl} className='kitcontent-photo' />
+              <Card.Body>
+                <Card.Title>{user.Name}</Card.Title>
+                <Card.Text>
+                {user.Description}
+                </Card.Text>
+                <Button href={`/Staff/StaffList/Detail/${user.id}`}>view</Button>
+              </Card.Body>
+            </Card>
+            </Col>  
               );
             })}
-          </Table>
+          </Row>
           </div>
         </div>
     )
