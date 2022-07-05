@@ -383,9 +383,10 @@ div.card{
     }
 
     .g-4 {
-        max-width: 77%;
-        margin-left: 5.5%;
-        margin-top: 2%;
+        max-width: 62%;
+        margin-left: -3%;
+        margin-top: 3%;
+    
     }
 
     .QR-view img {
@@ -405,6 +406,11 @@ div.card{
         margin-left: 10%;
         width: 70%;
         margin-top: 5%;
+    }
+
+    .kitcontent-photo {
+        height: 310px;
+        width: auto;
     }
   
 }
@@ -464,10 +470,16 @@ div.card{
     }
 
     .g-4 {
-        max-width: 77%;
-        margin-left: 5.5%;
-        margin-top: 2%;
+        max-width: 75%;
+        margin-left: 7%;
+        margin-top: 0%;
     }
+
+    .content-search .input-words {
+        margin-left: -0%;
+        max-width: 73%;
+    }
+    
 
     .QR-view img {
         max-width: 140px;
