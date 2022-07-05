@@ -15,9 +15,9 @@
     max-width: 20%;
 }
 
-
-.profilepage-pictures .profilepage-edit{
-   margin-left: 27%;
+.profilepage-pictures .profilepage-edit {
+    margin-left: 27%;
+    margin-top: 8%;
 }
 
 .profilepage-pictures .profilepage-edit img{
@@ -27,7 +27,7 @@
 }
 
 .profilepage-update{
-    margin-top: 2.5%;
+    margin-top: 8%;
     margin-left: 3%;
 }
 
@@ -73,7 +73,21 @@
     margin-top:20%;
  }
 
- @media screen and (max-width: 600px) and (min-width: 360px) {
+ .form-details .form-pic img {
+    margin-left: 9%;
+    width: 300px;
+    height: auto;
+    margin-top: 2%;
+}
+.edit-body .edit-picture{
+    margin-top:4%;
+}
+.edit-body .header {
+    margin-left: 10%;
+    max-width: 70%;
+    margin-top: 4%;
+}
+ @media screen and (max-width: 557px) and (min-width: 360px) {
     .profilepage-pictures .pic img {
         width: 230px;
         height: 230px;
@@ -106,9 +120,128 @@
         margin-top: -5.5%;
         margin-left: 27.5%;
     }
+    .form-details .form-pic img {
+        margin-left: 12%;
+        width: 250px;
+        height: auto;
+        margin-top: 5%;
+    }
+    .edit-body .edit-picture{
+        margin-top: 15%;
+    }
+    .edit-body .header {
+        margin-left: 10%;
+        max-width: 70%;
+        margin-top: 12%;
+    }
+    .edit-body .form-details .Submit-Action {
+        margin-top: 20%;
+        margin-left: 10%;
+    }
+    .edit-body .form-details .Back-Action {
+        margin-top: 20%;
+        margin-left: 15%;
+    }
+    .setting-content .setting-content-body .setting-content-body-1 {
+        margin-top: 1.5%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-header h1 {
+        margin-left: 15%;
+        margin-top: 10.5%;
+    }
+    .setting-content .setting-content-body .setting-content-body-2 {
+        margin-top: 10%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-body .setting-content-body-3 {
+        margin-top: 10%;
+        max-width: 80%;
+        margin-left: 11%;
+    }
 }
 
-@media screen and (max-width: 767px) and (min-width: 601px) {
+@media screen and (max-width: 600px) and (min-width: 558px) {
+    .profilepage-pictures .pic img {
+        width: 230px;
+        height: 230px;
+        margin-top: 20%;
+        margin-left: 57%;
+    }
+    .profilepage-content .profilepage-title {
+        margin-top: 46%;
+        margin-left: -63%;
+    
+    }
+    .profilepage-pictures .profilepage-edit {
+        margin-top: -5.5%;
+    }
+    .profilepage-update {
+        margin-top: -5%;
+        margin-left: 10%;
+    }
+    
+    .profilepage-information .profilepage-information-title {
+        max-width: 136%;
+        text-align: center;
+        margin-bottom: 3%;
+        margin-left: -60%;
+    }
+    .profilepage-information .profilepage-information-body {
+        max-width: 137%;
+        margin-top: 15%;
+        margin-left: -60%;
+    }
+    .profilepage-pictures .profilepage-edit {
+        margin-top: -5.5%;
+        margin-left: 27.5%;
+    }
+    .form-details .form-pic img {
+        margin-left: 12%;
+        width: 250px;
+        height: auto;
+        margin-top: 10%;
+    }
+    .edit-body .edit-picture{
+        margin-top: 15%;
+    }
+    .edit-body .header {
+        margin-left: 10%;
+        max-width: 70%;
+        margin-top: 12%;
+    }
+    .edit-body .form-details .Submit-Action {
+        margin-top: 15%;
+        margin-left: 10%;
+    }
+    .edit-body .form-details .Back-Action {
+        margin-top: 15%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-body .setting-content-body-1 {
+        margin-top: 1.5%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-header h1 {
+        margin-left: 17%;
+        margin-top: 10.5%;
+    }
+    .setting-content .setting-content-body .setting-content-body-2 {
+        margin-top: 10%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-body .setting-content-body-3 {
+        margin-top: 10%;
+        max-width: 80%;
+        margin-left: 11%;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 600px) {
     .profilepage-pictures .pic img {
         width: 230px;
         height: 230px;
@@ -144,6 +277,47 @@
         margin-left: 50%;
         margin-top: 1.8%;
     }
+    .form-details .form-pic img {
+        margin-left: 12%;
+        width: 250px;
+        height: auto;
+        margin-top: 10%;
+    }
+    .edit-body .edit-picture{
+        margin-top: 15%;
+    }
+    .edit-body .header {
+        margin-left: 10%;
+        max-width: 70%;
+        margin-top: 12%;
+    }
+    .edit-body .form-details .Submit-Action {
+        margin-top: 15%;
+        margin-left: 10%;
+    }
+    .edit-body .form-details .Back-Action {
+        margin-top: 15%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-body .setting-content-body-1 {
+        margin-top: 1.5%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-header h1 {
+        margin-left: 17%;
+        margin-top: 10.5%;
+    }
+    .setting-content .setting-content-body .setting-content-body-2 {
+        margin-top: 10%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-body .setting-content-body-3 {
+        margin-top: 10%;
+        max-width: 80%;
+        margin-left: 11%;
+    }
   
 }
 
@@ -160,11 +334,12 @@
         margin-left: -58%;
     }
     .profilepage-pictures .profilepage-edit {
-        margin-top: -0.5%;
+        margin-top: 3.5%;
+        margin-left: 37%;
     }
    
     .profilepage-update {
-        margin-top: 2%;
+        margin-top: 3.5%;
         margin-left: 9%;
     }
     .profilepage-information .profilepage-information-title {
@@ -182,6 +357,48 @@
         max-width: 42.5%;
         margin-left: 50%;
         margin-top: 1.8%;
+    }
+
+    .form-details .form-pic img {
+        margin-left: 12%;
+        width: 250px;
+        height: auto;
+        margin-top: 10%;
+    }
+    .edit-body .edit-picture {
+        margin-top: 10%;
+    }
+    .edit-body .header {
+        margin-left: 10%;
+        max-width: 70%;
+        margin-top: 12%;
+    }
+    .edit-body .form-details .Submit-Action {
+        margin-top: 10%;
+        margin-left: 10%;
+    }
+    .edit-body .form-details .Back-Action {
+        margin-top: 10%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-body .setting-content-body-1 {
+        margin-top: -2.5%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-header h1 {
+        margin-left: 17%;
+        margin-top: 10.5%;
+    }
+    .setting-content .setting-content-body .setting-content-body-2 {
+        margin-top: 7%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-body .setting-content-body-3 {
+        margin-top: 8%;
+        max-width: 81%;
+        margin-left: 10%;
     }
    
 }
@@ -224,6 +441,48 @@
         margin-top: 1.8%;
     }
     
+    .form-details .form-pic img {
+        margin-left: 12%;
+        width: 250px;
+        height: auto;
+        margin-top: 10%;
+    }
+    .edit-body .edit-picture {
+        margin-top: 10%;
+    }
+    .edit-body .header {
+        margin-left: 10%;
+        max-width: 70%;
+        margin-top: 6%;
+    }
+    .edit-body .form-details .Submit-Action {
+        margin-top: 10%;
+        margin-left: 10%;
+    }
+    .edit-body .form-details .Back-Action {
+        margin-top: 10%;
+        margin-left: 7%;
+    }
+    .setting-content .setting-content-body .setting-content-body-1 {
+        margin-top: -2.5%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-header h1 {
+        margin-left: 17%;
+        margin-top: 10.5%;
+    }
+    .setting-content .setting-content-body .setting-content-body-2 {
+        margin-top: 5%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-body .setting-content-body-3 {
+        margin-top: 6%;
+        max-width: 81%;
+        margin-left: 10%;
+    }
+    
 }
 
 @media screen and (max-width: 1920px) and (min-width: 1300px) {
@@ -231,18 +490,19 @@
         width: 320px;
         height: 320px;
         margin-top: 40%;
-        margin-left: 30%;
+        margin-left: 45%;
     }
     .profilepage-content .profilepage-title {
-        margin-top: -30%;
+        margin-top: -32%;
         margin-left: 9%;
     }
     .profilepage-pictures .profilepage-edit {
-        margin-top: 12%;
+        margin-top: 12.8%;
+        margin-left: 26%;
     }
    
     .profilepage-update {
-        margin-top: 12%;
+        margin-top: 12.8%;
         margin-left: 5%;
     }
     .profilepage-information .profilepage-information-title {
@@ -271,6 +531,47 @@
         width: 77%;
         margin-left: 17%;
         margin-top: 5%;
+    }
+    .form-details .form-pic img {
+        margin-left: 12%;
+        width: 250px;
+        height: auto;
+        margin-top: 6%;
+}
+    .edit-body .edit-picture {
+        margin-top: 5%;
+    }
+    .edit-body .header {
+        margin-left: 10%;
+        max-width: 70%;
+        margin-top: 6%;
+    }
+    .edit-body .form-details .Submit-Action {
+        margin-top: 5%;
+        margin-left: 10%;
+    }
+    .edit-body .form-details .Back-Action {
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+    .setting-content .setting-content-body .setting-content-body-1 {
+        margin-top: -2.5%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-header h1 {
+        margin-left: 16%;
+        margin-top: 5.5%;
+    }
+    .setting-content .setting-content-body .setting-content-body-2 {
+        margin-top: 5%;
+        max-width: 82%;
+        margin-left: 10%;
+    }
+    .setting-content .setting-content-body .setting-content-body-3 {
+        margin-top: 6%;
+        max-width: 81%;
+        margin-left: 10%;
     }
 
 }
