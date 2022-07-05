@@ -26,7 +26,7 @@ function MemberList() {
   
     return (
       // the content of the webpage
-      <div className='QR-view'>
+      <div className='Member-List'>
         <div className='header'>
           <h2>Member List</h2>
           <p>View all the public member who created an account with Yong En Care Centre.</p>
@@ -34,6 +34,8 @@ function MemberList() {
         </div>
         
         <form className='input-words'>
+         <label htmlFor='lable'>Member Name:</label>
+         <br />
          <input type="text" onChange={(event) => {
           setSearch(event.target.value);
           }} 
@@ -47,7 +49,7 @@ function MemberList() {
         {/* table infomation */}
         <div className='membercontent-table'>
        
-        <Row xs={1} md={3} className="g-4a">
+        <Row xs={1} md={3} className="m-4a">
             {/* display table content */}
                {/* eslint-disable-next-line*/}
             {KitQR.filter((val) => {
