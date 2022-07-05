@@ -17,8 +17,8 @@
 
 .m-4a {
     margin-top: 5%;
-    margin-left: -2%;
-    width: 149%;
+    margin-left: -2.5%;
+    width: 100%;
 }
 
 .MemberDetails-content .header{
@@ -490,9 +490,9 @@
 
 @media screen and (max-width: 1919px) and (min-width: 1300px) {
     .m-4a {
-        margin-top: 10%;
-        margin-left: 4%;
-        width: 211%;
+        margin-top: 5%;
+        margin-left: -4%;
+        width: 99%;
     }
 
     .Member-List .header {
@@ -502,13 +502,13 @@
     }
 
     .membercontent-table {
-        max-width: 54%;
-        margin-top: -2%;
-        margin-left: 7.25%;
+        max-width: 76%;
+        margin-top: 2%;
+        margin-left: 12.75%;
     }
 
     .membercontent-table img {
-        margin-left: 27.5%;
+        margin-left: 28.5%;
         margin-top: 8%;
         max-width: 200px;
         max-height: 200px;
@@ -523,19 +523,19 @@
     .MemberDetails-pictures .pic img {
         margin-left: 18%;
         margin-top: 10%;
-        max-width: 240px;
-        max-height: 240px;
+        max-width: 340px;
+        max-height: 340px;
     }
 
     .MemberDetails-content .header {
         max-width: 70%;
         margin-left: 15%;
-        margin-top: 8%;
+        margin-top: 3%;
     }
 
     .MemberDetails-title {
         margin-left: 50%;
-        margin-top: -37%;
+        margin-top: -36%;
     }
 
     .MemberDetails-function {
@@ -551,6 +551,7 @@
         margin-left: 50%;
         margin-top: 2%;
         max-width: 39%;
+      
     }
 
     .MemberDetails-information-title h3 {
@@ -559,7 +560,7 @@
     }
 
     .MemberDetails-information .MemberDetails-information-body {
-        margin-top: 5%;
+        margin-top: 3%;
         max-width: 39%;
         margin-left: 50%;
     

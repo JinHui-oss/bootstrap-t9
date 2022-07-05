@@ -49,7 +49,7 @@ function MemberList() {
         {/* table infomation */}
         <div className='membercontent-table'>
        
-        <Row xs={1} md={3} className="m-4a">
+        <Row xs={1} md={2} className="m-4a">
             {/* display table content */}
                {/* eslint-disable-next-line*/}
             {KitQR.filter((val) => {
