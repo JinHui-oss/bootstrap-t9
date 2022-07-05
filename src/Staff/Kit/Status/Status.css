@@ -88,6 +88,24 @@ div.card{
     margin-left: 47%;
 }
 
+.input-words{
+    max-width: 70%;
+    margin-top: 4%;
+    margin-left: 10%;
+}
+
+.g-4 {
+    max-width: 75%;
+    margin-left: 6.5%;
+    margin-top: 2%;
+}
+.QR-view img {
+    width: 140px;
+    height: 140px;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
 @media screen and (max-width: 600px) and (min-width: 360px) {
     .g-4a {
         margin-top: 20%;
@@ -132,6 +150,31 @@ div.card{
     .memberprofilepage-information {
         max-width: 74%;
         margin-left: 15%;
+    }
+
+    .g-4 {
+        max-width: 84%;
+        margin-left: 1.5%;
+        margin-top: 2%;
+    }
+
+    .QR-view img {
+        width: 140px;
+        height: 140px;
+        margin-left: 21%;
+        margin-top: 10%;
+    }
+
+    .input-words {
+        max-width: 70%;
+        margin-top: 10%;
+        margin-left: 10%;
+    }
+
+    .QR-view .header {
+        margin-left: 10%;
+        width: 70%;
+        margin-top: 10%;
     }
     
 }
@@ -183,6 +226,31 @@ div.card{
         margin-left: 13%;
         margin-top: 4%;
     }
+
+    .g-4 {
+        max-width: 84%;
+        margin-left: 1.5%;
+        margin-top: 2%;
+    }
+
+    .QR-view img {
+        width: 140px;
+        height: 140px;
+        margin-left: 34%;
+        margin-top: 10%;
+    }
+
+    .input-words {
+        max-width: 70%;
+        margin-top: 10%;
+        margin-left: 10%;
+    }
+
+    .QR-view .header {
+        margin-left: 10%;
+        width: 70%;
+        margin-top: 10%;
+    }
 }
 
 @media screen and (max-width: 1000px) and (min-width: 768px) {
@@ -232,6 +300,32 @@ div.card{
         margin-left: 13%;
         margin-top: 4%;
     }
+
+    .g-4 {
+        max-width: 77%;
+        margin-left: 5.5%;
+        margin-top: 2%;
+    }
+
+    .QR-view img {
+        max-width: 140px;
+        max-height: 140px;
+        margin-left: 25%;
+        margin-top: 10%;
+    }
+
+    .input-words {
+        max-width: 70%;
+        margin-top: 10%;
+        margin-left: 10%;
+    }
+
+    .QR-view .header {
+        margin-left: 10%;
+        width: 70%;
+        margin-top: 10%;
+    }
+    
 }
 
 @media screen and (max-width: 1299px) and (min-width: 1001px) {
@@ -287,10 +381,35 @@ div.card{
         margin-left: 17%;
         margin-top: -5%;
     }
+
+    .g-4 {
+        max-width: 77%;
+        margin-left: 5.5%;
+        margin-top: 2%;
+    }
+
+    .QR-view img {
+        max-width: 140px;
+        max-height: 140px;
+        margin-left: 27%;
+        margin-top: 10%;
+    }
+
+    .input-words {
+        max-width: 70%;
+        margin-top: 10%;
+        margin-left: 10%;
+    }
+
+    .QR-view .header {
+        margin-left: 10%;
+        width: 70%;
+        margin-top: 5%;
+    }
   
 }
 
-@media screen and (max-width: 1919px) and (min-width: 1300px) {
+@media screen and (max-width: 1920px) and (min-width: 1300px) {
     .g-4a {
         margin-top: 20%;
         margin-left: -9%;
@@ -344,4 +463,28 @@ div.card{
         margin-top: -5%;
     }
 
+    .g-4 {
+        max-width: 77%;
+        margin-left: 5.5%;
+        margin-top: 2%;
+    }
+
+    .QR-view img {
+        max-width: 140px;
+        max-height: 140px;
+        margin-left: 33%;
+        margin-top: 10%;
+    }
+
+    .input-words {
+        max-width: 70%;
+        margin-top: 5%;
+        margin-left: 10%;
+    }
+
+    .QR-view .header {
+        margin-left: 10%;
+        width: 70%;
+        margin-top: 5%;
+    }
 }
