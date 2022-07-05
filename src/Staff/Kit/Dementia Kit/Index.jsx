@@ -49,7 +49,7 @@ function Kit() {
   return (
     <div className='content'>
       <div className='content-header'>
-        <h2>Dementia Kit </h2>
+        <h2>Dementia ToolKits </h2>
         <p>View all the dementia Kits</p>
         <Button href="/Staff/Kit/Add">Add</Button>
         <hr/>
@@ -59,6 +59,7 @@ function Kit() {
       <div className='content-search'>
       
       <form className='input-words'>
+      <label htmlFor='label'>Toolkits Name:</label>
       <input type="text" onChange={(event) => {
           setSearch(event.target.value);
           }} 
@@ -71,7 +72,7 @@ function Kit() {
     
       <div className='content-table'>
         <div className='contenthell'>
-          <Row xs={1} md={2} className="g-4">
+          <Row xs={1} md={2} className="g-4b">
              {/* eslint-disable-next-line */}
           {kit.filter((val) => {
             if(search === ""){

@@ -17,7 +17,7 @@ import
   getAuth,  
   updateProfile,
 }from 'firebase/auth';
-
+import "../../Staff/Account/Staff.css"
 
 function StaffProfileUpdate() {
     const [Staff, setStaff] = useState([]);
