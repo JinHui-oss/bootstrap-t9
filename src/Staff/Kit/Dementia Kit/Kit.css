@@ -135,8 +135,8 @@ body{
 
 /* Button */
 .details-content .details-back {
-    margin-top:4%;
-    margin-left: 80%;
+    margin-top: 18%;
+    margin-left: 103%;
 }
 /* Button */
 .details-content .details-archive{
@@ -230,7 +230,56 @@ body{
         height: 210px;
         width: auto;
     }
-
+    .details-pictures .staffdetails-card {
+        max-width: 30%;
+        margin-top: 5%;
+    }
+    .details-uploadphoto {
+        margin-left: 28%;
+        color: white;
+        width: 105%;
+        margin-top: 25%;
+    }
+    .details-uploadphoto img{
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+    }
+    .details-edit {
+        margin-left: 27%;
+        max-width: 80%;
+        color: white;
+    }
+    .details-title {
+        margin-top: 25%;
+        margin-left: 32%;
+        width: 100%;
+    }
+    .details-edit img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+        margin-top: 2%;
+    }
+    .staffdetails-card img{
+        width: 200px;
+        height: 200px;
+        margin-left: -17px;
+    }
+    .details-information {
+        width: 145%;
+        margin-left: 13%;
+        margin-top: 2%;
+    }
+    .details-content .details-archive {
+        margin-left: 37%;
+        margin-top: -42%;
+    }
+    .details-header {
+        max-width: 80%;
+        margin-left: 14%;
+        margin-top: 12%;
+    }
 }
 
 @media screen and (max-width: 557px) and (min-width: 360px) {
