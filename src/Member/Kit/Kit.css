@@ -11,9 +11,10 @@
     margin-left: 5%;
     margin-top: -1%;
 }
-.content-header {
-    margin-left: 50%;
-    margin-top: -30%;
+.content-header-toolkit {
+    margin-left: 2%;
+    margin-top: 2%;
+    max-width: 70%;
 }
 .search-button{
     max-width: 20%;
@@ -87,4 +88,661 @@
     margin-left:110%;
     margin-top: -14%;
 }
+
+.input-words-tool {
+    margin-left: -9%;
+    max-width: 80%;
+    margin-top: 4%;
+}
+.g-4b {
+    max-width: 100%;
+    margin-left: -15.5%;
+}
+.photo-url{
+    width: auto;
+    height: 360px;
+}
+@media screen and (max-width: 359px) and (min-width: 280px) {
+    .content-header-toolkit {
+        margin-left: -13%;
+        max-width: 100%;
+        margin-top: 12%;
+    
+    }
+    .g-4b {
+        max-width: 18%;
+        margin-left: -7%;
+        margin-top: 2%;
+    }
+    .kitcontent-photo {
+        height: 210px;
+        width: auto;
+    }
+    .content-search .input-words-tool {
+        margin-left: -26%;
+        max-width: 73%;
+        margin-top: 20%;
+    
+    }
+    .staffdetails-card img{
+        width: 200px;
+        height: 200px;
+        margin-left: -17px;
+    }
+    .details-information {
+        width: 145%;
+        margin-left: 13%;
+        margin-top: 2%;
+    }
+    .details-content .details-archive {
+        margin-left: 37%;
+        margin-top: -42%;
+    }
+    .details-header {
+        max-width: 80%;
+        margin-left: 14%;
+        margin-top: 12%;
+    }
+    .details-title {
+        margin-top: 16%;
+        margin-left: 26%;
+        width: 100%;
+    }
+    .details-edit img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+        margin-top: 2%;
+    }
+    .staffdetails-card img{
+        width: 200px;
+        height: 200px;
+        margin-left: -17px;
+    }
+    .details-uploadphoto {
+        margin-left: 28%;
+        color: white;
+        width: 105%;
+        margin-top: 15%;
+    }
+    .details-uploadphoto img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+    }
+    .details-edit {
+        margin-left: 27%;
+        max-width: 80%;
+        color: white;
+    }
+    .photo-url{
+        width: 184px;
+        height: 184px;
+    }
+}
+
+@media screen and (max-width: 557px) and (min-width: 360px) {
+    .content-header-toolkit {
+        margin-left: -13%;
+        max-width: 75%;
+        margin-top: 12%;
+    }
+    .g-4b {
+        max-width: 27.25%;
+        margin-left: -10%;
+        margin-top: 0.5%;
+    }
+    .kitcontent-photo {
+        height: 210px;
+        width: auto;
+    }
+    .content-search .input-words-tool {
+        margin-left: -26%;
+        max-width: 73%;
+        margin-top: 20%;
+    
+    }
+    .staffdetails-card img{
+        width: 200px;
+        height: 200px;
+        margin-left: -17px;
+    }
+    .details-information {
+        width: 145%;
+        margin-left: 13%;
+        margin-top: 2%;
+    }
+    .details-content .details-archive {
+        margin-left: 37%;
+        margin-top: -42%;
+    }
+    .details-header {
+        max-width: 80%;
+        margin-left: 14%;
+        margin-top: 12%;
+    }
+    .details-title {
+        margin-top: 16%;
+        margin-left: 26%;
+        width: 100%;
+    }
+    .details-edit img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+        margin-top: 2%;
+    }
+    .staffdetails-card img{
+        width: 200px;
+        height: 200px;
+        margin-left: -17px;
+    }
+    .details-uploadphoto {
+        margin-left: 28%;
+        color: white;
+        width: 105%;
+        margin-top: 15%;
+    }
+    .details-uploadphoto img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+    }
+    .details-edit {
+        margin-left: 27%;
+        max-width: 80%;
+        color: white;
+    }
+}
   
+    
+@media screen and (max-width: 600px) and (min-width: 558px) {
+    .g-4b{
+        max-width: 25%;
+        margin-left: -9.5%;
+        margin-top: 2%;
+    }
+    .content-search .input-words-tool {
+        margin-left: -21%;
+        max-width: 63%;
+        margin-top: 13%;
+    }
+    .kitcontent-photo {
+        height: 230px;
+        width: auto;
+    }
+    .content-header-toolkit {
+        margin-left: -9%;
+        max-width: 58%;
+        margin-top: 10%;
+    }
+    .staffdetails-card img{
+        width: 200px;
+        height: 200px;
+        margin-left: -17px;
+    }
+    .details-information {
+        width: 145%;
+        margin-left: 13%;
+        margin-top: 2%;
+    }
+    .details-content .details-archive {
+        margin-left: 59%;
+        margin-top: -22%;
+    }
+    .details-header {
+        max-width: 80%;
+        margin-left: 14%;
+        margin-top: 12%;
+    }
+    .details-title {
+        max-width: 24.25%;
+        margin-left: -8%;
+        margin-top: 2.5%;
+    
+    }
+    .details-edit img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+        margin-top: 2%;
+    }
+    .staffdetails-card img{
+        margin-left: -29%;
+        max-width: 100%;
+        margin-top: 28%;
+    
+    }
+    .details-uploadphoto {
+        margin-left: 28%;
+        color: white;
+        width: 105%;
+        margin-top: 15%;
+    }
+    .details-uploadphoto img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+    }
+    .details-edit {
+        margin-left: 27%;
+        max-width: 80%;
+        color: white;
+    }
+    .details-content .details-back {
+        margin-top: 16%;
+        margin-left: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 601px) {
+    .g-4b {
+        max-width: 26.5%;
+        margin-left: -10.3%;
+        margin-top: 2%;
+    }
+    .content-search .input-words-tool {
+        margin-left: -18%;
+        max-width: 48%;
+        margin-top: 10%;
+    }
+    .kitcontent-photo {
+        height: 230px;
+        width: auto;
+    }
+    .content-header-toolkit {
+        margin-left: -6%;
+        max-width: 43%;
+        margin-top: 10%;
+    }
+    .staffdetails-card img{
+        width: 200px;
+        height: 200px;
+        margin-left: -17px;
+    }
+    .details-information {
+        width: 145%;
+        margin-left: 13%;
+        margin-top: 2%;
+    }
+    .details-content .details-archive {
+        margin-left: 59%;
+        margin-top: -16%;
+    }
+    .details-header {
+        max-width: 80%;
+        margin-left: 14%;
+        margin-top: 12%;
+    }
+    .details-title {
+        margin-top: 16%;
+        margin-left: 26%;
+        width: 100%;
+    }
+    .details-edit img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+        margin-top: 2%;
+    }
+    .staffdetails-card img {
+        width: auto;
+        height: 280px;
+        margin-left: -36px;
+    }
+    .details-uploadphoto {
+        margin-left: 28%;
+        color: white;
+        width: 105%;
+        margin-top: 15%;
+    }
+    .details-uploadphoto img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+    }
+    .details-edit {
+        margin-left: 27%;
+        max-width: 80%;
+        color: white;
+    }
+    .details-content .details-back {
+        margin-top: 16%;
+        margin-left: 90%;
+    }
+ 
+}
+
+@media screen and (max-width: 1000px) and (min-width: 768px) {
+    .g-4b {
+        max-width: 60%;
+        margin-left: -12.5%;
+        margin-top: 2%;
+    }
+    .content-search .input-words-tool {
+        margin-left: -16%;
+        max-width: 94%;
+        margin-top: 9%;
+    }
+    .photo-url{
+        width: auto;
+        height: 250px;
+    }
+    .kitcontent-photo {
+        height: 230px;
+        width: auto;
+    }
+    .content-header-toolkit {
+        margin-left: -6%;
+        width: 87%;
+        margin-top: 10%;
+    }
+
+    .staffdetails-card img{
+        width: 200px;
+        height: 200px;
+        margin-left: -17px;
+    }
+    .details-information {
+        width: 145%;
+        margin-left: 13%;
+        margin-top: 2%;
+    }
+    .details-content .details-archive {
+        margin-left: 59%;
+        margin-top: -12%;
+    }
+    .details-header {
+        max-width: 80%;
+        margin-left: 14%;
+        margin-top: 12%;
+    }
+    .details-title {
+        margin-top: 14%;
+        margin-left: 26%;
+        width: 100%;
+    }
+    .details-edit img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+        margin-top: 2%;
+    }
+    .staffdetails-card img{
+        width: auto;
+        height: 480px;
+        margin-left: -41px;
+    }
+    .details-uploadphoto {
+        margin-left: 28%;
+        color: white;
+        width: 105%;
+        margin-top: 10%;
+    }
+    .details-uploadphoto img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+    }
+    .details-edit {
+        margin-left: 27%;
+        max-width: 80%;
+        color: white;
+    }
+    .details-content .details-back {
+        margin-top: 16%;
+        margin-left: 90%;
+    }
+}
+
+@media screen and (max-width: 1299px) and (min-width: 1001px) {
+    .g-4b {
+        max-width: 60%;
+        margin-left: -11.5%;
+        margin-top: 2%;
+    
+    }
+    .content-search .input-words-tool {
+        margin-left: -10%;
+        max-width: 66%;
+        margin-top: 7%;
+    }
+    .photo-url{
+        width: auto;
+        height: 250px;
+    }
+    .kitcontent-photo {
+        height: 230px;
+        width: auto;
+    }
+    .content-header-toolkit {
+        margin-left: 1%;
+        max-width: 59%;
+        margin-top: 4%;
+    }
+   
+    .details-information {
+        width: 145%;
+        margin-left: 13%;
+        margin-top: 2%;
+    }
+    .details-content .details-archive {
+        margin-left: 59%;
+        margin-top: -12%;
+    }
+    .details-header {
+        max-width: 70%;
+        margin-left: 13%;
+        margin-top: 5%;
+    
+    }
+    .details-title {
+        margin-top: 14%;
+        margin-left: 25%;
+        width: 126%;
+    }
+    .details-edit img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+        margin-top: 2%;
+    }
+    .staffdetails-card img{
+        width: auto;
+        height: 480px;
+        margin-left: -64px;
+        margin-top: -21px;
+    }
+    .details-uploadphoto {
+        margin-left: 73%;
+        color: white;
+        width: 31%;
+        margin-top: -12%;
+        position: initial;
+    }
+    .details-uploadphoto img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+    }
+    .details-edit {
+        margin-left: 41%;
+        width: 25%;
+        color: white;
+        margin-top: 8%;
+    }
+    .details-content .details-back {
+        margin-top: 16%;
+        margin-left: 90%;
+    }
+}
+
+@media screen and (max-width: 1519px) and (min-width: 1300px) {
+    .g-4b {
+        max-width: 77%;
+        margin-left: -12.5%;
+        margin-top: 2%;
+    }
+    .content-search .input-words-tool {
+        margin-left: -10%;
+        max-width: 80%;
+        margin-top: 7%;
+    }
+    .photo-url{
+        width: auto;
+        height: 300px;
+    }
+    .kitcontent-photo {
+        height: 230px;
+        width: auto;
+    }
+    .content-header-toolkit {
+        margin-left: 10%;
+        max-width: 64%;
+        margin-top: 4%;
+    }
+    details-information {
+        width: 145%;
+        margin-left: 13%;
+        margin-top: 2%;
+    }
+    .details-content .details-archive {
+        margin-left: 59%;
+        margin-top: -9%;
+    }
+    .details-header {
+        max-width: 70%;
+        margin-left: 13%;
+        margin-top: 5%;
+    
+    }
+    .details-title {
+        margin-top: 14%;
+        margin-left: 25%;
+        width: 126%;
+    }
+    .details-edit img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+        margin-top: 2%;
+    }
+    .staffdetails-card img{
+        width: auto;
+        height: 480px;
+        margin-left: -64px;
+        margin-top: -21px;
+    }
+    .details-uploadphoto {
+        margin-left: 73%;
+        color: white;
+        width: 31%;
+        margin-top: -11%;
+        position: initial;
+    }
+    .details-uploadphoto img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+    }
+    .details-edit {
+        margin-left: 41%;
+        width: 25%;
+        margin-top: 8%;
+        color: white;
+    }
+    .details-content .details-back {
+        margin-top: 13%;
+        margin-left: 82%;
+    }
+    .details-information {
+        width: 100%;
+        margin-left: 17%;
+        margin-top: 2%;
+    }
+}
+
+@media screen and (max-width: 1919px) and (min-width: 1520px) {
+    .g-4b {
+        max-width: 94%;
+        margin-left: -3.5%;
+        margin-top: 2%;
+    }
+    .photo-url{
+        width: auto;
+        height: 320px;
+    }
+    .content-search .input-words-tool {
+        margin-left: 0%;
+        max-width: 71%;
+        margin-top: 6%;
+    }
+    .kitcontent-photo {
+        height: 230px;
+        width: auto;
+    }
+    .content-header-toolkit {
+        margin-left: 10%;
+        max-width: 70%;
+        margin-top: 4%;
+    }
+    details-information {
+        max-width: 74%;
+        margin-left: -10.5%;
+        margin-top: 2%;
+    }
+    .details-content .details-archive {
+        margin-left: 66%;
+        margin-top: -8%;
+    }
+    .details-header {
+        max-width: 70%;
+        margin-left: 13%;
+        margin-top: 5%;
+    
+    }
+    .details-title {
+        margin-top: 14%;
+        margin-left: 25%;
+        width: 126%;
+    }
+    .details-edit img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+        margin-top: 2%;
+    }
+    .staffdetails-card img{
+        width: auto;
+        height: 480px;
+        margin-left: -64px;
+        margin-top: -21px;
+    }
+    .details-uploadphoto {
+        margin-left: 73%;
+        color: white;
+        width: 31%;
+        margin-top: -9%;
+        position: initial;
+    }
+    .details-uploadphoto img {
+        width: 35px;
+        height: 35px;
+        margin-left: -10px;
+    }
+    .details-edit {
+        margin-left: 41%;
+        width: 25%;
+        margin-top: 8%;
+        color: white;
+    }
+    .details-content .details-back {
+        margin-top: 16%;
+        margin-left: 90%;
+    }
+    .details-information {
+        width: 101%;
+        margin-left: 17%;
+        margin-top: 2%;
+    }
+}

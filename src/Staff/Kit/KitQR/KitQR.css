@@ -24,9 +24,9 @@ body{
     margin-top:3%;
 
 }
-.QR-view img{
-    width: 140px;
-    height: 140px;
+.QR-view img {
+    width: auto;
+    height: 480px;
 }
 
 .create-body .header {
@@ -96,9 +96,9 @@ body{
 }
 
 .qrdetails-content .details-information-title {
-    margin-top: 0.5%;
-    margin-left: 0%;
-    max-width: 29%;
+    max-width: 75%;
+    margin-left: 2.5%;
+    margin-top: 0%;
 }
 
 .qrdetails-content .details-information-body{
@@ -150,4 +150,124 @@ body{
     margin-left:-0%;
     max-width: 78%;
    
+}
+.table .hell{
+background-color: white;
+}
+.g-4 {
+    max-width: 83%;
+    margin-left: 2.5%;
+    margin-top: -1%;
+}
+.QR-view img {
+    width: auto;
+    height: 360px;
+    margin-left: -1%;
+    margin-top: 0%;
+}
+@media screen and (max-width: 1299px) and (min-width: 1030px) {
+
+    .table .hell{
+        background-color: white;
+        }
+        .g-4 {
+            max-width: 88%;
+            margin-left: 1.5%;
+            margin-top: -1%;
+        }
+        .QR-view img {
+            width: auto;
+            height: 240px;
+            margin-left: -1%;
+            margin-top: 0%;
+        }
+}
+@media screen and (max-width: 1029px) and (min-width: 782px) {
+
+    .table .hell{
+        background-color: white;
+        }
+        .g-4 {
+            max-width: 91%;
+            margin-left: 1.5%;
+            margin-top: 2%;
+        }
+        .QR-view img {
+            max-width: auto;
+            max-height: 160px;
+            margin-left: -3%;
+            margin-top: -1%;
+        }
+        
+}
+@media screen and (max-width: 767px) and (min-width: 601px) {
+
+    .table .hell{
+        background-color: white;
+        }
+        .g-4 {
+            max-width: 97%;
+            margin-left: -2.5%;
+            margin-top: 2%;
+        }
+        .QR-view img {
+            width: auto;
+            height: 360px;
+            margin-left: -2%;
+            margin-top: -2%;
+        }
+        
+}
+@media screen and (max-width: 600px) and (min-width: 360px) {
+
+    .table .hell{
+        background-color: white;
+        }
+        .g-4 {
+            max-width: 100%;
+            margin-left: -4.5%;
+            margin-top: 2%;
+        }
+        .QR-view img {
+            width: auto;
+            height: 360px;
+            margin-left: 2%;
+            margin-top: 2%;
+        }
+        .content-search .input-words {
+            margin-left: 5%;
+            max-width: 65%;
+            margin-top: 11%;
+        }
+        .QR-view .header {
+            margin-left: 14%;
+            width: 59%;
+            margin-top: 10%;
+        }
+}
+@media screen and (max-width: 359px) and (min-width: 280px) {
+    .table .hell{
+        background-color: white;
+        }
+        .g-4 {
+            max-width: 100%;
+            margin-left: -4.5%;
+            margin-top: 2%;
+        }
+        .QR-view img {
+            width: auto;
+            height: 140px;
+            margin-left: 1%;
+            margin-top: 2%;
+        }
+        .content-search .input-words {
+            margin-left: 8%;
+            margin-top: 12%;
+            max-width: 59%;
+        }
+        .QR-view .header {
+            margin-left: 18%;
+            max-width: 54%;
+            margin-top: 10%;
+        }
 }
