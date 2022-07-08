@@ -48,7 +48,7 @@ import CurrentLoan from "./Member/Loan/Current";
 import PastLoan from "./Member/Loan/Past";
 import MemberKitCancel from "./Member/Loan/Cancel";
 import MemberReadyCollection from "./Member/Loan/ReadyCollection";
-import MemberKitConfirmed from "./Member/Loan/Confirmed";
+import MemberKitPending from "./Member/Loan/Pending";
 
 
 // Staff & Kit Interface
@@ -311,7 +311,7 @@ function App() {
         <Route path='/Member/Confirmed' element={
         <ProtectedRoute>
           <Member />
-          <MemberKitConfirmed/>
+          <MemberKitPending/>
         </ProtectedRoute>} />
 
         {/* Past Loan Kit interface for Member */} 
