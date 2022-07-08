@@ -15,7 +15,8 @@ body{
 
 .content-search{
     margin-left: 10%;
-    margin-top:2%;
+    margin-top: 2%;
+    max-width: 66%;
 }
 
 .content-search Button{
@@ -211,7 +212,7 @@ body{
         height: 210px;
         width: auto;
     }
-    .content-search .input-words {
+    .content-search .input-words-a {
         margin-left: -29%;
         max-width: 100%;
         
@@ -297,7 +298,7 @@ body{
         height: 210px;
         width: auto;
     }
-    .content-search .input-words {
+    .content-search .input-words-a {
         max-width: 81%;
         margin-left: -26%;
         margin-top: 10%;
@@ -362,7 +363,7 @@ body{
         margin-left: -10.3%;
         margin-top: 2%;
     }
-    .content-search .input-words {
+    .content-search .input-words-a {
         margin-left: -22%;
         max-width: 64%;
     }
@@ -438,7 +439,7 @@ body{
         margin-left: -10.3%;
         margin-top: 2%;
     }
-    .content-search .input-words {
+    .content-search .input-words-a {
         margin-left: -18%;
         max-width: 48%;
     }
@@ -516,9 +517,10 @@ body{
         margin-top: 2%;
     
     }
-    .content-search .input-words {
-        margin-left: -17%;
-        max-width: 78%;
+    .content-search .input-words-a {
+        margin-left: -22%;
+        max-width: 100%;
+        margin-top: 10%;
     }
     .kitcontent-photo {
         height: 230px;
@@ -594,9 +596,9 @@ body{
         margin-top: 2%;
     
     }
-    .content-search .input-words {
+    .content-search .input-words-a {
         margin-left: 0%;
-        max-width: 91%;
+        max-width: 100%;
     }
     .kitcontent-photo {
         height: 230px;
@@ -671,7 +673,7 @@ body{
         margin-top: 2%;
     
     }
-    .content-search .input-words {
+    .content-search .input-words-a {
         margin-left: 0%;
         max-width: 71%;
     }
@@ -751,7 +753,7 @@ body{
         margin-left: -3.5%;
         margin-top: 2%;
     }
-    .content-search .input-words {
+    .content-search .input-words-a {
         margin-left: 0%;
         max-width: 71%;
     }
