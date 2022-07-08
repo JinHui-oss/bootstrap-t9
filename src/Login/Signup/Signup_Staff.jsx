@@ -57,7 +57,7 @@ function Signup_Staff() {
     <div className='max-w-[700px] mx-auto my-16 p-4'>
         <h1 className='text-center text-3xl font-bold'> Sign up to your account </h1>
         <br />
-        <p> Already have an account yet? <Link to ='/Signin' className='underline'>Sign in.</Link></p>
+        <p> Already have an account yet? <Link to ='/Signin/Staff' className='underline'>Sign in.</Link></p>
         <Form onSubmit={handlesubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
