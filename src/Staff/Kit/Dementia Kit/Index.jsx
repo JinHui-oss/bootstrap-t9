@@ -58,7 +58,7 @@ function Kit() {
       {/* search function */}
       <div className='content-search'>
       
-      <form className='input-words'>
+      <form className='input-words-a'>
       <label htmlFor='label'>Toolkits Name:</label>
       <input type="text" onChange={(event) => {
           setSearch(event.target.value);

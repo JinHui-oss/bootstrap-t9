@@ -386,17 +386,7 @@ function Index() {
       </div>
 
       <br />
-      <div className='kitreturned-total'>
-        <Card style={{ width: '18rem' }}>
-          <Card.Body>
-            <Card.Title>Returned</Card.Title>
-          <Card.Text>
-            Number: {startedreturned.Total}
-          </Card.Text>
-          <Card.Link href="/Staff/Returned">View Returned</Card.Link>
-        </Card.Body>
-      </Card>
-      </div>
+    
       <br />
 
       <div className='kit-total'>
@@ -484,6 +474,17 @@ function Index() {
         </Card.Body>
         </Card>
         </div>
+        <div className='kitreturned-total'>
+        <Card style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Title>Returned</Card.Title>
+          <Card.Text>
+            Number: {startedreturned.Total}
+          </Card.Text>
+          <Card.Link href="/Staff/Returned">View Returned</Card.Link>
+        </Card.Body>
+      </Card>
+      </div>
       </div>
     </div>
 )
