@@ -140,7 +140,7 @@ function LoanCreate() {
     const convertenddate = currentDate.setDate(currentDate.getDate() + numberOfDayToAdd)  
     const enddate = new Date(convertenddate);
 
-    const confirmstatus = "Confirmed"
+    const confirmstatus = "Pending"
     
     const auth = getAuth();
     const user = auth.currentUser;
@@ -153,9 +153,8 @@ function LoanCreate() {
         id : user.uid,
         KitName: kit.Name, 
         loanname: Member.Name,
-        Quantity: amount,
         StartDate: new Date(startdate),
-        EndDate: enddate,
+        EndDate: new Date(enddate),
         PhoneNumber:Member.PhoneNumber,
         Email: Member.Email,
         CreatedAt: date.toDateString(),
@@ -164,7 +163,7 @@ function LoanCreate() {
       
 
       // Email Notfication sent to member using EmailJS API
-      emailjs.sendForm('service_6gtz4td', 'template_2kshjof',e.target,'wrPdaYsbP50QkbgHU')
+      emailjs.sendForm('service_lczoyg8', 'template_gdhzrf5',e.target,'wrPdaYsbP50QkbgHU')
       .then((result) => {
         console.log(result.text);
       }, (error) => {
@@ -213,16 +212,6 @@ function LoanCreate() {
         readOnly
         required />
 
-        <label htmlFor='Number of Kits'>Amount of Kit Loaned </label>
-          <input type="number" onChange={(event) => {
-          setAmount(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitQuantity" 
-        name="Quantity"
-        placeholder="Quantity"
-        required />
-
         <label htmlFor='Start Date'>Start Date </label>
           <input type="Date" onChange={(event) => {
           setStartDate(event.target.value);
@@ -259,8 +248,8 @@ function LoanCreate() {
         className="form-control" 
         id="status" 
         name="status"
-        placeholder= {"Confirmed"}
-        defaultValue = "Confirmed"
+        placeholder= {"Pending"}
+        defaultValue = "Pending"
         readOnly
         required />
 

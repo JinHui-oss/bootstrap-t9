@@ -20,11 +20,6 @@ function QRCreate() {
   // retrieve the data from the user input and stored into variable.
   const [kitName, setkitName] = useState("");
   const [LoanName, setLoanName] = useState("");
-  const [amount, setAmount] = useState("");
-  const [startdate, setStartDate] = useState("");
-  const [enddate, setEndDate] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
   const [ImageUpload, setImageUpload] = useState();
   const [Filename, setFilename] = useState("");
   
@@ -46,12 +41,6 @@ function QRCreate() {
         addDoc(QRCollection, 
         { 
             KitName: kitName,
-            LoanName : LoanName, 
-            Quantity: amount,
-            StartDate: startdate,
-            EndDate: enddate,
-            PhoneNumber:phone,
-            Email: email,
             PhotoUrl: url,
             CreatedAt: date.toDateString(),
             Filename: Filename
@@ -72,7 +61,7 @@ function QRCreate() {
       .replace("image/png", "image/octet-stream");
     let downloadLink = document.createElement("a");
     downloadLink.href = pngUrl;
-    downloadLink.download = LoanName + "-" + kitName +".png";
+    downloadLink.download = kitName +".png";
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
@@ -95,73 +84,15 @@ function QRCreate() {
         className="form-control" 
         id="KitName" 
         placeholder="Dementia Kit xx - example"
-        required />
+        />
 
-        <label htmlFor='Loan Name'>Loan Name </label>
-          <input type="text" onChange={(event) => {
-          setLoanName(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitName" 
-        placeholder="Borrower Name"
-        required />
-
-
-        <label htmlFor='Number of Kits'>Amount of Kit Loaned </label>
-          <input type="number" onChange={(event) => {
-          setAmount(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitName" 
-        placeholder="2"
-        required />
-
-        <label htmlFor='Start Date'>Start Date </label>
-          <input type="Date" onChange={(event) => {
-          setStartDate(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitStartDate" 
-        required />
-
-        <label htmlFor='End Date'>End Date </label>
-          <input type="Date" onChange={(event) => {
-          setEndDate(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitStartDate" 
-        required />
-
-        <label htmlFor='Phone Number'>Phone Number </label>
-          <input type="number" onChange={(event) => {
-          setPhone(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitPhone"
-        placeholder='82109871' 
-        required />
-        
-        <label htmlFor='Email'>Email </label>
-          <input type="email" onChange={(event) => {
-          setEmail(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitEmail"
-        placeholder='abc@gmail.com' 
-        required />
         <div className='QR-Code'>
           <h1 className='head'>QR Code</h1>
           <hr />
           <br />
           <QRCodeCanvas value=
           {
-            "Name:" + kitName + "\n" +
-            "Amount Of Kit Loaned:"+ amount  + "\n" +
-            "Loan Name:" + LoanName + "\n " +
-            "Start Date:"+ startdate + "\n" + 
-            "End Date: "+ enddate + " \n" +
-            "Phone Number:"+ phone + "\n" +
-            "Email:" + email
+            "Name:" + kitName + "\n" 
           } size={250} className="qr" id="Dementia Kit" />
         </div>
         <br />
@@ -177,7 +108,7 @@ function QRCreate() {
         <br />
         <br />
         <Button className= "Action" type="submit"> Submit </Button>
-        <Button className= "Back-Action" href="/QRIndex">Back</Button>
+        <Button className= "Back-Action" href="/Staff/QRIndex">Back</Button>
         <Button className= "Download-Action" onClick={downloadQR}>Download QR</Button>
         </Form>
       </div>
