@@ -1,7 +1,7 @@
 // React
 import React, { useState, useEffect } from 'react';
-import { Button, Table } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import { Button, Col, Card, Row } from 'react-bootstrap'
+
 
 // firebase
 import { db } from '../../../Database/firebase';
@@ -53,16 +53,7 @@ function QRIndex(){
     
       {/* table infomation */}
       <div className='table'>
-      <Table responsive= "md" hover>
-          <thead>
-            <tr className='table-header'>
-              <th>Profile</th>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          
+        <Row xs={1} md={2} className="g-4">
           {/* display table content */}
           {KitQR.filter((val) => {
             if(search == ""){
@@ -73,18 +64,21 @@ function QRIndex(){
             }
           }).map((user) => {
           return( 
-            <tbody>
-              {""}
-              <tr>
-                <td><img src={user.PhotoUrl}/></td>
-                <td>{user.LoanName}</td>
-                <td>{user.KitName}</td>
-                <td><Link to ={`/Staff/QRIndex/Detail/${user.id}`}>View</Link></td>
-              </tr>
-            </tbody>
+            <Col>
+            <Card className='hell'>
+              <Card.Img variant="top" src={user.PhotoUrl} className='kitcontent-photo' />
+              <Card.Body>
+                <h2>{user.LoanName}</h2>
+                <Card.Text>
+                {user.KitName}
+                </Card.Text>
+                <Button href={`/Staff/QRIndex/Detail/${user.id}`}>view</Button>
+              </Card.Body>
+            </Card>
+            </Col>  
             );
           })}
-        </Table>
+          </Row>
         </div>
       </div>
   )

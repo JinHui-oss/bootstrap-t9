@@ -21,12 +21,8 @@ function QREdit() {
 
   // retrieve the data from the user input and stored into variable.
   const [name, setText] = useState("");
-  const [amount, setAmount] = useState("");
-  const [startdate, setStartDate] = useState("");
-  const [enddate, setEndDate] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
   const [ImageUpload, setImageUpload] = useState();
+  const [Filename, setFilename] = useState("");
 
    //
    const [kitqr,setKitqr] = useState([]);
@@ -86,7 +82,7 @@ function QREdit() {
       let date = new Date();
       if(ImageUpload == null)return;
       // set the specific path of where the photo is stored thru variable
-      const imageRef = ref(storage, `Staff/KitQR/${ImageUpload.name + v4()}`)
+      const imageRef = ref(storage, `Staff/KitQR/${ImageUpload.name}`)
       // upload directly to storage database
       uploadBytes(imageRef, ImageUpload).then((snapshot) =>{
        
@@ -96,11 +92,7 @@ function QREdit() {
         { 
             id: id,
             KitName: name, 
-            Quantity: amount,
-            StartDate: startdate,
-            EndDate: enddate,
-            PhoneNumber:phone,
-            Email: email,
+            Filename: Filename,
             PhotoUrl: url,
             CreatedAt: date.toDateString()
         });
@@ -110,7 +102,8 @@ function QREdit() {
       naviagte("/Staff/QRIndex")
     }
     catch(e){
-      console.log(e.message)
+      // Catch Error Message
+      // console.log(e.message)
     }
   }
   const downloadQR = () => {
@@ -120,7 +113,7 @@ function QREdit() {
       .replace("image/png", "image/octet-stream");
     let downloadLink = document.createElement("a");
     downloadLink.href = pngUrl;
-    downloadLink.download = "Dementia Kit.png";
+    downloadLink.download = name + ".png" ;
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
@@ -136,83 +129,35 @@ function QREdit() {
       </div>
       <div>
         <Form onSubmit={NewData} className="form-create">
-        <label htmlFor='KitName'>Name </label>
-          <input type="text" onChange={(event) => {
-          setText(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitName" 
-        placeholder="Dementia Kit xx - example"
-        required defaultValue={kitqr.KitName}/>
+          <div className='editkitname-data'>
+            <label htmlFor='KitName'>Name </label>
+            <input type="text" onChange={(event) => {
+            setText(event.target.value);
+            }} 
+            className="form-control" 
+            id="KitName" 
+            placeholder="Dementia Kit xx - example"
+            required defaultValue={kitqr.KitName}/>
 
-        <label htmlFor='Number of Kits'>Amount of Kit Loaned </label>
-          <input type="number" onChange={(event) => {
-          setAmount(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitName" 
-        placeholder="2"
-        required defaultValue={kitqr.Quantity}/>
-
-        <label htmlFor='Start Date'>Start Date </label>
-          <input type="Date" onChange={(event) => {
-          setStartDate(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitStartDate" 
-        defaultValue={kitqr.StartDate}
-        required />
-
-        <label htmlFor='End Date'>End Date </label>
-          <input type="Date" onChange={(event) => {
-          setEndDate(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitStartDate"
-        defaultValue={kitqr.EndDate} 
-        required />
-
-        <label htmlFor='Phone Number'>Phone Number </label>
-          <input type="number" onChange={(event) => {
-          setPhone(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitPhone"
-        defaultValue={kitqr.PhoneNumber} defaultChecked={kitqr.PhoneNumber}
-        placeholder='82109871' 
-        required />
-        
-        <label htmlFor='Email'>Email </label>
-          <input type="email" onChange={(event) => {
-          setEmail(event.target.value);
-        }} 
-        className="form-control" 
-        id="KitEmail"
-        defaultValue={kitqr.Email}
-        placeholder='abc@gmail.com' 
-        required />
-  
-        <div className ="form-pic">
-          <label className="KitPictures">Kit Pictures</label>
+<label className="KitPictures">Kit Pictures</label>
           <br />
           <input type="file" onChange={(event) => {
-            setImageUpload(event.target.files[0]);
+            setImageUpload(event.target.files[0],
+            setFilename(event.target.files[0].name));
           }} className="form-control-file"  />
+          </div>
+        
+  
+        <div className ="form-pic">
+         
         </div>
        
         <div className='QR-Code'>
-          <h1 className='head'>QR Code</h1>
-          <hr />
           <br />
           <QRCodeCanvas value=
           {
-            "Name:" + name + "\n" +
-            "Amount Of Kit Loaned:"+ amount  + " " +
-            "Start Date:"+ startdate + " " + 
-            "End Date: "+ enddate + " " +
-            "Phone Number:"+ phone + " " +
-            "Email:" + email
-          } size={250} className="qr" id="Dementia Kit" />
+            "Name:" + name + "\n" 
+          }  className="editkit-qr" id="Dementia Kit" />
         </div>
         <br />
         <br />

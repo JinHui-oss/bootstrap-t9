@@ -56,13 +56,7 @@ function QRDetail() {
         
         setKitQR.state ={
           id: id,
-          LoanName: data.LoanName,
           KitName: data.KitName,
-          PhoneNumber: data.PhoneNumber,
-          Email: data.Email,
-          Quantity: data.Quantity,
-          StartDate: data.StartDate,
-          EndDate: data.EndDate,
           PhotoUrl: data.PhotoUrl,
           Filename: data.Filename,
           CreatedAt: data.CreatedAt
@@ -121,26 +115,18 @@ function QRDetail() {
         {/* body content of the kit pictures */}
         <div className='details-pictures'>
           <div className="d-flex justify-content-around">
-            <Card>
-              <Card.Body>
+           
                  {/* eslint-disable-next-line */}
                 <p><img src={kitQR.PhotoUrl}></img></p>
-              </Card.Body>
-            </Card>
+             
           </div>
         <br />
-         {/* Edit Button */}
-         <Button className='details-edit' href ={`/Staff/QRIndex/Edit/${id}`}>
-        {/* eslint-disable-next-line */}
-          <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
-           Edit</Button>
         </div>
 
          {/* product title and quantity information */} 
          <div className='details-title'>
           <h2>{kitQR.KitName}</h2>
           <hr />
-          <h2>Quantity: {kitQR.Quantity}</h2>
           <br />
         </div>
 
@@ -154,11 +140,6 @@ function QRDetail() {
           <Card className="details-information-body">
             <Card.Body>
               <p>User Id: <br /> {id}</p>
-              <p>Borrower Name: <br /> {kitQR.LoanName}</p>
-              <p>Contact Number: <br /> {kitQR.PhoneNumber}</p>
-              <p>Email: <br />{kitQR.Email}</p>
-              <p>Start Date: <br /> {kitQR.StartDate}</p>
-              <p>End Date: <br />{kitQR.EndDate}</p>
               <p>Created At: <br /> {kitQR.CreatedAt}</p>
             
             </Card.Body>
@@ -170,6 +151,10 @@ function QRDetail() {
         {/* Button */}
         <Button className ="QRBack"href="/Staff/QRIndex">Back</Button>
         <Button onClick={() => {deleteKit(id)}} className="QREdit">Delete</Button>
+        <Button className='details-edit' href ={`/Staff/QRIndex/Edit/${id}`}> 
+        {/* eslint-disable-next-line */}
+          <img src='https://cdn-icons-png.flaticon.com/512/227/227104.png'></img>  
+           Edit</Button>
         
     </div>
   )
