@@ -97,7 +97,7 @@ function Staff() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Container>
-    <Navbar.Brand href="/Staff/Dashboard">YECC</Navbar.Brand>
+    <Navbar.Brand href="/Staff/Dashboard">YCC-DDC</Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
@@ -112,7 +112,7 @@ function Staff() {
         <Nav className="me-auto">
           <NavDropdown title="Member" id="navbarScrollingDropdown">
             <NavDropdown.Item href="/Staff/MemberList">Member List</NavDropdown.Item>
-            <NavDropdown.Item href="/Staff/Confirmed">Confirmed</NavDropdown.Item>
+            <NavDropdown.Item href="/Staff/Confirmed">Pending</NavDropdown.Item>
             <NavDropdown.Item href="/Staff/Borrowed">Borrowed</NavDropdown.Item>
             <NavDropdown.Item href="/Staff/Collection">Collection</NavDropdown.Item>
             <NavDropdown.Item href="/Staff/Cancellation">Cancellation</NavDropdown.Item>

@@ -97,16 +97,15 @@ function Member() {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-      <Navbar.Brand href="/Member/Kit">YECC</Navbar.Brand>
+      <Navbar.Brand href="/Member/Kit">YCC-DDC</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
           <NavDropdown title="Loan" id="navbarScrollingDropdown">
-            <NavDropdown.Item href="/Member/CurrentLoan">Current Loan</NavDropdown.Item>
-            <NavDropdown.Item href="/Member/PastLoan">Past Loan</NavDropdown.Item>
-            <NavDropdown.Item href="/Member/Cancelled">Cancel Loan</NavDropdown.Item>
-            <NavDropdown.Item href="/Member/Confirmed">Confirmed</NavDropdown.Item>
-            <NavDropdown.Item href="/Member/ReadyCollection">Ready Collection</NavDropdown.Item>
+            <NavDropdown.Item href="/Member/CurrentLoan">Borrowed</NavDropdown.Item>
+            <NavDropdown.Item href="/Member/PastLoan">Returned</NavDropdown.Item>
+            <NavDropdown.Item href="/Member/Confirmed">Pending</NavDropdown.Item>
+            <NavDropdown.Item href="/Member/ReadyCollection">Collection</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link href={`/Member/Kit`}>Kit</Nav.Link>
         

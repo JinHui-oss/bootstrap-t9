@@ -10,7 +10,7 @@ function General() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Container>
-    <Navbar.Brand href="/">YECC</Navbar.Brand>
+    <Navbar.Brand href="/">YCC-DDC</Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
