@@ -40,7 +40,7 @@ function StaffConfirmed() {
       if(user){
    
         // Composite Query 
-        const q1 = query(kitCollectionRef, where("Status", "==", "Confirmed"))
+        const q1 = query(kitCollectionRef, where("Status", "==", "Pending"))
         const data1 = await getDocs(q1)
         setKit(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
         

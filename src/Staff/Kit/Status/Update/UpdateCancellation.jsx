@@ -226,7 +226,7 @@ function StaffUpdateCancel() {
            <Form.Label className="label">Status</Form.Label>
              <Form.Select className='options' name='status'>
                <option onChange={(e) => setKitStatus(e.target.value)}>Select an option </option>
-               <option onChange={(e) => setKitStatus(e.target.value)}>Confirmed</option>
+               <option onChange={(e) => setKitStatus(e.target.value)}>Pending</option>
                <option onChange={(e) => setKitStatus(e.target.value)}>Ready For Collection</option>
                <option onChange={(e) => setKitStatus(e.target.value)}>Borrowed</option>
                <option onChange={(e) => setKitStatus(e.target.value)}>Returned</option>

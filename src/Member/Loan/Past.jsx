@@ -16,6 +16,7 @@ import
 } from 'firebase/firestore'
 
 import { getAuth } from 'firebase/auth';
+import "../Loan/Loan.css"
 
 function PastLoan() {
   // eslint-disable-next-line
@@ -68,7 +69,7 @@ function PastLoan() {
       </form>
     </div>
 
-    <div className='content-table'>
+    <div className='content-table-a'>
         <Table responsive="md" hover>
         <thead>
           <tr>

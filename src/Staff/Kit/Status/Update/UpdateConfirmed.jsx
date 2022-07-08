@@ -96,7 +96,6 @@ function StaffUpdateConfirmed() {
            id : Kit.id,
            KitName: Kit.KitName,
            loanname: Kit.loanname,
-           Quantity: Kit.Quantity,
            Email: Kit.Email,
            PhoneNumber: Kit.PhoneNumber,
            StartDate: Kit.StartDate,
@@ -105,7 +104,7 @@ function StaffUpdateConfirmed() {
        })        
        
        // Email Notfication sent to member using EmailJS API
-       emailjs.sendForm('service_6gtz4td', 'template_2kshjof',event.target,'wrPdaYsbP50QkbgHU')
+       emailjs.sendForm('service_lczoyg8', 'template_2kshjof',event.target,'wrPdaYsbP50QkbgHU')
        .then((result) => {
          console.log(result.text);
        }, (error) => {
@@ -183,18 +182,6 @@ function StaffUpdateConfirmed() {
           name='KitName'
           readOnly
           />
-
-          <label htmlFor='KitQuantity'>Kit Quantity </label>
-          <input type="text" onChange={(event) => {
-          setQuantity(event.target.value);
-          }} 
-          className="form-control"
-          defaultValue ={Kit.Quantity} 
-          id="KitQuantity"
-          name ='Quantity' 
-          placeholder={Kit.Quantity}
-          readOnly
-          />
   
           <label htmlFor='KitStartDate'>Start Date </label>
           <input type="text" onChange={(event) => {setStartDate(event.target.value)}} 
@@ -225,7 +212,7 @@ function StaffUpdateConfirmed() {
           <Form.Label className="label">Status</Form.Label>
             <Form.Select className='options' name='status'>
               <option onChange={(e) => setKitStatus(e.target.value)}>Select an option </option>
-              <option onChange={(e) => setKitStatus(e.target.value)}>Confirmed</option>
+              <option onChange={(e) => setKitStatus(e.target.value)}>Pending</option>
               <option onChange={(e) => setKitStatus(e.target.value)}>Ready For Collection</option>
               <option onChange={(e) => setKitStatus(e.target.value)}>Borrowed</option>
               <option onChange={(e) => setKitStatus(e.target.value)}>Returned</option>

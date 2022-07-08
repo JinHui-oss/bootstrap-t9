@@ -103,7 +103,7 @@ function StaffUpdateBorrowed() {
         })        
         
         // Email Notfication sent to member using EmailJS API
-        emailjs.sendForm('service_6gtz4td', 'template_2kshjof',event.target,'wrPdaYsbP50QkbgHU')
+        emailjs.sendForm('service_lczoyg8', 'template_2kshjof',event.target,'wrPdaYsbP50QkbgHU')
         .then((result) => {
           console.log(result.text);
         }, (error) => {

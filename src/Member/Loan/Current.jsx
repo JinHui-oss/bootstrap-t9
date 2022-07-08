@@ -16,6 +16,8 @@ import
 } from 'firebase/firestore'
 
 import { getAuth } from 'firebase/auth';
+import "../Loan/Loan.css"
+
 
 function CurrentLoan() {
   // eslint-disable-next-line
@@ -72,7 +74,7 @@ function CurrentLoan() {
         </form>
       </div>
 
-      <div className='content-table'>
+      <div className='content-table-a'>
           <Table responsive="md" hover>
           <thead>
             <tr>

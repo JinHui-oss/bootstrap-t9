@@ -16,9 +16,10 @@ import
 } from 'firebase/firestore'
 
 import { getAuth } from 'firebase/auth';
+import "../Loan/Loan.css"
 
 
-function MemberKitConfirmed() {
+function MemberKitPending() {
   // eslint-disable-next-line
   const [kit, setKit] = useState([]);
   const [search, setSearch] = useState('');
@@ -40,7 +41,7 @@ function MemberKitConfirmed() {
         // console.log(id)
         
         // Composite Query 
-        const q1 = query(kitCollectionRef, where("Status", "==", "Confirmed"), where("id", "==", id))
+        const q1 = query(kitCollectionRef, where("Status", "==", "Pending"), where("id", "==", id))
         const data1 = await getDocs(q1)
         setKit(data1.docs.map((doc) =>({...doc.data(), id: doc.id })));
         // console.log(kit)
@@ -73,7 +74,7 @@ function MemberKitConfirmed() {
         </form>
       </div>
 
-      <div className='content-table'>
+      <div className='content-table-a'>
           <Table responsive="md" hover>
           <thead>
             <tr>
@@ -115,4 +116,4 @@ function MemberKitConfirmed() {
   </div>
 )}
 
-export default MemberKitConfirmed
+export default MemberKitPending
