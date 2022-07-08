@@ -50,7 +50,7 @@ function LoanIndex() {
 
   return (
     <div className='content'>
-      <div className='content-header'>
+      <div className='content-header-toolkit'>
         <h2>Loan Dementia Kit </h2>
         <p>View and Loan the dementia Kits</p>
         <hr/>
@@ -58,7 +58,7 @@ function LoanIndex() {
 
       <div className='content-search'>
       
-      <form className='input-words'>
+      <form className='input-words-tool'>
       <input type="text" onChange={(event) => {
           setSearch(event.target.value);
           }} 
@@ -71,7 +71,7 @@ function LoanIndex() {
     
       <div className='content-table'>
         <div className='contenthell'>
-        <Row xs={1} md={2} className="g-4">
+        <Row xs={1} md={2} className="g-4b">
           {kit.filter((val) => {
             if(search == ""){
               return val;
@@ -83,7 +83,7 @@ function LoanIndex() {
           return( 
             <Col>
             <Card>
-              <Card.Img variant="top" src={user.PhotoUrl} />
+              <Card.Img variant="top" className='photo-url' src={user.PhotoUrl} />
               <Card.Body>
                 <Card.Title>{user.Name}</Card.Title>
                 <Card.Text>

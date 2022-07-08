@@ -375,8 +375,8 @@ function Index() {
       <div className='kitborrowed-total'>
         <Card style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title>Total Borrowed</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Dementia Kit </Card.Subtitle>
+            <Card.Title>Borrowed</Card.Title>
+          
           <Card.Text>
             Number: {started.Total}
           </Card.Text>
@@ -389,8 +389,7 @@ function Index() {
       <div className='kitreturned-total'>
         <Card style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title>Total Returned</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Dementia Kit </Card.Subtitle>
+            <Card.Title>Returned</Card.Title>
           <Card.Text>
             Number: {startedreturned.Total}
           </Card.Text>
@@ -404,7 +403,7 @@ function Index() {
         <Card style={{ width: '18rem' }}>
           <Card.Body>
             <Card.Title>Total</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Dementia Kit </Card.Subtitle>
+          
           <Card.Text>
             Number: {kittotal.Total}
           </Card.Text>
@@ -416,8 +415,8 @@ function Index() {
         <div className='member-total'>
           <Card style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title>Total Canceled</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Dementia Kit </Card.Subtitle>
+            <Card.Title>Cancelled</Card.Title>
+          
           <Card.Text>
             Number: {tcancel.Total}
           </Card.Text>
@@ -431,12 +430,12 @@ function Index() {
         <div className='Confirmed-total'>
           <Card style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title>Total Confirmed</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Dementia Kit </Card.Subtitle>
+            <Card.Title>Pending</Card.Title>
+          
           <Card.Text>
             Number: {tconfirmed.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Confirmed">View Total</Card.Link>
+          <Card.Link href="/Staff/Confirmed">View Pending</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -444,12 +443,12 @@ function Index() {
         <div className='ReadyC-total'>
           <Card style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title>Total Ready Collection</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Dementia Kit </Card.Subtitle>
+            <Card.Title>Ready Collection</Card.Title>
+          
           <Card.Text>
             Number: {tready.Total}
           </Card.Text>
-          <Card.Link href="/Staff/Collection">View Total</Card.Link>
+          <Card.Link href="/Staff/Collection">View Collection</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -467,7 +466,7 @@ function Index() {
           <Card.Text>
             Number: {tstaff.Total}
           </Card.Text>
-          <Card.Link href="/Staff/MemberList">View Total</Card.Link>
+          <Card.Link href="/Staff/MemberList">View Staff</Card.Link>
         </Card.Body>
         </Card>
         </div>
@@ -481,7 +480,7 @@ function Index() {
           <Card.Text>
             Number: {membernumber.Total}
           </Card.Text>
-          <Card.Link href="/Staff/StaffList">View Total</Card.Link>
+          <Card.Link href="/Staff/StaffList">View Members</Card.Link>
         </Card.Body>
         </Card>
         </div>
