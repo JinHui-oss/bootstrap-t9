@@ -5,6 +5,7 @@ import { UserAuth } from '../../Scripts/authContext'
 import { Form, Button } from 'react-bootstrap'
 import { doc, setDoc } from 'firebase/firestore'
 import { db } from '../../Database/firebase';
+import { getAuth, sendEmailVerification } from "firebase/auth";
 
 
 function Signup_Staff() {
@@ -17,7 +18,7 @@ function Signup_Staff() {
    
 
     const {createUser} = UserAuth();
-   
+    const { logout } = UserAuth();
     const navigate = useNavigate();
 
     const handlesubmit = async (e) =>{
@@ -39,7 +40,13 @@ function Signup_Staff() {
                 Role: pass,
                 uid: user.uid
             })
-            navigate(`/Staff/Account/${user.uid}`)
+            await logout(user)
+            sendEmailVerification(user)
+            .then(() => {
+              // Email verification sent!
+              alert(`email has been sent to ${email} for verification of the account.`)
+            })
+            navigate(`/Signin/Staff`)
         }catch(e){
             setError(e.message)
             console.log(e.message)

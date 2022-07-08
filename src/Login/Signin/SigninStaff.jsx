@@ -41,7 +41,7 @@ function SigninStaff() {
       const {user} = await signIn(email,password);
       // check display output
       // console.log(user)
-      if(user) 
+      if(user.emailVerified) 
       {
         const data = user.uid;
         const docRef = doc(db, "Staff", data);
@@ -57,6 +57,9 @@ function SigninStaff() {
           // console.log('y')
           navigate("/Staff/Dashboard")
         }
+      }
+      else{
+        alert('Email is not verifed. If still cannot access the site contact YCC-DCC.')
       }
     }
     catch(e)

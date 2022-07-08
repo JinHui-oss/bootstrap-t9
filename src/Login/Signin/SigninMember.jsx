@@ -41,7 +41,7 @@ function SigninMember() {
         try{
           const {user} = await signIn(email,password);
           // console.log(user)
-          if(user) {
+          if(user.emailVerified) {
             
           const data = user.uid;
           const docRef = doc(db, "Member", data);
@@ -53,8 +53,12 @@ function SigninMember() {
           if(data1.Role === 'Member')
             {
               console.log('y')
+              // console.log(user)
               navigate("/Member/Kit")
             }
+          }
+          else{
+            alert('Email is not verifed. If still cannot access the site contact YCC-DCC.')
           }
         }
         catch(e){

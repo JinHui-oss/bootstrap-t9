@@ -5,11 +5,14 @@ import { UserAuth } from '../../Scripts/authContext'
 import { Form, Button } from 'react-bootstrap'
 import { doc, setDoc } from 'firebase/firestore'
 import { db } from '../../Database/firebase';
+import { getAuth, sendEmailVerification } from "firebase/auth";
+
+
 import '../../Login/Login.css'
 
 function SignUp_Member() {
   const [name, setName] = useState('');
-  const [phonenumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('');
@@ -18,17 +21,23 @@ function SignUp_Member() {
   const [user,setUser] = useState('');
  
   const { createUser } = UserAuth();
+  const { logout } = UserAuth();
  
   const navigate = useNavigate();
+  
 
   const handlesubmit = async (e) =>{
       e.preventDefault();
       let date = new Date();
       let pass = "Member";
-
+      
       setError(error)
+      
       try{
+          const auth = getAuth();
           const { user } = await createUser(email,password,pass)
+          // console.log(user)
+      
           setUser(user);
           
           await setDoc(doc(db,"Member",user.uid), {
@@ -38,11 +47,19 @@ function SignUp_Member() {
               CreatedAt: date.toDateString(),
               Gender: gender,
               PhotoUrl: "https://cdn-icons-png.flaticon.com/512/709/709722.png",
-              PhoneNumber: phonenumber,
+              PhoneNumber: phoneNumber,
               Role: pass,
               uid: user.uid
           })
-          navigate(`/Member/Index`)
+          await logout(user)
+          sendEmailVerification(user)
+          .then(() => {
+            // Email verification sent!
+            alert(`email has been sent to ${email} for verification of the account.`)
+          })
+         
+          navigate(`/Signin/Member`)
+      
       }catch(e){
           setError(e.message)
           console.log(e.message)
