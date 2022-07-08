@@ -1,0 +1,26 @@
+.content-table-a{
+    max-width: 65%;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+.content-header {
+    margin-left: 4%;
+    max-width: 82%;
+    margin-top: 10%;
+}
+.content-search .input-words {
+    margin-left: -6%;
+    max-width: 83%;
+}
+
+@media screen and (max-width: 767px) and (min-width: 601px)
+{
+    .content-header {
+        margin-left: 5%;
+        max-width: 75%;
+        margin-top: 10%;
+    }
+    
+    
+        
+}

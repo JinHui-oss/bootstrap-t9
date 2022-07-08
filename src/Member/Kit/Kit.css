@@ -12,9 +12,10 @@
     margin-top: -1%;
 }
 .content-header-toolkit {
-    margin-left: 2%;
-    margin-top: 2%;
-    max-width: 70%;
+    margin-left: 10%;
+    margin-top: 5%;
+    max-width: 66%;
+
 }
 .search-button{
     max-width: 20%;
@@ -42,9 +43,10 @@
 
 .member-details-pictures img{
     max-width: auto;
-    height: 240px;
+    height: 400px;
     margin-left: 2%;
     margin-top: 2%;
+
 }
 
 .member-details-header{
@@ -57,9 +59,9 @@
 }
 
 .member-details-title {
-  margin-top: -75%;
-  margin-left: 125%;
-  width: 115%;
+    margin-top: -47%;
+    margin-left: 131%;
+    width: 115%;
 }
 .member-details-title hr {
   width: 102%;
@@ -85,13 +87,13 @@
     margin-top: 10%;
 }
 .member-details-reserve{
-    margin-left:110%;
-    margin-top: -14%;
+    margin-left: 110%;
+    margin-top: -8%;
 }
 
 .input-words-tool {
-    margin-left: -9%;
-    max-width: 80%;
+    margin-left: 0%;
+    max-width: 73%;
     margin-top: 4%;
 }
 .g-4b {
@@ -107,11 +109,37 @@
         margin-left: -13%;
         max-width: 100%;
         margin-top: 12%;
-    
+    }
+    .member-details-pictures img {
+        max-width: auto;
+        height: 160px;
+        margin-left: -54%;
+        margin-top: 10%;
+    }
+    .member-details-header {
+        margin-top: 10%;
+        margin-left: 18%;
+    }
+    .member-details-information {
+        margin-left: -8%;
+        width: 286%;
+    }
+    .member-details-title {
+        margin-top: -5%;
+        margin-left: 11%;
+        width: 248%;
+    }
+    .member-details-back {
+        margin-left: 17%;
+        margin-top: 39%;
+    }
+    .member-details-reserve {
+        margin-left: 141%;
+        margin-top: -76%;
     }
     .g-4b {
         max-width: 18%;
-        margin-left: -7%;
+        margin-left: -6%;
         margin-top: 2%;
     }
     .kitcontent-photo {
@@ -184,17 +212,44 @@
 @media screen and (max-width: 557px) and (min-width: 360px) {
     .content-header-toolkit {
         margin-left: -13%;
-        max-width: 75%;
+        max-width: 80%;
         margin-top: 12%;
     }
     .g-4b {
-        max-width: 27.25%;
-        margin-left: -10%;
-        margin-top: 0.5%;
+        max-width: 26.5%;
+        margin-left: -8.5%;
+        margin-top: 2%;
     }
     .kitcontent-photo {
         height: 210px;
         width: auto;
+    }
+    .member-details-pictures img {
+        max-width: auto;
+        height: 235px;
+        margin-left: -25%;
+        margin-top: 10%;
+    }
+    .member-details-header {
+        margin-top: 10%;
+        margin-left: 18%;
+    }
+    .member-details-information {
+        margin-left: -8%;
+        width: 286%;
+    }
+    .member-details-title {
+        margin-top: -5%;
+        margin-left: 11%;
+        width: 248%;
+    }
+    .member-details-back {
+        margin-left: 63%;
+        margin-top: 39%;
+    }
+    .member-details-reserve {
+        margin-left: 141%;
+        margin-top: -48%;
     }
     .content-search .input-words-tool {
         margin-left: -26%;
@@ -253,6 +308,10 @@
         max-width: 80%;
         color: white;
     }
+    .photo-url{
+        width: auto;
+        height: 210px;
+    }
 }
   
     
@@ -261,6 +320,33 @@
         max-width: 25%;
         margin-left: -9.5%;
         margin-top: 2%;
+    }
+    .member-details-pictures img {
+        max-width: auto;
+        height: 235px;
+        margin-left: -25%;
+        margin-top: 10%;
+    }
+    .member-details-header {
+        margin-top: 10%;
+        margin-left: 18%;
+    }
+    .member-details-information {
+        margin-left: -8%;
+        width: 286%;
+    }
+    .member-details-title {
+        margin-top: -5%;
+        margin-left: 11%;
+        width: 248%;
+    }
+    .member-details-back {
+        margin-left: 63%;
+        margin-top: 39%;
+    }
+    .member-details-reserve {
+        margin-left: 141%;
+        margin-top: -48%;
     }
     .content-search .input-words-tool {
         margin-left: -21%;
@@ -341,6 +427,33 @@
         margin-left: -10.3%;
         margin-top: 2%;
     }
+    .member-details-pictures img {
+        max-width: auto;
+        height: 235px;
+        margin-left: -25%;
+        margin-top: 10%;
+    }
+    .member-details-header {
+        margin-top: 10%;
+        margin-left: 18%;
+    }
+    .member-details-information {
+        margin-left: -8%;
+        width: 286%;
+    }
+    .member-details-title {
+        margin-top: -5%;
+        margin-left: 11%;
+        width: 248%;
+    }
+    .member-details-back {
+        margin-left: 63%;
+        margin-top: 39%;
+    }
+    .member-details-reserve {
+        margin-left: 141%;
+        margin-top: -42%;
+    }
     .content-search .input-words-tool {
         margin-left: -18%;
         max-width: 48%;
@@ -418,6 +531,33 @@
         max-width: 60%;
         margin-left: -12.5%;
         margin-top: 2%;
+    }
+    .member-details-pictures img {
+        max-width: auto;
+        height: 235px;
+        margin-left: -12%;
+        margin-top: 10%;
+    }
+    .member-details-header {
+        margin-top: 10%;
+        margin-left: 18%;
+    }
+    .member-details-information {
+        margin-left: -8%;
+        width: 286%;
+    }
+    .member-details-title {
+        margin-top: -5%;
+        margin-left: 11%;
+        width: 248%;
+    }
+    .member-details-back {
+        margin-left: 63%;
+        margin-top: 39%;
+    }
+    .member-details-reserve {
+        margin-left: 130%;
+        margin-top: -34%;
     }
     .content-search .input-words-tool {
         margin-left: -16%;
@@ -497,14 +637,40 @@
 
 @media screen and (max-width: 1299px) and (min-width: 1001px) {
     .g-4b {
-        max-width: 60%;
-        margin-left: -11.5%;
+        max-width: 81%;
+        margin-left: -10.5%;
         margin-top: 2%;
-    
+    }
+    .member-details-pictures img {
+        max-width: auto;
+        height: 360px;
+        margin-left: -12%;
+        margin-top: 10%;
+    }
+    .member-details-header {
+        margin-top: 10%;
+        margin-left: 18%;
+    }
+    .member-details-information {
+        margin-left: -8%;
+        width: 286%;
+    }
+    .member-details-title {
+        margin-top: 5%;
+        margin-left: 11%;
+        width: 248%;
+    }
+    .member-details-back {
+        margin-left: 63%;
+        margin-top: 30%;
+    }
+    .member-details-reserve {
+        margin-left: 120%;
+        margin-top: -20%;
     }
     .content-search .input-words-tool {
-        margin-left: -10%;
-        max-width: 66%;
+        margin-left: 0%;
+        max-width: 80%;
         margin-top: 7%;
     }
     .photo-url{
@@ -516,7 +682,7 @@
         width: auto;
     }
     .content-header-toolkit {
-        margin-left: 1%;
+        margin-left: 10%;
         max-width: 59%;
         margin-top: 4%;
     }
@@ -584,7 +750,39 @@
         margin-top: 2%;
     }
     .content-search .input-words-tool {
-        margin-left: -10%;
+        margin-left: 0%;
+        max-width: 80%;
+        margin-top: 7%;
+    }
+    .member-details-pictures img {
+        max-width: auto;
+        height: 460px;
+        margin-left: -6%;
+        margin-top: 10%;
+    }
+    .member-details-header {
+        margin-top: 5%;
+        margin-left: 18%;
+    }
+    .member-details-information {
+        margin-left: -8%;
+        width: 286%;
+    }
+    .member-details-title {
+        margin-top: 5%;
+        margin-left: 11%;
+        width: 248%;
+    }
+    .member-details-back {
+        margin-left: 105%;
+        margin-top: 30%;
+    }
+    .member-details-reserve {
+        margin-left: 150%;
+        margin-top: -21%;
+    }
+    .content-search .input-words-tool {
+        margin-left: 0%;
         max-width: 80%;
         margin-top: 7%;
     }
@@ -660,9 +858,10 @@
         margin-left: 17%;
         margin-top: 2%;
     }
+    
 }
 
-@media screen and (max-width: 1919px) and (min-width: 1520px) {
+@media screen and (max-width: 1920px) and (min-width: 1520px) {
     .g-4b {
         max-width: 94%;
         margin-left: -3.5%;
@@ -744,5 +943,42 @@
         width: 101%;
         margin-left: 17%;
         margin-top: 2%;
+    }
+    .content-search .input-words-tool {
+        margin-left: 0%;
+        max-width: 80%;
+        margin-top: 7%;
+    }
+    .member-details-pictures img {
+        max-width: auto;
+        height: 460px;
+        margin-left: -6%;
+        margin-top: 10%;
+    }
+    .member-details-header {
+        margin-top: 5%;
+        margin-left: 18%;
+    }
+    .member-details-information {
+        margin-left: -8%;
+        width: 286%;
+    }
+    .member-details-title {
+        margin-top: 5%;
+        margin-left: 11%;
+        width: 248%;
+    }
+    .member-details-back {
+        margin-left: 97%;
+        margin-top: 31%;
+    }
+    .member-details-reserve {
+        margin-left: 133%;
+        margin-top: -15%;
+    }
+    .content-search .input-words-tool {
+        margin-left: 0%;
+        max-width: 80%;
+        margin-top: 7%;
     }
 }
