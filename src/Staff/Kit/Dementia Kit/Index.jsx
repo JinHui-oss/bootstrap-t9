@@ -90,7 +90,7 @@ function Kit() {
               <Card.Body>
                 <Card.Title>{user.Name}</Card.Title>
                 <Card.Text>
-                {user.Description}
+                QRCode Link: <br />{user.QRCodeLink}
                 </Card.Text>
                 <Button href={`/Staff/Kit/Detail/${user.id}`}>view</Button>
               </Card.Body>
