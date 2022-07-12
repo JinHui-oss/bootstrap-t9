@@ -1,33 +1,62 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { QRCodeCanvas } from 'qrcode.react'
 import '../KitQR/KitQR.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { db, storage } from '../../../Database/firebase'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { collection, addDoc, } from 'firebase/firestore'
+import { collection, addDoc,query,where,getDocs, updateDoc, doc } from 'firebase/firestore'
 
 // Random unique id 
 // import { v4 } from 'uuid'
 
-
 function QRCreate() {
   // create and stored the data into the firestore
-  const QRCollection = collection(db, "KitQR")
+  const { id } = useParams();
   const naviagte = useNavigate();
+ 
+  const kitCollectionRef = collection(db, "Kit")
+  const QRCollection = collection(db, "KitQR")
+  // const kitCollectionRef1 = doc(db, "Kit",id)
 
   // retrieve the data from the user input and stored into variable.
   const [kitName, setkitName] = useState("");
-  const [LoanName, setLoanName] = useState("");
+  const [kit, setKit] = useState([]);
+  const [kitid, setKitID] = useState();
   const [ImageUpload, setImageUpload] = useState();
   const [Filename, setFilename] = useState("");
+  
+  useEffect(() => {
+    const getKit = async () => {
+      
+     try{
+       // check if the user id that retrieve from the database 
+       // matches with both firebase auth and firestore.
+     
+         // Composite Query 
+         const q1 = query(kitCollectionRef, where("Name", "==", kitName))
+         const data1 = await getDocs(q1)
+         setKit(data1.docs.map((doc) =>({...doc.data(), id: doc.id})));
+         // test data
+         // console.log(kit)
+     }
+     catch(e){
+         // Display Error Messages
+         // console.log(e.message)
+     }
+    };
+    getKit();
+    
+  }, [kitCollectionRef])
+
   
   // add records directly to the firestore
   const NewData = async(e) =>{
     //
     let date = new Date();
-
+   
+  
     try{
       e.preventDefault();
       if(ImageUpload == null)return;
@@ -43,8 +72,16 @@ function QRCreate() {
             KitName: kitName,
             PhotoUrl: url,
             CreatedAt: date.toDateString(),
-            Filename: Filename
+            Filename: Filename,
         });
+        kit.map((user) => {
+          // console.log(user.id)
+          const kitinfo = doc(db,"Kit",user.id)
+          updateDoc(kitinfo,{
+            QRCodeLink: url
+          })
+        })
+      
         alert("image upload")
         })
       });
@@ -82,8 +119,9 @@ function QRCreate() {
           setkitName(event.target.value);
         }} 
         className="form-control" 
-        id="KitName" 
-        placeholder="Dementia Kit xx - example"
+        id="KitName"
+        defaultValue="Dementia Toolkit" 
+        placeholder="Dementia ToolKit "
         />
 
         <div className='QR-Code'>
@@ -105,6 +143,14 @@ function QRCreate() {
            setFilename(event.target.files[0].name));
           }} className="form-control-file"  />
         </div>
+        <div className='content-table'>
+        <div className='contenthell'>
+        
+             {/* eslint-disable-next-line */}
+        
+        
+        </div>
+      </div>
         <br />
         <br />
         <Button className= "Action" type="submit"> Submit </Button>
