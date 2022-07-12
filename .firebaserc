@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "yecc-library-3"
-  }
+    "default": "ddc-dementia-toolkit",
+    "production": "ddc-dementia-toolkit"
+  },
+  "targets": {}
 }
