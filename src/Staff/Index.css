@@ -59,96 +59,79 @@
     margin-left:40%;
 }
 
-@media screen and (max-width: 1000px) and (min-width: 360px) {
-    .kitborrowed-total {
-        margin-left: 15%;
+
+  
+@media screen and (max-width: 280px) and (min-width: 359px) {
+  
+  
+}
+
+@media screen and (max-width: 600px) and (min-width: 360px) {
+    .kitborrowed-total { 
+        margin-left: 7%;
+        max-width: 83%;
+        margin-top: 145%;
     }
-    .kitreturned-total{
-        margin-top: 2.5%;
-        margin-left: 15%;   
+    .kitreturned-total { 
+        margin-top: -166.5%;
+        margin-left: 7%;
     }
-    .kit-total{
-        margin-top: 2.5%;
-        margin-left: 15%;   
+    .kit-total {
+        margin-top: -165.5%;
+        margin-left: 10%;
+        max-width: 77%;
     }
-    .member-total{
-        margin-top: 8%;
-        margin-left: 15%;   
+    .member-total { 
+        margin-top: 148%;
+        margin-left: 7%;
     }
-    .Confirmed-total{
-        margin-top: 2.5%;
-        margin-left: 15%;   
+    .Confirmed-total {
+        margin-top: -183.5%;
+        margin-left: 9%;
+        max-width: 79%;
     }
-    .ReadyC-total{
-        margin-top: 8%;
-        margin-left: 15%; 
+    .ReadyC-total {
+        margin-top: 9%;
+        margin-left: 8%;
     }
     .staff-kit{
-        margin-top:2%;
-        margin-left: 16%;
+        margin-top: 11%;
+        margin-left: 14%;
+        max-width: 73%;
     }
     .Member-stafft {
         margin-top:4%;
         margin-left: 15%;
     }
-    .down{
+    .down { 
         margin-left: 15%;
-        margin-top: 4%;
+        margin-top: 200%;
     }
-    .Member-total{
-        margin-left: 15%;
-        margin-top: 8%;
-    }
-    .Staff-total{
+    .Member-total { 
         margin-left: 15%;
         margin-top: 8%;
     }
-  }
-  
-  @media screen and (max-width: 1900px) and (min-width: 1000px) {
-    .kitborrowed-total {
+    .Staff-total { 
         margin-left: 15%;
+        margin-top: -13%;
     }
-    .kitreturned-total{
-        margin-top: -17.8%;
-        position:fixed;
-        margin-left: 50%;   
-    }
-    .kit-total{
-        margin-top: 2.5%;
-        margin-left: 15%;   
-    }
-    .member-total{
-        margin-top: 8%;
-        margin-left: 15%;   
-    }
-    .Confirmed-total{
-        margin-top: 2.5%;
-        margin-left: 15%;   
-    }
-    .ReadyC-total{
-        margin-top: 8%;
-        margin-left: 15%; 
-    }
-    .staff-kit{
-        margin-top:2%;
-        margin-left: 16%;
-    }
-    .Member-stafft {
-        margin-top:4%;
-        margin-left: 15%;
-    }
-    .down{
-        margin-left: 15%;
-        margin-top: 4%;
-    }
-    .Member-total{
-        margin-left: 15%;
-        margin-top: 8%;
-    }
-    .Staff-total{
-        margin-left: 15%;
-        margin-top: 8%;
-    }
-  
-   }
+}
+
+@media screen and (max-width: 767px) and (min-width: 601px) {
+    
+ 
+}
+
+
+@media screen and (max-width: 1000px) and (min-width: 768px) {
+    
+}
+
+@media screen and (max-width: 1299px) and (min-width: 1001px) {
+   
+}
+
+@media screen and (max-width: 1919px) and (min-width: 1300px) {
+   
+
+}
